@@ -5,9 +5,14 @@ import javax.swing.*;
 public class PlayerInterface extends JFrame {
 	private JFrame principal = null;
 	private JMenuBar barraMenu = null; //Barra de menu principal
+	
+	//TODO añadir declaracion de paneles y botones
 	private JPanel gfdh = null;
 	private JPanel dfas = null;
 
+	
+	
+	
 	public PlayerInterface() {
 		// TODO autogenerado
 		principal = this;

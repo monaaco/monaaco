@@ -42,6 +42,7 @@ import com.sun.xml.internal.stream.buffer.XMLStreamBuffer;
 	       xmlw.writeCharacters("\n");
        xmlw.writeEndDocument();
        xmlw.writeCharacters("\n");
+       xmlw.flush();
        xmlw.close();
     }
  }

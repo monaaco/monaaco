@@ -7,7 +7,7 @@ import javazoom.jl.player.Player;
 import javazoom.jl.player.advanced.AdvancedPlayer;
 
 
-public class MPlayer extends AdvancedPlayer implements Runnable {
+public class MPlayer extends Player implements Runnable {
 	
 	private String filename;
 

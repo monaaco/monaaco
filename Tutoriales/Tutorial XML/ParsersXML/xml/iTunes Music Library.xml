@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Major Version</key><integer>1</integer>
+	<key>Minor Version</key><integer>1</integer>
+	<key>Application Version</key><string>10.2</string>
+	<key>Features</key><integer>5</integer>
+	<key>Show Content Ratings</key><true/>
+	<key>Music Folder</key><string>file://localhost/C:/Users/Manuel/Music/iTunes/iTunes%20Media/</string>
+	<key>Library Persistent ID</key><string>4FEA484943DBA3FD</string>
+	<key>Tracks</key>
+	<dict>
+		<key>162</key>
+		<dict>
+			<key>Track ID</key><integer>162</integer>
+			<key>Name</key><string>As We Enter</string>
+			<key>Artist</key><string>NAS &#38; DAMIAN MARLEY</string>
+			<key>Album Artist</key><string>NAS &#38; DAMIAN MARLEY</string>
+			<key>Album</key><string>DISTANT RELATIVES</string>
+			<key>Genre</key><string>Otros</string>
+			<key>Kind</key><string>Audio MPEG</string>
+			<key>Size</key><integer>7137925</integer>
+			<key>Total Time</key><integer>178337</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2010-05-09T08:29:48Z</date>
+			<key>Date Added</key><date>2011-03-25T17:15:59Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>27</string>
+			<key>Persistent ID</key><string>68F8AF9D1C3D931E</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/C:/Users/Manuel/Music/Damian%20Marley%20&#38;%20Nas%20-%20Distant%20%20Relatives%202010%20-_/01-nas_and_damian_marley-as_we_enter.mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
+		<key>167</key>
+		<dict>
+			<key>Track ID</key><integer>167</integer>
+			<key>Name</key><string>Tribal War (Featuring K'naan)</string>
+			<key>Artist</key><string>NAS &#38; DAMIAN MARLEY</string>
+			<key>Album Artist</key><string>NAS &#38; DAMIAN MARLEY</string>
+			<key>Album</key><string>DISTANT RELATIVES</string>
+			<key>Genre</key><string>Otros</string>
+			<key>Kind</key><string>Audio MPEG</string>
+			<key>Size</key><integer>10807625</integer>
+			<key>Total Time</key><integer>270080</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2010-05-09T17:11:48Z</date>
+			<key>Date Added</key><date>2011-03-25T17:15:59Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>27</string>
+			<key>Persistent ID</key><string>D7C54376B5A71961</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/C:/Users/Manuel/Music/Damian%20Marley%20&#38;%20Nas%20-%20Distant%20%20Relatives%202010%20-_/02-nas_and_damian_marley-tribal_war_(featuring_knaan).mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
+		<key>170</key>
+		<dict>
+			<key>Track ID</key><integer>170</integer>
+			<key>Name</key><string>Strong Will Continue</string>
+			<key>Artist</key><string>NAS &#38; DAMIAN MARLEY</string>
+			<key>Album Artist</key><string>NAS &#38; DAMIAN MARLEY</string>
+			<key>Album</key><string>DISTANT RELATIVES</string>
+			<key>Genre</key><string>Otros</string>
+			<key>Kind</key><string>Audio MPEG</string>
+			<key>Size</key><integer>14497150</integer>
+			<key>Total Time</key><integer>362318</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2010-05-09T08:29:50Z</date>
+			<key>Date Added</key><date>2011-03-25T17:15:59Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>27</string>
+			<key>Persistent ID</key><string>A333CDB5AC090C96</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/C:/Users/Manuel/Music/Damian%20Marley%20&#38;%20Nas%20-%20Distant%20%20Relatives%202010%20-_/03-nas_and_damian_marley-strong_will_continue.mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
+		<key>173</key>
+		<dict>
+			<key>Track ID</key><integer>173</integer>
+			<key>Name</key><string>Leaders (Featuring Stephen Marley)</string>
+			<key>Artist</key><string>NAS &#38; DAMIAN MARLEY</string>
+			<key>Album Artist</key><string>NAS &#38; DAMIAN MARLEY</string>
+			<key>Album</key><string>DISTANT RELATIVES</string>
+			<key>Genre</key><string>Otros</string>
+			<key>Kind</key><string>Audio MPEG</string>
+			<key>Size</key><integer>10390789</integer>
+			<key>Total Time</key><integer>259657</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2010-05-09T17:11:40Z</date>
+			<key>Date Added</key><date>2011-03-25T17:15:59Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>27</string>
+			<key>Persistent ID</key><string>F04963781051B037</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/C:/Users/Manuel/Music/Damian%20Marley%20&#38;%20Nas%20-%20Distant%20%20Relatives%202010%20-_/04-nas_and_damian_marley-leaders_(featuring_stephen_marley).mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
+		<key>176</key>
+		<dict>
+			<key>Track ID</key><integer>176</integer>
+			<key>Name</key><string>Friends</string>
+			<key>Artist</key><string>NAS &#38; DAMIAN MARLEY</string>
+			<key>Album Artist</key><string>NAS &#38; DAMIAN MARLEY</string>
+			<key>Album</key><string>DISTANT RELATIVES</string>
+			<key>Genre</key><string>Otros</string>
+			<key>Kind</key><string>Audio MPEG</string>
+			<key>Size</key><integer>11575603</integer>
+			<key>Total Time</key><integer>289280</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2010-05-09T08:30:18Z</date>
+			<key>Date Added</key><date>2011-03-25T17:15:59Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>27</string>
+			<key>Persistent ID</key><string>78700C5CFE44D61A</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/C:/Users/Manuel/Music/Damian%20Marley%20&#38;%20Nas%20-%20Distant%20%20Relatives%202010%20-_/05-nas_and_damian_marley-friends.mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
+		<key>179</key>
+		<dict>
+			<key>Track ID</key><integer>179</integer>
+			<key>Name</key><string>Count Your Blessings</string>
+			<key>Artist</key><string>NAS &#38; DAMIAN MARLEY</string>
+			<key>Album Artist</key><string>NAS &#38; DAMIAN MARLEY</string>
+			<key>Album</key><string>DISTANT RELATIVES</string>
+			<key>Genre</key><string>Otros</string>
+			<key>Kind</key><string>Audio MPEG</string>
+			<key>Size</key><integer>10564154</integer>
+			<key>Total Time</key><integer>263993</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2010-05-09T08:30:18Z</date>
+			<key>Date Added</key><date>2011-03-25T17:15:59Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>27</string>
+			<key>Persistent ID</key><string>94FA373E7158E853</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/C:/Users/Manuel/Music/Damian%20Marley%20&#38;%20Nas%20-%20Distant%20%20Relatives%202010%20-_/06-nas_and_damian_marley-count_your_blessings.mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
+		<key>182</key>
+		<dict>
+			<key>Track ID</key><integer>182</integer>
+			<key>Name</key><string>Dispear</string>
+			<key>Artist</key><string>NAS &#38; DAMIAN MARLEY</string>
+			<key>Album Artist</key><string>NAS &#38; DAMIAN MARLEY</string>
+			<key>Album</key><string>DISTANT RELATIVES</string>
+			<key>Genre</key><string>Otros</string>
+			<key>Kind</key><string>Audio MPEG</string>
+			<key>Size</key><integer>14131423</integer>
+			<key>Total Time</key><integer>353175</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2010-05-09T08:33:24Z</date>
+			<key>Date Added</key><date>2011-03-25T17:15:59Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>27</string>
+			<key>Persistent ID</key><string>1B9384F37A4CB767</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/C:/Users/Manuel/Music/Damian%20Marley%20&#38;%20Nas%20-%20Distant%20%20Relatives%202010%20-_/07-nas_and_damian_marley-dispear.mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
+		<key>185</key>
+		<dict>
+			<key>Track ID</key><integer>185</integer>
+			<key>Name</key><string>Land of Promise (Featuring Dennis Brown)</string>
+			<key>Artist</key><string>NAS &#38; DAMIAN MARLEY</string>
+			<key>Album Artist</key><string>NAS &#38; DAMIAN MARLEY</string>
+			<key>Album</key><string>DISTANT RELATIVES</string>
+			<key>Genre</key><string>Otros</string>
+			<key>Kind</key><string>Audio MPEG</string>
+			<key>Size</key><integer>9349032</integer>
+			<key>Total Time</key><integer>233613</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2010-05-09T17:10:26Z</date>
+			<key>Date Added</key><date>2011-03-25T17:15:59Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>27</string>
+			<key>Persistent ID</key><string>A0B2582B83E9D2E3</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/C:/Users/Manuel/Music/Damian%20Marley%20&#38;%20Nas%20-%20Distant%20%20Relatives%202010%20-_/08-nas_and_damian_marley-land_of_promise_(featuring_dennis_brown).mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
+		<key>188</key>
+		<dict>
+			<key>Track ID</key><integer>188</integer>
+			<key>Name</key><string>In His Own Words (Featuring Stephen Marley)</string>
+			<key>Artist</key><string>NAS &#38; DAMIAN MARLEY</string>
+			<key>Album Artist</key><string>NAS &#38; DAMIAN MARLEY</string>
+			<key>Album</key><string>DISTANT RELATIVES</string>
+			<key>Genre</key><string>Otros</string>
+			<key>Kind</key><string>Audio MPEG</string>
+			<key>Size</key><integer>11979043</integer>
+			<key>Total Time</key><integer>299363</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2010-05-09T17:10:48Z</date>
+			<key>Date Added</key><date>2011-03-25T17:15:59Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>27</string>
+			<key>Persistent ID</key><string>02053EC6136EE8A3</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/C:/Users/Manuel/Music/Damian%20Marley%20&#38;%20Nas%20-%20Distant%20%20Relatives%202010%20-_/09-nas_and_damian_marley-in_his_own_words_(featuring_stephen_marley).mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
+		<key>191</key>
+		<dict>
+			<key>Track ID</key><integer>191</integer>
+			<key>Name</key><string>Nah Mean</string>
+			<key>Artist</key><string>NAS &#38; DAMIAN MARLEY</string>
+			<key>Album Artist</key><string>NAS &#38; DAMIAN MARLEY</string>
+			<key>Album</key><string>DISTANT RELATIVES</string>
+			<key>Genre</key><string>Otros</string>
+			<key>Kind</key><string>Audio MPEG</string>
+			<key>Size</key><integer>9889138</integer>
+			<key>Total Time</key><integer>247118</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2010-05-09T08:29:52Z</date>
+			<key>Date Added</key><date>2011-03-25T17:15:59Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>27</string>
+			<key>Persistent ID</key><string>BB57AF37E6A68080</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/C:/Users/Manuel/Music/Damian%20Marley%20&#38;%20Nas%20-%20Distant%20%20Relatives%202010%20-_/10-nas_and_damian_marley-nah_mean.mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
+		<key>194</key>
+		<dict>
+			<key>Track ID</key><integer>194</integer>
+			<key>Name</key><string>Patience</string>
+			<key>Artist</key><string>NAS &#38; DAMIAN MARLEY</string>
+			<key>Album Artist</key><string>NAS &#38; DAMIAN MARLEY</string>
+			<key>Album</key><string>DISTANT RELATIVES</string>
+			<key>Genre</key><string>Otros</string>
+			<key>Kind</key><string>Audio MPEG</string>
+			<key>Size</key><integer>13810640</integer>
+			<key>Total Time</key><integer>345155</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2010-05-09T08:29:54Z</date>
+			<key>Date Added</key><date>2011-03-25T17:15:59Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>27</string>
+			<key>Persistent ID</key><string>D499F7E2946DECFF</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/C:/Users/Manuel/Music/Damian%20Marley%20&#38;%20Nas%20-%20Distant%20%20Relatives%202010%20-_/11-nas_and_damian_marley-patience.mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
+		<key>197</key>
+		<dict>
+			<key>Track ID</key><integer>197</integer>
+			<key>Name</key><string>My Generation (Featuring Joss Stone &#38; Lil Wayne )</string>
+			<key>Artist</key><string>NAS &#38; DAMIAN MARLEY</string>
+			<key>Album Artist</key><string>NAS &#38; DAMIAN MARLEY</string>
+			<key>Album</key><string>DISTANT RELATIVES</string>
+			<key>Genre</key><string>Otros</string>
+			<key>Kind</key><string>Audio MPEG</string>
+			<key>Size</key><integer>9603994</integer>
+			<key>Total Time</key><integer>239986</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2010-05-09T17:11:06Z</date>
+			<key>Date Added</key><date>2011-03-25T17:15:59Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>27</string>
+			<key>Persistent ID</key><string>150A849863CDEDDA</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/C:/Users/Manuel/Music/Damian%20Marley%20&#38;%20Nas%20-%20Distant%20%20Relatives%202010%20-_/12-nas_and_damian_marley-my_generation_(featuring_joss_stone_and_lil_wayne).mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
+		<key>200</key>
+		<dict>
+			<key>Track ID</key><integer>200</integer>
+			<key>Name</key><string>Africa Must Wake Up (Featuring Knaan)</string>
+			<key>Artist</key><string>NAS &#38; DAMIAN MARLEY</string>
+			<key>Album Artist</key><string>NAS &#38; DAMIAN MARLEY</string>
+			<key>Album</key><string>DISTANT RELATIVES</string>
+			<key>Genre</key><string>Otros</string>
+			<key>Kind</key><string>Audio MPEG</string>
+			<key>Size</key><integer>16025928</integer>
+			<key>Total Time</key><integer>400535</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2010-05-09T17:11:30Z</date>
+			<key>Date Added</key><date>2011-03-25T17:15:59Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>27</string>
+			<key>Persistent ID</key><string>5FB2C2CEFD39B002</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/C:/Users/Manuel/Music/Damian%20Marley%20&#38;%20Nas%20-%20Distant%20%20Relatives%202010%20-_/13-nas_and_damian_marley-africa_must_wake_up_(featuring_knaan).mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
+	</dict>
+	<key>Playlists</key>
+	<array>
+		<dict>
+			<key>Name</key><string>BIBLIOTECA</string>
+			<key>Master</key><true/>
+			<key>Playlist ID</key><integer>61</integer>
+			<key>Playlist Persistent ID</key><string>A89EEC6579AC7C65</string>
+			<key>Visible</key><false/>
+			<key>All Items</key><true/>
+			<key>Playlist Items</key>
+			<array>
+				<dict>
+					<key>Track ID</key><integer>200</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>162</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>179</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>182</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>176</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>188</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>185</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>173</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>197</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>191</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>194</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>170</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>167</integer>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Name</key><string>Música</string>
+			<key>Playlist ID</key><integer>98</integer>
+			<key>Playlist Persistent ID</key><string>507396F709A39636</string>
+			<key>Distinguished Kind</key><integer>4</integer>
+			<key>Music</key><true/>
+			<key>All Items</key><true/>
+			<key>Playlist Items</key>
+			<array>
+				<dict>
+					<key>Track ID</key><integer>200</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>162</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>179</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>182</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>176</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>188</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>185</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>173</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>197</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>191</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>194</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>170</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>167</integer>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Name</key><string>Películas</string>
+			<key>Playlist ID</key><integer>101</integer>
+			<key>Playlist Persistent ID</key><string>AAEC562389C68E39</string>
+			<key>Distinguished Kind</key><integer>2</integer>
+			<key>Movies</key><true/>
+			<key>All Items</key><true/>
+		</dict>
+		<dict>
+			<key>Name</key><string>Programas de televisión</string>
+			<key>Playlist ID</key><integer>104</integer>
+			<key>Playlist Persistent ID</key><string>967A68C5DE7C4ECF</string>
+			<key>Distinguished Kind</key><integer>3</integer>
+			<key>TV Shows</key><true/>
+			<key>All Items</key><true/>
+		</dict>
+		<dict>
+			<key>Name</key><string>Podcasts</string>
+			<key>Playlist ID</key><integer>88</integer>
+			<key>Playlist Persistent ID</key><string>6375FD86304587DD</string>
+			<key>Distinguished Kind</key><integer>10</integer>
+			<key>Podcasts</key><true/>
+			<key>All Items</key><true/>
+		</dict>
+		<dict>
+			<key>Name</key><string>iTunes DJ</string>
+			<key>Playlist ID</key><integer>85</integer>
+			<key>Playlist Persistent ID</key><string>0AFC0D2B5B6C7B17</string>
+			<key>Distinguished Kind</key><integer>22</integer>
+			<key>Party Shuffle</key><true/>
+			<key>All Items</key><true/>
+		</dict>
+		<dict>
+			<key>Name</key><string>Agregadas recientemente</string>
+			<key>Playlist ID</key><integer>76</integer>
+			<key>Playlist Persistent ID</key><string>9819E8941245CD7B</string>
+			<key>All Items</key><true/>
+			<key>Smart Info</key>
+			<data>
+			AQEAAwAAAAIAAAAZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAA==
+			</data>
+			<key>Smart Criteria</key>
+			<data>
+			U0xzdAABAAEAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABELa4tri2uLa7//////////gAAAAAACTqA
+			La4tri2uLa4AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5AgAAAQAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAB
+			AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA
+			AAAAAAAA
+			</data>
+			<key>Playlist Items</key>
+			<array>
+				<dict>
+					<key>Track ID</key><integer>200</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>162</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>179</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>182</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>176</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>188</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>185</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>173</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>197</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>191</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>194</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>170</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>167</integer>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Name</key><string>Las 25 más escuchadas</string>
+			<key>Playlist ID</key><integer>70</integer>
+			<key>Playlist Persistent ID</key><string>7D79474EEFD74D0B</string>
+			<key>All Items</key><true/>
+			<key>Smart Info</key>
+			<data>
+			AQEBAwAAABkAAAAZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAA==
+			</data>
+			<key>Smart Criteria</key>
+			<data>
+			U0xzdAABAAEAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADkCAAABAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAB
+			AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAEAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA
+			AAAAAAAA
+			</data>
+		</dict>
+		<dict>
+			<key>Name</key><string>Mis preferidas</string>
+			<key>Playlist ID</key><integer>67</integer>
+			<key>Playlist Persistent ID</key><string>E6C20DB31167CE3D</string>
+			<key>All Items</key><true/>
+			<key>Smart Info</key>
+			<data>
+			AQEAAwAAAAIAAAAZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAA==
+			</data>
+			<key>Smart Criteria</key>
+			<data>
+			U0xzdAABAAEAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABkAAAAQAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEAAAAAAAAADwAAAAAAAAAAAAAAAAAAAAB
+			AAAAAAAAADwAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+			</data>
+		</dict>
+		<dict>
+			<key>Name</key><string>Música clásica</string>
+			<key>Playlist ID</key><integer>82</integer>
+			<key>Playlist Persistent ID</key><string>7555593394F72EB3</string>
+			<key>All Items</key><true/>
+			<key>Smart Info</key>
+			<data>
+			AQEAAwAAAAIAAAAZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAA==
+			</data>
+			<key>Smart Criteria</key>
+			<data>
+			U0xzdAABAAEAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAQAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAU0xzdAABAAEAAAACAAAAAQAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAADwAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAABEAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAB
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAg
+			AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnpTTHN0AAEAAQAAAAcAAAAB
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAACAEAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAABIAQwBsAGEAcwBzAGkAYwBhAGwAAAAIAQAAAQAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEABLAGwAYQBzAHMAaQBlAGsAAAAI
+			AQAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEgBD
+			AGwAYQBzAHMAaQBxAHUAZQAAAAgBAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAOAEsAbABhAHMAcwBpAGsAAAAIAQAAAQAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEABDAGwAYQBzAHMAaQBjAGEAAAAI
+			AQAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACjCv
+			MOkwtzDDMK8AAAAIAQAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAADgBDAGwA4QBzAGkAYwBh
+			</data>
+		</dict>
+		<dict>
+			<key>Name</key><string>Música de los 90</string>
+			<key>Playlist ID</key><integer>64</integer>
+			<key>Playlist Persistent ID</key><string>02822B601EFEF504</string>
+			<key>All Items</key><true/>
+			<key>Smart Info</key>
+			<data>
+			AQEAAwAAAAIAAAAZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAA==
+			</data>
+			<key>Smart Criteria</key>
+			<data>
+			U0xzdAABAAEAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAAEAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEAAAAAAAAB8YAAAAAAAAAAAAAAAAAAAAB
+			AAAAAAAAB88AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgFNMc3QAAQAB
+			AAAAAgAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAB
+			AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAAABAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEQAAAAAAAAAIAAAAAAAAAAA
+			AAAAAAAAAAEAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+			</data>
+		</dict>
+		<dict>
+			<key>Name</key><string>Reproducciones recientes</string>
+			<key>Playlist ID</key><integer>73</integer>
+			<key>Playlist Persistent ID</key><string>AA8C1FCCECFD07D5</string>
+			<key>All Items</key><true/>
+			<key>Smart Info</key>
+			<data>
+			AQEAAwAAAAIAAAAZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAA==
+			</data>
+			<key>Smart Criteria</key>
+			<data>
+			U0xzdAABAAEAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABcAAAIAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABELa4tri2uLa7//////////gAAAAAACTqA
+			La4tri2uLa4AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5AgAAAQAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAB
+			AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA
+			AAAAAAAA
+			</data>
+		</dict>
+		<dict>
+			<key>Name</key><string>Vídeos musicales</string>
+			<key>Playlist ID</key><integer>79</integer>
+			<key>Playlist Persistent ID</key><string>3E7AED981AD65C86</string>
+			<key>All Items</key><true/>
+			<key>Smart Info</key>
+			<data>
+			AQEAAwAAAAIAAAAZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAA==
+			</data>
+			<key>Smart Criteria</key>
+			<data>
+			U0xzdAABAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwAAAQAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAB
+			AAAAAAAAACAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+			</data>
+		</dict>
+	</array>
+</dict>
+</plist>

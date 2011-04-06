@@ -44,7 +44,9 @@ public class PlayerInterface extends JFrame {
 		principal.setIconImage(monkeyIcon.getImage());
 		principal.setJMenuBar(getBarraMenu());
 		principal.setContentPane(getBusquedaPanel());
-		principal.setSize(getPreferredSize());
+		//principal.setSize(getPreferredSize());
+		principal.setSize(400, 107);
+		principal.setResizable(false);
 		principal.setVisible(true);
 		principal.setEnabled(true);
 		principal.setLocationRelativeTo(null);

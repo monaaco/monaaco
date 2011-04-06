@@ -21,6 +21,7 @@ public class PlayerInterface extends JFrame {
 	String fileName = "sounds/prueba.mp3";
 
 	private JFrame principal = null;
+	private Thread t = null;
 	
 	//Barra de menu principal
 	private JMenuBar barraMenu = null;
@@ -53,6 +54,7 @@ public class PlayerInterface extends JFrame {
 		// TODO autogenerado
 		principal = this;
 		principal.setIconImage(monkeyIcon.getImage());
+		principal.setTitle("Monaaco Player");
 		principal.setJMenuBar(getBarraMenu());
 		principal.setContentPane(getBusquedaPanel());
 		//principal.setSize(getPreferredSize());
@@ -61,6 +63,7 @@ public class PlayerInterface extends JFrame {
 		principal.setVisible(true);
 		principal.setEnabled(true);
 		principal.setLocationRelativeTo(null);
+		crearMPlayer(fileName);
 	}
 
 	private JPanel getBusquedaPanel() {
@@ -70,19 +73,15 @@ public class PlayerInterface extends JFrame {
 			playButton = new JButton(playIcon);
 			playButton.addMouseListener(new java.awt.event.MouseAdapter() {
 				public void mouseReleased(java.awt.event.MouseEvent evt) {
-					try {
-						mPlayer.play();
-					} catch (JavaLayerException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+					t = new Thread(mPlayer);
+					t.start();
 				};
 			});
 			pauseButton = new JButton(pauseIcon);
 			pauseButton.addMouseListener(new java.awt.event.MouseAdapter() {
-				public void mouseReleased(java.awt.event.MouseEvent evt) {
+				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
-						mPlayer.pause();
+						t.wait();
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

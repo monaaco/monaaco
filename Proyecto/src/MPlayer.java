@@ -20,6 +20,6 @@ public class MPlayer extends Player implements Runnable {
    	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-   		this.
+   		
 	}
 }

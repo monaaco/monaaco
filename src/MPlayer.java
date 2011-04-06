@@ -12,6 +12,7 @@ public class MPlayer extends Player implements Runnable {
 	public MPlayer(InputStream is) throws JavaLayerException {
 		// TODO Auto-generated constructor stub
 		super(is);
+		
 	}
 
 	@Override
@@ -19,5 +20,4 @@ public class MPlayer extends Player implements Runnable {
 		// TODO Auto-generated method stub
 
 	}
-
 }

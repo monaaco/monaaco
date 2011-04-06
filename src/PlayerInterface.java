@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 public class PlayerInterface extends JFrame {
+	
+	MPlayer mplayer = null;
+
 	private JFrame principal = null;
 	
 	//Barra de menu principal
@@ -40,6 +43,7 @@ public class PlayerInterface extends JFrame {
 	
 	public PlayerInterface() {
 		// TODO autogenerado
+		mplayer = new MPlayer;
 		principal = this;
 		principal.setIconImage(monkeyIcon.getImage());
 		principal.setJMenuBar(getBarraMenu());
@@ -57,6 +61,10 @@ public class PlayerInterface extends JFrame {
 		if(panelPrincipal == null){
 			panelPrincipal = new JPanel(new FlowLayout()); 
 			playButton = new JButton(playIcon);
+			playButton.addMouseListener(new java.awt.event.MouseAdapter() {
+				public void mouseReleased(java.awt.event.MouseEvent evt) {
+					mplayer.play();
+				}
 			pauseButton = new JButton(pauseIcon);
 			stopButton = new JButton(stopIcon);
 			panelPrincipal.add(playButton);

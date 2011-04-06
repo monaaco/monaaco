@@ -66,6 +66,8 @@ public class Reproduce extends JFrame {
 			}
 		});
 		
+		
+		
 		texto = new JLabel("0:00");
 		
 		

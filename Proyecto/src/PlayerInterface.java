@@ -50,7 +50,6 @@ public class PlayerInterface extends JFrame {
 	
 	public PlayerInterface() {
 		// TODO autogenerado
-		mplayer = new MPlayer(archivoActual);
 		principal = this;
 		principal.setIconImage(monkeyIcon.getImage());
 		principal.setJMenuBar(getBarraMenu());
@@ -70,19 +69,19 @@ public class PlayerInterface extends JFrame {
 			playButton = new JButton(playIcon);
 			playButton.addMouseListener(new java.awt.event.MouseAdapter() {
 				public void mouseReleased(java.awt.event.MouseEvent evt) {
-					mplayer.play();
+					mPlayer.play();
 				};
 			});
 			pauseButton = new JButton(pauseIcon);
 			pauseButton.addMouseListener(new java.awt.event.MouseAdapter() {
 				public void mouseReleased(java.awt.event.MouseEvent evt) {
-					mplayer.pause();
+					mPlayer.pause();
 				};
 			});
 			stopButton = new JButton(stopIcon);
 			stopButton.addMouseListener(new java.awt.event.MouseAdapter() {
 				public void mouseReleased(java.awt.event.MouseEvent evt) {
-					mplayer.stop();
+					mPlayer.stop();
 				};
 			});
 			panelPrincipal.add(playButton);

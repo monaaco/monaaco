@@ -22,4 +22,12 @@ public class MPlayer extends Player implements Runnable {
 		// TODO Auto-generated method stub
    		
 	}
+   	
+   	public void pause(){
+   		
+   	}
+   	
+   	public void stop(){
+   		
+   	}
 }

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
+import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 
 public class PlayerInterface extends JFrame {
@@ -69,19 +70,34 @@ public class PlayerInterface extends JFrame {
 			playButton = new JButton(playIcon);
 			playButton.addMouseListener(new java.awt.event.MouseAdapter() {
 				public void mouseReleased(java.awt.event.MouseEvent evt) {
-					mPlayer.play();
+					try {
+						mPlayer.play();
+					} catch (JavaLayerException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				};
 			});
 			pauseButton = new JButton(pauseIcon);
 			pauseButton.addMouseListener(new java.awt.event.MouseAdapter() {
 				public void mouseReleased(java.awt.event.MouseEvent evt) {
-					mPlayer.pause();
+					try {
+						mPlayer.pause();
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				};
 			});
 			stopButton = new JButton(stopIcon);
 			stopButton.addMouseListener(new java.awt.event.MouseAdapter() {
 				public void mouseReleased(java.awt.event.MouseEvent evt) {
-					mPlayer.stop();
+					try {
+						mPlayer.stop();
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				};
 			});
 			panelPrincipal.add(playButton);

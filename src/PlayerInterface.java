@@ -4,13 +4,20 @@ import java.awt.Image;
 import java.awt.LayoutManager;
 import java.awt.image.ImageObserver;
 import java.awt.image.ImageProducer;
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import javax.swing.*;
 
+import javazoom.jl.player.Player;
+
 public class PlayerInterface extends JFrame {
 	
-	MPlayer mplayer = null;
+	MPlayer mPlayer = null;
+	
+	String fileName = "sounds/prueba.mp3";
 
 	private JFrame principal = null;
 	
@@ -43,7 +50,7 @@ public class PlayerInterface extends JFrame {
 	
 	public PlayerInterface() {
 		// TODO autogenerado
-		mplayer = new MPlayer;
+		mplayer = new MPlayer(archivoActual);
 		principal = this;
 		principal.setIconImage(monkeyIcon.getImage());
 		principal.setJMenuBar(getBarraMenu());
@@ -64,9 +71,20 @@ public class PlayerInterface extends JFrame {
 			playButton.addMouseListener(new java.awt.event.MouseAdapter() {
 				public void mouseReleased(java.awt.event.MouseEvent evt) {
 					mplayer.play();
-				}
+				};
+			});
 			pauseButton = new JButton(pauseIcon);
+			pauseButton.addMouseListener(new java.awt.event.MouseAdapter() {
+				public void mouseReleased(java.awt.event.MouseEvent evt) {
+					mplayer.pause();
+				};
+			});
 			stopButton = new JButton(stopIcon);
+			stopButton.addMouseListener(new java.awt.event.MouseAdapter() {
+				public void mouseReleased(java.awt.event.MouseEvent evt) {
+					mplayer.stop();
+				};
+			});
 			panelPrincipal.add(playButton);
 			panelPrincipal.add(pauseButton);
 			panelPrincipal.add(stopButton);
@@ -86,6 +104,18 @@ public class PlayerInterface extends JFrame {
 		return barraMenu;
 	}
 
+	private void crearMPlayer(String fileName) {
+		try {
+			FileInputStream fis = new FileInputStream(fileName);
+			BufferedInputStream bis = new BufferedInputStream(fis);
+			if(mPlayer != null){
+				mPlayer.close();
+			}
+			mPlayer = new MPlayer(bis);
+		} catch (Exception e) {
+			System.err.printf("%s\n", e.getMessage());
+		}
+	}
 
 
 	

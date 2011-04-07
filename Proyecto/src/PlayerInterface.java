@@ -2,26 +2,29 @@ import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.LayoutManager;
+import java.awt.event.MouseListener;
 import java.awt.image.ImageObserver;
 import java.awt.image.ImageProducer;
 import java.io.BufferedInputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
-
 import javax.swing.*;
 
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
+import javazoom.jlgui.basicplayer.BasicPlayer;
+import javazoom.jlgui.basicplayer.BasicPlayerException;
 
 public class PlayerInterface extends JFrame {
 	
-	MPlayer mPlayer = null;
+	BasicPlayer mPlayer;
+	boolean pause;
 	
 	String fileName = "sounds/prueba.mp3";
 
 	private JFrame principal = null;
-	private Thread t = null;
 	
 	//Barra de menu principal
 	private JMenuBar barraMenu = null;
@@ -52,6 +55,7 @@ public class PlayerInterface extends JFrame {
 	
 	public PlayerInterface() {
 		// TODO autogenerado
+		pause = false;
 		principal = this;
 		principal.setIconImage(monkeyIcon.getImage());
 		principal.setTitle("Monaaco Player");
@@ -73,17 +77,29 @@ public class PlayerInterface extends JFrame {
 			playButton = new JButton(playIcon);
 			playButton.addMouseListener(new java.awt.event.MouseAdapter() {
 				public void mouseReleased(java.awt.event.MouseEvent evt) {
-					t = new Thread(mPlayer);
-					t.start();
+					try {
+						mPlayer.play();
+					} catch (BasicPlayerException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					//TODO
 				};
 			});
 			pauseButton = new JButton(pauseIcon);
 			pauseButton.addMouseListener(new java.awt.event.MouseAdapter() {
 				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
-					try {
-						t.wait();
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
+					try{
+						if(pause == false){
+							pause = true;
+								mPlayer.pause();
+						}
+						else {
+							pause = false;
+							mPlayer.resume();
+						}
+					}
+					catch(Exception e){
 						e.printStackTrace();
 					}
 				};
@@ -92,7 +108,8 @@ public class PlayerInterface extends JFrame {
 			stopButton.addMouseListener(new java.awt.event.MouseAdapter() {
 				public void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
-						mPlayer.stop();
+						pause = false;
+						mPlayer.seek(1000000);
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -112,6 +129,8 @@ public class PlayerInterface extends JFrame {
 			barraMenu = new JMenuBar();
 			playerMenu = new JMenu("Menu");
 			cargarArchivo = new JMenuItem("Cargar archivo", carpetaIcon);
+			//cargarArchivo.addMouseListener(new MouseListener())
+			//TODO
 			playerMenu.add(cargarArchivo);
 			barraMenu.add(playerMenu);
 		}
@@ -120,12 +139,13 @@ public class PlayerInterface extends JFrame {
 
 	private void crearMPlayer(String fileName) {
 		try {
-			FileInputStream fis = new FileInputStream(fileName);
-			BufferedInputStream bis = new BufferedInputStream(fis);
+			File f = new File(fileName);
 			if(mPlayer != null){
-				mPlayer.close();
+				//mPlayer.close();
+				//TODO
 			}
-			mPlayer = new MPlayer(bis);
+			mPlayer = new BasicPlayer();
+			mPlayer.open(f);
 		} catch (Exception e) {
 			System.err.printf("%s\n", e.getMessage());
 		}

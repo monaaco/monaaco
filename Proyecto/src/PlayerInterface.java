@@ -1,25 +1,18 @@
 import java.awt.FlowLayout;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.LayoutManager;
-import java.awt.event.MouseListener;
-import java.awt.image.ImageObserver;
-import java.awt.image.ImageProducer;
-import java.io.BufferedInputStream;
+import java.awt.Point;
+import java.awt.event.MouseEvent;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.util.ArrayList;
 import javax.swing.*;
 
-import javazoom.jl.decoder.JavaLayerException;
-import javazoom.jl.player.Player;
 import javazoom.jlgui.basicplayer.BasicPlayer;
 import javazoom.jlgui.basicplayer.BasicPlayerException;
 
 public class PlayerInterface extends JFrame {
 	
+	private static final long serialVersionUID = 1L;
+	
 	BasicPlayer mPlayer;
+	ReproductorListener reproductorListener;
 	boolean pause;
 	
 	String fileName = "sounds/prueba.mp3";
@@ -43,6 +36,8 @@ public class PlayerInterface extends JFrame {
 		private JButton playButton = null;
 		private JButton pauseButton = null;
 		private JButton stopButton = null;
+		private JSlider barraProgreso = null;
+		private JLabel segundero = null;
 		
 
 	//Imágenes e Iconos
@@ -51,7 +46,6 @@ public class PlayerInterface extends JFrame {
 	ImageIcon playIcon = new ImageIcon("images/playIcon.jpg");
 	ImageIcon stopIcon = new ImageIcon("images/stopIcon.jpg");
 	ImageIcon pauseIcon = new ImageIcon("images/pauseIcon.jpg");
-
 	
 	public PlayerInterface() {
 		// TODO autogenerado
@@ -62,7 +56,7 @@ public class PlayerInterface extends JFrame {
 		principal.setJMenuBar(getBarraMenu());
 		principal.setContentPane(getBusquedaPanel());
 		//principal.setSize(getPreferredSize());
-		principal.setSize(400, 107);
+		principal.setSize(700, 107);
 		principal.setResizable(false);
 		principal.setVisible(true);
 		principal.setEnabled(true);
@@ -109,16 +103,31 @@ public class PlayerInterface extends JFrame {
 				public void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
 						pause = false;
-						mPlayer.seek(1000000);
+						cambiaSegundos("0:00");
+						mPlayer.stop();
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				};
 			});
+			barraProgreso = new JSlider();
+			barraProgreso.setSize(300, 30);
+			/*barraProgreso.addMouseListener(new java.awt.event.MouseAdapter(){
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					int value = barraProgreso.getValue();
+					System.out.println(value);
+
+				}
+			});*/
+			segundero = new JLabel("0:00");
+			
 			panelPrincipal.add(playButton);
 			panelPrincipal.add(pauseButton);
 			panelPrincipal.add(stopButton);
+			panelPrincipal.add(barraProgreso);
+			panelPrincipal.add(segundero);
 		}
 		return panelPrincipal;
 	}
@@ -141,19 +150,31 @@ public class PlayerInterface extends JFrame {
 		try {
 			File f = new File(fileName);
 			if(mPlayer != null){
-				//mPlayer.close();
+				mPlayer.stop();
 				//TODO
 			}
+			reproductorListener = new ReproductorListener(this); 
 			mPlayer = new BasicPlayer();
+			mPlayer.addBasicPlayerListener(reproductorListener);
 			mPlayer.open(f);
+		
 		} catch (Exception e) {
 			System.err.printf("%s\n", e.getMessage());
 		}
 	}
 
 
+	public void cambiaSegundos(String texto) {
+		segundero.setText(texto);
+	}
 	
+	public void ajustaBarraProgreso(double fin ){
+		barraProgreso.setMaximum((int) fin);
+	}
 	
+	public void actualizaBarraProgreso(double estado){
+		barraProgreso.setValue((int)estado);
+	}
 	
 	
 	

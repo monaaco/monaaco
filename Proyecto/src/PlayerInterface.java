@@ -1,8 +1,12 @@
 import java.awt.BorderLayout;
+import java.awt.FileDialog;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.File;
 import javax.swing.*;
 
@@ -17,7 +21,7 @@ public class PlayerInterface extends JFrame {
 	ReproductorListener reproductorListener;
 	boolean pause;
 	
-	String fileName = "sounds/prueba.mp3";
+	//String fileName = "sounds/prueba.mp3";
 
 	private JFrame principal = null;
 	
@@ -63,7 +67,7 @@ public class PlayerInterface extends JFrame {
 		principal.setVisible(true);
 		principal.setEnabled(true);
 		principal.setLocationRelativeTo(null);
-		crearMPlayer(fileName);
+		//crearMPlayer(fileName);
 	}
 
 	private JPanel getBusquedaPanel() {
@@ -74,6 +78,8 @@ public class PlayerInterface extends JFrame {
 			playButton.addMouseListener(new java.awt.event.MouseAdapter() {
 				public void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
+						pause = false;
+						mPlayer.stop();
 						mPlayer.play();
 					} catch (BasicPlayerException e) {
 						// TODO Auto-generated catch block
@@ -115,14 +121,17 @@ public class PlayerInterface extends JFrame {
 			});
 			barraProgreso = new JSlider();
 			barraProgreso.setSize(300, 30);
-			/*barraProgreso.addMouseListener(new java.awt.event.MouseAdapter(){
+			barraProgreso.addMouseListener(new java.awt.event.MouseAdapter(){
 				@Override
 				public void mouseReleased(MouseEvent e) {
 					int value = barraProgreso.getValue();
-					System.out.println(value);
-
+					//System.out.println(value);
+					int maxValue = barraProgreso.getMaximum();
+					System.out.println(maxValue);//En bytes
+					int maxSeg = mPlayer.getLineCurrentBufferSize();
+					System.out.println(maxSeg);
 				}
-			});*/
+			});
 			segundero = new JLabel("0:00");
 			
 			panelPrincipal.add(playButton);
@@ -139,13 +148,35 @@ public class PlayerInterface extends JFrame {
 		if(barraMenu == null){
 			barraMenu = new JMenuBar();
 			playerMenu = new JMenu("Menu");
-			cargarArchivo = new JMenuItem("Cargar archivo", carpetaIcon);
-			//cargarArchivo.addMouseListener(new MouseListener())
+			getCargarArchivoItem();
+			//cargarArchivo = new JMenuItem("Cargar archivo", carpetaIcon);
 			//TODO
 			playerMenu.add(cargarArchivo);
 			barraMenu.add(playerMenu);
 		}
 		return barraMenu;
+	}
+	
+		private JMenuItem getCargarArchivoItem(){
+		if(cargarArchivo == null){
+			cargarArchivo = new JMenuItem();
+			cargarArchivo.setText("Cargar Archivo");
+			cargarArchivo.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent e){
+					try {
+						FileDialog fd = new FileDialog(new JFrame(), "Abrir", FileDialog.LOAD);
+						fd.setVisible(true);
+						File f = new File(fd.getDirectory(), fd.getFile());
+						crearMPlayer(f.toString());
+						mPlayer.play();
+					} catch (BasicPlayerException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+			});
+		}
+		return cargarArchivo;
 	}
 
 	private void crearMPlayer(String fileName) {

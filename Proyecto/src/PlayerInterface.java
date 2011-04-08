@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.FileDialog;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -74,37 +75,19 @@ public class PlayerInterface extends JFrame {
 		// TODO Action events ..
 		if (panelPrincipal == null) {
 			panelPrincipal = new JPanel(new FlowLayout());
-			playButton = new JButton(playIcon);
-			playButton.addMouseListener(new java.awt.event.MouseAdapter() {
-				public void mouseReleased(java.awt.event.MouseEvent evt) {
-					try {
-						pause = false;
-						mPlayer.stop();
-						mPlayer.play();
-					} catch (BasicPlayerException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					// TODO
-				};
-			});
-			pauseButton = new JButton(pauseIcon);
-			pauseButton.addMouseListener(new java.awt.event.MouseAdapter() {
-				public synchronized void mouseReleased(
-						java.awt.event.MouseEvent evt) {
-					try {
-						if (pause == false) {
-							pause = true;
-							mPlayer.pause();
-						} else {
-							pause = false;
-							mPlayer.resume();
-						}
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				};
-			});
+			
+			segundero = new JLabel("0:00");	
+			panelPrincipal.add(getPlayButton());
+			panelPrincipal.add(getPauseButton());
+			panelPrincipal.add(getStopButton());
+			panelPrincipal.add(getBarraProgreso());
+			panelPrincipal.add(segundero);
+		}
+		return panelPrincipal;
+	}
+
+	private JButton getStopButton() {
+		if(stopButton == null){
 			stopButton = new JButton(stopIcon);
 			stopButton.addMouseListener(new java.awt.event.MouseAdapter() {
 				public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -116,10 +99,85 @@ public class PlayerInterface extends JFrame {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
+<<<<<<< .mine
+=======
+					// TODO
+>>>>>>> .r64
 				};
 			});
+		}
+		return stopButton;
+	}
+
+	private JButton getPauseButton() {
+		if(pauseButton == null){
+			pauseButton = new JButton(stopIcon);
+			pauseButton.addMouseListener(new java.awt.event.MouseAdapter() {
+<<<<<<< .mine
+				public void mouseReleased(java.awt.event.MouseEvent evt) {
+					try {
+						pause = false;
+						cambiaSegundos("0:00");
+						mPlayer.stop();
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+=======
+				public synchronized void mouseReleased(
+						java.awt.event.MouseEvent evt) {
+					try {
+						if (pause == false) {
+							pause = true;
+							mPlayer.pause();
+						} else {
+							pause = false;
+							mPlayer.resume();
+						}
+					} catch (Exception e) {
+>>>>>>> .r64
+						e.printStackTrace();
+					}
+				};
+			});
+		}
+		return pauseButton;
+	}
+
+	private JButton getPlayButton() {
+		if (playButton == null){
+			playButton = new JButton(playIcon);
+			playButton.addMouseListener(new java.awt.event.MouseAdapter() {
+				public void mouseReleased(java.awt.event.MouseEvent evt) {
+					try {
+						pause = false;
+						mPlayer.stop();
+						mPlayer.play();
+					} catch (BasicPlayerException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					//TODO
+				};
+			});
+		}
+		return playButton;
+	}
+	
+	private JSlider getBarraProgreso() {
+		if (barraProgreso == null){
 			barraProgreso = new JSlider();
 			barraProgreso.setSize(300, 30);
+<<<<<<< .mine
+			barraProgreso.addMouseListener(new java.awt.event.MouseAdapter(){
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					int value = barraProgreso.getValue();
+					//System.out.println(value);
+					int maxValue = barraProgreso.getMaximum();
+					System.out.println(maxValue);//En bytes
+				}
+			});
+		}return barraProgreso;
+=======
 			/*
 			 * barraProgreso.addMouseListener(new java.awt.event.MouseAdapter(){
 			 * 
@@ -137,8 +195,8 @@ public class PlayerInterface extends JFrame {
 			panelPrincipal.add(segundero);
 		}
 		return panelPrincipal;
+>>>>>>> .r64
 	}
-
 	private JMenuBar getBarraMenu() {
 		// TODO Action events ...
 		if (barraMenu == null) {

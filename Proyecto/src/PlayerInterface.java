@@ -121,17 +121,15 @@ public class PlayerInterface extends JFrame {
 			});
 			barraProgreso = new JSlider();
 			barraProgreso.setSize(300, 30);
-			barraProgreso.addMouseListener(new java.awt.event.MouseAdapter(){
+			/*barraProgreso.addMouseListener(new java.awt.event.MouseAdapter(){
 				@Override
 				public void mouseReleased(MouseEvent e) {
 					int value = barraProgreso.getValue();
 					//System.out.println(value);
 					int maxValue = barraProgreso.getMaximum();
 					System.out.println(maxValue);//En bytes
-					int maxSeg = mPlayer.getLineCurrentBufferSize();
-					System.out.println(maxSeg);
 				}
-			});
+			});*/
 			segundero = new JLabel("0:00");
 			
 			panelPrincipal.add(playButton);
@@ -164,12 +162,19 @@ public class PlayerInterface extends JFrame {
 			cargarArchivo.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){
 					try {
+						/*setMultiSelectionEnabled(booleano) este metodo de JFileChooser nos permite
+						 * seleccionar varios ficheros al mismo tiempo
+						 * Tambien esta setFileSelectionMode() que nos permite elegir si seleccionar
+						 * ficheros directorios o ambos
+						 * Info: 
+						 * http://soporteti.net/programacion-2/dialogo-de-seleccion-de-ficheros-jfilechooser-java/
+						 */
 						FileDialog fd = new FileDialog(new JFrame(), "Abrir", FileDialog.LOAD);
 						fd.setVisible(true);
 						File f = new File(fd.getDirectory(), fd.getFile());
 						crearMPlayer(f.toString());
 						mPlayer.play();
-					} catch (BasicPlayerException e1) {
+					} catch (/*BasicPlayer*/Exception e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}

@@ -21,7 +21,7 @@ public class InterfazAvanzada extends JFrame{
   	
   	JButton stopButton;
   	JButton pauseButton;
-  	JButton playButton
+  	JButton playButton;
   	JLabel segundero;
   
   	
@@ -49,14 +49,14 @@ public class InterfazAvanzada extends JFrame{
 	      constraints.gridheight = 1;
 	      this.getContentPane().add (segundero, constraints);
 	      
-	      pauseButton = getPauseButton(); //JButton pauseButton = new JButton(pauseIcon);
+	     // pauseButton = getPauseButton(); //JButton pauseButton = new JButton(pauseIcon);
 	      constraints.gridx = 1;
 	      constraints.gridy = 1;
 	      constraints.gridwidth = 1;
 	      constraints.gridheight = 1;
 	      this.getContentPane().add (pauseButton, constraints);
 	      	
-	      playButton = getPlayButton; // new JButton(playIcon);
+	     // playButton = getPlayButton; // new JButton(playIcon);
 	      constraints.gridx = 2;
 	      constraints.gridy = 0;
 	      constraints.gridwidth = 1;

@@ -19,10 +19,10 @@ public class InterfazAvanzada extends JFrame{
   	ImageIcon stopIcon = new ImageIcon("images/stopIcon.jpg");
   	ImageIcon pauseIcon = new ImageIcon("images/pauseIcon.jpg");
   	
-  	JButton stopButton;
-  	JButton pauseButton;
-  	JButton playButton;
-  	JLabel segundero;
+  	JButton stopButton = null;
+  	JButton pauseButton = null;
+  	JButton playButton = null;
+  	JLabel segundero = null;
   
   	
   	boolean pause;

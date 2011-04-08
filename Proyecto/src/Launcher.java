@@ -1,6 +1,8 @@
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 
+import javax.swing.ImageIcon;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.UIManager;
 
 public class Launcher extends JFrame {
 
@@ -8,6 +10,20 @@ public class Launcher extends JFrame {
 	public Launcher(){}
 	
 	public static void main(String[] args) {
+		
+		
+		try
+		{
+		   //Correcion hecha por Chuster Boy ;)
+			
+		   UIManager.setLookAndFeel("net.sourceforge.napkinlaf.NapkinLookAndFeel");
+
+		}
+		catch (Exception e)
+		{
+		   e.printStackTrace();
+		}
+
 		// TODO Auto-generated method stub
 		Launcher l = new Launcher();
 		ImageIcon monkeyLoading1 = new ImageIcon("images/monkeyLoading1.png");	

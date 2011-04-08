@@ -1,4 +1,6 @@
+import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.io.File;
@@ -32,7 +34,7 @@ public class PlayerInterface extends JFrame {
 			private JMenuItem guardarXML = null;
 
 	//panel central
-	private JPanel panelPrincipal = null;
+		private JPanel panelPrincipal = null;
 		private JButton playButton = null;
 		private JButton pauseButton = null;
 		private JButton stopButton = null;
@@ -56,7 +58,7 @@ public class PlayerInterface extends JFrame {
 		principal.setJMenuBar(getBarraMenu());
 		principal.setContentPane(getBusquedaPanel());
 		//principal.setSize(getPreferredSize());
-		principal.setSize(700, 107);
+		principal.setSize(700, 110);
 		principal.setResizable(false);
 		principal.setVisible(true);
 		principal.setEnabled(true);

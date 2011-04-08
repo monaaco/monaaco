@@ -40,7 +40,6 @@ public class InterfazAvanzada extends JFrame{
 	      this.getContentPane().setLayout (new GridBagLayout()); // Le ponemos el GridBagLayout
 	      this.setSize(400,200);
 	      GridBagConstraints constraints = new GridBagConstraints();
-	      crearMPlayer(fileName);
 	      pause = false;
 	      this.setEnabled(true);
 	      this.setResizable(false);
@@ -82,6 +81,7 @@ public class InterfazAvanzada extends JFrame{
 	      this.getContentPane().add (barraProgreso, constraints);
 	    	//constraints.weighty = 0.0; // Restauramos al valor por defecto, para no afectar a los siguientes componentes.
 	    	
+	      crearMPlayer(fileName);
 	   }
 	    	public JButton getStopButton(){
 	    		JButton stopButton = new JButton(stopIcon);
@@ -147,6 +147,7 @@ public class InterfazAvanzada extends JFrame{
 	    			}
 	    			//reproductorListener = new ReproductorListener(this); 
 	    			mPlayer = new BasicPlayer();
+	    			reproductorListener = new ReproductorListener(this);
 	    			mPlayer.addBasicPlayerListener(reproductorListener);
 	    			mPlayer.open(f);
 	    		

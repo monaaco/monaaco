@@ -7,9 +7,9 @@ import javazoom.jlgui.basicplayer.BasicPlayerListener;
 public class ReproductorListener implements BasicPlayerListener{
 
 	private double bytesLength;
-	private PlayerInterface player;
+	private InterfazAvanzada player;
 	
-	public ReproductorListener(PlayerInterface p){
+	public ReproductorListener(InterfazAvanzada p){
 		super();
 		player=p;
 	}

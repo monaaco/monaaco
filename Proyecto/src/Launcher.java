@@ -38,7 +38,7 @@ public class Launcher extends JFrame {
 		
 		//Cargamos las opciones
 		
-		PlayerInterface pi = new PlayerInterface();
+		InterfazAvanzada pi = new InterfazAvanzada();
 		//TODO pasar la biblioteca, opciones y demas a la constructora
 		pi.setVisible(true);
 		pi.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );

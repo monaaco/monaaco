@@ -13,6 +13,7 @@ import javazoom.jlgui.basicplayer.BasicPlayer;
 
 public class InterfazAvanzada extends JFrame{
 		
+	//Imagenes:
 	ImageIcon monkeyIcon = new ImageIcon("images/monkeyIcon.jpg");	
   	ImageIcon carpetaIcon = new ImageIcon("images/carpetaIcon.jpg");		
   	ImageIcon playIcon = new ImageIcon("images/playIcon.jpg");

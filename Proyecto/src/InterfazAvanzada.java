@@ -129,6 +129,7 @@ public class InterfazAvanzada extends JFrame {
 		constraints.gridheight = 1;
 		// constraints.weighty = 1.0; // La fila 0 debe estirarse, le ponemos un
 		// 1.0
+		// constraints.fill = GridBagConstraints.BOTH;
 		this.getContentPane().add(barraProgreso, constraints);
 		// constraints.weighty = 0.0; // Restauramos al valor por defecto, para
 		// no afectar a los siguientes componentes.

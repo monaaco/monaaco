@@ -33,19 +33,19 @@ public class SongInterfaz extends JFrame{
 		super("Listado de Canciones");
 		pantalla = Toolkit.getDefaultToolkit().getScreenSize();
 		ventana = this.getSize();
-		this.setSize(300, pantalla.height);	
+		this.setSize(200, pantalla.height);	
 		this.centrarVentana();
 		//this.setResizable(false);					//En la otra principal
 		this.getContentPane().setLayout(new BorderLayout());
-		this.setVisible(true);
+		this.setUndecorated(true);
 		this.getContentPane().setBackground(Color.black);
 		this.scroll = new JScrollPane();
 		this.getContentPane().add(scroll,BorderLayout.EAST);
 		this.setEnabled(true);	
-		
 		list=getListado(temas);
-			
 		this.getContentPane().add(list, BorderLayout.CENTER);
+		this.setAlwaysOnTop(true);
+		this.setVisible(true);
 		
 	}
 	private JList  getListado(String[] temas){
@@ -75,7 +75,7 @@ public class SongInterfaz extends JFrame{
         // Se obtienen las dimensiones en pixels de la ventana.
         Dimension ventana = this.getSize();
         // Una cuenta para situar la ventana en el centro de la pantalla.
-        this.setLocation((pantalla.width)-300,
+        this.setLocation((pantalla.width)-200,
                         (pantalla.height - ventana.height) / 2);
 	}
 	

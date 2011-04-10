@@ -72,7 +72,7 @@ public class InterfazAvanzada extends JFrame {
 		super("Monaaaaco"); // El título
 		//fondo = new TransparentBackground(this);
 		this.getContentPane().setLayout(new GridBagLayout()); // Le ponemos el
-		//setUndecorated(false);														// GridBagLayout
+		this.setUndecorated(true);														// GridBagLayout
 		this.setSize(400, 200);
 		this.centrarVentana();
 		GridBagConstraints constraints = new GridBagConstraints();
@@ -83,10 +83,12 @@ public class InterfazAvanzada extends JFrame {
 		this.setTitle("Monaaco Player");			//En la otra principal AÑADIDO POR MI
 		this.setJMenuBar(getBarraMenu());
 		this.getContentPane().setBackground(Color.black);
+		this.setVisible(true);
 		String[] temas= {"1-Probando","1-Probando","1-Probando","1-Probando","1-Probando","1-Probando"};
 		info = new SongInterfaz(temas);
+		
 		JFrame.setDefaultLookAndFeelDecorated(true);
-		AWTUtilities.setWindowOpacity(info, (float) 0.7);
+		AWTUtilities.setWindowOpacity(info, (float) 0.6);
 		
 		
 		

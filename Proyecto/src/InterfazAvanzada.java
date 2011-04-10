@@ -6,13 +6,18 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Point;
+import java.awt.Shape;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.event.MouseEvent;
+import java.awt.geom.Ellipse2D;
 import java.io.File;
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
+import com.sun.awt.AWTUtilities;
 
 import javazoom.jlgui.basicplayer.BasicPlayer;
 import javazoom.jlgui.basicplayer.BasicPlayerException;
@@ -56,11 +61,16 @@ public class InterfazAvanzada extends JFrame {
 	private BasicPlayer mPlayer;
 	private ReproductorListener reproductorListener;
 	private String fileName = "sounds/prueba.mp3";
+	private Shape figura;
+	
+	//private TransparentBackground fondo = null;
 
+	@SuppressWarnings("restriction")
 	public InterfazAvanzada() {
 		
 			
 		super("Monaaaaco"); // El título
+		//fondo = new TransparentBackground(this);
 		this.getContentPane().setLayout(new GridBagLayout()); // Le ponemos el
 																// GridBagLayout
 		this.setSize(400, 200);
@@ -73,9 +83,13 @@ public class InterfazAvanzada extends JFrame {
 		this.setTitle("Monaaco Player");			//En la otra principal AÑADIDO POR MI
 		this.setJMenuBar(getBarraMenu());
 		this.getContentPane().setBackground(Color.black);
-		principal = this;
+		String[] temas= {"1-Probando","1-Probando","1-Probando","1-Probando","1-Probando","1-Probando"};
+		info = new SongInterfaz(temas);
+		//info.setUndecorated(false);
+		JFrame.setDefaultLookAndFeelDecorated(true);
+		AWTUtilities.setWindowOpacity(info, (float) 0.7);
 		
-		info = new SongInterfaz();
+		
 		
 		stopButton = getStopButton();
 		constraints.gridx = 3;
@@ -147,59 +161,85 @@ public class InterfazAvanzada extends JFrame {
 	}
 	
 	private JMenuItem getCargarArchivoItem() {
-		if (cargarArchivo == null) {
-			cargarArchivo = new JMenuItem();
-			cargarArchivo.setText("Cargar Archivo");
-			cargarArchivo.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					try {
-						/*
-						 * setMultiSelectionEnabled(booleano) este metodo de
-						 * JFileChooser nos permite seleccionar varios ficheros
-						 * al mismo tiempo Tambien esta setFileSelectionMode()
-						 * que nos permite elegir si seleccionar ficheros
-						 * directorios o ambos Info:
-						 * http://soporteti.net/programacion
-						 * -2/dialogo-de-seleccion
-						 * -de-ficheros-jfilechooser-java/
-						 */
-						JFileChooser fc = new JFileChooser();
-						FileFilter ff = new FileFilter() {
-							@Override
-							public String getDescription() {
-								return ("MP3 Soportados .mp3");
-							}
+        if (cargarArchivo == null) {
+            cargarArchivo = new JMenuItem();
+            cargarArchivo.setText("Cargar Archivo");
+            cargarArchivo.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    try {
+                        /*
+                         * setMultiSelectionEnabled(booleano) este metodo de
+                         * JFileChooser nos permite seleccionar varios ficheros
+                         * al mismo tiempo Tambien esta setFileSelectionMode()
+                         * que nos permite elegir si seleccionar ficheros
+                         * directorios o ambos Info:
+                         * http://soporteti.net/programacion
+                         * -2/dialogo-de-seleccion
+                         * -de-ficheros-jfilechooser-java/
+                         */
+                        JFileChooser fc = new JFileChooser();
+                        FileFilter ff = new FileFilter() {
+                            @Override
+                            public String getDescription() {
+                                return ("MP3 Soportados .mp3");
+                            }
 
-							@Override
-							public boolean accept(File f) {
-								if (f.getName().toLowerCase().endsWith(".mp3")) {
-									return true;
-								}
-								return false;
-							}
-						};
-						fc.setFileFilter(ff);
-						fc.setMultiSelectionEnabled(true);
-						if(fc.showOpenDialog(principal) == JFileChooser.APPROVE_OPTION)/*PETA!*/
-						{
-							File f = fc.getSelectedFile();
-							crearMPlayer(f.getAbsolutePath());
-							System.out.println(f.getAbsolutePath());
-							mPlayer.play();
-						}
-							
-/*						FileDialog fd = new FileDialog(new JFrame(), "Abrir",
-								FileDialog.LOAD);
-						fd.setVisible(true);*/
-					} catch (/* BasicPlayer */Exception e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-				}
-			});
-		}
-		return cargarArchivo;
-	}
+                            @Override
+                            public boolean accept(File f) {
+                                if (f.getName().toLowerCase().endsWith(".mp3") || f.isDirectory()) {
+                                    return true;
+                                }
+                                return false;
+                            }
+                        };
+                        FileFilter ff2 = new FileFilter() {
+                            @Override
+                            public String getDescription() {
+                                return ("Archivos Ogg .ogg");
+                            }
+
+                            @Override
+                            public boolean accept(File f) {
+                                if (f.getName().toLowerCase().endsWith(".ogg") || f.isDirectory()) {
+                                    return true;
+                                }
+                                return false;
+                            }
+                        };
+                        FileFilter ff3 = new FileFilter() {
+                            @Override
+                            public String getDescription() {
+                                return ("Archivos de sonido soportados");
+                            }
+
+                            @Override
+                            public boolean accept(File f) {
+                                if (f.getName().toLowerCase().endsWith(".ogg") || f.getName().toLowerCase().endsWith(".mp3") || f.isDirectory()) {
+                                    return true;
+                                }
+                                return false;
+                            }
+                        };
+                        fc.setFileFilter(ff);
+                        fc.setFileFilter(ff2);
+                        fc.setFileFilter(ff3);
+                        fc.setMultiSelectionEnabled(true);
+                        if(fc.showOpenDialog(principal) == JFileChooser.APPROVE_OPTION)/*PETA!*/
+                        {
+                            File f = fc.getSelectedFile();
+                            crearMPlayer(f.getAbsolutePath());
+                            System.out.println(f.getAbsolutePath());
+                            mPlayer.play();
+                        }
+                    } catch (/* BasicPlayer */Exception e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
+                    }
+                }
+            });
+        }
+        return cargarArchivo;
+    }
 
 	public JSlider getBarraProgreso(){
 		barraProgreso = new JSlider();
@@ -301,7 +341,7 @@ public class InterfazAvanzada extends JFrame {
         Dimension ventana = this.getSize();
         // Una cuenta para situar la ventana en el centro de la pantalla.
         this.setLocation((pantalla.width - ventana.width) / 2,
-                        ((pantalla.height - ventana.height) / 2)-212);
+                        ((pantalla.height - ventana.height) / 2));
 	}
 
 }

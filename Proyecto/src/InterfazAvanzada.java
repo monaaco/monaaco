@@ -72,7 +72,7 @@ public class InterfazAvanzada extends JFrame {
 		super("Monaaaaco"); // El título
 		//fondo = new TransparentBackground(this);
 		this.getContentPane().setLayout(new GridBagLayout()); // Le ponemos el
-																// GridBagLayout
+		//setUndecorated(false);														// GridBagLayout
 		this.setSize(400, 200);
 		this.centrarVentana();
 		GridBagConstraints constraints = new GridBagConstraints();
@@ -85,7 +85,6 @@ public class InterfazAvanzada extends JFrame {
 		this.getContentPane().setBackground(Color.black);
 		String[] temas= {"1-Probando","1-Probando","1-Probando","1-Probando","1-Probando","1-Probando"};
 		info = new SongInterfaz(temas);
-		//info.setUndecorated(false);
 		JFrame.setDefaultLookAndFeelDecorated(true);
 		AWTUtilities.setWindowOpacity(info, (float) 0.7);
 		

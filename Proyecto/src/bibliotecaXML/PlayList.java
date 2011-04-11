@@ -20,12 +20,11 @@ public class Playlist {
 	}
 
 	/**
-	 * 
 	 * @param ruta válida o falla.
 	 * @throws file not found exception?
 	 */
-	public void add(String fileName){
-		
+	public boolean add(String fileName){
+		return lista.add(new Track(fileName));
 	}
 	
 	public LinkedList<Track> getEntries(){
@@ -36,6 +35,18 @@ public class Playlist {
 		return lista.indexOf(track);
 	}
 
+	public Track getTrack(int index){
+		return (Track) lista.get(index);
+	}
+	
+	public String[] getListado(){
+		String[] array;
+		// Recorrer e ir guardando en el array.
+		return (String[]) null;
+	}
+	
+	
+	
 	// Devuelve la siguiente canción del playList
 	public Track next(){
 		

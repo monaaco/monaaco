@@ -45,7 +45,6 @@ public class Track {
                         AudioFile af = AudioFileIO.read(f);
                         Tag tag = af.getTag();
                         AudioHeader ah = af.getAudioHeader();
-
                         
                         setName(tag.getFirst(FieldKey.TITLE));
                         setArtist(tag.getFirst(FieldKey.ARTIST));
@@ -281,8 +280,37 @@ public class Track {
         }
 
 
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result
+					+ ((location == null) ? 0 : location.hashCode());
+			return result;
+		}
 
-        public String toString(){
+
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			Track other = (Track) obj;
+			if (location == null) {
+				if (other.location != null)
+					return false;
+			} else if (!location.equals(other.location))
+				return false;
+			return true;
+		}
+
+
+
+		public String toString(){
                 String aux = "Artist: " + getArtist();
                 aux += "\n Name: " + name;
                 aux += "\n Time: " + totalTime.toString();

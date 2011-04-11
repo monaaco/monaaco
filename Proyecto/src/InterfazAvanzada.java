@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
@@ -66,7 +67,7 @@ public class InterfazAvanzada extends JFrame {
 	private String fileName = "sounds/prueba.mp3";
 	private Shape figura;
 	
-	private Color bgcolor = new Color(0, 0, 0);
+	private Color bgcolor = Color.black;
 	
 	//private TransparentBackground fondo = null;
 
@@ -87,7 +88,7 @@ public class InterfazAvanzada extends JFrame {
 		this.setIconImage(monkeyIcon.getImage());	//En la otra principal AÑADIDO POR MI
 		this.setTitle("Monaaco Player");			//En la otra principal AÑADIDO POR MI
 		this.setJMenuBar(getBarraMenu());
-		this.getContentPane().setBackground(Color.black);
+		this.getContentPane().setBackground(bgcolor);
 		this.setVisible(true);
 		String[] temas= {"1-Probando","1-Probando","1-Probando","1-Probando","1-Probando","1-Probando"};
 		info = new SongInterfaz(temas);
@@ -150,11 +151,11 @@ public class InterfazAvanzada extends JFrame {
 		this.getContentPane().add(info, constraints);
 		constraints.weighty = 0.0;*/
 		
-		crearMPlayer(fileName);
+		crearMPlayer(fileName);//archivo por defecto
 	}
 	
 	private JMenuBar getBarraMenu() {
-		// TODO Action events ...
+		// TODO más elementos ¿e iconos?
 		if (barraMenu == null) {
 			barraMenu = new JMenuBar();
 			playerMenu = new JMenu("Menu");
@@ -212,9 +213,25 @@ public class InterfazAvanzada extends JFrame {
     }
 
 	public JSlider getBarraProgreso(){
-		barraProgreso = new JSlider();
-		barraProgreso.setBackground(Color.black);
-		return barraProgreso;
+		if(barraProgreso == null){
+			barraProgreso = new JSlider();
+			barraProgreso.setBackground(bgcolor);
+	        barraProgreso.addMouseListener(new java.awt.event.MouseAdapter(){
+	            @Override
+	            public void mouseReleased(MouseEvent e) {
+	                int value = barraProgreso.getValue();
+	                value = value - mPlayer.PLAYING;
+	                System.out.printf("Eeeeeeeeeey", value);
+	                try {
+	                    mPlayer.seek(value);
+	                } catch (BasicPlayerException e1) {
+	                    // TODO Auto-generated catch block
+	                    e1.printStackTrace();
+	                }
+	            }
+	        });
+		}
+	    return barraProgreso;
 	}
 	public BotonAvanzado getStopButton() {
 		if (stopButton == null){
@@ -293,7 +310,7 @@ public class InterfazAvanzada extends JFrame {
 	public JMenuItem getSalirItem() {
 		if (salirItem == null){
 			salirItem = new JMenuItem("Salir");
-			salirItem.setBackground(bgcolor);
+			//salirItem.setBackground(bgcolor);
 			salirItem.addMouseListener(new java.awt.event.MouseAdapter() {
 				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {

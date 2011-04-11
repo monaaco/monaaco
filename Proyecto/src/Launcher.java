@@ -24,14 +24,14 @@ public class Launcher extends JWindow {
 	  JLabel imageLabel = new JLabel();
 	  JPanel southPanel = new JPanel();
 	  
-	ImageIcon monkeyLoading1 = new ImageIcon("images/monkeyLoading1.png");	
-	ImageIcon monkeyLoading2 = new ImageIcon("images/monkeyLoading2.png");	
-	ImageIcon monkeyLoading3 = new ImageIcon("images/monkeyLoading3.png");	
-	ImageIcon monkeyLoading4 = new ImageIcon("images/monkeyLoading4.png");	
-	ImageIcon monkeyLoading5 = new ImageIcon("images/monkeyLoading5.png");	
-	ImageIcon monkeyLoading6 = new ImageIcon("images/monkeyLoading6.png");	
-	ImageIcon monkeyLoading7 = new ImageIcon("images/monkeyLoading7.png");	
-	ImageIcon monkeyLoading8 = new ImageIcon("images/monkeyLoading8.png");
+	ImageIcon monkeyLoading1 = new ImageIcon("images/launcher/monkeyLoading1.png");	
+	ImageIcon monkeyLoading2 = new ImageIcon("images/launcher/monkeyLoading2.png");	
+	ImageIcon monkeyLoading3 = new ImageIcon("images/launcher/monkeyLoading3.png");	
+	ImageIcon monkeyLoading4 = new ImageIcon("images/launcher/monkeyLoading4.png");	
+	ImageIcon monkeyLoading5 = new ImageIcon("images/launcher/monkeyLoading5.png");	
+	ImageIcon monkeyLoading6 = new ImageIcon("images/launcher/monkeyLoading6.png");	
+	ImageIcon monkeyLoading7 = new ImageIcon("images/launcher/monkeyLoading7.png");	
+	ImageIcon monkeyLoading8 = new ImageIcon("images/launcher/monkeyLoading8.png");
 
 	BasicPlayer cargaInicio;
 	

@@ -29,12 +29,13 @@ public class InterfazAvanzada extends JFrame {
 	// Imagenes:
 	private ImageIcon monkeyIcon = new ImageIcon("images/monkeyIcon.jpg");
 	private ImageIcon carpetaIcon = new ImageIcon("images/carpetaIcon.jpg");
-	private ImageIcon playIcon = new ImageIcon("images/playIcon1.jpg");
-	private ImageIcon playedIcon = new ImageIcon("images/playIcon3.jpg");
-	private ImageIcon stopIcon = new ImageIcon("images/stopIcon1.jpg");
-	private ImageIcon stopedIcon = new ImageIcon("images/stopIcon3.jpg");
-	private ImageIcon pauseIcon = new ImageIcon("images/pauseIcon1.jpg");
-	private ImageIcon pausedIcon = new ImageIcon("images/pauseIcon3.jpg");
+	
+	private ImageIcon playIcon = new ImageIcon("images/skin1/playIcon1.jpg");
+	private ImageIcon playedIcon = new ImageIcon("images/skin1/playIcon3.jpg");
+	private ImageIcon stopIcon = new ImageIcon("images/skin1/stopIcon1.jpg");
+	private ImageIcon stopedIcon = new ImageIcon("images/skin1/stopIcon3.jpg");
+	private ImageIcon pauseIcon = new ImageIcon("images/skin1/pauseIcon1.jpg");
+	private ImageIcon pausedIcon = new ImageIcon("images/skin1/pauseIcon3.jpg");
 	
 	private BotonAvanzado stopButton = null;
 	private BotonAvanzado pauseButton = null;

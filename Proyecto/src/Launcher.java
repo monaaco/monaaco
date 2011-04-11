@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JWindow;
 import javax.swing.UIManager;
 
@@ -99,7 +100,7 @@ public class Launcher extends JWindow {
 		int a= 0;
 		while(a<9){
 			i = 0;
-			while (i< Integer.MAX_VALUE/3){
+			while (i< Integer.MAX_VALUE/10){
 				i++;
 			}
 			if(a==1)

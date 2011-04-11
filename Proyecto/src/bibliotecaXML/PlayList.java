@@ -24,7 +24,8 @@ public class Playlist {
 	 * @throws file not found exception?
 	 */
 	public boolean add(String fileName){
-		return lista.add(new Track(fileName));
+		currentTrack = new Track(fileName);
+		return lista.add(currentTrack);
 	}
 	
 	public LinkedList<Track> getEntries(){
@@ -40,14 +41,14 @@ public class Playlist {
 	}
 	
 	public String[] getListado(){
-		String[] array;
-		// Recorrer e ir guardando en el array.
-		return (String[]) null;
+		//String[] array;
+		//TODO Recorrer e ir guardando en el array.
+		return null;
 	}
 	
 	
 	
-	// Devuelve la siguiente canción del playList
+	// Devuelve la siguiente canción del playList puede ser null si no quedan.
 	public Track next(){
 		
 		Track nextTrack = getNext();

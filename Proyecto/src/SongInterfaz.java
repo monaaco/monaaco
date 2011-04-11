@@ -1,14 +1,7 @@
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Toolkit;
-import java.awt.Window;
+import java.awt.*;
 import java.awt.event.WindowEvent;
-import java.util.ArrayList;
+import java.util.*;
+
 import javax.swing.event.*;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
@@ -20,19 +13,21 @@ import javax.swing.JTextField;
 
 import javazoom.jlgui.basicplayer.BasicPlayerException;
 
+import bibliotecaXML.Track;
+
 import com.sun.awt.AWTUtilities;
 
 
 public class SongInterfaz extends JFrame{
 	
 	
-	private JList list;
+	private JList listado;
 	private Dimension pantalla = null;
 	private Dimension ventana = null;
 	private JScrollPane scroll=null;
 	private BotonAvanzado minButton = null;
-	private ImageIcon minIcon1 = new ImageIcon("images/minSongIcon1.jpg");
-	private ImageIcon minIcon2 = new ImageIcon("images/minSongIcon3.jpg");
+	private ImageIcon minIcon1 = new ImageIcon("images/minSongIcon4.jpg");
+	private ImageIcon minIcon2 = new ImageIcon("images/minSongIcon4.jpg");
 	
 	public SongInterfaz(String[] temas){
 		
@@ -48,8 +43,8 @@ public class SongInterfaz extends JFrame{
 		this.scroll = new JScrollPane();
 		this.getContentPane().add(scroll,BorderLayout.EAST);
 		this.setEnabled(true);	
-		list=getListado(temas);
-		this.getContentPane().add(list, BorderLayout.CENTER);
+		listado=getListado(temas);
+		this.getContentPane().add(listado, BorderLayout.CENTER);
 		this.setAlwaysOnTop(true);
 		this.minButton = getMinButton();
 		this.getContentPane().add(minButton, BorderLayout.SOUTH);
@@ -57,9 +52,9 @@ public class SongInterfaz extends JFrame{
 		
 	}
 	private JList  getListado(String[] temas){
-		list = new JList(temas);
-		list.setSize(300, pantalla.height);
-		list.setBackground(null);
+		listado = new JList(temas);
+		listado.setSize(300, pantalla.height);
+		listado.setBackground(null);
 		
 		/*list.addListSelectionListener(new ListSelectionListener(){
 			public void valueChanged(ListSelectionEvent e){
@@ -70,8 +65,8 @@ public class SongInterfaz extends JFrame{
 				
 			}
 		})*/
-		
-		return list;
+				
+		return listado;
 		
 	}
 	/*protected void this_windowOpened(WindowEvent e) {

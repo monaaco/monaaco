@@ -56,6 +56,7 @@ public class Track {
                         setId(id);              
                         setTotalTime(ah.getTrackLength());
                         setArtworkList(tag.getArtworkList());
+                        setLocation(ruta);
                         
                 } catch (Exception e) {
                         System.out.println(e.getMessage());

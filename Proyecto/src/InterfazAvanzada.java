@@ -20,6 +20,7 @@ import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
 
 import bibliotecaXML.Playlist;
+import bibliotecaXML.Track;
 
 import com.sun.awt.AWTUtilities;
 
@@ -53,6 +54,9 @@ public class InterfazAvanzada extends JFrame {
 	private JMenu playerMenu = null;
 	private JMenuItem cargarArchivoItem = null;
 	private JMenuItem salirItem = null;
+	private JMenuItem nextItem = null;
+	private JMenuItem previousItem = null;
+	
 	private JButton salirButton = null;
 	
 	
@@ -76,7 +80,7 @@ public class InterfazAvanzada extends JFrame {
 	//private TransparentBackground fondo = null;
 
 	//Playlist:
-	private Playlist colaReproduccion = null;
+	private Playlist listaReproduccion = null;
 	
 	
 	
@@ -162,9 +166,12 @@ public class InterfazAvanzada extends JFrame {
 		this.getContentPane().add(info, constraints);
 		constraints.weighty = 0.0;*/
 		
-		colaReproduccion = new Playlist();
-		colaReproduccion.add(fileName);
-		crearMPlayer(fileName);//archivo por defecto
+		listaReproduccion = new Playlist();
+		listaReproduccion.setRepeat(true);
+		listaReproduccion.add(fileName); //añadir archivo
+		setCurrentTrack(listaReproduccion.current());
+		listaReproduccion.add("sounds/mic_check.mp3"); //añadir archivo
+
 	}
 	
 	private JMenuBar getBarraMenu() {
@@ -174,6 +181,8 @@ public class InterfazAvanzada extends JFrame {
 			playerMenu = new JMenu("Menu");
 			//playerMenu.setIcon(monkeyIcon);
 			playerMenu.add(getCargarArchivoItem());
+			playerMenu.add(getPreviousItem());
+			playerMenu.add(getNextItem());
 			playerMenu.add(getSalirItem());
 			barraMenu.add(playerMenu);
 		}
@@ -202,12 +211,11 @@ public class InterfazAvanzada extends JFrame {
                         fc.setFileFilter(new FiltroOGG());
                         fc.setFileFilter(new FiltroSoportados());
                         fc.setMultiSelectionEnabled(true);//TODO esto como va?
-                        if(fc.showOpenDialog(principal) == JFileChooser.APPROVE_OPTION)
-                        	/*TODO PETA!?*/
-                        {
-                            File f = fc.getSelectedFile();
-                            crearMPlayer(f.getAbsolutePath());
-                            System.out.println(f.getAbsolutePath());
+                        if(fc.showOpenDialog(principal) == JFileChooser.APPROVE_OPTION) {
+                        	File f = fc.getSelectedFile();
+                        	System.out.println(f.getAbsolutePath());
+                            listaReproduccion.add(f.getAbsolutePath());
+                            setCurrentTrack(listaReproduccion.current());
                             mPlayer.play();
                             /* TODO
                              * -crear un objeto Track con la ruta del archivo cargado
@@ -238,7 +246,6 @@ public class InterfazAvanzada extends JFrame {
 	                try {
 	                    mPlayer.seek(value);
 	                } catch (BasicPlayerException e1) {
-	                    // TODO Auto-generated catch block
 	                    e1.printStackTrace();
 	                }
 	            }
@@ -337,22 +344,65 @@ public class InterfazAvanzada extends JFrame {
 		return salirItem;
 	}
 	
-	private void crearMPlayer(String fileName) {
-		try {
-			File f = new File(fileName);
-			if (mPlayer != null) {
-				mPlayer.stop();
-				// TODO
-			}
-			// reproductorListener = new ReproductorListener(this);
-			mPlayer = new BasicPlayer();
-			reproductorListener = new ReproductorListener(this);
-			mPlayer.addBasicPlayerListener(reproductorListener);
-			mPlayer.open(f);
 
-		} catch (Exception e) {
-			System.err.printf("%s\n", e.getMessage());
+	
+	public JMenuItem getNextItem() {
+		if (nextItem == null){
+			nextItem = new JMenuItem("siguiente");
+			//nextItem.setBackground(bgcolor);
+			nextItem.addMouseListener(new java.awt.event.MouseAdapter() {
+				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
+					try {
+						//neeeeext cambia el currentTrack de la clase palylist y le devuelve playlist
+						setCurrentTrack(listaReproduccion.next());
+						pause = false;
+						mPlayer.stop();
+						mPlayer.play();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				};
+			});
 		}
+		return nextItem;
+	}
+
+	public JMenuItem getPreviousItem() {
+		if (previousItem == null){
+			previousItem = new JMenuItem("anterior");
+			//nextItem.setBackground(bgcolor);
+			previousItem.addMouseListener(new java.awt.event.MouseAdapter() {
+				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
+					try {
+						//previous cambia el currentTrack de la clase palylist y le devuelve playlist
+						setCurrentTrack(listaReproduccion.previous());
+						pause = false;
+						mPlayer.stop();
+						mPlayer.play();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				};
+			});
+		}
+		return previousItem;
+	}
+
+	private void setCurrentTrack(Track track) {
+		try {
+			 File f = new File(track.getLocation());
+             if (mPlayer != null) {
+                     mPlayer.stop();
+                     // TODO
+             }
+             mPlayer = new BasicPlayer();
+             reproductorListener = new ReproductorListener(this);
+             mPlayer.addBasicPlayerListener(reproductorListener);
+             mPlayer.open(f);
+
+     } catch (Exception e) {
+             System.err.printf("%s\n", e.getMessage());
+     }
 	}
 
 	public void actualizaBarraProgreso(double estado) {

@@ -97,27 +97,27 @@ public class Launcher extends JWindow {
 		*/
 		int i;
 		int a= 0;
-		while(a<9)
-		{i = 0;
-		while (i< Integer.MAX_VALUE/5){
-			i++;
-		}
-		if(a==1)
-			l.cambiaImagen(l.monkeyLoading2);
-		else if(a==2)
-			l.cambiaImagen(l.monkeyLoading3);
-		else if(a==3)
-			l.cambiaImagen(l.monkeyLoading4);
-		else if(a==4)
-			l.cambiaImagen(l.monkeyLoading5);
-		else if(a==5)
-			l.cambiaImagen(l.monkeyLoading6);
-		else if(a==6)
-			l.cambiaImagen(l.monkeyLoading7);
-		else if(a==7)
-			l.cambiaImagen(l.monkeyLoading8);
-		
-		a++;
+		while(a<9){
+			i = 0;
+			while (i< Integer.MAX_VALUE/3){
+				i++;
+			}
+			if(a==1)
+				l.cambiaImagen(l.monkeyLoading2);
+			else if(a==2)
+				l.cambiaImagen(l.monkeyLoading3);
+			else if(a==3)
+				l.cambiaImagen(l.monkeyLoading4);
+			else if(a==4)
+				l.cambiaImagen(l.monkeyLoading5);
+			else if(a==5)
+				l.cambiaImagen(l.monkeyLoading6);
+			else if(a==6)
+				l.cambiaImagen(l.monkeyLoading7);
+			else if(a==7)
+				l.cambiaImagen(l.monkeyLoading8);
+			
+			a++;
 		}
 		//Cargamos la biblioteca
 		

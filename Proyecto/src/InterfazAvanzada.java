@@ -46,7 +46,10 @@ public class InterfazAvanzada extends JFrame {
 	private JMenuBar barraMenu = null;
 	// menu player
 	private JMenu playerMenu = null;
-	private JMenuItem cargarArchivo = null;
+	private JMenuItem cargarArchivoItem = null;
+	private JMenuItem salirItem = null;
+	private JButton salirButton = null;
+	
 	
 /*	// menu XML  Por si lo usaramos que esta en la otra playerInterface!
 	private JMenuItem bibliotecaMenu = null;
@@ -62,6 +65,8 @@ public class InterfazAvanzada extends JFrame {
 	private ReproductorListener reproductorListener;
 	private String fileName = "sounds/prueba.mp3";
 	private Shape figura;
+	
+	private Color bgcolor = new Color(0, 0, 0);
 	
 	//private TransparentBackground fondo = null;
 
@@ -153,20 +158,19 @@ public class InterfazAvanzada extends JFrame {
 		if (barraMenu == null) {
 			barraMenu = new JMenuBar();
 			playerMenu = new JMenu("Menu");
-			getCargarArchivoItem();
-			// cargarArchivo = new JMenuItem("Cargar archivo", carpetaIcon);
-			// TODO
-			playerMenu.add(cargarArchivo);
+			//playerMenu.setIcon(monkeyIcon);
+			playerMenu.add(getCargarArchivoItem());
+			playerMenu.add(getSalirItem());
 			barraMenu.add(playerMenu);
 		}
 		return barraMenu;
 	}
 	
+
 	private JMenuItem getCargarArchivoItem() {
-        if (cargarArchivo == null) {
-            cargarArchivo = new JMenuItem();
-            cargarArchivo.setText("Cargar Archivo");
-            cargarArchivo.addActionListener(new ActionListener() {
+        if (cargarArchivoItem == null) {
+        	cargarArchivoItem = new JMenuItem("Cargar Archivo",carpetaIcon);
+        	cargarArchivoItem.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     try {
                         /*
@@ -180,67 +184,31 @@ public class InterfazAvanzada extends JFrame {
                          * -de-ficheros-jfilechooser-java/
                          */
                         JFileChooser fc = new JFileChooser();
-                        FileFilter ff = new FileFilter() {
-                            @Override
-                            public String getDescription() {
-                                return ("MP3 Soportados .mp3");
-                            }
-
-                            @Override
-                            public boolean accept(File f) {
-                                if (f.getName().toLowerCase().endsWith(".mp3") || f.isDirectory()) {
-                                    return true;
-                                }
-                                return false;
-                            }
-                        };
-                        FileFilter ff2 = new FileFilter() {
-                            @Override
-                            public String getDescription() {
-                                return ("Archivos Ogg .ogg");
-                            }
-
-                            @Override
-                            public boolean accept(File f) {
-                                if (f.getName().toLowerCase().endsWith(".ogg") || f.isDirectory()) {
-                                    return true;
-                                }
-                                return false;
-                            }
-                        };
-                        FileFilter ff3 = new FileFilter() {
-                            @Override
-                            public String getDescription() {
-                                return ("Archivos de sonido soportados");
-                            }
-
-                            @Override
-                            public boolean accept(File f) {
-                                if (f.getName().toLowerCase().endsWith(".ogg") || f.getName().toLowerCase().endsWith(".mp3") || f.isDirectory()) {
-                                    return true;
-                                }
-                                return false;
-                            }
-                        };
-                        fc.setFileFilter(ff);
-                        fc.setFileFilter(ff2);
-                        fc.setFileFilter(ff3);
-                        fc.setMultiSelectionEnabled(true);
-                        if(fc.showOpenDialog(principal) == JFileChooser.APPROVE_OPTION)/*PETA!*/
+                        fc.setFileFilter(new FiltroMP3());
+                        fc.setFileFilter(new FiltroOGG());
+                        fc.setFileFilter(new FiltroSoportados());
+                        fc.setMultiSelectionEnabled(true);//TODO esto como va?
+                        if(fc.showOpenDialog(principal) == JFileChooser.APPROVE_OPTION)
+                        	/*TODO PETA!?*/
                         {
                             File f = fc.getSelectedFile();
                             crearMPlayer(f.getAbsolutePath());
                             System.out.println(f.getAbsolutePath());
                             mPlayer.play();
+                            /* TODO
+                             * -crear un objeto Track con la ruta del archivo cargado
+                             * -añadir ese objeto a un traclist or something
+                             * 
+                             * 
+                             */
                         }
                     } catch (/* BasicPlayer */Exception e1) {
-                        // TODO Auto-generated catch block
                         e1.printStackTrace();
                     }
                 }
             });
         }
-        return cargarArchivo;
+        return cargarArchivoItem;
     }
 
 	public JSlider getBarraProgreso(){
@@ -249,63 +217,96 @@ public class InterfazAvanzada extends JFrame {
 		return barraProgreso;
 	}
 	public BotonAvanzado getStopButton() {
-		BotonAvanzado stopButton = new BotonAvanzado(stopIcon,stopedIcon);
-		stopButton.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseReleased(java.awt.event.MouseEvent evt) {
-				try {
-					pause = false;
-					cambiaSegundos("0:00");
-					mPlayer.stop();
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			};
-		});
+		if (stopButton == null){
+			stopButton = new BotonAvanzado(stopIcon,stopedIcon);
+			stopButton.addMouseListener(new java.awt.event.MouseAdapter() {
+				public void mouseReleased(java.awt.event.MouseEvent evt) {
+					try {
+						pause = false;
+						cambiaSegundos("0:00");
+						mPlayer.stop();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				};
+			});
+		}
 		return stopButton;
 	}
 
 	public BotonAvanzado getPlayButton() {
-		BotonAvanzado playButton = new BotonAvanzado(playIcon,playedIcon);
-		playButton.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseReleased(java.awt.event.MouseEvent evt) {
-				try {
-					pause = false;
-					mPlayer.stop();
-					mPlayer.play();
-				} catch (BasicPlayerException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				// TODO
-			};
-		});
+		if (playButton == null){
+			playButton = new BotonAvanzado(playIcon,playedIcon);
+			playButton.addMouseListener(new java.awt.event.MouseAdapter() {
+				public void mouseReleased(java.awt.event.MouseEvent evt) {
+					try {
+						pause = false;
+						mPlayer.stop();
+						mPlayer.play();
+					} catch (BasicPlayerException e) {
+						e.printStackTrace();
+					}
+				};
+			});
+		}
 		return playButton;
 	}
 
 	public BotonAvanzado getPauseButton() {
-		BotonAvanzado pauseButton = new BotonAvanzado(pauseIcon,pausedIcon);
-		pauseButton.addMouseListener(new java.awt.event.MouseAdapter() {
-			public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
-				try {
-					if (pause == false) {
-						pause = true;
-						mPlayer.pause();
-					} else {
-						pause = false;
-						mPlayer.resume();
+		if (pauseButton == null){
+			pauseButton = new BotonAvanzado(pauseIcon,pausedIcon);
+			pauseButton.addMouseListener(new java.awt.event.MouseAdapter() {
+				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
+					try {
+						if (pause == false) {
+							pause = true;
+							mPlayer.pause();
+						} else {
+							pause = false;
+							mPlayer.resume();
+						}
+					} catch (Exception e) {
+						e.printStackTrace();
 					}
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			};
-		});
+				};
+			});
+		}
 		return pauseButton;
 	}
 	
+	public JButton getSalirButton() {
+		if (salirButton == null){
+			salirButton = new JButton("salir");
+			salirButton.addMouseListener(new java.awt.event.MouseAdapter() {
+				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
+					try {
+						System.exit(0);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				};
+			});
+		}
+		return salirButton;
+	}
+
+	public JMenuItem getSalirItem() {
+		if (salirItem == null){
+			salirItem = new JMenuItem("Salir");
+			salirItem.setBackground(bgcolor);
+			salirItem.addMouseListener(new java.awt.event.MouseAdapter() {
+				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
+					try {
+						System.exit(0);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				};
+			});
+		}
+		return salirItem;
+	}
 	
-
-
 	private void crearMPlayer(String fileName) {
 		try {
 			File f = new File(fileName);

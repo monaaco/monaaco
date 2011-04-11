@@ -18,6 +18,9 @@ import java.awt.geom.Ellipse2D;
 import java.io.File;
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
+
+import bibliotecaXML.Playlist;
+
 import com.sun.awt.AWTUtilities;
 
 import javazoom.jlgui.basicplayer.BasicPlayer;
@@ -72,6 +75,12 @@ public class InterfazAvanzada extends JFrame {
 	
 	//private TransparentBackground fondo = null;
 
+	//Playlist:
+	private Playlist colaReproduccion = null;
+	
+	
+	
+	
 	@SuppressWarnings("restriction")
 	public InterfazAvanzada() {
 		
@@ -84,6 +93,7 @@ public class InterfazAvanzada extends JFrame {
 		this.centrarVentana();
 		GridBagConstraints constraints = new GridBagConstraints();
 		pause = false;
+		
 		this.setEnabled(true);						//En la otra principal
 		this.setResizable(false);					//En la otra principal
 		this.setIconImage(monkeyIcon.getImage());	//En la otra principal AÑADIDO POR MI
@@ -152,6 +162,8 @@ public class InterfazAvanzada extends JFrame {
 		this.getContentPane().add(info, constraints);
 		constraints.weighty = 0.0;*/
 		
+		colaReproduccion = new Playlist();
+		colaReproduccion.add(fileName);
 		crearMPlayer(fileName);//archivo por defecto
 	}
 	

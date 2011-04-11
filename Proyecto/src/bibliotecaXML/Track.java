@@ -39,9 +39,9 @@ public class Track {
         
 
         
-        public Track(File f){
+        public Track(String ruta){
                 try {
-                        //File f = new File(ruta);
+                        File f = new File(ruta);
                         AudioFile af = AudioFileIO.read(f);
                         Tag tag = af.getTag();
                         AudioHeader ah = af.getAudioHeader();

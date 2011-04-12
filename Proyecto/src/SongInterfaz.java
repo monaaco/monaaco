@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.event.MouseEvent;
 import java.awt.event.WindowEvent;
 import java.util.*;
 
@@ -30,11 +31,13 @@ public class SongInterfaz extends JFrame{
 	private BotonAvanzado minButton = null;
 	private ImageIcon minIcon1 = new ImageIcon("images/skin1/minIcon1.jpg");
 	private ImageIcon minIcon2 = new ImageIcon("images/skin1/minIcon2.jpg");
+	private InterfazAvanzada interfazAvanzada= null;
 	
 	
-	public SongInterfaz(String[] temas){
+	public SongInterfaz(String[] temas, InterfazAvanzada interfazAvanzada){
 		
 		super("Listado de Canciones");
+		this.interfazAvanzada = interfazAvanzada;
 		pantalla = Toolkit.getDefaultToolkit().getScreenSize();
 		ventana = this.getSize();
 		principal = this;
@@ -58,8 +61,10 @@ public class SongInterfaz extends JFrame{
 		AWTUtilities.setWindowOpacity(this, (float) 0.3);
 		
 	}
-		
+	
+
 	private JList  getListado(String[] temas){
+		
 		listado = new JList(temas);
 		listado.setSize(100, pantalla.height);
 		listado.setBackground(Color.black);
@@ -73,16 +78,19 @@ public class SongInterfaz extends JFrame{
 		
 		});
 		
-		/*list.addListSelectionListener(new ListSelectionListener(){
-			public void valueChanged(ListSelectionEvent e){
-				if (e.getSource() == list){
-					if (list.getSelectedIndex() == -1)
-						btnFire.setEnabled(false);
-				}
-				
-			}
-		})*/
-				
+		listado.addMouseListener(new java.awt.event.MouseAdapter() 
+		{ 
+			public void mouseClicked(MouseEvent e) 
+			{ 
+				jList1_mouseClicked(e); 
+			} 
+			private void jList1_mouseClicked(MouseEvent e) 
+			{ 
+				 interfazAvanzada.setTrackNumber(listado.getSelectedIndex());	
+			
+			} 
+		}); 
+
 		return listado;
 		
 	}

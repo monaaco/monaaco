@@ -6,7 +6,6 @@ import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.Image;
 import java.awt.Point;
 import java.awt.Shape;
 import java.awt.Toolkit;
@@ -77,7 +76,6 @@ public class InterfazAvanzada extends JFrame {
 	private Shape figura;
 	private Track _pista;
 	private Color bgcolor = Color.black;
-	private Image caratula = null;
 	
 	//private TransparentBackground fondo = null;
 
@@ -90,29 +88,28 @@ public class InterfazAvanzada extends JFrame {
 	@SuppressWarnings("restriction")
 	public InterfazAvanzada() {
 		
-			
 		super("Monaaaaco"); // El título
 		//fondo = new TransparentBackground(this);
-		this.getContentPane().setLayout(new GridBagLayout()); // Le ponemos elGridBagLayout
-		this.setUndecorated(false);						 
+		this.getContentPane().setLayout(new GridBagLayout()); // Le ponemos el
+		this.setUndecorated(false);														// GridBagLayout
 		this.setSize(400, 200);
 		this.centrarVentana();
 		GridBagConstraints constraints = new GridBagConstraints();
 		pause = false;
 		
+		this.setEnabled(true);						//En la otra principal
+		this.setResizable(false);					//En la otra principal
 		this.setIconImage(monkeyIcon.getImage());	//En la otra principal AÑADIDO POR MI
 		this.setTitle("Monaaco Player");			//En la otra principal AÑADIDO POR MI
 		this.setJMenuBar(getBarraMenu());
 		this.getContentPane().setBackground(bgcolor);
-		this.setResizable(false);				
 		this.setEnabled(true);
 		this.setVisible(true);
 	
 		
 		_pista = new Track(fileName);
 		String[] temas= {_pista.getArtist()+("-")+_pista.getName()};
-		info = new SongInterfaz(temas);
-		
+		info = new SongInterfaz(temas,this);
 		
 		stopButton = getStopButton();
 		constraints.gridx = 3;
@@ -250,7 +247,7 @@ public class InterfazAvanzada extends JFrame {
 	                value = value - mPlayer.PLAYING;
 	                System.out.printf("Eeeeeeeeeey", value);
 	                try {
-	                    mPlayer.seek(value);
+	                	mPlayer.seek(value);
 	                } catch (BasicPlayerException e1) {
 	                    e1.printStackTrace();
 	                }
@@ -403,10 +400,10 @@ public class InterfazAvanzada extends JFrame {
 			  * similar a la del playlist, de forma que la info de cancion se muestre
 			  * durante unos segundos cuando hay un cambio de cancion.
 			  */
-			 caratula = track.getArtwork();
+			// caratula = track.getArtwork();
 			 JFrame info = new JFrame("Información");
 			 JPanel infoPanel = new JPanel(new FlowLayout());
-			 infoPanel.add(new JLabel((Icon)caratula));
+			// infoPanel.add(new JLabel((Icon)caratula));
 			 infoPanel.add(new JLabel(track.getArtist() + " - " + track.getName()
 					 	+ " (" + track.getAlbumArtist() +") "	) );
 			 infoPanel.setEnabled(true);
@@ -433,6 +430,7 @@ public class InterfazAvanzada extends JFrame {
      }
 	}
 
+
 	public void actualizaBarraProgreso(double estado) {
 		barraProgreso.setValue((int) estado);
 	}
@@ -453,6 +451,16 @@ public class InterfazAvanzada extends JFrame {
         // Una cuenta para situar la ventana en el centro de la pantalla.
         this.setLocation((pantalla.width - ventana.width) / 2,
                         ((pantalla.height - ventana.height) / 2));
+	}
+	public void setTrackNumber(int number){
+		try{
+		setCurrentTrack(listaReproduccion.getTrack(number));
+		pause = false;
+		mPlayer.stop();
+		mPlayer.play();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

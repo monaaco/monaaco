@@ -6,6 +6,7 @@ import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.Shape;
 import java.awt.Toolkit;
@@ -81,7 +82,8 @@ public class InterfazAvanzada extends JFrame {
 
 	//Playlist:
 	private Playlist listaReproduccion = null;
-	
+	private Image caratula = null;
+
 	
 	
 	
@@ -107,9 +109,6 @@ public class InterfazAvanzada extends JFrame {
 		this.setVisible(true);
 	
 		
-		_pista = new Track(fileName);
-		String[] temas= {_pista.getArtist()+("-")+_pista.getName()};
-		info = new SongInterfaz(temas,this);
 		
 		stopButton = getStopButton();
 		constraints.gridx = 3;
@@ -164,12 +163,16 @@ public class InterfazAvanzada extends JFrame {
 		this.getContentPane().add(info, constraints);
 		constraints.weighty = 0.0;*/
 		
+
 		listaReproduccion = new Playlist();
 		listaReproduccion.setRepeat(true);
 		listaReproduccion.add(fileName); //añadir archivo
 		setCurrentTrack(listaReproduccion.current());
 		listaReproduccion.add("sounds/mic_check.mp3"); //añadir archivo
-
+		
+        String[] temas = listaReproduccion.getListado();
+		info = new SongInterfaz(temas,this);
+		
 	}
 	
 	private JMenuBar getBarraMenu() {
@@ -220,12 +223,7 @@ public class InterfazAvanzada extends JFrame {
                             info.actualizaTemas(temas);
                            
                             mPlayer.play();
-                            /* TODO
-                             * -crear un objeto Track con la ruta del archivo cargado
-                             * -añadir ese objeto a un traclist or something
-                             * 
-                             * 
-                             */
+
                         }
                     } catch (/* BasicPlayer */Exception e1) {
                         e1.printStackTrace();
@@ -399,11 +397,12 @@ public class InterfazAvanzada extends JFrame {
 			  * - Se podria hacer que la esto se mostrara en una ventana semi trasparente 
 			  * similar a la del playlist, de forma que la info de cancion se muestre
 			  * durante unos segundos cuando hay un cambio de cancion.
+			  * - Resaltar la cancion actual en el playlist (Songinterfaz)
 			  */
-			// caratula = track.getArtwork();
+			 caratula = track.getArtwork();
 			 JFrame info = new JFrame("Información");
 			 JPanel infoPanel = new JPanel(new FlowLayout());
-			// infoPanel.add(new JLabel((Icon)caratula));
+			 infoPanel.add(new JLabel((Icon)caratula));
 			 infoPanel.add(new JLabel(track.getArtist() + " - " + track.getName()
 					 	+ " (" + track.getAlbumArtist() +") "	) );
 			 infoPanel.setEnabled(true);

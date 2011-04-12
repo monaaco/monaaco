@@ -1,8 +1,6 @@
 package bibliotecaXML;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.awt.Image;
+
+import java.util.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 
@@ -75,7 +73,6 @@ public class Track {
                         try {
                                 return artworkList.get(1).getImage();
                         } catch (IOException e) {
-                                // TODO Auto-generated catch block
                                 e.printStackTrace();
                                 System.out.println("Error al obtener la carátula. \n" + e.getMessage());
                         }
@@ -121,7 +118,7 @@ public class Track {
 
 
         public void setArtist(String artist) {
-                artist = artist;
+                this.artist = artist;
         }
 
 

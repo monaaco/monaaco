@@ -1,11 +1,10 @@
 package bibliotecaXML;
 
-import java.net.URL;
 import java.util.*;
 
 public class Playlist {
 	
-	private List lista;
+	private List<Track> lista;
 
 	private Track currentTrack;
 
@@ -15,7 +14,7 @@ public class Playlist {
 
 
 	public Playlist(){
-		lista = new LinkedList();
+		lista = new LinkedList<Track>();
 		reset();
 	}
 
@@ -45,7 +44,7 @@ public class Playlist {
 		String[] array = new String[tamaño];
 		Track aux = null;
 		int pos=0;
-		Iterator it = lista.iterator();
+		Iterator<Track> it = lista.iterator();
 		while (it.hasNext()){
 			aux = (Track)it.next();
 			String nombre = aux.getArtist()+("-")+aux.getName();
@@ -120,11 +119,11 @@ public class Playlist {
 
 	public void clear()
 	{
-		for (Iterator it = lista.iterator(); it.hasNext();){ //xq un for????
+/*		for (Iterator<Track> it = lista.iterator(); it.hasNext();){ //xq un for????
 			Track track = (Track) it.next();
 			//fireEntryRemovedEvent(track);
 		}
-
+*/
 		lista.clear();
 		reset();
 	}

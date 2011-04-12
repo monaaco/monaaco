@@ -6,6 +6,7 @@ import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.Shape;
 import java.awt.Toolkit;
@@ -76,6 +77,7 @@ public class InterfazAvanzada extends JFrame {
 	private Shape figura;
 	private Track _pista;
 	private Color bgcolor = Color.black;
+	private Image caratula = null;
 	
 	//private TransparentBackground fondo = null;
 
@@ -91,19 +93,18 @@ public class InterfazAvanzada extends JFrame {
 			
 		super("Monaaaaco"); // El título
 		//fondo = new TransparentBackground(this);
-		this.getContentPane().setLayout(new GridBagLayout()); // Le ponemos el
-		this.setUndecorated(false);														// GridBagLayout
+		this.getContentPane().setLayout(new GridBagLayout()); // Le ponemos elGridBagLayout
+		this.setUndecorated(false);						 
 		this.setSize(400, 200);
 		this.centrarVentana();
 		GridBagConstraints constraints = new GridBagConstraints();
 		pause = false;
 		
-		this.setEnabled(true);						//En la otra principal
-		this.setResizable(false);					//En la otra principal
 		this.setIconImage(monkeyIcon.getImage());	//En la otra principal AÑADIDO POR MI
 		this.setTitle("Monaaco Player");			//En la otra principal AÑADIDO POR MI
 		this.setJMenuBar(getBarraMenu());
 		this.getContentPane().setBackground(bgcolor);
+		this.setResizable(false);				
 		this.setEnabled(true);
 		this.setVisible(true);
 	
@@ -396,9 +397,31 @@ public class InterfazAvanzada extends JFrame {
 	private void setCurrentTrack(Track track) {
 		try {
 			 File f = new File(track.getLocation());
+			 /* TODO 
+			  * - poner la info en la interfaz en la interfaz;
+			  * - Se podria hacer que la esto se mostrara en una ventana semi trasparente 
+			  * similar a la del playlist, de forma que la info de cancion se muestre
+			  * durante unos segundos cuando hay un cambio de cancion.
+			  */
+			 caratula = track.getArtwork();
+			 JFrame info = new JFrame("Información");
+			 JPanel infoPanel = new JPanel(new FlowLayout());
+			 infoPanel.add(new JLabel((Icon)caratula));
+			 infoPanel.add(new JLabel(track.getArtist() + " - " + track.getName()
+					 	+ " (" + track.getAlbumArtist() +") "	) );
+			 infoPanel.setEnabled(true);
+			 infoPanel.setVisible(true);
+			 info.setEnabled(true);
+			 info.setVisible(true);
+			 info.add(infoPanel);
+			 info.setSize(500, 100);
+			 info.setLocationRelativeTo(null);
+			 /*
+			  * 
+			  * 
+			  * */
              if (mPlayer != null) {
                      mPlayer.stop();
-                     // TODO
              }
              mPlayer = new BasicPlayer();
              reproductorListener = new ReproductorListener(this);

@@ -17,6 +17,7 @@ public class ReproductorListener implements BasicPlayerListener{
 		//Nos devuelve el numero de bytes al abrir el archivo
 		if (arg1.containsKey("audio.length.bytes")) {
 			  bytesLength = Double.parseDouble(arg1.get("audio.length.bytes").toString());
+			  player.setBytesArchivo(bytesLength);
 			 }
 		player.ajustaBarraProgreso(bytesLength);
 		player.actualizaBarraProgreso(0);
@@ -26,6 +27,7 @@ public class ReproductorListener implements BasicPlayerListener{
 	public void progress(int bytesread, long microseconds, byte[] pcmdata,  Map properties) {
 		 float progressUpdate = (float) (bytesread * 1.0f / bytesLength * 1.0f);
 		 int progressNow = (int) (bytesLength * progressUpdate);
+		 
 		 System.out.println(" -&gt; " + progressNow +"    en segs= "+microseconds/1000);
 		 player.cambiaSegundos((microseconds/60000000) +":"+ ((microseconds/1000000)%60));
 		 player.actualizaBarraProgreso(progressNow);

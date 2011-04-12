@@ -14,10 +14,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.font.NumericShaper;
 import java.awt.geom.Ellipse2D;
 import java.io.File;
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.filechooser.FileFilter;
 
 import bibliotecaXML.Playlist;
@@ -71,6 +75,7 @@ public class InterfazAvanzada extends JFrame {
 	private JFrame principal;
 	private JFrame infoSongPanel;
 	private boolean pause;
+	private double bytesArchivoActual; 
 	private BasicPlayer mPlayer;
 	private ReproductorListener reproductorListener;
 	private String fileName = "sounds/prueba.mp3";
@@ -97,8 +102,10 @@ public class InterfazAvanzada extends JFrame {
 		this.setUndecorated(false);														// GridBagLayout
 		this.setSize(400, 200);
 		this.centrarVentana();
+		
 		GridBagConstraints constraints = new GridBagConstraints();
 		pause = false;
+		bytesArchivoActual =0;
 		
 		this.setEnabled(true);						//En la otra principal
 		this.setResizable(false);					//En la otra principal
@@ -239,7 +246,30 @@ public class InterfazAvanzada extends JFrame {
 		if(barraProgreso == null){
 			barraProgreso = new JSlider();
 			barraProgreso.setBackground(bgcolor);
-	        barraProgreso.addMouseListener(new java.awt.event.MouseAdapter(){
+			barraProgreso.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					// TODO Auto-generated method stub
+					double posH = e.getPoint().getX();
+					double ancho = barraProgreso.getWidth();
+					double MaxValor = barraProgreso.getMaximum();
+					double resultado =posH*MaxValor/ancho;
+					System.out.println("Posicion clicada: "+ posH);
+					System.out.println("Valor anterior: " + barraProgreso.getValue());
+					System.out.println("Ancho: " + ancho);
+					System.out.println("Maximo valor" + MaxValor);
+					System.out.println("Deberiamos apuntar el setValue a: " + resultado);
+					try {
+						mPlayer.seek((long) resultado);
+						barraProgreso.setValue((int)resultado );
+						System.out.println("Lo que nos devuelve : " + barraProgreso.getValue());
+					} catch (BasicPlayerException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+			});
+			/*barraProgreso.addMouseListener(new java.awt.event.MouseAdapter(){
 	            @Override
 	            public void mouseReleased(MouseEvent e) {
 	                int value = barraProgreso.getValue();
@@ -251,7 +281,7 @@ public class InterfazAvanzada extends JFrame {
 	                    e1.printStackTrace();
 	                }
 	            }
-	        });
+	        });*/
 		}
 	    return barraProgreso;
 	}
@@ -480,6 +510,10 @@ public class InterfazAvanzada extends JFrame {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void setBytesArchivo(double bytesLength) {
+		this.bytesArchivoActual = bytesLength;
 	}
 
 }

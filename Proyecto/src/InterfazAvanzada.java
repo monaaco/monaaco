@@ -63,7 +63,8 @@ public class InterfazAvanzada extends JFrame {
 	private JMenuItem previousItem = null;
 	
 	private JButton salirButton = null;
-	private JLabel etiqueta;
+	
+	private JLabel etiquetaLabel = null;
 	
 /*	// menu XML  Por si lo usaramos que esta en la otra playerInterface!
 	private JMenuItem bibliotecaMenu = null;
@@ -72,6 +73,7 @@ public class InterfazAvanzada extends JFrame {
 	private JMenu guardarMenu = null;
 	private JMenuItem guardarXML = null;
 */
+	
 	private JFrame principal;
 	private JFrame infoSongPanel;
 	private boolean pause;
@@ -80,7 +82,6 @@ public class InterfazAvanzada extends JFrame {
 	private ReproductorListener reproductorListener;
 	private String fileName = "sounds/prueba.mp3";
 	private Shape figura;
-	private Track _pista;
 	private Color bgcolor = Color.black;
 	
 	//private TransparentBackground fondo = null;
@@ -187,7 +188,7 @@ public class InterfazAvanzada extends JFrame {
 		if (barraMenu == null) {
 			barraMenu = new JMenuBar();
 			barraMenu.setBackground(bgcolor);
-			playerMenu = new JMenu("Menu");
+			playerMenu = new JMenu("Menú");
 			//playerMenu.setIcon(monkeyIcon);
 			playerMenu.add(getCargarArchivoItem());
 			playerMenu.add(getPreviousItem());
@@ -219,7 +220,7 @@ public class InterfazAvanzada extends JFrame {
                         fc.setFileFilter(new FiltroMP3());
                         fc.setFileFilter(new FiltroOGG());
                         fc.setFileFilter(new FiltroSoportados());
-                        fc.setMultiSelectionEnabled(true);//TODO esto como va?
+                        fc.setMultiSelectionEnabled(true);//TODO
                         if(fc.showOpenDialog(principal) == JFileChooser.APPROVE_OPTION) {
                         	File[] array = fc.getSelectedFiles();
                         	for(int i=0; i<array.length; i++){
@@ -263,7 +264,6 @@ public class InterfazAvanzada extends JFrame {
 						barraProgreso.setValue((int)resultado );
 						System.out.println("Lo que nos devuelve : " + barraProgreso.getValue());
 					} catch (BasicPlayerException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 				}
@@ -454,15 +454,22 @@ public class InterfazAvanzada extends JFrame {
              mPlayer = new BasicPlayer();
              reproductorListener = new ReproductorListener(this);
              
-              etiqueta=new JLabel(track.getArtist() + " - " + track.getName()
-					 	+ " (" + track.getAlbumArtist() +") "	 );
-              GridBagConstraints position = new GridBagConstraints();
-              position.gridx = 2;
-              position.gridy = 5;
-              position.fill = GridBagConstraints.HORIZONTAL;
-              position.gridheight = 1;
-             etiqueta.setForeground(Color.ORANGE);
-      			this.getContentPane().add(etiqueta, position);
+             //Actualizacion etiqueta info
+             if ( etiquetaLabel == null ){
+            	 etiquetaLabel = new JLabel();
+	             GridBagConstraints position = new GridBagConstraints();
+	             position.gridx = 2;
+	             position.gridy = 5;
+	             position.fill = GridBagConstraints.HORIZONTAL;
+	             position.gridheight = 1;
+	             etiquetaLabel.setForeground(Color.ORANGE);
+	      		 this.getContentPane().add(etiquetaLabel, position);
+	      	 }
+             etiquetaLabel.setText(track.getArtist() + " - " 
+            		 				+ track.getName()
+            		 				+ " (" + track.getAlbumArtist() +") "	 );
+
+
              mPlayer.addBasicPlayerListener(reproductorListener);
              mPlayer.open(f);
 
@@ -483,11 +490,11 @@ public class InterfazAvanzada extends JFrame {
 	public void cambiaSegundos(String texto) {
 		segundero.setText(texto);
 		if(posTag == 400){
-			posTag=0-etiqueta.getSize().width;
+			posTag = 0 - etiquetaLabel.getSize().width;
 		}
 		else 
 			posTag++;
-			etiqueta.setLocation(posTag,(int) etiqueta.getLocation().getY());
+			etiquetaLabel.setLocation(posTag,(int) etiquetaLabel.getLocation().getY());
 		
 	}
 	

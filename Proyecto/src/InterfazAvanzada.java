@@ -74,7 +74,7 @@ public class InterfazAvanzada extends JFrame {
 	private ReproductorListener reproductorListener;
 	private String fileName = "sounds/prueba.mp3";
 	private Shape figura;
-	
+	private Track _pista;
 	private Color bgcolor = Color.black;
 	
 	//private TransparentBackground fondo = null;
@@ -92,7 +92,7 @@ public class InterfazAvanzada extends JFrame {
 		super("Monaaaaco"); // El título
 		//fondo = new TransparentBackground(this);
 		this.getContentPane().setLayout(new GridBagLayout()); // Le ponemos el
-		this.setUndecorated(true);														// GridBagLayout
+		this.setUndecorated(false);														// GridBagLayout
 		this.setSize(400, 200);
 		this.centrarVentana();
 		GridBagConstraints constraints = new GridBagConstraints();
@@ -104,13 +104,13 @@ public class InterfazAvanzada extends JFrame {
 		this.setTitle("Monaaco Player");			//En la otra principal AÑADIDO POR MI
 		this.setJMenuBar(getBarraMenu());
 		this.getContentPane().setBackground(bgcolor);
+		this.setEnabled(true);
 		this.setVisible(true);
-		String[] temas= {"1-Probando","1-Probando","1-Probando","1-Probando","1-Probando","1-Probando"};
+	
+		
+		_pista = new Track(fileName);
+		String[] temas= {_pista.getArtist()+("-")+_pista.getName()};
 		info = new SongInterfaz(temas);
-		
-		JFrame.setDefaultLookAndFeelDecorated(true);
-		AWTUtilities.setWindowOpacity(info, (float) 0.6);
-		
 		
 		
 		stopButton = getStopButton();
@@ -150,7 +150,7 @@ public class InterfazAvanzada extends JFrame {
 		constraints.gridheight = 1;
 		// constraints.weighty = 1.0; // La fila 0 debe estirarse, le ponemos un
 		// 1.0
-		// constraints.fill = GridBagConstraints.BOTH;
+		 constraints.fill = GridBagConstraints.BOTH;
 		this.getContentPane().add(barraProgreso, constraints);
 		// constraints.weighty = 0.0; // Restauramos al valor por defecto, para
 		// no afectar a los siguientes componentes.
@@ -178,6 +178,7 @@ public class InterfazAvanzada extends JFrame {
 		// TODO más elementos ¿e iconos?
 		if (barraMenu == null) {
 			barraMenu = new JMenuBar();
+			barraMenu.setBackground(bgcolor);
 			playerMenu = new JMenu("Menu");
 			//playerMenu.setIcon(monkeyIcon);
 			playerMenu.add(getCargarArchivoItem());
@@ -216,6 +217,10 @@ public class InterfazAvanzada extends JFrame {
                         	System.out.println(f.getAbsolutePath());
                             listaReproduccion.add(f.getAbsolutePath());
                             setCurrentTrack(listaReproduccion.current());
+                            
+                            String[] temas = listaReproduccion.getListado();
+                            info.actualizaTemas(temas);
+                           
                             mPlayer.play();
                             /* TODO
                              * -crear un objeto Track con la ruta del archivo cargado

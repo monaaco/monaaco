@@ -41,9 +41,19 @@ public class Playlist {
 	}
 	
 	public String[] getListado(){
-		//String[] array;
+		int tamaño =this.getNumTracks();
+		String[] array = new String[tamaño];
+		Track aux = null;
+		int pos=0;
+		Iterator it = lista.iterator();
+		while (it.hasNext()){
+			aux = (Track)it.next();
+			String nombre = aux.getArtist()+("-")+aux.getName();
+			array[pos] = nombre;
+			pos++;
+		}
 		//TODO Recorrer e ir guardando en el array.
-		return null;
+		return array;
 	}
 	
 	
@@ -111,7 +121,7 @@ public class Playlist {
 
 	public void clear()
 	{
-		for (Iterator it = lista.iterator(); it.hasNext();){
+		for (Iterator it = lista.iterator(); it.hasNext();){ //xq un for????
 			Track track = (Track) it.next();
 			//fireEntryRemovedEvent(track);
 		}
@@ -139,6 +149,9 @@ public class Playlist {
 		}
 
 		return track;
+	}
+	public int getNumTracks(){
+		return lista.size();
 	}
 
 	private boolean hasNext() {
@@ -190,5 +203,6 @@ public class Playlist {
 	public void setRandom(boolean b) {
 		random = b;
 	}
+	
 
 }

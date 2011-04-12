@@ -7,6 +7,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JList;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -21,19 +22,22 @@ import com.sun.awt.AWTUtilities;
 public class SongInterfaz extends JFrame{
 	
 	
+	private JFrame principal;
 	private JList listado;
 	private Dimension pantalla = null;
 	private Dimension ventana = null;
 	private JScrollPane scroll=null;
 	private BotonAvanzado minButton = null;
-	private ImageIcon minIcon1 = new ImageIcon("images/minSongIcon4.jpg");
-	private ImageIcon minIcon2 = new ImageIcon("images/minSongIcon4.jpg");
+	private ImageIcon minIcon1 = new ImageIcon("images/skin1/minIcon1.jpg");
+	private ImageIcon minIcon2 = new ImageIcon("images/skin1/minIcon2.jpg");
+	
 	
 	public SongInterfaz(String[] temas){
 		
 		super("Listado de Canciones");
 		pantalla = Toolkit.getDefaultToolkit().getScreenSize();
 		ventana = this.getSize();
+		principal = this;
 		this.setSize(200, pantalla.height-200);	
 		this.centrarVentana();
 		//this.setResizable(false);					//En la otra principal
@@ -50,11 +54,24 @@ public class SongInterfaz extends JFrame{
 		this.getContentPane().add(minButton, BorderLayout.SOUTH);
 		this.setVisible(true);
 		
+		//JFrame.setDefaultLookAndFeelDecorated(true);
+		AWTUtilities.setWindowOpacity(this, (float) 0.3);
+		
 	}
+		
 	private JList  getListado(String[] temas){
 		listado = new JList(temas);
-		listado.setSize(300, pantalla.height);
-		listado.setBackground(null);
+		listado.setSize(100, pantalla.height);
+		listado.setBackground(Color.black);
+		listado.addMouseListener(new java.awt.event.MouseAdapter() {
+			public void mouseEntered(java.awt.event.MouseEvent evt) {
+				AWTUtilities.setWindowOpacity(principal, (float)0.9);
+			}
+			public void mouseExited(java.awt.event.MouseEvent evt) {
+				AWTUtilities.setWindowOpacity(principal, (float) 0.3);
+			}
+		
+		});
 		
 		/*list.addListSelectionListener(new ListSelectionListener(){
 			public void valueChanged(ListSelectionEvent e){
@@ -72,6 +89,10 @@ public class SongInterfaz extends JFrame{
 	/*protected void this_windowOpened(WindowEvent e) {
         centrarVentana();
 	}*/
+	public void actualizaTemas(String[] temas){
+		listado.setListData(temas);
+				
+	}
 	
 	private BotonAvanzado getMinButton(){
 		minButton = new BotonAvanzado(minIcon1,minIcon2);

@@ -59,7 +59,7 @@ public class InterfazAvanzada extends JFrame {
 	private JMenuItem previousItem = null;
 	
 	private JButton salirButton = null;
-	
+	private JLabel etiqueta;
 	
 /*	// menu XML  Por si lo usaramos que esta en la otra playerInterface!
 	private JMenuItem bibliotecaMenu = null;
@@ -84,6 +84,7 @@ public class InterfazAvanzada extends JFrame {
 	private Playlist listaReproduccion = null;
 	private Image caratula = null;
 
+	private int posTag=0;
 	
 	
 	
@@ -147,7 +148,7 @@ public class InterfazAvanzada extends JFrame {
 		constraints.gridheight = 1;
 		// constraints.weighty = 1.0; // La fila 0 debe estirarse, le ponemos un
 		// 1.0
-		 constraints.fill = GridBagConstraints.BOTH;
+		 constraints.fill = GridBagConstraints.HORIZONTAL;
 		this.getContentPane().add(barraProgreso, constraints);
 		// constraints.weighty = 0.0; // Restauramos al valor por defecto, para
 		// no afectar a los siguientes componentes.
@@ -416,11 +417,23 @@ public class InterfazAvanzada extends JFrame {
 			  * 
 			  * 
 			  * */
+			 
+			 
              if (mPlayer != null) {
                      mPlayer.stop();
              }
              mPlayer = new BasicPlayer();
              reproductorListener = new ReproductorListener(this);
+             
+              etiqueta=new JLabel(track.getArtist() + " - " + track.getName()
+					 	+ " (" + track.getAlbumArtist() +") "	 );
+              GridBagConstraints position = new GridBagConstraints();
+              position.gridx = 2;
+              position.gridy = 5;
+              position.fill = GridBagConstraints.HORIZONTAL;
+              position.gridheight = 1;
+             etiqueta.setForeground(Color.ORANGE);
+      			this.getContentPane().add(etiqueta, position);
              mPlayer.addBasicPlayerListener(reproductorListener);
              mPlayer.open(f);
 
@@ -440,6 +453,13 @@ public class InterfazAvanzada extends JFrame {
 
 	public void cambiaSegundos(String texto) {
 		segundero.setText(texto);
+		if(posTag == 400){
+			posTag=0-etiqueta.getSize().width;
+		}
+		else 
+			posTag++;
+			etiqueta.setLocation(posTag,(int) etiqueta.getLocation().getY());
+		
 	}
 	
 	private void centrarVentana() {

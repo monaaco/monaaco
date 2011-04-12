@@ -180,7 +180,6 @@ public class InterfazAvanzada extends JFrame {
 		
         String[] temas = listaReproduccion.getListado();
 		info = new SongInterfaz(temas,this);
-		
 	}
 	
 	private JMenuBar getBarraMenu() {
@@ -222,16 +221,16 @@ public class InterfazAvanzada extends JFrame {
                         fc.setFileFilter(new FiltroSoportados());
                         fc.setMultiSelectionEnabled(true);//TODO esto como va?
                         if(fc.showOpenDialog(principal) == JFileChooser.APPROVE_OPTION) {
-                        	File f = fc.getSelectedFile();
-                        	System.out.println(f.getAbsolutePath());
-                            listaReproduccion.add(f.getAbsolutePath());
-                            setCurrentTrack(listaReproduccion.current());
-                            
-                            String[] temas = listaReproduccion.getListado();
-                            info.actualizaTemas(temas);
-                           
-                            mPlayer.play();
-
+                        	File[] array = fc.getSelectedFiles();
+                        	for(int i=0; i<array.length; i++){
+                        		File f = array[i];
+                        		System.out.println(f.getAbsolutePath());
+                                listaReproduccion.add(f.getAbsolutePath());
+                                setCurrentTrack(listaReproduccion.current());
+                                
+                                String[] temas = listaReproduccion.getListado();
+                                info.actualizaTemas(temas);
+                        	}
                         }
                     } catch (/* BasicPlayer */Exception e1) {
                         e1.printStackTrace();

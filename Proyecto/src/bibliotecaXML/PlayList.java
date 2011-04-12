@@ -52,7 +52,6 @@ public class Playlist {
 			array[pos] = nombre;
 			pos++;
 		}
-		//TODO Recorrer e ir guardando en el array.
 		return array;
 	}
 	

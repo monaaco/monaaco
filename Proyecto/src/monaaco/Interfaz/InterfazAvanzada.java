@@ -52,7 +52,7 @@ public class InterfazAvanzada extends JFrame {
 	private JPanel infoPanel = null;
 	
 	
-	private JLabel etiqueta = null;
+	private JLabel infoSongLabel = null;
 	
 /*	// menu XML  Por si lo usaramos que esta en la otra playerInterface!
 	private JMenuItem bibliotecaMenu = null;
@@ -106,36 +106,32 @@ public class InterfazAvanzada extends JFrame {
 		this.setVisible(true);
 	
 		
-		
-		stopButton = getStopButton();
 		constraints.gridx = 2;
 		constraints.gridy = 0;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
 		constraints.weightx = 1.0;
 		constraints.fill = GridBagConstraints.EAST;
-		this.getContentPane().add(stopButton, constraints);
+		this.getContentPane().add(getStopButton(), constraints);
 
-		playButton = getPlayButton(); // new JButton(playIcon);
 		constraints.gridx = 1;
 		constraints.gridy = 0;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
 		constraints.weightx = 1.0;
 		constraints.fill = GridBagConstraints.CENTER;
-		this.getContentPane().add(playButton, constraints);
+		this.getContentPane().add(getPlayButton(), constraints);
 
-		pauseButton = getPauseButton(); // JButton pauseButton = new
-		// JButton(pauseIcon);
 		constraints.gridx = 0;
 		constraints.gridy = 0;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
 		constraints.weightx = 1.0;
 		constraints.fill = GridBagConstraints.WEST;
-		this.getContentPane().add(pauseButton, constraints);
+		this.getContentPane().add(getPauseButton(), constraints);
 		constraints.weightx = 0.0;
 
+		//TODO getSegundero
 		segundero = new JLabel("0:00");
 		segundero.setForeground(Color.blue);
 		constraints.gridx = 1;
@@ -146,25 +142,22 @@ public class InterfazAvanzada extends JFrame {
 		this.getContentPane().add(segundero, constraints);
 
 		
-		barraProgreso = getBarraProgreso();
 		constraints.gridx = 0;
 		constraints.gridy = 2;
 		constraints.gridwidth = 3;
 		constraints.gridheight = 1;
 		constraints.fill = GridBagConstraints.BOTH;
-		this.getContentPane().add(barraProgreso, constraints);
+		this.getContentPane().add(getBarraProgreso(), constraints);
 		// constraints.weighty = 0.0; // Restauramos al valor por defecto, para
 		// no afectar a los siguientes componentes.
-		
-		etiqueta=new JLabel("Monaaaco Player");
-		etiqueta.setForeground(Color.ORANGE);
+
 		GridBagConstraints position = new GridBagConstraints();
-		position.gridx = 0;
-		position.gridy = 3;
-		position.gridheight = 1;
-		position.gridwidth = 3;
-		position.fill = GridBagConstraints.HORIZONTAL;
-		this.getContentPane().add(etiqueta, position);
+       	position.gridx = 0;
+       	position.gridy = 3;
+       	position.gridheight = 1;
+       	position.gridwidth = 3;
+       	position.fill = GridBagConstraints.HORIZONTAL;
+      	this.getContentPane().add(getInfoSongLabel(), position);
 		
 		
 		/*info = getInfo();
@@ -188,6 +181,14 @@ public class InterfazAvanzada extends JFrame {
         infoPlaylist = new SongInterfaz(temas,this);
 	}
 	
+	private Component getInfoSongLabel() {
+		if(infoSongLabel == null) {
+			infoSongLabel=new JLabel("Monaaaco Player");
+			infoSongLabel.setForeground(Color.ORANGE);
+		}
+		return infoSongLabel;
+	}
+
 	private JMenuBar getBarraMenu() {
 		// TODO más elementos ¿e iconos?
 		if (barraMenu == null) {
@@ -232,7 +233,6 @@ public class InterfazAvanzada extends JFrame {
                         	File[] array = fc.getSelectedFiles();
                         	for(int i=0; i<array.length; i++){
                         		File f = array[i];
-                        		System.out.println(f.getAbsolutePath());
                                 listaReproduccion.add(f.getAbsolutePath());
 
                         	}
@@ -428,6 +428,11 @@ public class InterfazAvanzada extends JFrame {
 		return previousItem;
 	}
 
+	
+	/**
+	 * 
+	 * @param track con la que se crea el BasicPlayer
+	 */
 	private void setCurrentTrack(Track track) {
 		try {
 			 File f = new File(track.getLocation());
@@ -438,7 +443,6 @@ public class InterfazAvanzada extends JFrame {
 			  * durante unos segundos cuando hay un cambio de cancion.
 			  * - Resaltar la cancion actual en el playlist (Songinterfaz)
 			  *
-			 posTag=0-etiqueta.getSize().width;
 			 caratula = track.getArtwork();
 			 infoFrame = new JFrame("Información");
 			 infoFrame.dispose();
@@ -467,21 +471,15 @@ public class InterfazAvanzada extends JFrame {
              }
              mPlayer = new BasicPlayer();
              reproductorListener = new ReproductorListener(this);
-             etiqueta.setText(null);
-             etiqueta=new JLabel(track.getArtist() + " - " + track.getName()
+             mPlayer.addBasicPlayerListener(reproductorListener);
+             mPlayer.open(f);   
+             
+             posTag = 0-infoSongLabel.getSize().width;
+             infoSongLabel.setText(null);
+             infoSongLabel.setText(track.getArtist() + " - " + track.getName()
 					 	+ " (" + track.getAlbumArtist() +") "	 );
-             etiqueta.setForeground(Color.ORANGE);
-            
-             GridBagConstraints position = new GridBagConstraints();
-              position.gridx = 0;
-              position.gridy = 3;
-              position.gridheight = 1;
-              position.gridwidth = 3;
-              position.fill = GridBagConstraints.HORIZONTAL;
-              this.getContentPane().add(etiqueta, position);
-            
-              mPlayer.addBasicPlayerListener(reproductorListener);
-              mPlayer.open(f);
+         
+
 
      } catch (Exception e) {
              System.err.printf("%s\n", e.getMessage());
@@ -500,11 +498,11 @@ public class InterfazAvanzada extends JFrame {
 	public void cambiaSegundos(String texto) {
 		segundero.setText(texto);
 		if(posTag == 400){
-			posTag=0-etiqueta.getSize().width;
+			posTag=0-infoSongLabel.getSize().width;
 		}
 		else 
 			posTag++;
-			etiqueta.setLocation(posTag,(int) etiqueta.getLocation().getY());
+			infoSongLabel.setLocation(posTag,(int) infoSongLabel.getLocation().getY());
 		
 	}
 	

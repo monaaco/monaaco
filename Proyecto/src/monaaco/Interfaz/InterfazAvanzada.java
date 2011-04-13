@@ -48,8 +48,6 @@ public class InterfazAvanzada extends JFrame {
 	private JMenuItem salirItem = null;
 	private JMenuItem nextItem = null;
 	private JMenuItem previousItem = null;
-	private JFrame infoFrame = null;
-	private JPanel infoPanel = null;
 	
 	
 	private JLabel infoSongLabel = null;
@@ -178,9 +176,7 @@ public class InterfazAvanzada extends JFrame {
 	private void getDefaultPalyList() {
 		listaReproduccion = new Playlist();
 		listaReproduccion.setRepeat(true);
-		listaReproduccion.add("sounds/prueba.mp3"); 
 		listaReproduccion.add("sounds/prueba2.ogg"); 
-		//listaReproduccion.add("sounds/prueba3.mp3"); 
 		setCurrentTrack(listaReproduccion.current());
 		
 	}
@@ -480,7 +476,9 @@ public class InterfazAvanzada extends JFrame {
              infoSongLabel.setText(null);
              infoSongLabel.setText(track.getArtist() + " - " + track.getName()
 					 	+ " (" + track.getAlbumArtist() +") "	 );
-         
+             
+             
+             infoSong = new SongInfoInterfaz(track);
 
 
      } catch (Exception e) {

@@ -19,14 +19,17 @@ public class SongInfoInterfaz extends JFrame {
 	private Dimension pantalla = null;
 	private Dimension ventana = null;
 
-	
+	private JPanel caratulaPanel = null;
+	private JPanel infoPanel = null;
+
 	private Track track = null;
 
 	
 	/**
 	 *  @param track de la que hay que mostrar la info 
+	 *  @throws InterruptedException 
 	 */
-	public SongInfoInterfaz(Track track){
+	public SongInfoInterfaz(Track track) throws InterruptedException{
 		super("Reproduciendo");
 		this.track = track;
 		this.interfazAvanzada = interfazAvanzada;
@@ -35,36 +38,50 @@ public class SongInfoInterfaz extends JFrame {
 		pantalla = Toolkit.getDefaultToolkit().getScreenSize();
 		ventana = this.getSize();
 		principal = this;
-		principal.setSize(200, pantalla.height-200);	
+		principal.setSize(pantalla.width,50);	
 		this.colocarVentana();
 		
 		principal.getContentPane().setLayout(new BorderLayout());
 		principal.setUndecorated(true);
 		principal.getContentPane().setBackground(Color.black);
-		/*
-		this.scroll = new JScrollPane();
-		principal.getContentPane().add(scroll,BorderLayout.EAST);
+		
+
+		principal.getContentPane().add(getCaratulaPanel(),BorderLayout.WEST);
+		principal.getContentPane().add(getInfoPanel(), BorderLayout.CENTER);
+
 		principal.setEnabled(true);	
-		listado = getListado(temas);
-		principal.getContentPane().add(listado, BorderLayout.CENTER);
 		principal.setAlwaysOnTop(true);
-		this.minButton = getMinButton();
-		principal.getContentPane().add(minButton, BorderLayout.SOUTH);
-		*/
-		principal.setVisible(true);
 		principal.setResizable(false);
 		
+		principal.setVisible(true);
 		//cerrar a los 5 min
-
+		
 	}
 	
+	private JPanel getInfoPanel() {
+		if(infoPanel == null){
+			infoPanel = new JPanel(new FlowLayout());
+			infoPanel.add(new JLabel(" Artist: " +track.getArtist()
+										+ " Title: " + track.getName()));
+		}
+		return infoPanel;
+	}
+
+	private JPanel getCaratulaPanel() {
+		if(caratulaPanel == null){
+			caratulaPanel = new JPanel();
+			principal.getGraphics().drawImage(track.getArtwork(), 0, 0, null);
+		}
+		return caratulaPanel;
+	}
+
 	private void colocarVentana() {
         // Se obtienen las dimensiones en pixels de la pantalla.
-        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+        //Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
         // Se obtienen las dimensiones en pixels de la ventana.
-        Dimension ventana = principal.getSize();
+        //Dimension ventana = principal.getSize();
         // Una cuenta para situar la ventana en el centro de la pantalla.
-        principal.setLocation(pantalla.width / 2, 0);
+        principal.setLocation(0, 0);
 	}
 	
 }

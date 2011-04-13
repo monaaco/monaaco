@@ -1,18 +1,12 @@
 package monaaco.Interfaz;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
-import javax.print.DocFlavor.URL;
 import javax.swing.ImageIcon;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JWindow;
 import javax.swing.UIManager;
@@ -21,7 +15,11 @@ import javazoom.jlgui.basicplayer.BasicPlayer;
 
 public class Launcher extends JWindow {
 
-	  BorderLayout borderLayout1 = new BorderLayout();
+	  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	BorderLayout borderLayout1 = new BorderLayout();
 	  JLabel imageLabel = new JLabel();
 	  JPanel southPanel = new JPanel();
 	  

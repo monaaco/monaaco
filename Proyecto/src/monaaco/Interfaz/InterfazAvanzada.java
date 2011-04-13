@@ -31,7 +31,7 @@ public class InterfazAvanzada extends JFrame {
 	
 	private JFrame principal = null;
 	private SongInterfaz infoPlaylist = null;
-	private SongInfo infoSong = null;
+	private SongInfoInterfaz infoSong = null;
 
 	private BotonAvanzado stopButton = null;
 	private BotonAvanzado pauseButton = null;
@@ -65,7 +65,6 @@ public class InterfazAvanzada extends JFrame {
 	private double bytesArchivoActual; 
 	private BasicPlayer mPlayer;
 	private ReproductorListener reproductorListener;
-	private String fileName = "sounds/prueba.mp3";
 	private Shape figura;
 	private Track _pista;
 	private Color bgcolor = Color.black;
@@ -170,18 +169,23 @@ public class InterfazAvanzada extends JFrame {
 		this.getContentPane().add(info, constraints);
 		constraints.weighty = 0.0;*/
 		
-
-		listaReproduccion = new Playlist();
-		listaReproduccion.setRepeat(true);
-		listaReproduccion.add(fileName); //añadir archivo
-		setCurrentTrack(listaReproduccion.current());
-		listaReproduccion.add("sounds/mic_check.mp3"); //añadir archivo
-		
+      	getDefaultPalyList();
         String[] temas = listaReproduccion.getListado();
         infoPlaylist = new SongInterfaz(temas,this);
+        
 	}
 	
-	private Component getInfoSongLabel() {
+	private void getDefaultPalyList() {
+		listaReproduccion = new Playlist();
+		listaReproduccion.setRepeat(true);
+		listaReproduccion.add("sounds/prueba.mp3"); 
+		listaReproduccion.add("sounds/prueba2.ogg"); 
+		//listaReproduccion.add("sounds/prueba3.mp3"); 
+		setCurrentTrack(listaReproduccion.current());
+		
+	}
+
+	private JLabel getInfoSongLabel() {
 		if(infoSongLabel == null) {
 			infoSongLabel=new JLabel("Monaaaco Player");
 			infoSongLabel.setForeground(Color.ORANGE);
@@ -257,7 +261,6 @@ public class InterfazAvanzada extends JFrame {
 			barraProgreso.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseReleased(MouseEvent e) {
-					// TODO Auto-generated method stub
 					double posH = e.getPoint().getX();
 					double ancho = barraProgreso.getWidth();
 					double MaxValor = barraProgreso.getMaximum();
@@ -272,7 +275,6 @@ public class InterfazAvanzada extends JFrame {
 						barraProgreso.setValue((int)resultado );
 						System.out.println("Lo que nos devuelve : " + barraProgreso.getValue());
 					} catch (BasicPlayerException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 				}

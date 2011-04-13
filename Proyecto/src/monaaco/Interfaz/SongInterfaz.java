@@ -32,21 +32,21 @@ public class SongInterfaz extends JFrame{
 		pantalla = Toolkit.getDefaultToolkit().getScreenSize();
 		ventana = this.getSize();
 		principal = this;
-		this.setSize(200, pantalla.height-200);	
+		principal.setSize(200, pantalla.height-200);	
 		this.centrarVentana();
 		//this.setResizable(false);					//En la otra principal
-		this.getContentPane().setLayout(new BorderLayout());
-		this.setUndecorated(true);
-		this.getContentPane().setBackground(Color.black);
+		principal.getContentPane().setLayout(new BorderLayout());
+		principal.setUndecorated(true);
+		principal.getContentPane().setBackground(Color.black);
 		this.scroll = new JScrollPane();
-		this.getContentPane().add(scroll,BorderLayout.EAST);
-		this.setEnabled(true);	
-		listado=getListado(temas);
-		this.getContentPane().add(listado, BorderLayout.CENTER);
-		this.setAlwaysOnTop(true);
+		principal.getContentPane().add(scroll,BorderLayout.EAST);
+		principal.setEnabled(true);	
+		listado = getListado(temas);
+		principal.getContentPane().add(listado, BorderLayout.CENTER);
+		principal.setAlwaysOnTop(true);
 		this.minButton = getMinButton();
-		this.getContentPane().add(minButton, BorderLayout.SOUTH);
-		this.setVisible(true);
+		principal.getContentPane().add(minButton, BorderLayout.SOUTH);
+		principal.setVisible(true);
 		
 		//JFrame.setDefaultLookAndFeelDecorated(true);
 		AWTUtilities.setWindowOpacity(this, (float) 0.3);
@@ -117,9 +117,9 @@ public class SongInterfaz extends JFrame{
         // Se obtienen las dimensiones en pixels de la pantalla.
         Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
         // Se obtienen las dimensiones en pixels de la ventana.
-        Dimension ventana = this.getSize();
+        Dimension ventana = principal.getSize();
         // Una cuenta para situar la ventana en el centro de la pantalla.
-        this.setLocation((pantalla.width)-200,
+        principal.setLocation((pantalla.width)-200,
                         (pantalla.height - ventana.height) / 2);
 	}
 	

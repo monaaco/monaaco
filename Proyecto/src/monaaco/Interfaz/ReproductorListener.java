@@ -1,6 +1,8 @@
 package monaaco.Interfaz;
 import java.util.Map;
 
+import monaaco.bibliotecaXML.Track;
+
 import javazoom.jlgui.basicplayer.BasicController;
 import javazoom.jlgui.basicplayer.BasicPlayerEvent;
 import javazoom.jlgui.basicplayer.BasicPlayerListener;
@@ -28,7 +30,6 @@ public class ReproductorListener implements BasicPlayerListener{
 	public void progress(int bytesread, long microseconds, byte[] pcmdata,  Map properties) {
 		 float progressUpdate = (float) (bytesread * 1.0f / bytesLength * 1.0f);
 		 int progressNow = (int) (bytesLength * progressUpdate);
-		 
 		 System.out.println(" -&gt; " + progressNow +"    en segs= "+microseconds/1000);
 		 player.cambiaSegundos((microseconds/60000000) +":"+ ((microseconds/1000000)%60));
 		 player.actualizaBarraProgreso(progressNow);

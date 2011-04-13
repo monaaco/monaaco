@@ -61,10 +61,12 @@ public class InterfazAvanzada extends JFrame {
 	private JMenuItem salirItem = null;
 	private JMenuItem nextItem = null;
 	private JMenuItem previousItem = null;
+	private JFrame infoFrame = null;
+	private JPanel infoPanel = null;
+	
 	
 	private JButton salirButton = null;
-	
-	private JLabel etiquetaLabel = null;
+	private JLabel etiqueta = null;
 	
 /*	// menu XML  Por si lo usaramos que esta en la otra playerInterface!
 	private JMenuItem bibliotecaMenu = null;
@@ -73,7 +75,6 @@ public class InterfazAvanzada extends JFrame {
 	private JMenu guardarMenu = null;
 	private JMenuItem guardarXML = null;
 */
-	
 	private JFrame principal;
 	private JFrame infoSongPanel;
 	private boolean pause;
@@ -82,6 +83,7 @@ public class InterfazAvanzada extends JFrame {
 	private ReproductorListener reproductorListener;
 	private String fileName = "sounds/prueba.mp3";
 	private Shape figura;
+	private Track _pista;
 	private Color bgcolor = Color.black;
 	
 	//private TransparentBackground fondo = null;
@@ -89,6 +91,9 @@ public class InterfazAvanzada extends JFrame {
 	//Playlist:
 	private Playlist listaReproduccion = null;
 	private Image caratula = null;
+	private Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+     // Se obtienen las dimensiones en pixels de la ventana.
+    private Dimension ventana = this.getSize();
 
 	private int posTag=0;
 	
@@ -120,46 +125,63 @@ public class InterfazAvanzada extends JFrame {
 		
 		
 		stopButton = getStopButton();
-		constraints.gridx = 3;
+		constraints.gridx = 2;
 		constraints.gridy = 0;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
+		constraints.weightx = 1.0;
+		constraints.fill = GridBagConstraints.EAST;
 		this.getContentPane().add(stopButton, constraints);
 
-		segundero = new JLabel("0:00");
-		segundero.setForeground(Color.blue);
-		constraints.gridx = 2;
-		constraints.gridy = 1;
-		constraints.gridwidth = 1;
-		constraints.gridheight = 1;
-		this.getContentPane().add(segundero, constraints);
-
-		pauseButton = getPauseButton(); // JButton pauseButton = new
-										// JButton(pauseIcon);
+		playButton = getPlayButton(); // new JButton(playIcon);
 		constraints.gridx = 1;
 		constraints.gridy = 0;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
-		this.getContentPane().add(pauseButton, constraints);
+		constraints.weightx = 1.0;
+		constraints.fill = GridBagConstraints.CENTER;
+		this.getContentPane().add(playButton, constraints);
 
-		playButton = getPlayButton(); // new JButton(playIcon);
-		constraints.gridx = 2;
+		pauseButton = getPauseButton(); // JButton pauseButton = new
+		// JButton(pauseIcon);
+		constraints.gridx = 0;
 		constraints.gridy = 0;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
-		this.getContentPane().add(playButton, constraints);
+		constraints.weightx = 1.0;
+		constraints.fill = GridBagConstraints.WEST;
+		this.getContentPane().add(pauseButton, constraints);
+		constraints.weightx = 0.0;
 
-		barraProgreso = getBarraProgreso();
-		constraints.gridx = 2;
-		constraints.gridy = 3;
+		segundero = new JLabel("0:00");
+		segundero.setForeground(Color.blue);
+		constraints.gridx = 1;
+		constraints.gridy = 1;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
-		// constraints.weighty = 1.0; // La fila 0 debe estirarse, le ponemos un
-		// 1.0
-		 constraints.fill = GridBagConstraints.HORIZONTAL;
+		constraints.fill = GridBagConstraints.CENTER;
+		this.getContentPane().add(segundero, constraints);
+
+		
+		barraProgreso = getBarraProgreso();
+		constraints.gridx = 0;
+		constraints.gridy = 2;
+		constraints.gridwidth = 3;
+		constraints.gridheight = 1;
+		constraints.fill = GridBagConstraints.BOTH;
 		this.getContentPane().add(barraProgreso, constraints);
 		// constraints.weighty = 0.0; // Restauramos al valor por defecto, para
 		// no afectar a los siguientes componentes.
+		
+		etiqueta=new JLabel("Monaaaco Player");
+		etiqueta.setForeground(Color.ORANGE);
+		GridBagConstraints position = new GridBagConstraints();
+		position.gridx = 0;
+		position.gridy = 3;
+		position.gridheight = 1;
+		position.gridwidth = 3;
+		position.fill = GridBagConstraints.HORIZONTAL;
+		this.getContentPane().add(etiqueta, position);
 		
 		
 		/*info = getInfo();
@@ -188,7 +210,8 @@ public class InterfazAvanzada extends JFrame {
 		if (barraMenu == null) {
 			barraMenu = new JMenuBar();
 			barraMenu.setBackground(bgcolor);
-			playerMenu = new JMenu("Menú");
+			barraMenu.setBorderPainted(false);
+			playerMenu = new JMenu("Menu");
 			//playerMenu.setIcon(monkeyIcon);
 			playerMenu.add(getCargarArchivoItem());
 			playerMenu.add(getPreviousItem());
@@ -242,6 +265,7 @@ public class InterfazAvanzada extends JFrame {
         return cargarArchivoItem;
     }
 
+
 	public JSlider getBarraProgreso(){
 		if(barraProgreso == null){
 			barraProgreso = new JSlider();
@@ -264,6 +288,7 @@ public class InterfazAvanzada extends JFrame {
 						barraProgreso.setValue((int)resultado );
 						System.out.println("Lo que nos devuelve : " + barraProgreso.getValue());
 					} catch (BasicPlayerException e1) {
+						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 				}
@@ -429,19 +454,24 @@ public class InterfazAvanzada extends JFrame {
 			  * durante unos segundos cuando hay un cambio de cancion.
 			  * - Resaltar la cancion actual en el playlist (Songinterfaz)
 			  */
+			 posTag=0-etiqueta.getSize().width;
 			 caratula = track.getArtwork();
-			 JFrame info = new JFrame("Información");
-			 JPanel infoPanel = new JPanel(new FlowLayout());
+			 infoFrame = new JFrame("Información");
+			 infoFrame.dispose();
+			
+			 infoFrame = new JFrame("Información");
+			 infoPanel = new JPanel(new FlowLayout());
 			 infoPanel.add(new JLabel((Icon)caratula));
 			 infoPanel.add(new JLabel(track.getArtist() + " - " + track.getName()
 					 	+ " (" + track.getAlbumArtist() +") "	) );
 			 infoPanel.setEnabled(true);
 			 infoPanel.setVisible(true);
-			 info.setEnabled(true);
-			 info.setVisible(true);
-			 info.add(infoPanel);
-			 info.setSize(500, 100);
-			 info.setLocationRelativeTo(null);
+			 infoFrame.setEnabled(true);
+			 infoFrame.setVisible(true);
+			 infoFrame.add(infoPanel);
+			 infoFrame.setSize(500, 100);
+			 infoFrame.setLocation((pantalla.width - ventana.width) / 2,
+                     ((pantalla.height - ventana.height) / 2)-110);
 			 /*
 			  * 
 			  * 
@@ -453,25 +483,21 @@ public class InterfazAvanzada extends JFrame {
              }
              mPlayer = new BasicPlayer();
              reproductorListener = new ReproductorListener(this);
-             
-             //Actualizacion etiqueta info
-             if ( etiquetaLabel == null ){
-            	 etiquetaLabel = new JLabel();
-	             GridBagConstraints position = new GridBagConstraints();
-	             position.gridx = 2;
-	             position.gridy = 5;
-	             position.fill = GridBagConstraints.HORIZONTAL;
-	             position.gridheight = 1;
-	             etiquetaLabel.setForeground(Color.ORANGE);
-	      		 this.getContentPane().add(etiquetaLabel, position);
-	      	 }
-             etiquetaLabel.setText(track.getArtist() + " - " 
-            		 				+ track.getName()
-            		 				+ " (" + track.getAlbumArtist() +") "	 );
-
-
-             mPlayer.addBasicPlayerListener(reproductorListener);
-             mPlayer.open(f);
+             etiqueta.setText(null);
+             etiqueta=new JLabel(track.getArtist() + " - " + track.getName()
+					 	+ " (" + track.getAlbumArtist() +") "	 );
+             etiqueta.setForeground(Color.ORANGE);
+            
+             GridBagConstraints position = new GridBagConstraints();
+              position.gridx = 0;
+              position.gridy = 3;
+              position.gridheight = 1;
+              position.gridwidth = 3;
+              position.fill = GridBagConstraints.HORIZONTAL;
+              this.getContentPane().add(etiqueta, position);
+            
+              mPlayer.addBasicPlayerListener(reproductorListener);
+              mPlayer.open(f);
 
      } catch (Exception e) {
              System.err.printf("%s\n", e.getMessage());
@@ -490,20 +516,16 @@ public class InterfazAvanzada extends JFrame {
 	public void cambiaSegundos(String texto) {
 		segundero.setText(texto);
 		if(posTag == 400){
-			posTag = 0 - etiquetaLabel.getSize().width;
+			posTag=0-etiqueta.getSize().width;
 		}
 		else 
 			posTag++;
-			etiquetaLabel.setLocation(posTag,(int) etiquetaLabel.getLocation().getY());
+			etiqueta.setLocation(posTag,(int) etiqueta.getLocation().getY());
 		
 	}
 	
 	private void centrarVentana() {
-        // Se obtienen las dimensiones en pixels de la pantalla.
-        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
-        // Se obtienen las dimensiones en pixels de la ventana.
-        Dimension ventana = this.getSize();
-        // Una cuenta para situar la ventana en el centro de la pantalla.
+        
         this.setLocation((pantalla.width - ventana.width) / 2,
                         ((pantalla.height - ventana.height) / 2));
 	}
@@ -523,3 +545,4 @@ public class InterfazAvanzada extends JFrame {
 	}
 
 }
+

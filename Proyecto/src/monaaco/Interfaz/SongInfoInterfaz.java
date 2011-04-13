@@ -84,4 +84,12 @@ public class SongInfoInterfaz extends JFrame {
         principal.setLocation(0, 0);
 	}
 	
+	public Track getTrack(){
+		return track;
+	}
+	
+	public JFrame getPrincipal(){
+		return principal;
+	}
+	
 }

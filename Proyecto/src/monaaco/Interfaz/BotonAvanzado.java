@@ -23,6 +23,16 @@ public class BotonAvanzado extends JButton {
 		this.setFocusPainted(false);
 	}
 	
+	
+	//Los siguientes dos getters son necesarios para los test
+	public ImageIcon getICon(){
+		return iCon;
+	}
+	
+	public ImageIcon getIConS(){
+		return iConS;
+	}
+	
 	protected void paintComponent( Graphics g )
 	{
 		if(getModel().isArmed()){

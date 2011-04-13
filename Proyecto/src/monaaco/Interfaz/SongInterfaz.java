@@ -53,6 +53,17 @@ public class SongInterfaz extends JFrame{
 		
 	}
 	
+	public InterfazAvanzada getInterfaz(){
+		return interfazAvanzada;
+	}
+	
+	public  JFrame getPrincipal(){
+		return principal;
+	}
+	
+	public  JList getListado(){
+		return listado;
+	}
 
 	private JList  getListado(String[] temas){
 		
@@ -95,8 +106,7 @@ public class SongInterfaz extends JFrame{
         centrarVentana();
 	}*/
 	public void actualizaTemas(String[] temas){
-		listado.setListData(temas);
-				
+		listado.setListData(temas);		
 	}
 	
 	private BotonAvanzado getMinButton(){

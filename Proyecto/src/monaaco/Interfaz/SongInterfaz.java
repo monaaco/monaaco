@@ -1,28 +1,19 @@
+package monaaco.Interfaz;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.WindowEvent;
-import java.util.*;
-
 import javax.swing.event.*;
-import javax.swing.DefaultListModel;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
+import javax.swing.*;
 
-import javazoom.jlgui.basicplayer.BasicPlayerException;
-
-import bibliotecaXML.Track;
-
+//import javazoom.jlgui.basicplayer.BasicPlayerException;
 import com.sun.awt.AWTUtilities;
 
 
 public class SongInterfaz extends JFrame{
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JFrame principal;
 	private JList listado;
 	private Dimension pantalla = null;

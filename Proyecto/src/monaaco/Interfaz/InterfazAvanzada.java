@@ -1,36 +1,19 @@
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import java.awt.Image;
-import java.awt.Point;
-import java.awt.Shape;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.font.NumericShaper;
-import java.awt.geom.Ellipse2D;
+package monaaco.Interfaz;
+import java.awt.*;
+import java.awt.event.*;
 import java.io.File;
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.filechooser.FileFilter;
+//import javax.swing.event.*;
+//import javax.swing.filechooser.FileFilter;
 
-import bibliotecaXML.Playlist;
-import bibliotecaXML.Track;
+import monaaco.FiltrosArchivos.*;
+import monaaco.bibliotecaXML.*;
 
 import com.sun.awt.AWTUtilities;
 
 import javazoom.jlgui.basicplayer.BasicPlayer;
 import javazoom.jlgui.basicplayer.BasicPlayerException;
+
 
 public class InterfazAvanzada extends JFrame {
 
@@ -46,12 +29,16 @@ public class InterfazAvanzada extends JFrame {
 	private ImageIcon pauseIcon = new ImageIcon("images/skin1/pauseIcon1.jpg");
 	private ImageIcon pausedIcon = new ImageIcon("images/skin1/pauseIcon3.jpg");
 	
+	private JFrame principal = null;
+	private SongInterfaz infoPlaylist = null;
+	private SongInfo infoSong = null;
+
 	private BotonAvanzado stopButton = null;
 	private BotonAvanzado pauseButton = null;
 	private BotonAvanzado playButton = null;
 	private JLabel segundero = null;
 	private JSlider barraProgreso = null;
-	private SongInterfaz info = null;
+	private JButton salirButton = null;
 	
 	// Barra de menu principal
 	private JMenuBar barraMenu = null;
@@ -65,7 +52,6 @@ public class InterfazAvanzada extends JFrame {
 	private JPanel infoPanel = null;
 	
 	
-	private JButton salirButton = null;
 	private JLabel etiqueta = null;
 	
 /*	// menu XML  Por si lo usaramos que esta en la otra playerInterface!
@@ -75,8 +61,6 @@ public class InterfazAvanzada extends JFrame {
 	private JMenu guardarMenu = null;
 	private JMenuItem guardarXML = null;
 */
-	private JFrame principal;
-	private JFrame infoSongPanel;
 	private boolean pause;
 	private double bytesArchivoActual; 
 	private BasicPlayer mPlayer;
@@ -85,7 +69,7 @@ public class InterfazAvanzada extends JFrame {
 	private Shape figura;
 	private Track _pista;
 	private Color bgcolor = Color.black;
-	
+
 	//private TransparentBackground fondo = null;
 
 	//Playlist:
@@ -99,7 +83,6 @@ public class InterfazAvanzada extends JFrame {
 	
 	
 	
-	@SuppressWarnings("restriction")
 	public InterfazAvanzada() {
 		
 		super("Monaaaaco"); // El título
@@ -202,7 +185,7 @@ public class InterfazAvanzada extends JFrame {
 		listaReproduccion.add("sounds/mic_check.mp3"); //añadir archivo
 		
         String[] temas = listaReproduccion.getListado();
-		info = new SongInterfaz(temas,this);
+        infoPlaylist = new SongInterfaz(temas,this);
 	}
 	
 	private JMenuBar getBarraMenu() {
@@ -243,18 +226,19 @@ public class InterfazAvanzada extends JFrame {
                         fc.setFileFilter(new FiltroMP3());
                         fc.setFileFilter(new FiltroOGG());
                         fc.setFileFilter(new FiltroSoportados());
-                        fc.setMultiSelectionEnabled(true);//TODO
+                        
+                        fc.setMultiSelectionEnabled(true);
                         if(fc.showOpenDialog(principal) == JFileChooser.APPROVE_OPTION) {
                         	File[] array = fc.getSelectedFiles();
                         	for(int i=0; i<array.length; i++){
                         		File f = array[i];
                         		System.out.println(f.getAbsolutePath());
                                 listaReproduccion.add(f.getAbsolutePath());
-                                setCurrentTrack(listaReproduccion.current());
-                                
-                                String[] temas = listaReproduccion.getListado();
-                                info.actualizaTemas(temas);
+
                         	}
+                        	setCurrentTrack(listaReproduccion.current());
+                            String[] temas = listaReproduccion.getListado();
+                            infoPlaylist.actualizaTemas(temas);
                         }
                     } catch (/* BasicPlayer */Exception e1) {
                         e1.printStackTrace();
@@ -453,7 +437,7 @@ public class InterfazAvanzada extends JFrame {
 			  * similar a la del playlist, de forma que la info de cancion se muestre
 			  * durante unos segundos cuando hay un cambio de cancion.
 			  * - Resaltar la cancion actual en el playlist (Songinterfaz)
-			  */
+			  *
 			 posTag=0-etiqueta.getSize().width;
 			 caratula = track.getArtwork();
 			 infoFrame = new JFrame("Información");
@@ -472,7 +456,7 @@ public class InterfazAvanzada extends JFrame {
 			 infoFrame.setSize(500, 100);
 			 infoFrame.setLocation((pantalla.width - ventana.width) / 2,
                      ((pantalla.height - ventana.height) / 2)-110);
-			 /*
+			  *
 			  * 
 			  * 
 			  * */

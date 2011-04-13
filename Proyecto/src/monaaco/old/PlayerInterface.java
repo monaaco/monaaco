@@ -1,3 +1,5 @@
+package monaaco.old;
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.FileDialog;
@@ -11,6 +13,8 @@ import java.awt.event.MouseListener;
 import java.io.File;
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
+
+import monaaco.Interfaz.ReproductorListener;
 
 import javazoom.jlgui.basicplayer.BasicPlayer;
 import javazoom.jlgui.basicplayer.BasicPlayerException;

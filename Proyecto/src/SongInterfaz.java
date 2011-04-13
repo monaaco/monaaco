@@ -77,8 +77,14 @@ public class SongInterfaz extends JFrame{
 			}
 		
 		});
+		 listado.addListSelectionListener(new ListSelectionListener() {
+		      public void valueChanged(ListSelectionEvent evt) {
+		        if (evt.getValueIsAdjusting())
+		        	 interfazAvanzada.setTrackNumber(listado.getSelectedIndex());
+		      		      }
+		    });
 		
-		listado.addMouseListener(new java.awt.event.MouseAdapter() 
+		/*listado.addMouseListener(new java.awt.event.MouseAdapter() 
 		{ 
 			public void mouseClicked(MouseEvent e) 
 			{ 
@@ -89,7 +95,7 @@ public class SongInterfaz extends JFrame{
 				 interfazAvanzada.setTrackNumber(listado.getSelectedIndex());	
 			
 			} 
-		}); 
+		}); */
 
 		return listado;
 		

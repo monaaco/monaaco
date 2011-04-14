@@ -28,7 +28,7 @@ public class SongInfoInterfaz extends JFrame {
 
 	private Track track = null;
 
-	
+	private Color c= new Color(240,240,240);
 	/**
 	 *  @param track de la que hay que mostrar la info 
 	 *  @throws InterruptedException 
@@ -61,8 +61,10 @@ public class SongInfoInterfaz extends JFrame {
 			infoPanel.setSize(100, 100);
 			infoPanel.setForeground(Color.white);
 			etiqueta = new JTextArea ();
+			etiqueta.setFont(new java.awt.Font("Helvetica", 1, 12));
 			etiqueta.setBackground(Color.black);			
-			etiqueta.setForeground(Color.white);			
+			etiqueta.setForeground(c);			
+			
 			infoPanel.add(etiqueta);
 		}
 		etiqueta.setText(" Artist: " + track.getArtist()
@@ -83,7 +85,7 @@ public class SongInfoInterfaz extends JFrame {
 		if(caratulaPanel == null){
 			caratulaPanel = new JPanel();
 			caratulaPanel.setBackground(Color.black);
-			caratulaPanel.setForeground(Color.white);	
+			//caratulaPanel.setForeground(Color.c);	
 			etiquetaCaratula = new JLabel();
 			caratulaPanel.add(etiquetaCaratula);
 			/*if(track.getArtwork() != null)
@@ -97,6 +99,7 @@ public class SongInfoInterfaz extends JFrame {
 
 		return caratulaPanel;
 	}
+	
 
 	private void colocarVentana() {
         // Se obtienen las dimensiones en pixels de la pantalla.

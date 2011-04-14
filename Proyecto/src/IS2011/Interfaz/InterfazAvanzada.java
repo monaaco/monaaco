@@ -50,7 +50,7 @@ public class InterfazAvanzada extends JFrame {
 	private JMenuItem nextItem = null;
 	private JMenuItem previousItem = null;
 	
-	
+	private Color c= new Color(240,240,240);
 	private JLabel infoSongLabel = null;
 	
 /*	// menu XML  Por si lo usaramos que esta en la otra playerInterface!
@@ -132,7 +132,8 @@ public class InterfazAvanzada extends JFrame {
 
 		//TODO getSegundero
 		segundero = new JLabel("0:00");
-		segundero.setForeground(Color.blue);
+		segundero.setForeground(c);
+		segundero.setFont(new java.awt.Font("Helvetica", 1, 12));
 		constraints.gridx = 1;
 		constraints.gridy = 1;
 		constraints.gridwidth = 1;
@@ -190,7 +191,8 @@ public class InterfazAvanzada extends JFrame {
 	private JLabel getInfoSongLabel() {
 		if(infoSongLabel == null) {
 			infoSongLabel=new JLabel("Monaaaco Player");
-			infoSongLabel.setForeground(Color.ORANGE);
+			infoSongLabel.setForeground(c);
+			segundero.setFont(new java.awt.Font("Helvetica", 1, 12));
 		}
 		return infoSongLabel;
 	}
@@ -200,10 +202,13 @@ public class InterfazAvanzada extends JFrame {
 		if (barraMenu == null) {
 			barraMenu = new JMenuBar();
 			barraMenu.setBackground(bgcolor);
+			
 			barraMenu.setBorderPainted(false);
 			playerMenu = new JMenu("Menu");
 			//playerMenu.setIcon(monkeyIcon);
 			playerMenu.add(getCargarArchivoItem());
+		    playerMenu.setBackground(Color.black);
+			playerMenu.setForeground(c);
 			playerMenu.add(getPreviousItem());
 			playerMenu.add(getNextItem());
 			playerMenu.add(getSalirItem());
@@ -216,6 +221,8 @@ public class InterfazAvanzada extends JFrame {
 	private JMenuItem getCargarArchivoItem() {
         if (cargarArchivoItem == null) {
         	cargarArchivoItem = new JMenuItem("Cargar Archivo",carpetaIcon);
+        	cargarArchivoItem.setBackground(Color.black);
+        	cargarArchivoItem.setForeground(c);
         	cargarArchivoItem.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     try {
@@ -372,9 +379,12 @@ public class InterfazAvanzada extends JFrame {
 	}
 
 	public JMenuItem getSalirItem() {
+		
 		if (salirItem == null){
 			salirItem = new JMenuItem("Salir");
 			//salirItem.setBackground(bgcolor);
+			salirItem.setBackground(Color.black);
+			salirItem.setForeground(c);
 			salirItem.addMouseListener(new java.awt.event.MouseAdapter() {
 				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
@@ -388,9 +398,16 @@ public class InterfazAvanzada extends JFrame {
 		return salirItem;
 	}
 	
+<<<<<<< .mine
+	public SongInfoInterfaz getInfoSong(){
+		return infoSong;
+	}
+
+=======
 	public Playlist getListaReproduccion(){
 		return listaReproduccion;
 	}
+>>>>>>> .r113
 	
     public void reproducirSiguiente(){
         setCurrentTrack(listaReproduccion.next());
@@ -406,9 +423,13 @@ public class InterfazAvanzada extends JFrame {
     }
    
     public JMenuItem getNextItem() {
+    	
+    	
         if (nextItem == null){
             nextItem = new JMenuItem("siguiente");
             //nextItem.setBackground(bgcolor);
+            nextItem.setBackground(Color.black);
+            nextItem.setForeground(c);
             nextItem.addMouseListener(new java.awt.event.MouseAdapter() {
                 public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
                     reproducirSiguiente();
@@ -426,6 +447,8 @@ public class InterfazAvanzada extends JFrame {
 		if (previousItem == null){
 			previousItem = new JMenuItem("anterior");
 			//nextItem.setBackground(bgcolor);
+			previousItem.setBackground(Color.black);
+			previousItem.setForeground(c);
 			previousItem.addMouseListener(new java.awt.event.MouseAdapter() {
 				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {

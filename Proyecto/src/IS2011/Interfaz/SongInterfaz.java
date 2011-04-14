@@ -1,5 +1,6 @@
 package IS2011.Interfaz;
 import java.awt.*;
+
 import javax.swing.event.*;
 import javax.swing.*;
 
@@ -23,7 +24,7 @@ public class SongInterfaz extends JFrame{
 	private ImageIcon minIcon1 = new ImageIcon("images/skin1/minIcon1.jpg");
 	private ImageIcon minIcon2 = new ImageIcon("images/skin1/minIcon2.jpg");
 	private InterfazAvanzada interfazAvanzada= null;
-	
+	private Color c= new Color(240,240,240);
 	
 	public SongInterfaz(String[] temas, InterfazAvanzada interfazAvanzada){
 		
@@ -70,6 +71,9 @@ public class SongInterfaz extends JFrame{
 		listado = new JList(temas);
 		listado.setSize(100, pantalla.height);
 		listado.setBackground(Color.black);
+		listado.setFont(new java.awt.Font("Helvetica", 1, 12));
+
+		listado.setForeground(c);
 		listado.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseEntered(java.awt.event.MouseEvent evt) {
 				AWTUtilities.setWindowOpacity(principal, (float)0.9);

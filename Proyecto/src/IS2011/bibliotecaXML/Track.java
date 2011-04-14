@@ -18,7 +18,8 @@ public class Track {
         private String name = null;
         private String artist = null;
         private String albumArtist = null;
-        private String genre = null;
+        private String album = null;
+		private String genre = null;
         private String kind = null;
         private Integer size = null;
         private Integer totalTime = null;
@@ -50,6 +51,7 @@ public class Track {
                         setBitRate(Integer.valueOf(ah.getBitRate()));
                         setComments(tag.getFirst(FieldKey.COMMENT));
                         setArtist(tag.getFirst(FieldKey.ARTIST));
+                        setAlbum(tag.getFirst(FieldKey.ALBUM));
                         id++;
                         setId(id);              
                         setTotalTime(ah.getTrackLength());
@@ -71,7 +73,7 @@ public class Track {
         public BufferedImage getArtwork() {
                 if(artworkList.size() > 0){
                         try {
-                                return artworkList.get(1).getImage();
+                                return artworkList.get(0).getImage();
                         } catch (IOException e) {
                                 e.printStackTrace();
                                 System.out.println("Error al obtener la carátula. \n" + e.getMessage());
@@ -79,7 +81,11 @@ public class Track {
                 }
                 return null;
         }
-
+        
+        public int getNumCaratulas() {
+        	if(artworkList == null) return 0;
+            return artworkList.size();
+    }
         public void setArtworkList(List<Artwork> artworkList) {
                 this.artworkList = artworkList;
         }
@@ -97,6 +103,16 @@ public class Track {
                 this.id = id;
         }
 
+        
+        public String getAlbum() {
+			return album;
+		}
+
+
+
+		public void setAlbum(String album) {
+			this.album = album;
+		}
 
 
         public String getName() {

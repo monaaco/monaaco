@@ -22,6 +22,9 @@ public class SongInfoInterfaz extends JFrame {
 
 	private JPanel caratulaPanel = null;
 	private JPanel infoPanel = null;
+	private JTextArea  etiqueta = null;
+	private JLabel etiquetaCaratula = null;
+	private ImageIcon caratula = null;
 
 	private Track track = null;
 
@@ -30,59 +33,84 @@ public class SongInfoInterfaz extends JFrame {
 	 *  @param track de la que hay que mostrar la info 
 	 *  @throws InterruptedException 
 	 */
-	public SongInfoInterfaz(Track track) throws InterruptedException{
+	public SongInfoInterfaz(){
 		super("Reproduciendo");
-		this.track = track;
-		this.interfazAvanzada = interfazAvanzada;
 		principal = this;
-		
+
 		pantalla = Toolkit.getDefaultToolkit().getScreenSize();
 		ventana = this.getSize();
 		principal = this;
-		principal.setSize(pantalla.width,50);	
-		this.colocarVentana();
-		
-		principal.getContentPane().setLayout(new BorderLayout());
 		principal.setUndecorated(true);
+
+		principal.getContentPane().setLayout(new BorderLayout());
 		principal.getContentPane().setBackground(Color.black);
-		
-
-		principal.getContentPane().add(getCaratulaPanel(),BorderLayout.WEST);
-		principal.getContentPane().add(getInfoPanel(), BorderLayout.CENTER);
-
+		this.colocarVentana();
 		principal.setEnabled(true);	
-		principal.setAlwaysOnTop(true);
+		//principal.setAlwaysOnTop(true);
 		principal.setResizable(false);
-		
 		principal.setVisible(true);
+
 		//cerrar a los 5 min
 		
 	}
 	
 	private JPanel getInfoPanel() {
 		if(infoPanel == null){
-			infoPanel = new JPanel(new FlowLayout());
-			infoPanel.add(new JLabel(" Artist: " +track.getArtist()
-										+ " Title: " + track.getName()));
+			infoPanel = new JPanel(new GridLayout());
+			infoPanel.setBackground(Color.black);
+			infoPanel.setSize(100, 100);
+			infoPanel.setForeground(Color.white);
+			etiqueta = new JTextArea ();
+			etiqueta.setBackground(Color.black);			
+			etiqueta.setForeground(Color.white);			
+			infoPanel.add(etiqueta);
 		}
+		etiqueta.setText(" Artist: " + track.getArtist()
+				+ "\n Title: " + track.getName() 
+				+ "\n Album: " + track.getAlbum());
 		return infoPanel;
 	}
+	
+	public void actualiza(Track pista){
+		this.track = pista;
+		
+		principal.getContentPane().add(getCaratulaPanel(),BorderLayout.WEST);
+		principal.getContentPane().add(getInfoPanel(), BorderLayout.CENTER);
 
+		
+	}
 	private JPanel getCaratulaPanel() {
 		if(caratulaPanel == null){
 			caratulaPanel = new JPanel();
-			principal.getGraphics().drawImage(track.getArtwork(), 0, 0, null);
+			caratulaPanel.setBackground(Color.black);
+			caratulaPanel.setForeground(Color.white);	
+			etiquetaCaratula = new JLabel();
+			caratulaPanel.add(etiquetaCaratula);
+			/*if(track.getArtwork() != null)
+				caratulaPanel.getGraphics().drawImage((Image)track.getArtwork(), 0, 0, null);*/
 		}
+		if(track.getNumCaratulas() > 0 && track.getArtwork() != null){
+			caratula = new ImageIcon(track.getArtwork().getScaledInstance(100,100,Image.SCALE_SMOOTH));
+		}else 	caratula = new ImageIcon(new ImageIcon("images/monkeyIcon.jpg").getImage()
+											.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
+		etiquetaCaratula.setIcon(caratula);
+
 		return caratulaPanel;
 	}
 
 	private void colocarVentana() {
         // Se obtienen las dimensiones en pixels de la pantalla.
-        //Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
         // Se obtienen las dimensiones en pixels de la ventana.
         //Dimension ventana = principal.getSize();
         // Una cuenta para situar la ventana en el centro de la pantalla.
-        principal.setLocation(0, 0);
+        
+         		principal.setSize(400,120);	
+				principal.setLocation((pantalla.width - ventana.width) / 2,
+                (((pantalla.height - ventana.height) / 2))+100);
+		
+		/*principal.setSize(pantalla.width,100);	
+		principal.setLocation(0,0);*/
 	}
 	
 	public Track getTrack(){

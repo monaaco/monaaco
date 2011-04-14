@@ -84,9 +84,10 @@ public class InterfazAvanzada extends JFrame {
 	public InterfazAvanzada() {
 		
 		super("Monaaaaco"); // El título
+		// infoSong.actualiza(null);
 		//fondo = new TransparentBackground(this);
 		this.getContentPane().setLayout(new GridBagLayout()); // Le ponemos el
-		this.setUndecorated(false);														// GridBagLayout
+		this.setUndecorated(true);														// GridBagLayout
 		this.setSize(400, 200);
 		this.centrarVentana();
 		
@@ -171,6 +172,8 @@ public class InterfazAvanzada extends JFrame {
       	getDefaultPalyList();
         String[] temas = listaReproduccion.getListado();
         infoPlaylist = new SongInterfaz(temas,this);
+		infoSong = new SongInfoInterfaz();
+       
         
 	}
 	
@@ -178,7 +181,9 @@ public class InterfazAvanzada extends JFrame {
 		listaReproduccion = new Playlist();
 		listaReproduccion.setRepeat(true);
 		listaReproduccion.add("sounds/prueba2.ogg"); 
+		listaReproduccion.add("sounds/prueba.mp3"); 
 		setCurrentTrack(listaReproduccion.current());
+
 		
 	}
 
@@ -385,26 +390,30 @@ public class InterfazAvanzada extends JFrame {
 	
 
 	
-	public JMenuItem getNextItem() {
-		if (nextItem == null){
-			nextItem = new JMenuItem("siguiente");
-			//nextItem.setBackground(bgcolor);
-			nextItem.addMouseListener(new java.awt.event.MouseAdapter() {
-				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
-					try {
-						//neeeeext cambia el currentTrack de la clase palylist y le devuelve playlist
-						setCurrentTrack(listaReproduccion.next());
-						pause = false;
-						mPlayer.stop();
-						mPlayer.play();
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				};
-			});
-		}
-		return nextItem;
-	}
+    public void reproducirSiguiente(){
+        setCurrentTrack(listaReproduccion.next());
+        try {
+            pause = false;
+            mPlayer.stop();
+            mPlayer.play();
+        } catch (BasicPlayerException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+   
+    public JMenuItem getNextItem() {
+        if (nextItem == null){
+            nextItem = new JMenuItem("siguiente");
+            //nextItem.setBackground(bgcolor);
+            nextItem.addMouseListener(new java.awt.event.MouseAdapter() {
+                public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
+                    reproducirSiguiente();
+                };
+            });
+        }
+        return nextItem;
+    }
 
 	public JMenuItem getPreviousItem() {
 		if (previousItem == null){
@@ -479,7 +488,7 @@ public class InterfazAvanzada extends JFrame {
 					 	+ " (" + track.getAlbumArtist() +") "	 );
              
              
-             infoSong = new SongInfoInterfaz(track);
+             infoSong.actualiza(track);
 
 
      } catch (Exception e) {
@@ -510,7 +519,7 @@ public class InterfazAvanzada extends JFrame {
 	private void centrarVentana() {
         
         this.setLocation((pantalla.width - ventana.width) / 2,
-                        ((pantalla.height - ventana.height) / 2));
+                        (((pantalla.height - ventana.height) / 2))-100);
 	}
 	public void setTrackNumber(int number){
 		try{

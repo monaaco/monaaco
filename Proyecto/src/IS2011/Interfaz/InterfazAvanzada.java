@@ -388,13 +388,16 @@ public class InterfazAvanzada extends JFrame {
 		return salirItem;
 	}
 	
-
+	public Playlist getListaReproduccion(){
+		return listaReproduccion;
+	}
 	
     public void reproducirSiguiente(){
         setCurrentTrack(listaReproduccion.next());
         try {
             pause = false;
             mPlayer.stop();
+            infoSong.actualiza(listaReproduccion.current());
             mPlayer.play();
         } catch (BasicPlayerException e) {
             // TODO Auto-generated catch block
@@ -413,6 +416,10 @@ public class InterfazAvanzada extends JFrame {
             });
         }
         return nextItem;
+    }
+    
+    public SongInfoInterfaz getInfoSong(){
+    	return infoSong;
     }
 
 	public JMenuItem getPreviousItem() {
@@ -489,7 +496,6 @@ public class InterfazAvanzada extends JFrame {
              
              
              infoSong.actualiza(track);
-
 
      } catch (Exception e) {
              System.err.printf("%s\n", e.getMessage());

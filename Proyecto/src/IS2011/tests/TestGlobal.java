@@ -18,7 +18,6 @@ public class TestGlobal extends TestCase {
 		TestSuite suite = new TestSuite();
 		suite.addTestSuite(BasicPlayerTest.class);
 		suite.addTestSuite(BotonAvanzadoTest.class);
-		suite.addTestSuite(SongInfoInterfazTest.class);
 		suite.addTestSuite(SongInterfazTest.class);
 		//suite.addTestSuite(TrackTest.class);
 		return suite;

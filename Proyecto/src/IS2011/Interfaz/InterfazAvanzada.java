@@ -397,17 +397,11 @@ public class InterfazAvanzada extends JFrame {
 		}
 		return salirItem;
 	}
-	
-<<<<<<< .mine
-	public SongInfoInterfaz getInfoSong(){
-		return infoSong;
-	}
 
-=======
 	public Playlist getListaReproduccion(){
 		return listaReproduccion;
 	}
->>>>>>> .r113
+
 	
     public void reproducirSiguiente(){
         setCurrentTrack(listaReproduccion.next());

@@ -31,9 +31,18 @@ public class ReproductorListener implements BasicPlayerListener{
 	public void progress(int bytesread, long microseconds, byte[] pcmdata,  Map properties) {
 		 float progressUpdate = (float) (bytesread * 1.0f / bytesLength * 1.0f);
 		 int progressNow = (int) (bytesLength * progressUpdate);
+		 int total;
+		 if(player != null && player.getInfoSong() != null && player.getInfoSong().getTrack() != null){
+			 total = player.getInfoSong().getTrack().getTotalTime();
+			 System.out.print("Waka waka ehhhh ehhhh" + total);
+			 microseconds = total * (progressNow);
+		 }
 		 System.out.println(" -&gt; " + progressNow +"    en segs= "+microseconds/1000);
 		 player.cambiaSegundos((microseconds/60000000) +":"+ ((microseconds/1000000)%60));
 		 player.actualizaBarraProgreso(progressNow);
+		 if(bytesLength == bytesread){
+			 player.reproducirSiguiente();
+		 }
 		}
 
 

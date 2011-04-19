@@ -11,15 +11,13 @@ import IS2011.bibliotecaXML.Track;
 import com.sun.awt.AWTUtilities;
 
 
-public class SongInfoInterfaz extends JFrame {
+public class SongInfoInterfaz extends JPanel {
 	
 	private static final long serialVersionUID = 1L;
 
-	private JFrame principal = null;
+	private SongInfoInterfaz principal = null;
 	private InterfazAvanzada interfazAvanzada;
-	private Dimension pantalla = null;
-	private Dimension ventana = null;
-
+	
 	private JPanel caratulaPanel = null;
 	private JPanel infoPanel = null;
 	private JTextArea  etiqueta = null;
@@ -34,20 +32,14 @@ public class SongInfoInterfaz extends JFrame {
 	 *  @throws InterruptedException 
 	 */
 	public SongInfoInterfaz(){
-		super("Reproduciendo");
+		super();
 		principal = this;
-
-		pantalla = Toolkit.getDefaultToolkit().getScreenSize();
-		ventana = this.getSize();
-		principal = this;
-		principal.setUndecorated(true);
-
-		principal.getContentPane().setLayout(new BorderLayout());
-		principal.getContentPane().setBackground(Color.black);
-		this.colocarVentana();
+		principal.setLayout(new BorderLayout());
+		principal.setBackground(Color.white);
 		principal.setEnabled(true);	
+		principal.setSize(100,200);
 		//principal.setAlwaysOnTop(true);
-		principal.setResizable(false);
+		//principal.setResizable(false);
 		principal.setVisible(true);
 
 		//cerrar a los 5 min
@@ -76,8 +68,8 @@ public class SongInfoInterfaz extends JFrame {
 	public void actualiza(Track pista){
 		this.track = pista;
 		
-		principal.getContentPane().add(getCaratulaPanel(),BorderLayout.WEST);
-		principal.getContentPane().add(getInfoPanel(), BorderLayout.CENTER);
+		principal.add(getCaratulaPanel(),BorderLayout.WEST);
+		principal.add(getInfoPanel(), BorderLayout.CENTER);
 
 		
 	}
@@ -101,26 +93,13 @@ public class SongInfoInterfaz extends JFrame {
 	}
 	
 
-	private void colocarVentana() {
-        // Se obtienen las dimensiones en pixels de la pantalla.
-        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
-        // Se obtienen las dimensiones en pixels de la ventana.
-        //Dimension ventana = principal.getSize();
-        // Una cuenta para situar la ventana en el centro de la pantalla.
-        
-         		principal.setSize(400,120);	
-				principal.setLocation((pantalla.width - ventana.width) / 2,
-                (((pantalla.height - ventana.height) / 2))+100);
-		
-		/*principal.setSize(pantalla.width,100);	
-		principal.setLocation(0,0);*/
-	}
+	
 	
 	public Track getTrack(){
 		return track;
 	}
 	
-	public JFrame getPrincipal(){
+	public SongInfoInterfaz getPrincipal(){
 		return principal;
 	}
 	

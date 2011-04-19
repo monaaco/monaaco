@@ -2,6 +2,7 @@ package IS2011.Interfaz;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 
 import javax.swing.ImageIcon;
@@ -98,7 +99,7 @@ public class Launcher extends JWindow {
 		int a= 0;
 		while(a<9){
 			i = 0;
-			while (i< Integer.MAX_VALUE/10){
+			while (i< Integer.MAX_VALUE){
 				i++;
 			}
 			if(a==1)
@@ -118,12 +119,16 @@ public class Launcher extends JWindow {
 			
 			a++;
 		}
+		
 		//Cargamos la biblioteca
 		
 		//Cargamos las opciones
 		
 		JFrame interfaz;
 		interfaz = new InterfazAvanzada();
+		interfaz.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		interfaz.setVisible(true);
+		
 		
 		//interfaz = new PlayerInterface(); 
 		

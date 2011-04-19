@@ -2,6 +2,8 @@ package IS2011.Interfaz;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
+import java.lang.reflect.Method;
+
 import javax.swing.*;
 //import javax.swing.event.*;
 //import javax.swing.filechooser.FileFilter;
@@ -33,6 +35,7 @@ public class InterfazAvanzada extends JFrame {
 	private JFrame principal = null;
 	private SongInterfaz infoPlaylist = null;
 	private SongInfoInterfaz infoSong = null;
+	private JPanel infoSong2 = null;
 
 	private BotonAvanzado stopButton = null;
 	private BotonAvanzado pauseButton = null;
@@ -52,6 +55,7 @@ public class InterfazAvanzada extends JFrame {
 	
 	private Color c= new Color(240,240,240);
 	private JLabel infoSongLabel = null;
+
 	
 /*	// menu XML  Por si lo usaramos que esta en la otra playerInterface!
 	private JMenuItem bibliotecaMenu = null;
@@ -88,7 +92,7 @@ public class InterfazAvanzada extends JFrame {
 		//fondo = new TransparentBackground(this);
 		this.getContentPane().setLayout(new GridBagLayout()); // Le ponemos el
 		this.setUndecorated(true);														// GridBagLayout
-		this.setSize(400, 200);
+		this.setSize(400, 300);
 		this.centrarVentana();
 		
 		GridBagConstraints constraints = new GridBagConstraints();
@@ -158,23 +162,26 @@ public class InterfazAvanzada extends JFrame {
        	position.gridwidth = 3;
        	position.fill = GridBagConstraints.HORIZONTAL;
       	this.getContentPane().add(getInfoSongLabel(), position);
-		
-		
-		/*info = getInfo();
-		constraints.gridx = 0;
-		constraints.gridy = 6;
-		constraints.gridwidth = 4;
-		constraints.gridheight = 1;
-		constraints.fill = GridBagConstraints.BOTH;
-		constraints.weighty = 1.0; 
-		this.getContentPane().add(info, constraints);
-		constraints.weighty = 0.0;*/
-		
+						
       	getDefaultPalyList();
         String[] temas = listaReproduccion.getListado();
         infoPlaylist = new SongInterfaz(temas,this);
 		infoSong = new SongInfoInterfaz();
+		
        
+        
+        
+		GridBagConstraints position1 = new GridBagConstraints();
+       	position1.gridx = 0;
+       	position1.gridy = 4;
+       	position1.gridheight = 2;
+       	position1.gridwidth = 3;
+        position1.weighty = 1.0;
+        position1.fill = GridBagConstraints.HORIZONTAL ;
+       	//position1.fill = GridBagConstraints.HORIZONTAL;
+      	this.getContentPane().add(infoSong, position1);
+      	
+          
         
 	}
 	
@@ -213,6 +220,22 @@ public class InterfazAvanzada extends JFrame {
 			playerMenu.add(getNextItem());
 			playerMenu.add(getSalirItem());
 			barraMenu.add(playerMenu);
+			
+			JLabel movimiento = new JLabel("Move window");
+			movimiento.setBackground(Color.black);
+			movimiento.setForeground(c);
+	      		      	
+	      /*	try{
+				//@SuppressWarnings("rawtypes")
+				//Class clazz= Class.forName("com.sun.awt.AWTUtilities");
+				//@SuppressWarnings("unchecked")
+				//Method method = clazz.getMethod("setWindowOpaque",java.awt.Window.class, Boolean.TYPE);
+				//method.invoke(clazz, this,false);
+			}catch (Exception e){}*/
+			Mover mml = new Mover(movimiento);
+			movimiento.addMouseListener(mml);
+			movimiento.addMouseMotionListener(mml);
+	    	barraMenu.add(movimiento);
 		}
 		return barraMenu;
 	}
@@ -558,6 +581,8 @@ public class InterfazAvanzada extends JFrame {
 	public void setBytesArchivo(double bytesLength) {
 		this.bytesArchivoActual = bytesLength;
 	}
+	
+	
 
 }
 

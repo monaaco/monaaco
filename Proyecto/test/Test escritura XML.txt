@@ -1,0 +1,13 @@
+Tests de Biblioteca
+
+
+	Escritura XML
+		Objetivo: Escritura de la biblioteca en formato xml con la siguiente estructura
+			<list>
+				<track>
+					//atributos
+				</track>
+				...
+			</list>
+			
+		

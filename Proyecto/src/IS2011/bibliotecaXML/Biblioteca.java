@@ -1,52 +1,36 @@
 package IS2011.bibliotecaXML;
 
 import java.io.File;
+import java.util.*;
 
 public class Biblioteca {
 
-	private File biblioteca = new File("xml/biblioteca.xml");
-
+	private File rutaBiblioteca = new File("xml/biblioteca.xml");
+	private ArrayList<Track> biblioteca = null;
+	
 	public Biblioteca() {
 		// TODO Auto-generated constructor stub
+		biblioteca = new ArrayList<Track>();
 	}
 
-	public File getBiblioteca() {
+	public ArrayList<Track> getBiblioteca() {
 		return biblioteca;
 	}
 
-	public void setBiblioteca(File biblioteca) {
-		this.biblioteca = biblioteca;
+	/**
+	 * 
+	 * @param trList
+	 */
+	public void addAll(List<Track> trList) {
+		this.biblioteca.addAll(trList);
+		
 	}
 
-	@Override
-	protected Object clone() throws CloneNotSupportedException {
-		// TODO Auto-generated method stub
-		return super.clone();
+	public void add(Track tr) {
+		this.biblioteca.add(tr);
+		
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
-		return super.equals(obj);
-	}
-
-	@Override
-	protected void finalize() throws Throwable {
-		// TODO Auto-generated method stub
-		super.finalize();
-	}
-
-	@Override
-	public int hashCode() {
-		// TODO Auto-generated method stub
-		return super.hashCode();
-	}
-
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
-	}
 	
 	
 	

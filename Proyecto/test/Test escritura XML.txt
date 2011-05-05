@@ -5,6 +5,7 @@ Tests de Biblioteca
 		Objetivo: Escritura de la biblioteca en formato xml con la siguiente estructura
 			<list>
 				<track>
+				
 					//demás atributos de la clase Track, no es importante qeu se guarden
 				</track>
 				...

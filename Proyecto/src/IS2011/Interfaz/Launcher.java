@@ -99,7 +99,7 @@ public class Launcher extends JWindow {
 		int a= 0;
 		while(a<9){
 			i = 0;
-			while (i< Integer.MAX_VALUE){
+			while (i< Integer.MAX_VALUE/16){
 				i++;
 			}
 			if(a==1)

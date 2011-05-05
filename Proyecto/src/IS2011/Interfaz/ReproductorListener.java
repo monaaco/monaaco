@@ -32,22 +32,25 @@ public class ReproductorListener implements BasicPlayerListener{
 		 float progressUpdate = (float) (bytesread * 1.0f / bytesLength * 1.0f);
 		 int progressNow = (int) (bytesLength * progressUpdate);
 		 float porcentaje = (float)(bytesread / bytesLength);
-		 long second = microseconds;
-		 System.out.print("Waka waka ehhhh ehhhh: eeeeee :D" + porcentaje);
-		 int total;
-		 if(player != null && player.getListaReproduccion().current() != null){
-			 total = player.getListaReproduccion().current().getTotalTime();
-			 System.out.print("   TOTAL: " + total);
-			 second = (long) (total * (porcentaje));
-			 System.out.println(" -&gt; " + progressNow +"    en segs= "+second);
-			 player.cambiaSegundos((second/60) +":"+ (second%60));
-			 player.actualizaBarraProgreso(progressNow);
+		 long microsecond=0;
+	     if(properties.get("mp3.position.microseconds")!=null)
+		 {
+	    	 microsecond = (long)Double.parseDouble(properties.get("mp3.position.microseconds").toString());
 		 }
-		 else{
-			 System.out.println(" -&gt; " + progressNow +"    en segs= "+microseconds/1000);
-			 player.cambiaSegundos((microseconds/60000000) +":"+ ((microseconds/1000000)%60));
+	     else 
+	     {
+	    	 microsecond = microseconds;
+	     }
+		 System.out.println(" -&gt; " + progressNow +"    en segs= "+microseconds/1000);
+			 if(((microsecond/1000000)%60) < 10)
+			 {
+				 player.cambiaSegundos((microsecond/60000000) +":0"+ ((microsecond/1000000)%60));
+			 }
+			 else
+			 {
+				 player.cambiaSegundos((microsecond/60000000) +":"+ ((microsecond/1000000)%60));
+			 }
 			 player.actualizaBarraProgreso(progressNow);
-		 }
 		}
 
 

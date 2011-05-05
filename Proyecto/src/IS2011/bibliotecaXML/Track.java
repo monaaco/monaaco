@@ -52,6 +52,9 @@ public class Track {
                         setComments(tag.getFirst(FieldKey.COMMENT));
                         setArtist(tag.getFirst(FieldKey.ARTIST));
                         setAlbum(tag.getFirst(FieldKey.ALBUM));
+                        setGenre(tag.getFirst(FieldKey.GENRE));
+                        // de momento el id creo que no nos es útil dejarlo 
+                        // hasta que veamos si lo utilizamos en la biblioteca.
                         id++;
                         setId(id);              
                         setTotalTime(ah.getTrackLength());

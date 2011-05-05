@@ -5,9 +5,13 @@ Tests de Biblioteca
 		Objetivo: Escritura de la biblioteca en formato xml con la siguiente estructura
 			<list>
 				<track>
-					//atributos
+					//demás atributos de la clase Track, no es importante qeu se guarden
 				</track>
 				...
 			</list>
 			
-		
+		Pasos para la prueba:
+			1. Ejecutar la aplicación.  
+			2. Añadir alguna cancion a la biblioteca.
+			3. Cerrar la aplicación. Se guardara la biblioteca en la ruta "/xml/biblioteca.xml"
+			4. Comprobar que el archivo tiene la estructura indicada en el ejemplo anterior.

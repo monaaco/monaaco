@@ -1,0 +1,44 @@
+Test de funcionamiento Biblioteca (No lectura/escritura)
+
+Para probar el correcto funcionamiento de la bilblioteca probamos lo siguiente:
+
+1.Antes de arrancar el programa y en la ruta donde se encuentre el ejecutable /xml/biblioteca.xml guardamos el siguiente contenido:
+
+<list>
+  <track>
+    <name>Three Little Birds</name>
+    <artist>Bob Marley</artist>
+    <albumArtist></albumArtist>
+    <album>One Love - The Very Best Of Bob Marley</album>
+    <totalTime>183</totalTime>
+    <bitRate>160</bitRate>
+    <comments></comments>
+    <location>sounds/prueba2.ogg</location>
+    <artworkList/>
+  </track>
+  <track>
+    <name>Donde duele inspira</name>
+    <artist>Rafael Lechowski</artist>
+    <albumArtist></albumArtist>
+    <album>Donde duele inspira</album>
+    <totalTime>216</totalTime>
+    <bitRate>320</bitRate>
+    <comments>www.HHGroups.com</comments>
+    <location>sounds/prueba.mp3</location>
+    <artworkList/>
+  </track>
+</list>
+
+2.Arrancamos el programa
+
+3.Deberan aparecer en la tabla 2 filas que se muestran en la biblioteca únicamente los dos Tracks que hay en el XML.
+	- Pinchar en las cabeceras de la tabla para comprobar que el ordenamiento funciona.
+	- Filtrar por el texto "inspira" y nos aparecerá solo la segunda canción del XML.
+
+4.Pinchamos con "Doble-click" sobre la información de la canción Donde duele inspira de Rafael Lechowski y esta se deberá añadirse a la lista de reproducción.
+
+5.Pinchamos sobre la canción que se acaba de agregar y esta deberá reproducirse. (Concuerda con la biblioteca y su ruta es correcta)
+
+6.Cerramos el programa.
+
+NOTA: Para que esta prueba funcione correctamente hay que tener además del .xml en la ruta especificada los archivos prueba2.ogg y prueba.mp3 en la carpeta /sounds

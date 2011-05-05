@@ -26,8 +26,7 @@ public class BibliotecaTest extends TestCase {
 		assertEquals(b.getBiblioteca().get(1), tr2);
 		assertEquals(b.getBiblioteca(), trList);
 	}
-	
-	
+		
 	public void testAddBiblioteca() {
 		Biblioteca b = new Biblioteca();
 		Track tr = new Track("/sounds/prueba.mp3");

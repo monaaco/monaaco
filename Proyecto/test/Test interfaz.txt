@@ -4,3 +4,4 @@ Test de la interfaz
 		1. Ejecutar la aplicación
 		2. Comprobar que la apariencia es similar a la del boceto:
 		   https://docs.google.com/drawings/d/1z5PCB5y9NGC3BOuGAtYwDcqorBOVeWzCigg6jDl8a7c/edit?hl=es&authkey=CJXPmfoO
+		

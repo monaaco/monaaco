@@ -12,7 +12,6 @@ import IS2011.bibliotecaXML.Track;
 import junit.framework.TestCase;
 
 public class BibliotecaTest extends TestCase {
-
 	
 	public void testGetBiblioteca() {
 		Biblioteca b = new Biblioteca();
@@ -48,10 +47,9 @@ public class BibliotecaTest extends TestCase {
 		assertEquals(b.getBiblioteca().get(0), tr);
 		assertEquals(b.getBiblioteca().get(1), tr2);
 		assertEquals(b.getBiblioteca(), trList);
-
 	}
-
-
+	
+	
 	/* Este test en texto
 	public void testCargaTrack(){ 
 	}

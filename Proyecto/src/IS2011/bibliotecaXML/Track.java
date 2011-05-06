@@ -88,7 +88,7 @@ public class Track {
         public int getNumCaratulas() {
         	if(artworkList == null) return 0;
             return artworkList.size();
-    }
+        }
         public void setArtworkList(List<Artwork> artworkList) {
                 this.artworkList = artworkList;
         }

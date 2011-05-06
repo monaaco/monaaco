@@ -26,6 +26,7 @@ public class Biblioteca {
 		carga();
 	}
 
+
 	/**
 	 * Devuelve todos los tracks de la biblioteca
 	 * @return ArrayList<Track>
@@ -60,7 +61,7 @@ public class Biblioteca {
 	 * Carga en la biblioteca el contenido del XML
 	 */
 	public void carga(){
-		//TODO codigo perteneciente a la lectura del XML (bea y miguel?)
+		//TODO codigo perteneciente a la lectura del XML (bea y jorge)
 		// necesitamos un ArrayList lo guardamos en: biblioteca = resultado;
 	}
 	

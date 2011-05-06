@@ -47,7 +47,7 @@ public class Playlist {
 		Iterator<Track> it = lista.iterator();
 		while (it.hasNext()){
 			aux = (Track)it.next();
-			String nombre = aux.getArtist()+("-")+aux.getName();
+			String nombre = aux.getArtist()+(" - ")+aux.getName();
 			array[pos] = nombre;
 			pos++;
 		}

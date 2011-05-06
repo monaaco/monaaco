@@ -2,7 +2,7 @@ package IS2011.tests;
 
 import java.io.File;
 
-import javax.sound.midi.Track;
+import java.util.*;
 
 import IS2011.bibliotecaXML.*;
 import javazoom.jlgui.basicplayer.BasicPlayer;
@@ -11,6 +11,13 @@ import junit.framework.TestCase;
 
 public class TrackTest extends TestCase {
 
+	public void testToString(){
+		String ruta = "sounds/prueba.mp3";
+		Track track = new Track(ruta);
+		String cadena = "Artist: Rafael Lechowski\n Name: Donde duele inspira\n Time: 216\n";
+		assertEquals(cadena, track.toString());		
+	}
+	
 	public void testArtist() throws BasicPlayerException {
 		Playlist listaReproduccion = new Playlist();
 		listaReproduccion.setRepeat(true);

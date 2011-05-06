@@ -12,6 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.JWindow;
 import javax.swing.UIManager;
 
+import IS2011.bibliotecaXML.Biblioteca;
+
 import javazoom.jlgui.basicplayer.BasicPlayer;
 
 public class Launcher extends JWindow {
@@ -72,7 +74,7 @@ public class Launcher extends JWindow {
 		{
 		   //Correcion hecha por Chuster Boy ;)
 			
-		   UIManager.setLookAndFeel("net.sourceforge.napkinlaf.NapkinLookAndFeel");
+		  // UIManager.setLookAndFeel("net.sourceforge.napkinlaf.NapkinLookAndFeel");
 
 		}
 		catch (Exception e)
@@ -121,11 +123,12 @@ public class Launcher extends JWindow {
 		}
 		
 		//Cargamos la biblioteca
-		
+		Biblioteca b = new Biblioteca();
 		//Cargamos las opciones
 		
 		JFrame interfaz;
 		interfaz = new InterfazAvanzada();
+		((InterfazAvanzada) interfaz).setBiblioteca(b);
 		interfaz.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		interfaz.setVisible(true);
 		

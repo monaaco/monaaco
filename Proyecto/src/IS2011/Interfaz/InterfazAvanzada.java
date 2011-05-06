@@ -221,7 +221,7 @@ public class InterfazAvanzada extends JFrame {
 			playerMenu.add(getSalirItem());
 			barraMenu.add(playerMenu);
 			
-			JLabel movimiento = new JLabel("Move window");
+			JLabel movimiento = new JLabel("");
 			movimiento.setBackground(Color.black);
 			movimiento.setForeground(c);
 	      		      	
@@ -233,8 +233,8 @@ public class InterfazAvanzada extends JFrame {
 				//method.invoke(clazz, this,false);
 			}catch (Exception e){}*/
 			Mover mml = new Mover(movimiento);
-			movimiento.addMouseListener(mml);
-			movimiento.addMouseMotionListener(mml);
+			barraMenu.addMouseListener(mml);
+			barraMenu.addMouseMotionListener(mml);
 	    	barraMenu.add(movimiento);
 		}
 		return barraMenu;
@@ -583,6 +583,15 @@ public class InterfazAvanzada extends JFrame {
 	}
 	
 	
+	///////////////////////////////
+	public void setBiblioteca(Biblioteca b){
+		biblioteca = b;
+		bInterfaz = new BibliotecaInterfaz(b);
+		bInterfaz.setVisible(true);
+	}
+	
+	private Biblioteca biblioteca= null;
+	private BibliotecaInterfaz bInterfaz = null;
 
 }
 

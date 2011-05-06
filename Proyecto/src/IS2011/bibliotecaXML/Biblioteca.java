@@ -72,4 +72,8 @@ public class Biblioteca {
 		//TODO codigo perteneciente a la escritura del XML (Jorge, Jachu)
 		// Deberiais tener como entrada el ArrayList de la Biblioteca funcionXML(biblioteca)
 	}
+	
+	public ArrayList<Track> getArray(){
+		return biblioteca;
+	}
 }

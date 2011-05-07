@@ -1,0 +1,30 @@
+<IS2011.bibliotecaXML.Biblioteca>
+  <b>
+    <IS2011.bibliotecaXML.Track>
+      <id>1</id>
+      <name>Three Little Birds</name>
+      <artist>Bob Marley</artist>
+      <albumArtist></albumArtist>
+      <album>One Love - The Very Best Of Bob Marley</album>
+      <genre>Reggae</genre>
+      <totalTime>183</totalTime>
+      <bitRate>160</bitRate>
+      <comments></comments>
+      <location>sounds/prueba2.ogg</location>
+      <artworkList/>
+    </IS2011.bibliotecaXML.Track>
+    <IS2011.bibliotecaXML.Track>
+      <id>1</id>
+      <name>Donde duele inspira</name>
+      <artist>Rafael Lechowski</artist>
+      <albumArtist></albumArtist>
+      <album>Donde duele inspira</album>
+      <genre>Hip-Hop</genre>
+      <totalTime>216</totalTime>
+      <bitRate>320</bitRate>
+      <comments>www.HHGroups.com</comments>
+      <location>sounds/prueba.mp3</location>
+      <artworkList/>
+    </IS2011.bibliotecaXML.Track>
+  </b>
+</IS2011.bibliotecaXML.Biblioteca>

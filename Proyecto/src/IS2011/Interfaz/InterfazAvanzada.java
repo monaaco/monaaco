@@ -98,16 +98,21 @@ public class InterfazAvanzada extends JFrame {
 		aux.setOpaque(false);
 		aux.setLayout(null);
 		aux.setColorPrimario(Color.darkGray);
+		Mover mml = new Mover(aux);
+		aux.addMouseListener(mml);
+		aux.addMouseMotionListener(mml);
+
 		JPanel interno = getPanel();
 		aux.add(interno);
 		interno.setBounds(25,25,400,300);
 		
-		this.setSize(450,350);
+		this.setSize(450,400);
 		this.setContentPane(aux);
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
 		this.setUndecorated(true);	
 		this.setVisible(true);
+		this.setJMenuBar(getBarraMenu());
 		
 		//aux.setVisible(true);
 	//	aux.add(getPanel());// GridBagLayout

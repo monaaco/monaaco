@@ -618,7 +618,7 @@ public class InterfazAvanzada extends JFrame {
 	 * @param b  Biblioteca asociada
 	 * @param ia Referencia a la interfaz avanzada de la que procede
 	 */
-	public void setBiblioteca(Biblioteca b, InterfazAvanzada ia){
+	public void setBiblioteca(GestorXML b, InterfazAvanzada ia){
 		biblioteca = b;
 		bInterfaz = new BibliotecaInterfaz(b, ia);
 		bInterfaz.setVisible(true);
@@ -628,7 +628,7 @@ public class InterfazAvanzada extends JFrame {
 		return infoPlaylist;
 	}
 	
-	private Biblioteca biblioteca= null;
+	private GestorXML biblioteca= null;
 	private BibliotecaInterfaz bInterfaz = null;
 
 }

@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JWindow;
 import javax.swing.UIManager;
 
-import IS2011.bibliotecaXML.Biblioteca;
+import IS2011.bibliotecaXML.GestorXML;
 
 import javazoom.jlgui.basicplayer.BasicPlayer;
 
@@ -123,7 +123,9 @@ public class Launcher extends JWindow {
 		}
 		
 		//Cargamos la biblioteca
-		Biblioteca b = new Biblioteca();
+		
+		GestorXML b = new GestorXML();
+		b.cargar();
 		//Cargamos las opciones
 		
 		InterfazAvanzada interfaz;

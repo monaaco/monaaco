@@ -32,7 +32,7 @@ import com.sun.imageio.plugins.png.RowFilter;
 import IS2011.FiltrosArchivos.FiltroMP3;
 import IS2011.FiltrosArchivos.FiltroOGG;
 import IS2011.FiltrosArchivos.FiltroSoportados;
-import IS2011.bibliotecaXML.Biblioteca;
+import IS2011.bibliotecaXML.GestorXML;
 import IS2011.bibliotecaXML.Playlist;
 import IS2011.bibliotecaXML.Track;
 
@@ -48,10 +48,10 @@ public class BibliotecaInterfaz extends JFrame{
 	private JMenuItem filtroAvanzado=null;
 	private JTextField busquedaRapida= null;
 	private JTable tabla= null;
-	private Biblioteca biblioteca=null; //Sino es un ArrayList es la propia biblioteca.
+	private GestorXML biblioteca=null; //Sino es un ArrayList es la propia biblioteca.
 	private TableRowSorter<TableModel> elQueOrdena=null; 
 	
-	public BibliotecaInterfaz(Biblioteca library, InterfazAvanzada ia){
+	public BibliotecaInterfaz(GestorXML library, InterfazAvanzada ia){
 		super("Biblioteca");
 		interfazPadre = ia;
 		biblioteca = library;
@@ -103,7 +103,7 @@ public class BibliotecaInterfaz extends JFrame{
 		         if ((fila > -1))
 		         {
 		        	 fila = tabla.convertRowIndexToModel (fila);
-		        	 Track aux = biblioteca.getArray().get(fila);
+		        	 Track aux = biblioteca.getArray().getBiblioteca().get(fila);
 		        	 Playlist listaRepr = interfazPadre.getListaReproduccion();
 		        	 listaRepr.add(aux.getLocation());
 		        	 //interfazPadre.setCurrentTrack(listaRepr.current());
@@ -223,7 +223,7 @@ public class BibliotecaInterfaz extends JFrame{
 		
 		
 		/*2º Meter todo en la tabla*/
-		Iterator it = biblioteca.getArray().iterator();
+		Iterator it = biblioteca.getArray().getBiblioteca().iterator();
 		Track aux= null;
 		while (it.hasNext())
 		{

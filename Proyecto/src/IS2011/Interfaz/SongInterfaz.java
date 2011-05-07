@@ -26,6 +26,7 @@ public class SongInterfaz extends JFrame{
 	private InterfazAvanzada interfazAvanzada= null;
 	private Color c= new Color(240,240,240);
 	
+	@SuppressWarnings("restriction")
 	public SongInterfaz(String[] temas, InterfazAvanzada interfazAvanzada){
 		
 		super("Listado de Canciones");
@@ -75,9 +76,11 @@ public class SongInterfaz extends JFrame{
 
 		listado.setForeground(c);
 		listado.addMouseListener(new java.awt.event.MouseAdapter() {
+			@SuppressWarnings("restriction")
 			public void mouseEntered(java.awt.event.MouseEvent evt) {
 				AWTUtilities.setWindowOpacity(principal, (float)0.9);
 			}
+			@SuppressWarnings("restriction")
 			public void mouseExited(java.awt.event.MouseEvent evt) {
 				AWTUtilities.setWindowOpacity(principal, (float) 0.3);
 			}

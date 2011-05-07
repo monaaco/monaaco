@@ -18,6 +18,7 @@ import javazoom.jlgui.basicplayer.BasicPlayer;
 import javazoom.jlgui.basicplayer.BasicPlayerException;
 
 
+@SuppressWarnings("restriction")
 public class InterfazAvanzada extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -90,32 +91,58 @@ public class InterfazAvanzada extends JFrame {
 		super("Monaaaaco"); // El título
 		// infoSong.actualiza(null);
 		//fondo = new TransparentBackground(this);
-		this.getContentPane().setLayout(new GridBagLayout()); // Le ponemos el
-		this.setUndecorated(true);														// GridBagLayout
-		this.setSize(400, 300);
-		this.centrarVentana();
 		
-		GridBagConstraints constraints = new GridBagConstraints();
+		JPanelRound aux = new JPanelRound();	
+		aux.setSize(500,400);
+		aux.setBackground(Color.BLUE);
+		aux.setOpaque(false);
+		aux.setLayout(null);
+		aux.setColorPrimario(Color.darkGray);
+		JPanel interno = getPanel();
+		aux.add(interno);
+		interno.setBounds(25,25,400,300);
+		
+		this.setSize(450,350);
+		this.setContentPane(aux);
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
+		this.setUndecorated(true);	
+		this.setVisible(true);
+		
+		//aux.setVisible(true);
+	//	aux.add(getPanel());// GridBagLayout
+		
+		this.centrarVentana();
+	}
+	private JPanel getPanel(){
+		JPanelRound main = new JPanelRound();
+		main.setColorPrimario(bgcolor);
+		main.setLayout(new GridBagLayout()); // Le ponemos el
+	//	main.setUndecorated(true);														// GridBagLayout
+		main.setSize(400, 300);
+		
+		//main.centrarVentana();
+		
 		pause = false;
 		bytesArchivoActual =0;
 		
-		this.setEnabled(true);						//En la otra principal
-		this.setResizable(false);					//En la otra principal
-		this.setIconImage(monkeyIcon.getImage());	//En la otra principal AÑADIDO POR MI
-		this.setTitle("Monaaco Player");			//En la otra principal AÑADIDO POR MI
-		this.setJMenuBar(getBarraMenu());
-		this.getContentPane().setBackground(bgcolor);
-		this.setEnabled(true);
-		this.setVisible(true);
+		main.setEnabled(true);						//En la otra principal
+		//main.setResizable(false);		*/			//En la otra principal
+		//main.setIconImage(monkeyIcon.getImage());	//En la otra principal AÑADIDO POR MI
+		//main.setTitle("Monaaco Player");			//En la otra principal AÑADIDO POR MI
+		//main.setJMenuBar(getBarraMenu());
+		main.setBackground(bgcolor);
+		main.setEnabled(true);
+		main.setVisible(true);
 	
-		
+		GridBagConstraints constraints = new GridBagConstraints();
 		constraints.gridx = 2;
 		constraints.gridy = 0;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
 		constraints.weightx = 1.0;
 		constraints.fill = GridBagConstraints.EAST;
-		this.getContentPane().add(getStopButton(), constraints);
+		main.add(getStopButton(), constraints);
 
 		constraints.gridx = 1;
 		constraints.gridy = 0;
@@ -123,7 +150,7 @@ public class InterfazAvanzada extends JFrame {
 		constraints.gridheight = 1;
 		constraints.weightx = 1.0;
 		constraints.fill = GridBagConstraints.CENTER;
-		this.getContentPane().add(getPlayButton(), constraints);
+		main.add(getPlayButton(), constraints);
 
 		constraints.gridx = 0;
 		constraints.gridy = 0;
@@ -131,7 +158,7 @@ public class InterfazAvanzada extends JFrame {
 		constraints.gridheight = 1;
 		constraints.weightx = 1.0;
 		constraints.fill = GridBagConstraints.WEST;
-		this.getContentPane().add(getPauseButton(), constraints);
+		main.add(getPauseButton(), constraints);
 		constraints.weightx = 0.0;
 
 		//TODO getSegundero
@@ -143,7 +170,7 @@ public class InterfazAvanzada extends JFrame {
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
 		constraints.fill = GridBagConstraints.CENTER;
-		this.getContentPane().add(segundero, constraints);
+		main.add(segundero, constraints);
 
 		
 		constraints.gridx = 0;
@@ -151,7 +178,7 @@ public class InterfazAvanzada extends JFrame {
 		constraints.gridwidth = 3;
 		constraints.gridheight = 1;
 		constraints.fill = GridBagConstraints.BOTH;
-		this.getContentPane().add(getBarraProgreso(), constraints);
+		main.add(getBarraProgreso(), constraints);
 		// constraints.weighty = 0.0; // Restauramos al valor por defecto, para
 		// no afectar a los siguientes componentes.
 
@@ -161,7 +188,7 @@ public class InterfazAvanzada extends JFrame {
        	position.gridheight = 1;
        	position.gridwidth = 3;
        	position.fill = GridBagConstraints.HORIZONTAL;
-      	this.getContentPane().add(getInfoSongLabel(), position);
+       	main.add(getInfoSongLabel(), position);
 						
       	getDefaultPalyList();
         String[] temas = listaReproduccion.getListado();
@@ -179,9 +206,9 @@ public class InterfazAvanzada extends JFrame {
         position1.weighty = 1.0;
         position1.fill = GridBagConstraints.HORIZONTAL ;
        	//position1.fill = GridBagConstraints.HORIZONTAL;
-      	this.getContentPane().add(infoSong, position1);
+        main.add(infoSong, position1);
       	
-          
+     return main;    
         
 	}
 	
@@ -289,7 +316,7 @@ public class InterfazAvanzada extends JFrame {
 	public JSlider getBarraProgreso(){
 		if(barraProgreso == null){
 			barraProgreso = new JSlider();
-			barraProgreso.setBackground(bgcolor);
+			barraProgreso.setOpaque(false);
 			barraProgreso.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseReleased(MouseEvent e) {

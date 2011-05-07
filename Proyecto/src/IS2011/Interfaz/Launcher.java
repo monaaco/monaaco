@@ -126,9 +126,9 @@ public class Launcher extends JWindow {
 		Biblioteca b = new Biblioteca();
 		//Cargamos las opciones
 		
-		JFrame interfaz;
+		InterfazAvanzada interfaz;
 		interfaz = new InterfazAvanzada();
-		((InterfazAvanzada) interfaz).setBiblioteca(b);
+		((InterfazAvanzada) interfaz).setBiblioteca(b,interfaz);
 		interfaz.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		interfaz.setVisible(true);
 		

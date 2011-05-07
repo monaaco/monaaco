@@ -166,7 +166,6 @@ public class InterfazAvanzada extends JFrame {
 		main.add(getPauseButton(), constraints);
 		constraints.weightx = 0.0;
 
-		//TODO getSegundero
 		segundero = new JLabel("0:00");
 		segundero.setForeground(c);
 		segundero.setFont(new java.awt.Font("Helvetica", 1, 12));
@@ -466,7 +465,6 @@ public class InterfazAvanzada extends JFrame {
             infoSong.actualiza(listaReproduccion.current());
             mPlayer.play();
         } catch (BasicPlayerException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
@@ -520,7 +518,7 @@ public class InterfazAvanzada extends JFrame {
 	 * 
 	 * @param track con la que se crea el BasicPlayer
 	 */
-	private void setCurrentTrack(Track track) {
+	public void setCurrentTrack(Track track) {
 		try {
 			 File f = new File(track.getLocation());
 			 /* TODO 
@@ -615,11 +613,19 @@ public class InterfazAvanzada extends JFrame {
 	}
 	
 	
-	///////////////////////////////
-	public void setBiblioteca(Biblioteca b){
+	/**
+	 * Asocia una biblioteca a nuestra interfaz de reproduccion
+	 * @param b  Biblioteca asociada
+	 * @param ia Referencia a la interfaz avanzada de la que procede
+	 */
+	public void setBiblioteca(Biblioteca b, InterfazAvanzada ia){
 		biblioteca = b;
-		bInterfaz = new BibliotecaInterfaz(b);
+		bInterfaz = new BibliotecaInterfaz(b, ia);
 		bInterfaz.setVisible(true);
+	}
+	
+	public SongInterfaz getInfoPlaylist(){
+		return infoPlaylist;
 	}
 	
 	private Biblioteca biblioteca= null;

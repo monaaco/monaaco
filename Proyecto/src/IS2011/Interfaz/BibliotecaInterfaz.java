@@ -2,6 +2,7 @@ package IS2011.Interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.util.ArrayList;
@@ -17,31 +18,42 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.JWindow;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import javax.swing.text.Document;
+
+import com.sun.imageio.plugins.png.RowFilter;
 
 import IS2011.FiltrosArchivos.FiltroMP3;
 import IS2011.FiltrosArchivos.FiltroOGG;
 import IS2011.FiltrosArchivos.FiltroSoportados;
 import IS2011.bibliotecaXML.Biblioteca;
+import IS2011.bibliotecaXML.Playlist;
 import IS2011.bibliotecaXML.Track;
 
 public class BibliotecaInterfaz extends JFrame{
 
 	private JFrame frame= null;
 	
+	private InterfazAvanzada interfazPadre= null;
 	private JMenuBar menuBI=null;
 	private JMenu menuArchivo=null;
 	private JMenuItem anadirArchivos=null;
-	private JButton propiedades= null;
+	private JMenuItem editarPropiedades=null;
+	private JMenuItem filtroAvanzado=null;
+	private JTextField busquedaRapida= null;
 	private JTable tabla= null;
 	private Biblioteca biblioteca=null; //Sino es un ArrayList es la propia biblioteca.
-	private TableRowSorter<TableModel> elQueOrdena; 
+	private TableRowSorter<TableModel> elQueOrdena=null; 
 	
-	public BibliotecaInterfaz(Biblioteca library){
+	public BibliotecaInterfaz(Biblioteca library, InterfazAvanzada ia){
 		super("Biblioteca");
+		interfazPadre = ia;
 		biblioteca = library;
 		initBibliotecaInterfaz();
 		frame = this;
@@ -65,15 +77,12 @@ public class BibliotecaInterfaz extends JFrame{
 		modelo.addColumn("Comentarios");
 		tabla = new JTable(modelo);
 		tabla.setSize(500,250);
-		actualiza();
+
 		// Instanciamos el TableRowSorter y lo añadimos al JTable
 		elQueOrdena = new TableRowSorter<TableModel>(modelo);
 		tabla.setRowSorter(elQueOrdena);
 		
-		/*para el filtro general
-		elQueOrdena.setRowFilter(RowFilter.regexFilter(".*foo.*"));
-		*/
-		
+		actualiza();
 		
 		/*
 		Para poder filtrar -> la expresion regular en este caso es "2" y la columna es la 1. 
@@ -82,28 +91,59 @@ public class BibliotecaInterfaz extends JFrame{
 		LinkedList<RowFilter> lista = new LinkedList<RowFilter>();
 		lista.add(RowFilter.dateFilter(....));
 		lista.add(RowFilter.regexFilter(....));
-				
 		RowFilter filtroAnd = RowFilter.andFilter(lista);
 		*/
 		
 		
-		/*tabla.addMouseListener(new MouseAdapter(){
+		tabla.addMouseListener(new MouseAdapter(){
 		    public void mouseClicked(MouseEvent e) 
 		      {
 		    	if(e.getClickCount()==2){
 		         int fila = tabla.rowAtPoint(e.getPoint());
 		         if ((fila > -1))
 		         {
+		        	 fila = tabla.convertRowIndexToModel (fila);
+		        	 Track aux = biblioteca.getArray().get(fila);
+		        	 Playlist listaRepr = interfazPadre.getListaReproduccion();
+		        	 listaRepr.add(aux.getLocation());
+		        	 //interfazPadre.setCurrentTrack(listaRepr.current());
+                     String[] temas = listaRepr.getListado();
+                     interfazPadre.getInfoPlaylist().actualizaTemas(temas);
 		        	 //pasamos de la fila recibida a la fila sin filtrar
 		        	 //Anade a la listaReproduccion
 		         }
 		    	}
 		      }
-		   });*/
+		   });
 
 		JScrollPane scroll = new JScrollPane(tabla);
 		scroll.setSize(500,250);
 		this.add(scroll);
+		
+		busquedaRapida = new JTextField("");
+		busquedaRapida.setSize(200,10);
+		Document d = busquedaRapida.getDocument();
+		d.addDocumentListener(new DocumentListener() {
+			
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+				filtraRapido();
+				System.out.println("removeUpdate");
+			}
+
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				filtraRapido();
+				System.out.println("insertUpdate");
+			}
+			
+			@Override
+			public void changedUpdate(DocumentEvent e) {
+				filtraRapido();
+				System.out.println("changedUpdate");
+			}
+		});
+		menuBI.add(busquedaRapida);
 	}
 	
 	private JMenuBar getBarraMenu() {
@@ -113,6 +153,8 @@ public class BibliotecaInterfaz extends JFrame{
 			menuBI.setBorderPainted(false);
 			menuArchivo = new JMenu("Biblioteca");
 			menuArchivo.add(getAnadirArchivos());
+			menuArchivo.add(getFiltroAvanzado());
+			menuArchivo.add(getEditarPropiedades());
 			menuBI.add(menuArchivo);
 		}
 		return menuBI;
@@ -138,25 +180,49 @@ public class BibliotecaInterfaz extends JFrame{
                     		biblioteca.add(aux);
                     	}
                     	actualiza();
+                    	busquedaRapida.setText("");
                     }
 				};
 			});
 		}
 		return anadirArchivos;
 	}
+	
+	public JMenuItem getEditarPropiedades(){
+		if(editarPropiedades==null){
+			editarPropiedades= new JMenuItem("Editar propiedades");
+			anadirArchivos.addMouseListener(new java.awt.event.MouseAdapter() {
+				public  void mouseReleased(java.awt.event.MouseEvent evt) {
+					//TODO Mostrar el PropiedadesTrack	
+				}
+			});
+		}
+		return editarPropiedades;
+	}
 
+	public JMenuItem getFiltroAvanzado(){
+		if(filtroAvanzado==null){
+			filtroAvanzado= new JMenuItem("Busqueda avanzada");
+			anadirArchivos.addMouseListener(new java.awt.event.MouseAdapter() {
+				public  void mouseReleased(java.awt.event.MouseEvent evt) {
+					//TODO Mostrar un panel con los campos a buscar		
+				}
+			});
+		}
+		return filtroAvanzado;
+	}
+	
 	public void actualiza(){
 		DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
-		/*1º Borrar todo lo que tenga la tabla SIN HACER*/
+		/*1º Borrar todo lo que tenga la tabla*/
+		elQueOrdena.setRowFilter(javax.swing.RowFilter.regexFilter(""));
 		
-		//IMPRESCINDIBLE CREO modelo.getSort().removeFilters();
-		
-		for(int i= modelo.getRowCount() - 1; i>=0 ;i++){
+		for(int i= modelo.getRowCount() - 1; i>=0 ;i--){
 			 modelo.removeRow(i);
 		}
 		
-		/*2º Meter todo en la tabla*/
 		
+		/*2º Meter todo en la tabla*/
 		Iterator it = biblioteca.getArray().iterator();
 		Track aux= null;
 		while (it.hasNext())
@@ -166,5 +232,9 @@ public class BibliotecaInterfaz extends JFrame{
 		}
 		
 		repaint();
+	}
+	
+	public void filtraRapido(){
+		elQueOrdena.setRowFilter(javax.swing.RowFilter.regexFilter("(?i)"+busquedaRapida.getText()));
 	}
 }

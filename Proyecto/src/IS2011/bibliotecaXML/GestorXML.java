@@ -34,9 +34,11 @@ public class GestorXML {
 		rutaBiblioteca= new File("xml/biblioteca.xml");
 	}
 	
+	/**
+	 *  Crea una biblioteca
+	 */
 	public GestorXML(){
 		rutaBiblioteca= new File("xml/biblioteca.xml");
-		
 	}
 	
 	/**
@@ -66,8 +68,13 @@ public class GestorXML {
 	public void add(Track tr) {
 		this.biblioteca.add(tr);
 	}
-
-
+	
+	/**
+	 * Esta función simplemente llama a la de biblioteca
+	 */
+	public ArrayList<Track> getBiblioteca(){
+		return biblioteca.getBiblioteca();
+	}
 	
 	/**
 	 * Carga en la biblioteca el contenido del XML
@@ -132,9 +139,7 @@ public class GestorXML {
 	}
 
 	
-	public Biblioteca getArray(){
-		return biblioteca;
-	}
+
 	
 	
 	

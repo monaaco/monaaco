@@ -1,5 +1,6 @@
 package IS2011.Interfaz;
 
+import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -68,17 +69,17 @@ public class PropiedadesTrack extends JDialog //o JWindow, probar ambas.
 	 */
 	public void initPropiedadesUI(){
 		this.setSize(400,200);
-		this.setLayout(new GridBagLayout());
+		this.setLayout(new FlowLayout());
 		labelNombre = new JLabel("Titulo: ");
 		labelArtista = new JLabel("Artista: ");
 		labelAlbumArtista = new JLabel("Album Artista: ");
 		labelAlbum = new JLabel("Album: ");
 		labelComentario = new JLabel("Comentario: ");
-		nombre = new JTextField(track.getName());
-		artista = new JTextField(track.getArtist());
-		albumArtista = new JTextField(track.getAlbumArtist());
-		album = new JTextField(track.getAlbum());
-		comentario = new JTextField(track.getComments());
+		nombre = new JTextField(track.getName(),10);
+		artista = new JTextField(track.getArtist(),10);
+		albumArtista = new JTextField(track.getAlbumArtist(),10);
+		album = new JTextField(track.getAlbum(),10);
+		comentario = new JTextField(track.getComments(),20);
 		
 		botonOk = new JButton("OK");
 		botonOk.addMouseListener(new MouseAdapter() {

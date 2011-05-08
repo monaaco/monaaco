@@ -444,7 +444,7 @@ public class InterfazAvanzada extends JFrame {
 				public void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
 						if(reproduciendo == false){
-						//	playButton.setIcon(pauseIcon);	
+							playButton.setIcon(pauseIcon);	
 							mPlayer.play();
 							reproduciendo = true;
 						
@@ -453,10 +453,11 @@ public class InterfazAvanzada extends JFrame {
 							if (pause == false) {
 								pause = true;
 								mPlayer.pause();
+								playButton.setIcon(playIcon);	
 							}else {
 								pause = false;
-								//playButton.setIcon(playIcon);
 								mPlayer.resume();
+								playButton.setIcon(pauseIcon);
 								
 							}
 							
@@ -632,11 +633,13 @@ public class InterfazAvanzada extends JFrame {
 			 
              if (mPlayer != null) {
                      mPlayer.stop();
+                                
              }
              mPlayer = new BasicPlayer();
              reproductorListener = new ReproductorListener(this);
              mPlayer.addBasicPlayerListener(reproductorListener);
-             mPlayer.open(f);   
+             mPlayer.open(f); 
+                  
              
              posTag = 0-infoSongLabel.getSize().width;
              infoSongLabel.setText(null);
@@ -682,6 +685,8 @@ public class InterfazAvanzada extends JFrame {
 		pause = false;
 		mPlayer.stop();
 		mPlayer.play();
+		  reproduciendo = true;
+          playButton.setIcon(pauseIcon);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

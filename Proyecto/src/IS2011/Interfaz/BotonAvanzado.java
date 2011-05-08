@@ -11,10 +11,12 @@ public class BotonAvanzado extends JButton {
 	private ImageIcon iCon;
 	private ImageIcon iConS;
 	
+	
 	public BotonAvanzado(ImageIcon imagen,ImageIcon imagenS)
 	{
 		super(imagen);
 		iCon = imagen;
+		
 		iConS = imagenS;
 		//colorFondo=fon;
 		//colorPresionado=pre;
@@ -37,12 +39,9 @@ public class BotonAvanzado extends JButton {
 	{
 		if(getModel().isArmed()){
 				g.setColor(Color.black);
-				//this.setIcon(iConS = iConS);
+				//this.setIcon(iConS);
 		}
-		else{
-			this.setIcon(iCon);
-			g.setColor(Color.black);
-		}
+		
 		g.fillOval(21,3,getSize().width-42,getSize().height-7);
 		super.paintComponent(g);
 	}

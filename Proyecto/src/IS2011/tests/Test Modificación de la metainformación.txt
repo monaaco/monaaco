@@ -1,0 +1,11 @@
+Tests correspondientes a la historia #34 "Modificación de la metainformación"
+
+ Pasos:
+	1. Ejecutar la aplicación
+	2. Agregar a la biblioteca el archivo "sounds/prueba.mp3"
+	3. Seleccionar en la biblioteca el archivo prueba.mp3 y pinchar en la opción de editar propiedades de archivo del menú de la biblioteca.
+	4. Cambiar los valores de los atributos en la ventana emergente. 
+	5. Aceptar los cambios y comprobar en la aplicación que se muestran los cambios de la metainformación en la biblioteca, en playlist y en el cuadro de informacion de canción al reproducirla.
+	6. Por último comprobar mediante otra aplicación u desde el explorador de windows seleccionando en propiedades de archivo en la pestaña resumen que las propiedades se han modificado correctamente.
+	
+	

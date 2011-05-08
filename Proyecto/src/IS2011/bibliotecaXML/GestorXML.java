@@ -89,7 +89,7 @@ public class GestorXML {
 			 //necesario InputStreamReader para que lea carácteres especiales como tíldes!
 			 biblioteca = (Biblioteca)xs.fromXML(new InputStreamReader(is));
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(new JFrame(),
+			JOptionPane.showMessageDialog(null,
 				    "La biblioteca no ha podido ser cargada, el formato es erróneo.\n" +
 				    e.getMessage(),
 				    "Error carga de la biblioteca",
@@ -138,7 +138,7 @@ public class GestorXML {
 				xstream.processAnnotations(Biblioteca.class);
 				xstream.toXML(biblioteca, new FileOutputStream(file));
 			} catch (FileNotFoundException e) {
-				JOptionPane.showMessageDialog(new JFrame(),
+				JOptionPane.showMessageDialog(null,
 					    "La biblioteca no ha podido ser guardada.\n" +
 					    e.getMessage(),
 					    "Error carga de la biblioteca",

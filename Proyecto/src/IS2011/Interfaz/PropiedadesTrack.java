@@ -85,14 +85,9 @@ public class PropiedadesTrack extends JDialog //o JWindow, probar ambas.
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				/*1º en este metodo deberiamos modificar el Track que se nos ha pasado al metodo,
-				si no se le ha hecho ningun new entre medias este Track se encuentra dentro del ArrayList de bliblioteca y/o de mostradas en biblioteca con lo cual bastaría con guardar la biblioteca entera
-				al modificar el Track.*/
-				track.setName(nombre.getText());
-				track.setArtist(artista.getText());
-				track.setAlbumArtist(albumArtista.getText());
-				track.setAlbum(album.getText());
-				track.setComments(comentario.getText());
-				
+				si no se le ha hecho ningun new entre medias este Track se encuentra dentro del ArrayList
+				 de bliblioteca y/o de mostradas en biblioteca con lo cual bastaría con guardar la biblioteca 
+				 entera al modificar el Track.*/
 				/*2º Cambiar los Tags en el archivo original
 				 Deberiamos probar que pasa si se modifica un archivo en reproducción, si falla:
 				 SOLUCION, pasar a la constructora una referencia a Interfaz avanzada, en ella creamos un get
@@ -100,22 +95,19 @@ public class PropiedadesTrack extends JDialog //o JWindow, probar ambas.
 				 getPosition(bytes), stop, close(f), GUARDAMOS (codigo comúm puesto a continuación), y hacemos un 
 				 open(f), seek(bytes) y play.
 				*/
-				
-				//EL GUARDAR la metaInformación en el archivo.
-				File file = new File(track.getLocation());
 				try{
-					AudioFile f = AudioFileIO.read(file);
-					Tag tag = f.getTag();
-					tag.setField(FieldKey.TITLE, nombre.getText());
-					tag.setField(FieldKey.ARTIST, artista.getText());
-					tag.setField(FieldKey.ALBUM_ARTIST, albumArtista.getText());
-					tag.setField(FieldKey.ALBUM, album.getText());
-					tag.setField(FieldKey.COMMENT, comentario.getText());
-					f.commit();
+					if((nombre.getText() != null) && (nombre.getText() != "")) track.setName(nombre.getText());
+					if((artista.getText() != null) && (artista.getText() != "")) track.setArtist(artista.getText());
+					if((albumArtista.getText() != null) && (albumArtista.getText() != "")) track.setAlbumArtist(albumArtista.getText());
+					if((album.getText() != null) && (album.getText() != "")) track.setAlbum(album.getText());
+					/*if((comentario.getText() != null) && (comentario.getText() != ""))*/ track.setComments(comentario.getText());
 				}
 				catch(Exception ex){
-					JOptionPane.showMessageDialog(null, "Error en la modificación del archivo");
+					JOptionPane.showMessageDialog(null,
+							"Error en la modificación del archivo"
+							);
 				}
+				
 				/*3º Cerrar al igual que se hace en el de cancelar */
 
 				pt.dispose();

@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 
 import org.jaudiotagger.audio.*;
 import org.jaudiotagger.audio.exceptions.CannotReadException;
+import org.jaudiotagger.audio.exceptions.CannotWriteException;
 import org.jaudiotagger.audio.exceptions.InvalidAudioFrameException;
 import org.jaudiotagger.audio.exceptions.ReadOnlyFileException;
 import org.jaudiotagger.tag.*;
@@ -39,7 +40,7 @@ public class Track {
 		
         private String kind = null;
         
-        private Integer size = null;
+        private long size = 0;
         
         private Integer totalTime = null;
         
@@ -65,31 +66,33 @@ public class Track {
  
 
         public Track(String ruta){
-                try {
-                        File f = new File(ruta);
-                        AudioFile af = AudioFileIO.read(f);
-                        Tag tag = af.getTag();
-                        AudioHeader ah = af.getAudioHeader();
-                        
-                        setName(tag.getFirst(FieldKey.TITLE));
-                        setArtist(tag.getFirst(FieldKey.ARTIST));
-                        setAlbumArtist(tag.getFirst(FieldKey.ALBUM_ARTIST));
-                        setBitRate(Integer.valueOf(ah.getBitRate()));
-                        setComments(tag.getFirst(FieldKey.COMMENT));
-                        setArtist(tag.getFirst(FieldKey.ARTIST));
-                        setAlbum(tag.getFirst(FieldKey.ALBUM));
-                        setGenre(tag.getFirst(FieldKey.GENRE));
-                        // de momento el id creo que no nos es útil dejarlo 
-                        // hasta que veamos si lo utilizamos en la biblioteca.
-                        sid++;
-                        setId(sid);              
-                        setTotalTime(ah.getTrackLength());
-                       // setArtworkList(tag.getArtworkList());
-                        setLocation(ruta);
-                        
-                } catch (Exception e) {
-                        System.out.println(e.getMessage());
-                }
+            try {
+                File f = new File(ruta);
+                AudioFile af = AudioFileIO.read(f);
+                Tag tag = af.getTag();
+                AudioHeader ah = af.getAudioHeader();
+                
+                this.name = tag.getFirst(FieldKey.TITLE);
+                this.artist = tag.getFirst(FieldKey.ARTIST);
+                this.albumArtist = tag.getFirst(FieldKey.ALBUM_ARTIST);
+                this.bitRate = Integer.valueOf(ah.getBitRate());
+                this.comments = tag.getFirst(FieldKey.COMMENT);
+                this.artist = tag.getFirst(FieldKey.ARTIST);
+                this.album = tag.getFirst(FieldKey.ALBUM);
+                this.genre = tag.getFirst(FieldKey.GENRE);
+                this.kind = ah.getFormat();
+	
+                setId(sid++);    
+                
+                this.totalTime = ah.getTrackLength();
+                
+                this.size = f.getTotalSpace();
+                
+                this.location = ruta;
+            } catch (Exception e) {
+            		//TODO SHOW DIALOG
+                    System.out.println(e.getMessage());
+            }
                 
         }
         
@@ -120,7 +123,14 @@ public class Track {
 			}
 			return null;
         }
-
+        
+        /**
+         * Accesora para la carátula del archivo
+         * Abre el archivo y la obtiene sin tener que tenerla 
+         * cargada durante toda la ejecución del programa
+         * 
+         * @return Primera carátula del archivo
+         */
         public BufferedImage getArtwork() {
                         try {
                         		File f = new File(getLocation());
@@ -150,6 +160,11 @@ public class Track {
                 return null;
         }
         
+        /**
+         * Accesora para el número de carátulas
+         * 
+         * @return número carátula de carátulas
+         */
         public int getNumCaratulas() {
             try {
         		File f = new File(getLocation());
@@ -178,212 +193,314 @@ public class Track {
 			return 0;
         }
         
+        /**
+         * Mutadora de las carátulas del archivo
+         * 
+         * @return Primera carátula del archivo
+         * @param artworkList Lista de carátulas
+         */
         public void setArtworkList(List<Artwork> artworkList) {
         	//TODO
         }
 
-        
+       
 
-
+        /**
+         * Accesora para la id de la canción
+         * 
+         * @return Primera carátula del archivo
+         */
         public long getId() {
                 return id;
         }
 
-
-
-        public void setId(long id) {
+        /**
+         * Mutadora de la id de canción
+         * Es privada, ya que sólo se debe modificar al crearse la canción en la constructora
+         * 
+         * @param id 
+         */
+        private void setId(long id) {
                 this.id = id;
         }
 
-        
+        /**
+         * Accesora del albúm de la canción
+         * 
+         * @return album  
+         */
         public String getAlbum() {
 			return album;
 		}
 
-
-
-		public void setAlbum(String album) {
+        /**
+         * Mutadora  del albúm de la canción
+         * Es privada, ya que sólo se debe modificar al crearse la canción en la constructora
+         * 
+         * @param id 
+         * @throws InvalidAudioFrameException 
+         * @throws ReadOnlyFileException 
+         * @throws TagException 
+         * @throws IOException 
+         * @throws CannotReadException 
+         * @throws CannotWriteException 
+         */
+		public void setAlbum(String album) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException {
 			this.album = album;
+			AudioFile f = AudioFileIO.read(new File(this.getLocation()));
+			Tag tag = f.getTag();
+			tag.setField(FieldKey.ALBUM, album);
+			f.commit();
 		}
 
-
+		/**
+		 * 
+		 * @return nombre del artista de la canción
+		 */
         public String getName() {
                 return name;
         }
 
 
+        /**
+         * 
+         * @param name
+         * @throws InvalidAudioFrameException 
+         * @throws ReadOnlyFileException 
+         * @throws TagException 
+         * @throws IOException 
+         * @throws CannotReadException 
+         * @throws CannotWriteException 
+         */
+        public void setName(String name) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException {
+            this.name = name;
+			AudioFile f = AudioFileIO.read(new File(this.getLocation()));
+			Tag tag = f.getTag();
+			tag.setField(FieldKey.TITLE, name);
+			f.commit();
+    	}
 
-        public void setName(String name) {
-                this.name = name;
-        }
 
-
-
+        /**
+         * 
+         * @return Artista de la canción
+         */
         public String getArtist() {
                 return artist;
         }
 
 
+        /**
+         * 
+         * @param artist
+         * @throws InvalidAudioFrameException 
+         * @throws ReadOnlyFileException 
+         * @throws TagException 
+         * @throws IOException 
+         * @throws CannotReadException 
+         * @throws CannotWriteException 
+         */
+        public void setArtist(String artist) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException {
+            this.artist = artist;
+			AudioFile f = AudioFileIO.read(new File(this.getLocation()));
+			Tag tag = f.getTag();
+			tag.setField(FieldKey.ARTIST, artist);
+			f.commit();
+    	}
 
-        public void setArtist(String artist) {
-                this.artist = artist;
-        }
 
-
-
+        /**
+         * 
+         * @return Artista del album de la cancón
+         */
         public String getAlbumArtist() {
-                return albumArtist;
-        }
+            return albumArtist;
+    	}
 
 
+        /**
+         * 
+         * @param albumArtist
+         * @throws KeyNotFoundException 
+         * @throws InvalidAudioFrameException 
+         * @throws ReadOnlyFileException 
+         * @throws TagException 
+         * @throws IOException 
+         * @throws CannotReadException 
+         * @throws CannotWriteException 
+         */
+        public void setAlbumArtist(String albumArtist) throws KeyNotFoundException, CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException {
+            this.albumArtist = albumArtist;
+			AudioFile f = AudioFileIO.read(new File(this.getLocation()));
+			Tag tag = f.getTag();
+			tag.setField(FieldKey.ALBUM_ARTIST, albumArtist);
+			f.commit();
+		}
 
-        public void setAlbumArtist(String albumArtist) {
-                this.albumArtist = albumArtist;
-        }
 
-
-
+        /**
+         * 
+         * @return Género de la canción
+         */
         public String getGenre() {
                 return genre;
         }
 
 
+        /**
+         * 
+         * @param genre
+         * @throws InvalidAudioFrameException 
+         * @throws ReadOnlyFileException 
+         * @throws TagException 
+         * @throws IOException 
+         * @throws CannotReadException 
+         * @throws CannotWriteException 
+         */
+        public void setGenre(String genre) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException {
+            this.genre = genre;
+			AudioFile f = AudioFileIO.read(new File(this.getLocation()));
+			Tag tag = f.getTag();
+			tag.setField(FieldKey.GENRE, genre);
+			f.commit();
+		}
 
-        public void setGenre(String genre) {
-                this.genre = genre;
-        }
-
-
-
+        /**
+         * 
+         * @return tipo de archivo de audio
+         */
         public String getKind() {
                 return kind;
         }
 
-
-
-        public void setKind(String kind) {
-                this.kind = kind;
-        }
-
-
-
-        public Integer getSize() {
+        /**
+         * 
+         * @return Tamaño del archivo
+         */
+        public long getSize() {
                 return size;
         }
 
-
-
-        public void setSize(Integer size) {
-                this.size = size;
-        }
-
-
-
+        /**
+         * 
+         * @return Tiempo total de la canción
+         */
         public Integer getTotalTime() {
                 return totalTime;
         }
 
-
-
-        public void setTotalTime(Integer totalTime) {
-                this.totalTime = totalTime;
-        }
-
-
-
+        /**
+         * 
+         * @return Año de la canción
+         */
         public Integer getYear() {
                 return year;
         }
 
-
-
-        public void setYear(Integer year) {
-                this.year = year;
+        /**
+         *  Mutadora, cambia el tag year de la canción
+         * @param year
+         */
+        public void setYear(Integer year) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException {
+            this.year = year;
+			AudioFile f = AudioFileIO.read(new File(this.getLocation()));
+			Tag tag = f.getTag();
+			tag.setField(FieldKey.YEAR, String.valueOf(year));
+			f.commit();
         }
 
-
-
+        /**
+         * 
+         * @return fecha de modificación
+         */
         public Date getDateModified() {
                 return dateModified;
+    			//TODO
         }
-
-
-
+        
+        /**
+         * 
+         * @param dateModified
+         */
         public void setDateModified(Date dateModified) {
                 this.dateModified = dateModified;
         }
 
-
-
+        /**
+         * 
+         * @return fecha de adición
+         */
         public Date getDateAdded() {
                 return dateAdded;
         }
 
-
-
+        /**
+         * 
+         * @param dateAdded
+         */
         public void setDateAdded(Date dateAdded) {
                 this.dateAdded = dateAdded;
         }
 
-
-
+        /**
+         * 
+         * @return bitrate de la canción
+         */
         public Integer getBitRate() {
                 return bitRate;
         }
 
-
-
-        public void setBitRate(Integer bitRate) {
-                this.bitRate = bitRate;
-        }
-
-
-
+        /**
+         * 
+         * @return bitrate de una muestra de la canción
+         */
         public Integer getSampleRate() {
                 return sampleRate;
         }
 
-
-
-        public void setSampleRate(Integer sampleRate) {
-                this.sampleRate = sampleRate;
-        }
-
-
-
+        /**
+         * 
+         * @return comentarios del tag de  la canción
+         */
         public String getComments() {
                 return comments;
         }
 
-
-
-        public void setComments(String comments) {
+        /**
+         * 
+         * @param comments
+         * @throws InvalidAudioFrameException 
+         * @throws ReadOnlyFileException 
+         * @throws TagException 
+         * @throws IOException 
+         * @throws CannotReadException 
+         * @throws CannotWriteException 
+         */
+        public void setComments(String comments) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException {
                 this.comments = comments;
+    			AudioFile f = AudioFileIO.read(new File(this.getLocation()));
+    			Tag tag = f.getTag();
+    			tag.setField(FieldKey.COMMENT, comments);
+    			f.commit();
         }
 
 
-
+        /**
+         * 
+         * @return Tipo de track
+         */
         public String getTrackType() {
                 return trackType;
         }
 
-
-
-        public void setTrackType(String trackType) {
-                this.trackType = trackType;
-        }
-
-
-
+        /**
+         * 
+         * @return location del archivo
+         */
         public String getLocation() {
                 return location;
         }
 
-
-
-        public void setLocation(String location) {
-                this.location = location;
-        }
 
 
 		@Override
@@ -415,7 +532,9 @@ public class Track {
 		}
 
 
-
+		/**
+		 *  Devuelve la información principal de la canción
+		 */
 		public String toString(){
                 String aux = "Artist: " + getArtist();
                 aux += "\n Name: " + name;

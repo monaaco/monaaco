@@ -98,7 +98,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 		         if ((fila > -1))
 		         {
 		        	 fila = tabla.convertRowIndexToModel (fila);
-		        	 Track aux = biblioteca.getArray().getBiblioteca().get(fila);
+		        	 Track aux = biblioteca.getBiblioteca().get(fila);
 		        	 Playlist listaRepr = interfazPadre.getListaReproduccion();
 		        	 listaRepr.add(aux.getLocation());
 		        	 //interfazPadre.setCurrentTrack(listaRepr.current());
@@ -182,7 +182,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 							{
 								fila = seleccionadas[i];
 								fila = tabla.convertRowIndexToModel (fila);
-								biblioteca.getArray().getBiblioteca().remove(fila);
+								biblioteca.getBiblioteca().remove(fila);
 							}
 							
 	                    	actualiza();
@@ -234,7 +234,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 					int[] seleccionadas = tabla.getSelectedRows();
 					if(seleccionadas.length > 0){
 						for(int i =0;i< seleccionadas.length ;i++){
-							Track track = biblioteca.getArray().getBiblioteca().get(seleccionadas[i]);
+							Track track = biblioteca.getBiblioteca().get(seleccionadas[i]);
 							PropiedadesTrack pt = new PropiedadesTrack(interfazPadre, true ,track);
 							pt.setVisible(true);
 						}
@@ -271,7 +271,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 		
 		
 		/*2º Meter todo en la tabla*/
-		Iterator it = biblioteca.getArray().getBiblioteca().iterator();
+		Iterator it = biblioteca.getBiblioteca().iterator();
 		Track aux= null;
 		while (it.hasNext())
 		{

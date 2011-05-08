@@ -7,6 +7,9 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.util.*;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
@@ -22,6 +25,7 @@ public class GestorXML {
 	
 	/**
 	 * Crea una biblioteca a partir de el archivo XML por defecto
+	 * @param b
 	 */
 	public GestorXML(Biblioteca b) {
 	//	biblioteca = new ArrayList<Track>();
@@ -29,10 +33,12 @@ public class GestorXML {
 		biblioteca = b;
 		rutaBiblioteca= new File("xml/biblioteca.xml");
 	}
+	
 	public GestorXML(){
 		rutaBiblioteca= new File("xml/biblioteca.xml");
 		
 	}
+	
 	/**
 	 * Crea una biblioteca a partir de un archivo XML
 	 * @param f: Archivo XML de entrada
@@ -46,55 +52,44 @@ public class GestorXML {
 
 
 	/**
-	 * Devuelve todos los tracks de la biblioteca
-	 * @return ArrayList<Track>
-	 */
-/*	public Biblioteca getBiblioteca() {
-		return biblioteca;
-	}*/
-
-	/**
-	 * Añade toda una lista de tracks a la biblioteca
+	 * Esta función simplemente llama a la de biblioteca
 	 * @param trList
 	 */
 	public void addAll(List<Track> trList) {
-		Track aux;
-		Iterator it = trList.iterator();
-		while(it.hasNext())
-		{
-			aux = (Track)it.next();
-			this.biblioteca.add(aux);
-		}
+		this.biblioteca.addAll(trList);
 	}
 
 	/**
-	 * Añade nun Track a la biblioteca
-	 * @param tr: Track
+	 * Esta función simplemente llama a la de biblioteca
+	 * @param tr
 	 */
 	public void add(Track tr) {
 		this.biblioteca.add(tr);
 	}
 
+
+	
 	/**
 	 * Carga en la biblioteca el contenido del XML
 	 */
 	public void cargar(){
-		XStream xs=new XStream(new DomDriver());
-		
-	
 		try {
+			 XStream xs=new XStream(new DomDriver());
 			 is = new FileInputStream(rutaBiblioteca);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			 biblioteca = new Biblioteca();
+			 xs.processAnnotations(Biblioteca.class);
+			 biblioteca = (Biblioteca)xs.fromXML(is);
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(new JFrame(),
+				    "La biblioteca no ha podido ser cargada, el formato es erróneo.",
+				    "Error cargando la biblioteca",
+				    JOptionPane.WARNING_MESSAGE);
+			//TODO crear un nuevo biblioteca.xml 
 			e.printStackTrace();
 		}
 		//xs.fromXML
 		//String xml = xs.toXML(is);
 		//String aux=(String)xs.fromXML(xml);
-		biblioteca=new Biblioteca();
-		biblioteca=(Biblioteca)xs.fromXML(is);
-		
-
 		//Iterator it=(Iterator)tracks.listIterator();
 		
 		//while(it.hasNext()){
@@ -105,31 +100,34 @@ public class GestorXML {
 	
 
 	/**
-	 * Guarda en el XML todo el contenido actual de la biblioteca
+	 * Guarda en el XML todo el contenido actual de la biblioteca b
 	 */
 	public void guardar(){
-		//TODO codigo perteneciente a la escritura del XML (Jorge, Jachu)
-		// Deberiais tener como entrada el ArrayList de la Biblioteca funcionXML(biblioteca)
-		XStream xstream = new XStream(new DomDriver());
-			try {
-				xstream.toXML(biblioteca, new FileOutputStream(rutaBiblioteca));
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	
+		//TODO codigo perteneciente a la escritura del XML (Miguel, Jachu)
+		// tener como entrada el ArrayList de la Biblioteca funcionXML(biblioteca)?¿
 		
-		
-		/*PrintWriter writer;
-		try {
-				writer = new PrintWriter(rutaBiblioteca);
-		
-				writer.print(tracksXML);
-				writer.close(); 
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-		}*/
+		if( biblioteca != null){
+				try {
+					XStream xstream = new XStream(new DomDriver());
+					// Esta linea es para que haga caso de las anotaciones del tipo @XStream*
+					xstream.processAnnotations(Biblioteca.class);
+					xstream.toXML(biblioteca, new FileOutputStream(rutaBiblioteca));
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				}
+		}
+				/*	
+				PrintWriter writer;
+				try {
+						writer = new PrintWriter(rutaBiblioteca);
+				
+						writer.print(tracksXML);
+						writer.close(); 
+					} catch (FileNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+				}
+				 */
 
 	}
 

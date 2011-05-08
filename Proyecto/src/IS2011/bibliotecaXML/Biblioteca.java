@@ -4,26 +4,38 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+@XStreamAlias("biblioteca")
 public class Biblioteca {
 
-	
+	@XStreamAlias("trackList")
 	private ArrayList<Track> b = null;
+
+	//TODO aqui podriamos tener los playlists
 	
 	public Biblioteca()
 	{
 		b=new ArrayList<Track>();
 	}
+	
 	public ArrayList<Track> getBiblioteca()
 	{
 		return b;
 	}
+	
 	/**
-	 * Añade nun Track a la biblioteca
+	 * Añade un Track a la biblioteca
 	 * @param tr: Track
 	 */
 	public void add(Track tr) {
 		this.b.add(tr);
 	}
+	
+	/**
+	 * Añade una lista de tracks a la biblioteca
+	 * @param trList
+	 */
 	public void addAll(List<Track> trList) {
 		Track aux;
 		Iterator it = trList.iterator();
@@ -33,5 +45,6 @@ public class Biblioteca {
 			this.b.add(aux);
 		}
 	}
+	
 }
 

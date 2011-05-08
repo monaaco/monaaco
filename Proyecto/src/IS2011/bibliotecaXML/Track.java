@@ -4,40 +4,66 @@ import java.util.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import org.jaudiotagger.audio.*;
+import org.jaudiotagger.audio.exceptions.CannotReadException;
+import org.jaudiotagger.audio.exceptions.InvalidAudioFrameException;
+import org.jaudiotagger.audio.exceptions.ReadOnlyFileException;
 import org.jaudiotagger.tag.*;
 
 import org.jaudiotagger.tag.datatype.Artwork;
 
+import com.thoughtworks.xstream.annotations.*;
 
+
+@XStreamAlias("track")
 public class Track {
         
+		@XStreamOmitField
         static long sid = 0;
-        
+		
+	   	@XStreamAsAttribute
         private long id;
-        private String name = null;
-        private String artist = null;
-        private String albumArtist = null;
-        private String album = null;
-		private String genre = null;
-        private String kind = null;
-        private Integer size = null;
-        private Integer totalTime = null;
-        private Integer year = null;
-        private Date dateModified = null;
-        private Date dateAdded = null;
-        private Integer bitRate = null;
-        private Integer sampleRate = null;
-        private String comments = null;
-        private String trackType = null;
-        private String location = null;
-        private List<Artwork> artworkList = null; 
         
+        private String name = null;
+        
+        private String artist = null;
+        
+        private String albumArtist = null;
+        
+        private String album = null;
+        
+		private String genre = null;
+		
+        private String kind = null;
+        
+        private Integer size = null;
+        
+        private Integer totalTime = null;
+        
+        private Integer year = null;
+        
+        private Date dateModified = null;
+        
+        private Date dateAdded = null;
+        
+        private Integer bitRate = null;
+        
+        private Integer sampleRate = null;
+        
+        private String comments = null;
+        
+        private String trackType = null;
+        
+        private String location = null;
+        
+       
         
         //private Tag tag = null;
-        
+ 
 
-        
         public Track(String ruta){
                 try {
                         File f = new File(ruta);
@@ -55,10 +81,10 @@ public class Track {
                         setGenre(tag.getFirst(FieldKey.GENRE));
                         // de momento el id creo que no nos es útil dejarlo 
                         // hasta que veamos si lo utilizamos en la biblioteca.
-                        id++;
-                        setId(id);              
+                        sid++;
+                        setId(sid);              
                         setTotalTime(ah.getTrackLength());
-                        setArtworkList(tag.getArtworkList());
+                       // setArtworkList(tag.getArtworkList());
                         setLocation(ruta);
                         
                 } catch (Exception e) {
@@ -70,27 +96,90 @@ public class Track {
 
         
         public List<Artwork> getArtworkList() {
-                return artworkList;
+			try {
+	        	File f = new File(getLocation());
+	            AudioFile af;
+				af = AudioFileIO.read(f);
+				Tag tag = af.getTag();
+				return tag.getArtworkList();
+			} catch (CannotReadException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (TagException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ReadOnlyFileException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvalidAudioFrameException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return null;
         }
 
         public BufferedImage getArtwork() {
-                if(artworkList.size() > 0){
                         try {
-                                return artworkList.get(0).getImage();
+                        		File f = new File(getLocation());
+                        		AudioFile af = AudioFileIO.read(f);
+                        		Tag tag = af.getTag();
+                        		if(getArtworkList().size() <= 0) return null;
+                                return tag.getArtworkList().get(0).getImage();
                         } catch (IOException e) {
                                 e.printStackTrace();
-                                System.out.println("Error al obtener la carátula. \n" + e.getMessage());
-                        }
-                }
+                    			JOptionPane.showMessageDialog(new JFrame(),
+                    				    "Error al obtener la carátula.",
+                    				    "Error",
+                    				    JOptionPane.WARNING_MESSAGE);
+                    	} catch (CannotReadException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (TagException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (ReadOnlyFileException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (InvalidAudioFrameException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
                 return null;
         }
         
         public int getNumCaratulas() {
-        	if(artworkList == null) return 0;
-            return artworkList.size();
+            try {
+        		File f = new File(getLocation());
+        		AudioFile af = AudioFileIO.read(f);
+        		Tag tag = af.getTag();
+                return tag.getArtworkList().size();
+	        } catch (IOException e) {
+	                e.printStackTrace();
+	    			JOptionPane.showMessageDialog(new JFrame(),
+	    				    "Error al obtener la carátula.",
+	    				    "Error",
+	    				    JOptionPane.WARNING_MESSAGE);
+	    	} catch (CannotReadException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (TagException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ReadOnlyFileException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvalidAudioFrameException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return 0;
         }
+        
         public void setArtworkList(List<Artwork> artworkList) {
-                this.artworkList = artworkList;
+        	//TODO
         }
 
         

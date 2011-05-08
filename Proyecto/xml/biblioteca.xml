@@ -1,20 +1,6 @@
-<IS2011.bibliotecaXML.Biblioteca>
-  <b>
-    <IS2011.bibliotecaXML.Track>
-      <id>1</id>
-      <name>Three Little Birds</name>
-      <artist>Bob Marley</artist>
-      <albumArtist></albumArtist>
-      <album>One Love - The Very Best Of Bob Marley</album>
-      <genre>Reggae</genre>
-      <totalTime>183</totalTime>
-      <bitRate>160</bitRate>
-      <comments></comments>
-      <location>sounds/prueba2.ogg</location>
-      <artworkList/>
-    </IS2011.bibliotecaXML.Track>
-    <IS2011.bibliotecaXML.Track>
-      <id>1</id>
+<biblioteca>
+  <trackList>
+    <track id="3">
       <name>Donde duele inspira</name>
       <artist>Flowklorikos</artist>
       <albumArtist></albumArtist>
@@ -23,8 +9,18 @@
       <totalTime>216</totalTime>
       <bitRate>320</bitRate>
       <comments>www.HHGroups.com</comments>
-      <location>sounds/prueba.mp3</location>
-      <artworkList/>
-    </IS2011.bibliotecaXML.Track>
-  </b>
-</IS2011.bibliotecaXML.Biblioteca>
+      <location>sounds\prueba.mp3</location>
+    </track>
+    <track id="4">
+      <name>Three Little Birds</name>
+      <artist>Bob Marley</artist>
+      <albumArtist></albumArtist>
+      <album>One Love - The Very Best Of Bob Marley</album>
+      <genre>Reggae</genre>
+      <totalTime>183</totalTime>
+      <bitRate>160</bitRate>
+      <comments></comments>
+      <location>sounds\prueba2.ogg</location>
+    </track>
+  </trackList>
+</biblioteca>

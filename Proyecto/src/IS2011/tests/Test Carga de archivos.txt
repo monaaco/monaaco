@@ -1,0 +1,8 @@
+Tests Carga de archivos correspondientes a la historia #28 "Cargar varios archivos a la vez incluyendo los contenidos en subcarpetas"
+
+
+
+	Pasos:
+		1. Ejecutar la aplicación
+		2. Añadir archivos mediante el botón del menú seleccionando una carpeta con subcarpetas, en las cuales se encuentre al menos algún archivo mp3.
+		3. Comprobar que el/los archivo/s se han añadido correctamente.

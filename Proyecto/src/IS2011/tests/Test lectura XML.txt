@@ -1,8 +1,8 @@
-Tests correspondientes a la historia excritura XML
+Tests correspondientes a la historia lectura XML
 
 
-	Escritura XML
-		Objetivo: Escritura de la biblioteca en formato xml con la siguiente estructura
+	Lectura XML
+		Objetivo: Lectura de la biblioteca en formato xml con la siguiente estructura al comienzo de la aplicación (automáticamente)
 			<biblioteca>
 			  <trackList>
 				<track id="3">
@@ -31,7 +31,6 @@ Tests correspondientes a la historia excritura XML
 			</biblioteca>
 			
 		Pasos para la prueba:
-			1. Ejecutar la aplicación.  
-			2. Añadir alguna cancion a la biblioteca.
-			3. Cerrar la aplicación. Se guardara la biblioteca en la ruta "/xml/biblioteca.xml"
-			4. Comprobar que el archivo contiene la canción o canciones añadidas gardando la misma estructura que en el ejemplo.
+			1. Abrir el archivo xml/biblioteca.xml y comprobar que tenga alguna canción, si no, sustituir el contenido por el del ejemplo anterior.
+			2. Ejecutar la aplicación.  
+			3. comprobar que en la biblioteca aparecen cargados los archivos que están en el fixhero xml.

@@ -1,33 +1,36 @@
-Test de funcionamiento Biblioteca (No lectura/escritura)
+Test de funcionamiento Biblioteca (No lectura/escritura) correspondiente a la historia #36 "Interacción con la biblioteca"
+
 
 Para probar el correcto funcionamiento de la bilblioteca probamos lo siguiente:
 
 1.Antes de arrancar el programa y en la ruta donde se encuentre el ejecutable /xml/biblioteca.xml guardamos el siguiente contenido:
 
-<list>
-  <track>
-    <name>Three Little Birds</name>
-    <artist>Bob Marley</artist>
-    <albumArtist></albumArtist>
-    <album>One Love - The Very Best Of Bob Marley</album>
-    <totalTime>183</totalTime>
-    <bitRate>160</bitRate>
-    <comments></comments>
-    <location>sounds/prueba2.ogg</location>
-    <artworkList/>
-  </track>
-  <track>
-    <name>Donde duele inspira</name>
-    <artist>Rafael Lechowski</artist>
-    <albumArtist></albumArtist>
-    <album>Donde duele inspira</album>
-    <totalTime>216</totalTime>
-    <bitRate>320</bitRate>
-    <comments>www.HHGroups.com</comments>
-    <location>sounds/prueba.mp3</location>
-    <artworkList/>
-  </track>
-</list>
+<biblioteca>
+  <trackList>
+    <track id="3">
+      <name>Donde duele inspira</name>
+      <artist>Flowklorikos</artist>
+      <albumArtist></albumArtist>
+      <album>Donde duele inspira</album>
+      <genre>Hip-Hop</genre>
+      <totalTime>216</totalTime>
+      <bitRate>320</bitRate>
+      <comments>www.HHGroups.com</comments>
+      <location>sounds\prueba.mp3</location>
+    </track>
+    <track id="4">
+      <name>Three Little Birds</name>
+      <artist>Bob Marley</artist>
+      <albumArtist></albumArtist>
+      <album>One Love - The Very Best Of Bob Marley</album>
+      <genre>Reggae</genre>
+      <totalTime>183</totalTime>
+      <bitRate>160</bitRate>
+      <comments></comments>
+      <location>sounds\prueba2.ogg</location>
+    </track>
+  </trackList>
+</biblioteca>
 
 2.Arrancamos el programa
 

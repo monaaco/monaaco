@@ -118,7 +118,7 @@ public class InterfazAvanzada extends JFrame {
 		JMenuAux.setBounds(25, 5, 40, 20);
 		
 		JButton cerrarBoton = getSalirButton();
-		cerrarBoton.setBounds(150,290,90,45);
+		cerrarBoton.setBounds(585,290,90,45);
 		backGround.add(cerrarBoton);
 		
 		this.setSize(700,350);
@@ -131,7 +131,7 @@ public class InterfazAvanzada extends JFrame {
 		
 		
 		JButton bibliotecaIcono= this.getBotonBiblioteca();
-		bibliotecaIcono.setBounds(25,290,90,45);
+		bibliotecaIcono.setBounds(470,290,90,45);
 		backGround.add(bibliotecaIcono);
 		
 		b = new GestorXML();

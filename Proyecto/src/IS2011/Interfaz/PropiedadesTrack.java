@@ -1,17 +1,19 @@
 package IS2011.Interfaz;
 
+import java.awt.GridBagLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionAdapter;
 import java.io.File;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.JWindow;
 
 import org.jaudiotagger.audio.AudioFile;
 import org.jaudiotagger.audio.AudioFileIO;
@@ -27,8 +29,9 @@ para modificar su info*/
 
 public class PropiedadesTrack extends JDialog //o JWindow, probar ambas.
 {
-	private String ruta=null;
 	private Track track= null;
+	
+	private PropiedadesTrack pt= null;
 	
 	private JLabel labelNombre= null;
 	private JTextField nombre= null;
@@ -47,15 +50,16 @@ public class PropiedadesTrack extends JDialog //o JWindow, probar ambas.
 
 	/**
 	 * Construye la interfaz de la ventana de propiedades del Track
-	 * @param rutaArchivo: String
-	 * @param track: Track
+	 * @param comp: JFrame del que hereda el dialog que creamos
+	 * @param modal: Booleana de modal
+	 * @param track: Track track del que mostramos información
 	 */
-	public PropiedadesTrack(String rutaArchivo, Track track)
+	public PropiedadesTrack(JFrame comp,boolean modal ,Track track)
 	{
-		super();
-		ruta = rutaArchivo; 
+		super(comp, modal);
 		this.track = track;
 		this.setTitle("Propiedades del archivo:");
+		pt = this;
 		initPropiedadesUI();
 	}	
 	
@@ -63,7 +67,8 @@ public class PropiedadesTrack extends JDialog //o JWindow, probar ambas.
 	 * Inicializa la ventana
 	 */
 	public void initPropiedadesUI(){
-		this.setLayout(new GroupLayout(this));
+		this.setSize(400,200);
+		this.setLayout(new GridBagLayout());
 		labelNombre = new JLabel("Titulo: ");
 		labelArtista = new JLabel("Artista: ");
 		labelAlbumArtista = new JLabel("Album Artista: ");
@@ -97,7 +102,7 @@ public class PropiedadesTrack extends JDialog //o JWindow, probar ambas.
 				*/
 				
 				//EL GUARDAR la metaInformación en el archivo.
-				File file = new File(ruta);
+				File file = new File(track.getLocation());
 				try{
 					AudioFile f = AudioFileIO.read(file);
 					Tag tag = f.getTag();
@@ -111,9 +116,9 @@ public class PropiedadesTrack extends JDialog //o JWindow, probar ambas.
 				catch(Exception ex){
 					JOptionPane.showMessageDialog(null, "Error en la modificación del archivo");
 				}
-				/*3º Cerrar al igual que se hace en el de cancelar
-				 */
-				//TODO
+				/*3º Cerrar al igual que se hace en el de cancelar */
+
+				pt.dispose();
 			}
 		});
 		
@@ -121,7 +126,7 @@ public class PropiedadesTrack extends JDialog //o JWindow, probar ambas.
 		botonCancel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				// TODO que se cierre
+				pt.dispose();
 			}
 		});
 		
@@ -135,5 +140,7 @@ public class PropiedadesTrack extends JDialog //o JWindow, probar ambas.
 		this.add(album);
 		this.add(labelComentario);
 		this.add(comentario);
+		this.add(botonOk);
+		this.add(botonCancel);
 	}
 }

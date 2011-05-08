@@ -15,6 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -46,10 +47,12 @@ public class BibliotecaInterfaz extends JPanelRound{
 	private JMenuItem anadirArchivos=null;
 	private JMenuItem editarPropiedades=null;
 	private JMenuItem filtroAvanzado=null;
+	private JMenuItem elimina= null;
 	private JTextField busquedaRapida= null;
 	private JTable tabla= null;
 	private GestorXML biblioteca=null; //Sino es un ArrayList es la propia biblioteca.
 	private TableRowSorter<TableModel> elQueOrdena=null; 
+	private MyDefaultTableModel modelo= null;
 	
 	public BibliotecaInterfaz(GestorXML library, InterfazAvanzada ia){
 		//super("Biblioteca");
@@ -70,7 +73,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 		
 		// Instanciamos nuestro modelo de datos, por ejemplo, DefaultTableModel
 		// y lo metemos en el JTable
-		MyDefaultTableModel modelo = new MyDefaultTableModel();
+		modelo = new MyDefaultTableModel();
 		modelo.addColumn("Titulo");
 		modelo.addColumn("Artista");
 		modelo.addColumn("Album artista");
@@ -85,18 +88,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 		tabla.setRowSorter(elQueOrdena);
 		
 		actualiza();
-		
-		/*
-		Para poder filtrar -> la expresion regular en este caso es "2" y la columna es la 1. 
-		modeloOrdenado.setRowFilter(RowFilter.regexFilter("2", 1));
-		Para poder filtrar por varias a la vez 
-		LinkedList<RowFilter> lista = new LinkedList<RowFilter>();
-		lista.add(RowFilter.dateFilter(....));
-		lista.add(RowFilter.regexFilter(....));
-		RowFilter filtroAnd = RowFilter.andFilter(lista);
-		*/
-		
-		
+			
 		tabla.addMouseListener(new MouseAdapter(){
 		    public void mouseClicked(MouseEvent e) 
 		      {
@@ -123,26 +115,23 @@ public class BibliotecaInterfaz extends JPanelRound{
 		this.add(scroll);
 		
 		busquedaRapida = new JTextField("");
-		busquedaRapida.setSize(200,10);
+		busquedaRapida.setSize(100,10);
 		Document d = busquedaRapida.getDocument();
 		d.addDocumentListener(new DocumentListener() {
 			
 			@Override
 			public void removeUpdate(DocumentEvent e) {
 				filtraRapido();
-				System.out.println("removeUpdate");
 			}
 
 			@Override
 			public void insertUpdate(DocumentEvent e) {
 				filtraRapido();
-				System.out.println("insertUpdate");
 			}
 			
 			@Override
 			public void changedUpdate(DocumentEvent e) {
 				filtraRapido();
-				System.out.println("changedUpdate");
 			}
 		});
 		menuBI.add(busquedaRapida);
@@ -157,12 +146,46 @@ public class BibliotecaInterfaz extends JPanelRound{
 			menuArchivo.add(getAnadirArchivos());
 			menuArchivo.add(getFiltroAvanzado());
 			menuArchivo.add(getEditarPropiedades());
+			menuArchivo.add(getElimina());
 			menuBI.add(menuArchivo);
 		}
 		return menuBI;
 	}
 
 	
+	private JMenuItem getElimina() {
+		if (elimina == null) {
+			elimina = new JMenuItem("Eliminar seleccionados de la biblioteca");
+			elimina.addMouseListener(new java.awt.event.MouseAdapter() {
+				public  void mouseReleased(java.awt.event.MouseEvent evt) {		
+						int[] seleccionadas = tabla.getSelectedRows();
+						if(seleccionadas.length != 0)
+						{
+							//Nos devuelve un vecotor con las filas a borrar ordenadas
+							
+							//Lo pasamos al global para evitar el filtro y lo borramos
+							// en el mismo paso gracias al orden
+							int fila;
+							for(int i= seleccionadas.length - 1; i>=0 ;i--)
+							{
+								fila = seleccionadas[i];
+								fila = tabla.convertRowIndexToModel (fila);
+								biblioteca.getArray().getBiblioteca().remove(fila);
+							}
+							
+	                    	actualiza();
+	                    	busquedaRapida.setText("");
+						}
+						else
+						{
+							JOptionPane.showMessageDialog(frame, "Selecciona las filas antes de borrar.");
+						}
+                    }
+				});
+		}
+		return elimina;
+	}
+
 	private JMenuItem getAnadirArchivos() {
 		if (anadirArchivos == null) {
 			anadirArchivos = new JMenuItem("Añadir archivos a la biblioteca");
@@ -193,9 +216,18 @@ public class BibliotecaInterfaz extends JPanelRound{
 	public JMenuItem getEditarPropiedades(){
 		if(editarPropiedades==null){
 			editarPropiedades= new JMenuItem("Editar propiedades");
-			anadirArchivos.addMouseListener(new java.awt.event.MouseAdapter() {
+			editarPropiedades.addMouseListener(new java.awt.event.MouseAdapter() {
 				public  void mouseReleased(java.awt.event.MouseEvent evt) {
 					//TODO Mostrar el PropiedadesTrack	
+					int[] seleccionadas = tabla.getSelectedRows();
+					if(seleccionadas.length > 0){
+						for(int i =0;i< seleccionadas.length ;i++){
+							Track track = biblioteca.getArray().getBiblioteca().get(seleccionadas[i]);
+							PropiedadesTrack pt = new PropiedadesTrack(interfazPadre, true ,track);
+							pt.setVisible(true);
+						}
+						actualiza();
+					}
 				}
 			});
 		}
@@ -205,9 +237,11 @@ public class BibliotecaInterfaz extends JPanelRound{
 	public JMenuItem getFiltroAvanzado(){
 		if(filtroAvanzado==null){
 			filtroAvanzado= new JMenuItem("Busqueda avanzada");
-			anadirArchivos.addMouseListener(new java.awt.event.MouseAdapter() {
+			filtroAvanzado.addMouseListener(new java.awt.event.MouseAdapter() {
 				public  void mouseReleased(java.awt.event.MouseEvent evt) {
 					//TODO Mostrar un panel con los campos a buscar		
+					FiltroDialog fd = new FiltroDialog(interfazPadre, true,elQueOrdena);
+					fd.setVisible(true);
 				}
 			});
 		}

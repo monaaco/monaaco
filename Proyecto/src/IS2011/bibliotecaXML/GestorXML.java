@@ -94,7 +94,6 @@ public class GestorXML {
 		biblioteca=new Biblioteca();
 		biblioteca=(Biblioteca)xs.fromXML(is);
 		
-		System.out.println("holaaa");
 
 		//Iterator it=(Iterator)tracks.listIterator();
 		

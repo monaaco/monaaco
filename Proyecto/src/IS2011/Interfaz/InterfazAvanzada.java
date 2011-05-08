@@ -436,6 +436,7 @@ public class InterfazAvanzada extends JFrame {
 			salirButton.addMouseListener(new java.awt.event.MouseAdapter() {
 				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
+						biblioteca.guardar();
 						System.exit(0);
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -456,6 +457,7 @@ public class InterfazAvanzada extends JFrame {
 			salirItem.addMouseListener(new java.awt.event.MouseAdapter() {
 				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
+						biblioteca.guardar();
 						System.exit(0);
 					} catch (Exception e) {
 						e.printStackTrace();

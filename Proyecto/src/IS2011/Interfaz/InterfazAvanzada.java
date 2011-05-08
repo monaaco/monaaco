@@ -33,15 +33,17 @@ public class InterfazAvanzada extends JFrame {
 	private ImageIcon pauseIcon = new ImageIcon("images/Skin3/pause.png");
 	private ImageIcon pausedIcon = new ImageIcon("images/skin1/pauseIcon3.jpg");
 	
-	private JFrame principal = null;
+	private InterfazAvanzada principal = null;
 	private SongInterfaz infoPlaylist = null;
 	private SongInfoInterfaz infoSong = null;
 	private JPanel infoSong2 = null;
 	private BibliotecaInterfaz biliotecaInterfaz = null;
+	private GestorXML b = null;
 
 	private BotonAvanzado stopButton = null;
 	private BotonAvanzado pauseButton = null;
 	private BotonAvanzado playButton = null;
+	private BotonAvanzado botonBiblioteca = null;
 	private JLabel segundero = null;
 	private JSlider barraProgreso = null;
 	private JButton salirButton = null;
@@ -54,6 +56,7 @@ public class InterfazAvanzada extends JFrame {
 	private JMenuItem salirItem = null;
 	private JMenuItem nextItem = null;
 	private JMenuItem previousItem = null;
+	private JPanelRound backGround = null;
 	
 	private Color c= new Color(240,240,240);
 	private JLabel infoSongLabel = null;
@@ -93,38 +96,43 @@ public class InterfazAvanzada extends JFrame {
 		super("Monaaaaco"); // El título
 		// infoSong.actualiza(null);
 		//fondo = new TransparentBackground(this);
-		
-		JPanelRound aux = new JPanelRound();	
-		aux.setSize(700,700);
+		principal = this;
+		backGround = new JPanelRound();	
+		backGround.setSize(700,700);
 		//aux.setBackground(Color.BLUE);
-		aux.setOpaque(false);
-		aux.setLayout(null);
-		aux.setColorPrimario(Color.black);
-		Mover mml = new Mover(aux);
-		aux.addMouseListener(mml);
-		aux.addMouseMotionListener(mml);
+		backGround.setOpaque(false);
+		backGround.setLayout(null);
+		backGround.setColorPrimario(Color.black);
+		Mover mml = new Mover(backGround);
+		backGround.addMouseListener(mml);
+		backGround.addMouseMotionListener(mml);
 
 		JPanel interno = getPanel();
-		aux.add(interno);
+		backGround.add(interno);
 		interno.setBounds(25,25,650,250);
 		JMenuBar JMenuAux = getBarraMenu();
-		aux.add(JMenuAux);
+		backGround.add(JMenuAux);
 		JMenuAux.setBounds(25, 5, 40, 20);
 		
-		this.setSize(700,600);
-		this.setContentPane(aux);
+		
+		this.setSize(700,340);
+		this.setContentPane(backGround);
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
 		this.setUndecorated(true);	
 		this.setVisible(true);
 		
-		GestorXML b = new GestorXML();
+		BotonAvanzado bibliotecaIcono= this.getbotonBiblioteca();
+		bibliotecaIcono.setBounds(25,300,50,50);
+		backGround.add(bibliotecaIcono);
+		
+		b = new GestorXML();
 		b.cargar();
 		this.setBiblioteca(b,this);
 		
-		biliotecaInterfaz = new BibliotecaInterfaz(b,this); 
+		/*biliotecaInterfaz = new BibliotecaInterfaz(b,this); 
 		aux.add(biliotecaInterfaz);
-		biliotecaInterfaz.setBounds(25,350, 650, 200);
+		biliotecaInterfaz.setBounds(25,300, 650, 200);*/
 		
 		
 		//this.setJMenuBar(getBarraMenu());
@@ -371,6 +379,37 @@ public class InterfazAvanzada extends JFrame {
 		}
 	    return barraProgreso;
 	}
+	
+	
+	
+	
+
+	
+	public BotonAvanzado getbotonBiblioteca() {
+		if (botonBiblioteca == null){
+			botonBiblioteca = new BotonAvanzado(stopIcon,stopIcon);
+			botonBiblioteca.addMouseListener(new java.awt.event.MouseAdapter() {
+				public void mouseReleased(java.awt.event.MouseEvent evt) {
+					try {
+						principal.setSize(700,600);
+										
+						biliotecaInterfaz = new BibliotecaInterfaz(b,principal); 
+						backGround.add(biliotecaInterfaz);
+						biliotecaInterfaz.setBounds(25,350, 650, 200);
+						repaint();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				};
+			});
+		}
+		return botonBiblioteca;
+	}
+	
+	
+	
+	
+	
 	public BotonAvanzado getStopButton() {
 		if (stopButton == null){
 			stopButton = new BotonAvanzado(stopIcon,stopedIcon);

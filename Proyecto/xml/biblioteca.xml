@@ -22,5 +22,16 @@
       <comments></comments>
       <location>sounds\prueba2.ogg</location>
     </track>
+    <track id="3">
+      <name>Eyes Wide Shut (Official Remix)</name>
+      <artist>JLS  ft Tinie Tempah</artist>
+      <albumArtist></albumArtist>
+      <album></album>
+      <genre>(14)</genre>
+      <totalTime>231</totalTime>
+      <bitRate>192</bitRate>
+      <comments>www.RnB4U.in</comments>
+      <location>D:\iPhone 09-10\jls ft tinie tempah - eyes wide shut (official remix).mp3</location>
+    </track>
   </trackList>
 </biblioteca>

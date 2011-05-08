@@ -37,7 +37,7 @@ public class SongInfoInterfaz extends JPanelTransparente {
 		principal.setLayout(new GridBagLayout());
 		//principal.setBackground(Color.white);
 		principal.setEnabled(true);	
-		principal.setSize(300,100);
+		principal.setSize(300,110);
 		//principal.setAlwaysOnTop(true);
 		//principal.setResizable(false);
 		principal.setVisible(true);
@@ -100,7 +100,7 @@ public class SongInfoInterfaz extends JPanelTransparente {
 		if(caratulaPanel == null){
 			caratulaPanel = new JPanel();
 			caratulaPanel.setSize(90,90);
-			//caratulaPanel.setBackground(Color.black);
+			caratulaPanel.setBackground(Color.black);
 			//caratulaPanel.setForeground(Color.c);	
 			etiquetaCaratula = new JLabel();
 			caratulaPanel.add(etiquetaCaratula);

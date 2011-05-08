@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.*;
 
 import javax.swing.JFrame;
@@ -20,7 +21,7 @@ public class GestorXML {
 	
 	private File rutaBiblioteca ;
 	private Biblioteca biblioteca;
-	private Biblioteca carga;
+
 	private InputStream is=null;
 	
 	/**
@@ -85,7 +86,8 @@ public class GestorXML {
 			 is = new FileInputStream(rutaBiblioteca);
 			 biblioteca = new Biblioteca();
 			 xs.processAnnotations(Biblioteca.class);
-			 biblioteca = (Biblioteca)xs.fromXML(is);
+			 //necesario InputStreamReader para que lea carácteres especiales como tíldes!
+			 biblioteca = (Biblioteca)xs.fromXML(new InputStreamReader(is));
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(new JFrame(),
 				    "La biblioteca no ha podido ser cargada, el formato es erróneo.\n" +

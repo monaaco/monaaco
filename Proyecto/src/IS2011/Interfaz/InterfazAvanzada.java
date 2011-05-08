@@ -27,6 +27,8 @@ public class InterfazAvanzada extends JFrame {
 	private ImageIcon carpetaIcon = new ImageIcon("images/carpetaIcon.jpg");
 	
 	private ImageIcon playIcon = new ImageIcon("images/Skin3/play.png");
+	private ImageIcon libreriaIcon = new ImageIcon("images/Skin3/libreria.png");
+	private ImageIcon cerrarIcon = new ImageIcon("images/Skin3/cerrar.png");
 	private ImageIcon playedIcon = new ImageIcon("images/skin1/playIcon3.jpg");
 	private ImageIcon stopIcon = new ImageIcon("images/skin1/stopIcon1.jpg");
 	private ImageIcon stopedIcon = new ImageIcon("images/skin1/stopIcon3.jpg");
@@ -43,7 +45,7 @@ public class InterfazAvanzada extends JFrame {
 	private BotonAvanzado stopButton = null;
 	private BotonAvanzado pauseButton = null;
 	private BotonAvanzado playButton = null;
-	private BotonAvanzado botonBiblioteca = null;
+	private JButton botonBiblioteca = null;
 	private JLabel segundero = null;
 	private JSlider barraProgreso = null;
 	private JButton salirButton = null;
@@ -98,7 +100,7 @@ public class InterfazAvanzada extends JFrame {
 		//fondo = new TransparentBackground(this);
 		principal = this;
 		backGround = new JPanelRound();	
-		backGround.setSize(700,700);
+		//backGround.setSize(700,700);
 		//aux.setBackground(Color.BLUE);
 		backGround.setOpaque(false);
 		backGround.setLayout(null);
@@ -110,20 +112,26 @@ public class InterfazAvanzada extends JFrame {
 		JPanel interno = getPanel();
 		backGround.add(interno);
 		interno.setBounds(25,25,650,250);
+		
 		JMenuBar JMenuAux = getBarraMenu();
 		backGround.add(JMenuAux);
 		JMenuAux.setBounds(25, 5, 40, 20);
 		
+		JButton cerrarBoton = getSalirButton();
+		cerrarBoton.setBounds(150,290,90,45);
+		backGround.add(cerrarBoton);
 		
-		this.setSize(700,340);
+		this.setSize(700,350);
 		this.setContentPane(backGround);
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
 		this.setUndecorated(true);	
 		this.setVisible(true);
 		
-		BotonAvanzado bibliotecaIcono= this.getbotonBiblioteca();
-		bibliotecaIcono.setBounds(25,300,50,50);
+		
+		
+		JButton bibliotecaIcono= this.getBotonBiblioteca();
+		bibliotecaIcono.setBounds(25,290,90,45);
 		backGround.add(bibliotecaIcono);
 		
 		b = new GestorXML();
@@ -385,9 +393,10 @@ public class InterfazAvanzada extends JFrame {
 	
 
 	
-	public BotonAvanzado getbotonBiblioteca() {
+	public JButton getBotonBiblioteca() {
 		if (botonBiblioteca == null){
-			botonBiblioteca = new BotonAvanzado(stopIcon,stopIcon);
+			botonBiblioteca = new JButton(libreriaIcon);
+			botonBiblioteca.setBorderPainted(false);
 			botonBiblioteca.addMouseListener(new java.awt.event.MouseAdapter() {
 				public void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
@@ -485,7 +494,8 @@ public class InterfazAvanzada extends JFrame {
 	
 	public JButton getSalirButton() {
 		if (salirButton == null){
-			salirButton = new JButton("salir");
+			salirButton = new JButton(cerrarIcon);
+			salirButton.setBorderPainted(false);
 			salirButton.addMouseListener(new java.awt.event.MouseAdapter() {
 				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {

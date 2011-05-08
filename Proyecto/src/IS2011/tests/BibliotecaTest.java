@@ -6,6 +6,7 @@ import java.util.*;
 import javax.swing.ImageIcon;
 
 import IS2011.Interfaz.BotonAvanzado;
+import IS2011.bibliotecaXML.Biblioteca;
 import IS2011.bibliotecaXML.GestorXML;
 import IS2011.bibliotecaXML.Track;
 
@@ -14,7 +15,7 @@ import junit.framework.TestCase;
 public class BibliotecaTest extends TestCase {
 	
 	public void testGetBiblioteca() {
-		GestorXML b = new GestorXML();
+		Biblioteca b = new Biblioteca();
 		Track tr = new Track("/sounds/prueba.mp3");
 		Track tr2 = new Track("/sounds/prueba.mp3");
 		List<Track> trList = new LinkedList<Track>();
@@ -27,7 +28,7 @@ public class BibliotecaTest extends TestCase {
 	}
 		
 	public void testAddBiblioteca() {
-		GestorXML b = new GestorXML();
+		Biblioteca b = new Biblioteca();
 		Track tr = new Track("/sounds/prueba.mp3");
 		Track tr2 = new Track("/sounds/prueba.mp3");
 		b.add(tr);
@@ -37,7 +38,7 @@ public class BibliotecaTest extends TestCase {
 	}
 	
 	public void testAddAllBiblioteca() {
-		GestorXML b = new GestorXML();
+		Biblioteca b = new Biblioteca();
 		Track tr = new Track("/sounds/prueba.mp3");
 		Track tr2 = new Track("/sounds/prueba.mp3");
 		List<Track> trList = new LinkedList<Track>();

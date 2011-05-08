@@ -26,11 +26,11 @@ public class InterfazAvanzada extends JFrame {
 	private ImageIcon monkeyIcon = new ImageIcon("images/monkeyIcon.jpg");
 	private ImageIcon carpetaIcon = new ImageIcon("images/carpetaIcon.jpg");
 	
-	private ImageIcon playIcon = new ImageIcon("images/skin1/playIcon1.jpg");
+	private ImageIcon playIcon = new ImageIcon("images/Skin3/play.png");
 	private ImageIcon playedIcon = new ImageIcon("images/skin1/playIcon3.jpg");
 	private ImageIcon stopIcon = new ImageIcon("images/skin1/stopIcon1.jpg");
 	private ImageIcon stopedIcon = new ImageIcon("images/skin1/stopIcon3.jpg");
-	private ImageIcon pauseIcon = new ImageIcon("images/skin1/pauseIcon1.jpg");
+	private ImageIcon pauseIcon = new ImageIcon("images/Skin3/pause.png");
 	private ImageIcon pausedIcon = new ImageIcon("images/skin1/pauseIcon3.jpg");
 	
 	private JFrame principal = null;
@@ -66,14 +66,15 @@ public class InterfazAvanzada extends JFrame {
 	private JMenu guardarMenu = null;
 	private JMenuItem guardarXML = null;
 */
-	private boolean pause;
+	private boolean pause = false;
 	private double bytesArchivoActual; 
 	private BasicPlayer mPlayer;
 	private ReproductorListener reproductorListener;
 	private Shape figura;
 	private Track _pista;
 	private Color bgcolor = Color.black;
-
+	private boolean reproduciendo = false;
+	
 	//private TransparentBackground fondo = null;
 
 	//Playlist:
@@ -105,7 +106,7 @@ public class InterfazAvanzada extends JFrame {
 
 		JPanel interno = getPanel();
 		aux.add(interno);
-		interno.setBounds(25,25,650,300);
+		interno.setBounds(25,25,650,250);
 		JMenuBar JMenuAux = getBarraMenu();
 		aux.add(JMenuAux);
 		JMenuAux.setBounds(25, 5, 40, 20);
@@ -138,7 +139,7 @@ public class InterfazAvanzada extends JFrame {
 		main.setColorPrimario(bgcolor);
 		main.setLayout(new GridBagLayout()); // Le ponemos el
 	//	main.setUndecorated(true);														// GridBagLayout
-		main.setSize(400, 300);
+		main.setSize(300, 300);
 		
 		//main.centrarVentana();
 		
@@ -155,35 +156,36 @@ public class InterfazAvanzada extends JFrame {
 		main.setVisible(true);
 	
 		GridBagConstraints constraints = new GridBagConstraints();
-		constraints.gridx = 2;
+	/*	constraints.gridx = 2;
 		constraints.gridy = 0;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
 		constraints.weightx = 1.0;
 		constraints.fill = GridBagConstraints.EAST;
-		main.add(getStopButton(), constraints);
+	//	main.add(getStopButton(), constraints);*/
 
-		constraints.gridx = 1;
-		constraints.gridy = 0;
-		constraints.gridwidth = 1;
-		constraints.gridheight = 1;
-		constraints.weightx = 1.0;
-		constraints.fill = GridBagConstraints.CENTER;
-		main.add(getPlayButton(), constraints);
-
-		constraints.gridx = 0;
+		/*constraints.gridx = 0;
 		constraints.gridy = 0;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
 		constraints.weightx = 1.0;
 		constraints.fill = GridBagConstraints.WEST;
-		main.add(getPauseButton(), constraints);
+	//	main.add(getPauseButton(), constraints);
+		constraints.weightx = 0.0;*/
+
+		constraints.gridx = 0;
+		constraints.gridy = 0;
+		constraints.gridwidth = 1;
+		constraints.gridheight = 1;
 		constraints.weightx = 0.0;
+		constraints.fill = GridBagConstraints.WEST;
+		main.add(getPlayButton(), constraints);
+
 
 		segundero = new JLabel("0:00");
 		segundero.setForeground(c);
 		segundero.setFont(new java.awt.Font("Helvetica", 1, 12));
-		constraints.gridx = 1;
+		constraints.gridx = 0;
 		constraints.gridy = 1;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
@@ -192,8 +194,8 @@ public class InterfazAvanzada extends JFrame {
 
 		
 		constraints.gridx = 0;
-		constraints.gridy = 2;
-		constraints.gridwidth = 3;
+		constraints.gridy = 3;
+		constraints.gridwidth = 2;
 		constraints.gridheight = 1;
 		constraints.fill = GridBagConstraints.BOTH;
 		main.add(getBarraProgreso(), constraints);
@@ -202,28 +204,25 @@ public class InterfazAvanzada extends JFrame {
 
 		GridBagConstraints position = new GridBagConstraints();
        	position.gridx = 0;
-       	position.gridy = 3;
+       	position.gridy = 2;
        	position.gridheight = 1;
-       	position.gridwidth = 3;
+       	position.gridwidth = 2;
        	position.fill = GridBagConstraints.HORIZONTAL;
-       	main.add(getInfoSongLabel(), position);
+      	main.add(getInfoSongLabel(), position);
 						
       	getDefaultPalyList();
         String[] temas = listaReproduccion.getListado();
         infoPlaylist = new SongInterfaz(temas,this);
 		infoSong = new SongInfoInterfaz();
-		
-       
-        
+		       
         
 		GridBagConstraints position1 = new GridBagConstraints();
-       	position1.gridx = 0;
-       	position1.gridy = 4;
-       	position1.gridheight = 2;
-       	position1.gridwidth = 3;
-        position1.weighty = 1.0;
-        position1.fill = GridBagConstraints.HORIZONTAL ;
-       	//position1.fill = GridBagConstraints.HORIZONTAL;
+       	position1.gridx = 1;
+       	position1.gridy = 0;
+       	position1.gridheight = 1;
+       	position1.gridwidth = 1;
+        position1.weightx = 1.0;
+        position1.fill = GridBagConstraints.CENTER ;
         main.add(infoSong, position1);
       	
      return main;    
@@ -392,13 +391,28 @@ public class InterfazAvanzada extends JFrame {
 
 	public BotonAvanzado getPlayButton() {
 		if (playButton == null){
-			playButton = new BotonAvanzado(playIcon,playedIcon);
+			playButton = new BotonAvanzado(playIcon,pauseIcon);
 			playButton.addMouseListener(new java.awt.event.MouseAdapter() {
 				public void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
-						pause = false;
-						mPlayer.stop();
-						mPlayer.play();
+						if(reproduciendo == false){
+						//	playButton.setIcon(pauseIcon);	
+							mPlayer.play();
+							reproduciendo = true;
+						
+						}
+						else{
+							if (pause == false) {
+								pause = true;
+								mPlayer.pause();
+							}else {
+								pause = false;
+								//playButton.setIcon(playIcon);
+								mPlayer.resume();
+								
+							}
+							
+						}
 					} catch (BasicPlayerException e) {
 						e.printStackTrace();
 					}

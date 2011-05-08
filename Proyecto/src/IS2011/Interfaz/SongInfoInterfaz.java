@@ -11,7 +11,7 @@ import IS2011.bibliotecaXML.Track;
 import com.sun.awt.AWTUtilities;
 
 
-public class SongInfoInterfaz extends JPanel {
+public class SongInfoInterfaz extends JPanelTransparente {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -19,8 +19,8 @@ public class SongInfoInterfaz extends JPanel {
 	private InterfazAvanzada interfazAvanzada;
 	
 	private JPanel caratulaPanel = null;
-	private JPanel infoPanel = null;
-	private JTextArea  etiqueta = null;
+	private JPanelTransparente infoPanel = null;
+	private JLabel  etiqueta = null;
 	private JLabel etiquetaCaratula = null;
 	private ImageIcon caratula = null;
 
@@ -34,49 +34,73 @@ public class SongInfoInterfaz extends JPanel {
 	public SongInfoInterfaz(){
 		super();
 		principal = this;
-		principal.setLayout(new BorderLayout());
-		principal.setBackground(Color.white);
+		principal.setLayout(new GridBagLayout());
+		//principal.setBackground(Color.white);
 		principal.setEnabled(true);	
-		principal.setSize(100,200);
+		principal.setSize(300,100);
 		//principal.setAlwaysOnTop(true);
 		//principal.setResizable(false);
 		principal.setVisible(true);
+		principal.setArcw(0); 
+		principal.setArch(0); 
+		principal.setColorPrimario(Color.black);
+		principal.setColorSecundario(Color.black);
+		principal.setTran(0.5f);
 
 		//cerrar a los 5 min
 		
 	}
 	
-	private JPanel getInfoPanel() {
+	private JPanelTransparente getInfoPanel() {
 		if(infoPanel == null){
-			infoPanel = new JPanel(new GridLayout());
-			infoPanel.setBackground(Color.black);
-			infoPanel.setSize(100, 100);
-			infoPanel.setForeground(Color.white);
-			etiqueta = new JTextArea ();
+			infoPanel = new JPanelTransparente();
+			infoPanel.setTran(0);
+			infoPanel.setLayout(new GridLayout());
+			//infoPanel.setBackground(Color.black);
+			infoPanel.setSize(300, 100);
+			infoPanel.setArcw(0); 
+			infoPanel.setArch(0); 
+			infoPanel.setColorPrimario(Color.white);
+			infoPanel.setColorSecundario(Color.white);
+			//infoPanel.setForeground(Color.white);
+			etiqueta = new JLabel();
 			etiqueta.setFont(new java.awt.Font("Helvetica", 1, 12));
-			etiqueta.setBackground(Color.black);			
+			//etiqueta.setBackground(null);			
 			etiqueta.setForeground(c);			
 			
 			infoPanel.add(etiqueta);
 		}
-		etiqueta.setText(" Artist: " + track.getArtist()
-				+ "\n Title: " + track.getName() 
-				+ "\n Album: " + track.getAlbum());
+		etiqueta.setText("<html> Artist: " + track.getArtist()
+				+"<html><br/> Title: " + track.getName() 
+				+ "<html><br/> Album: " + track.getAlbum());
 		return infoPanel;
 	}
 	
 	public void actualiza(Track pista){
 		this.track = pista;
-		
-		principal.add(getCaratulaPanel(),BorderLayout.WEST);
-		principal.add(getInfoPanel(), BorderLayout.CENTER);
+		GridBagConstraints constraints = new GridBagConstraints();
+		constraints.gridx = 0;
+		constraints.gridy = 0;
+		constraints.gridwidth = 1;
+		constraints.gridheight = 1;
+		constraints.weightx = 0.0;
+		constraints.fill = GridBagConstraints.CENTER;
+		principal.add(getCaratulaPanel(),constraints);
+		constraints.gridx = 1;
+		constraints.gridy = 0;
+		constraints.gridwidth = 1;
+		constraints.gridheight = 1;
+		constraints.weightx = 1.0;
+		constraints.fill = GridBagConstraints.EAST;
+		principal.add(getInfoPanel(), constraints);
 
 		
 	}
 	private JPanel getCaratulaPanel() {
 		if(caratulaPanel == null){
 			caratulaPanel = new JPanel();
-			caratulaPanel.setBackground(Color.black);
+			caratulaPanel.setSize(90,90);
+			//caratulaPanel.setBackground(Color.black);
 			//caratulaPanel.setForeground(Color.c);	
 			etiquetaCaratula = new JLabel();
 			caratulaPanel.add(etiquetaCaratula);
@@ -84,9 +108,9 @@ public class SongInfoInterfaz extends JPanel {
 				caratulaPanel.getGraphics().drawImage((Image)track.getArtwork(), 0, 0, null);*/
 		}
 		if(track.getNumCaratulas() > 0 && track.getArtwork() != null){
-			caratula = new ImageIcon(track.getArtwork().getScaledInstance(100,100,Image.SCALE_SMOOTH));
+			caratula = new ImageIcon(track.getArtwork().getScaledInstance(90,90,Image.SCALE_SMOOTH));
 		}else 	caratula = new ImageIcon(new ImageIcon("images/monkeyIcon.jpg").getImage()
-											.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
+											.getScaledInstance(90, 90, Image.SCALE_SMOOTH));
 		etiquetaCaratula.setIcon(caratula);
 
 		return caratulaPanel;

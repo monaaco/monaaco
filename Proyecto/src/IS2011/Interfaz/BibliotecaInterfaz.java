@@ -43,7 +43,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 	
 	private InterfazAvanzada interfazPadre= null;
 	private JMenuBar menuBI=null;
-	private JMenu menuArchivo=null;
+	
 	private JMenuItem anadirArchivos=null;
 	private JMenuItem editarPropiedades=null;
 	private JMenuItem filtroAvanzado=null;
@@ -60,6 +60,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 		biblioteca = library;
 		initBibliotecaInterfaz();
 		frame = this;
+		//this.setTran(0.5f);
 	}
 
 	public void initBibliotecaInterfaz()
@@ -67,7 +68,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 		this.setSize(600, 300);
 		this.setLayout(new BorderLayout());
 		JMenuBar JMenuAux = getBarraMenu();
-		this.add(JMenuAux,BorderLayout.NORTH);
+		this.add(JMenuAux,BorderLayout.SOUTH);
 		
 		
 		
@@ -138,16 +139,27 @@ public class BibliotecaInterfaz extends JPanelRound{
 	}
 	
 	private JMenuBar getBarraMenu() {
+		
+		
+		
 		// TODO más elementos ¿e iconos?
 		if (menuBI == null) {
 			menuBI = new JMenuBar();
 			menuBI.setBorderPainted(false);
-			menuArchivo = new JMenu("Biblioteca");
+			
+			JMenu menuArchivo = new JMenu("Añadir archivo");
 			menuArchivo.add(getAnadirArchivos());
-			menuArchivo.add(getFiltroAvanzado());
-			menuArchivo.add(getEditarPropiedades());
-			menuArchivo.add(getElimina());
+			JMenu menuFiltro = new JMenu("Filtro");
+			menuFiltro.add(getFiltroAvanzado());
+			JMenu menuPropiedades = new JMenu("Propiedades");
+			menuPropiedades.add(getEditarPropiedades());
+			JMenu menuEliminar = new JMenu("Eliminar");
+			menuEliminar.add(getElimina());
 			menuBI.add(menuArchivo);
+			menuBI.add(menuFiltro);
+			menuBI.add(menuPropiedades);
+			menuBI.add(menuEliminar);
+			
 		}
 		return menuBI;
 	}

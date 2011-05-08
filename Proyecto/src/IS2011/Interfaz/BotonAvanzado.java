@@ -37,7 +37,7 @@ public class BotonAvanzado extends JButton {
 	{
 		if(getModel().isArmed()){
 				g.setColor(Color.black);
-				this.setIcon(iConS = iConS);
+				//this.setIcon(iConS = iConS);
 		}
 		else{
 			this.setIcon(iCon);

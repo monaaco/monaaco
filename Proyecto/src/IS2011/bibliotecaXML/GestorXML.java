@@ -88,8 +88,9 @@ public class GestorXML {
 			 biblioteca = (Biblioteca)xs.fromXML(is);
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(new JFrame(),
-				    "La biblioteca no ha podido ser cargada, el formato es erróneo.",
-				    "Error cargando la biblioteca",
+				    "La biblioteca no ha podido ser cargada, el formato es erróneo.\n" +
+				    e.getMessage(),
+				    "Error carga de la biblioteca",
 				    JOptionPane.WARNING_MESSAGE);
 			//TODO crear un nuevo biblioteca.xml 
 			e.printStackTrace();
@@ -110,35 +111,40 @@ public class GestorXML {
 	 * Guarda en el XML todo el contenido actual de la biblioteca b
 	 */
 	public void guardar(){
-		//TODO codigo perteneciente a la escritura del XML (Miguel, Jachu)
+		//tarea correspondiente a la escritura del XML (Miguel, Jachu)
 		// tener como entrada el ArrayList de la Biblioteca funcionXML(biblioteca)?¿
-		
-		if( biblioteca != null){
-				try {
-					XStream xstream = new XStream(new DomDriver());
-					// Esta linea es para que haga caso de las anotaciones del tipo @XStream*
-					xstream.processAnnotations(Biblioteca.class);
-					xstream.toXML(biblioteca, new FileOutputStream(rutaBiblioteca));
-				} catch (FileNotFoundException e) {
-					e.printStackTrace();
-				}
-		}
-				/*	
-				PrintWriter writer;
-				try {
-						writer = new PrintWriter(rutaBiblioteca);
-				
-						writer.print(tracksXML);
-						writer.close(); 
-					} catch (FileNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-				}
-				 */
-
+		guardar(rutaBiblioteca);
 	}
-
 	
+	/**
+	 * Metodo para guardar la biblioteca a un archivo especificado mediante un String
+	 * @param filename
+	 */
+	public void guardar(String filename){
+		guardar(new File(filename));
+	}
+	
+	/**
+	 * Metodo para guardar la biblioteca a un archivo especificado
+	 * @param filename
+	 */
+	public void guardar(File file){
+		if( biblioteca != null){
+			try {
+				XStream xstream = new XStream(new DomDriver());
+				// Esta linea es para que haga caso de las anotaciones del tipo @XStream*
+				xstream.processAnnotations(Biblioteca.class);
+				xstream.toXML(biblioteca, new FileOutputStream(file));
+			} catch (FileNotFoundException e) {
+				JOptionPane.showMessageDialog(new JFrame(),
+					    "La biblioteca no ha podido ser guardada.\n" +
+					    e.getMessage(),
+					    "Error carga de la biblioteca",
+					    JOptionPane.WARNING_MESSAGE);
+				e.printStackTrace();
+			}
+		}
+	}
 
 	
 	

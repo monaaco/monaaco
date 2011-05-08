@@ -124,13 +124,12 @@ public class Launcher extends JWindow {
 		
 		//Cargamos la biblioteca
 		
-		GestorXML b = new GestorXML();
-		b.cargar();
+		
 		//Cargamos las opciones
 		
 		InterfazAvanzada interfaz;
 		interfaz = new InterfazAvanzada();
-		((InterfazAvanzada) interfaz).setBiblioteca(b,interfaz);
+		
 		interfaz.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		interfaz.setVisible(true);
 		

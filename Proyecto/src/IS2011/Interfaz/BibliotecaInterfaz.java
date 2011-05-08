@@ -36,9 +36,9 @@ import IS2011.bibliotecaXML.GestorXML;
 import IS2011.bibliotecaXML.Playlist;
 import IS2011.bibliotecaXML.Track;
 
-public class BibliotecaInterfaz extends JFrame{
+public class BibliotecaInterfaz extends JPanelRound{
 
-	private JFrame frame= null;
+	private JPanel frame= null;
 	
 	private InterfazAvanzada interfazPadre= null;
 	private JMenuBar menuBI=null;
@@ -52,7 +52,7 @@ public class BibliotecaInterfaz extends JFrame{
 	private TableRowSorter<TableModel> elQueOrdena=null; 
 	
 	public BibliotecaInterfaz(GestorXML library, InterfazAvanzada ia){
-		super("Biblioteca");
+		//super("Biblioteca");
 		interfazPadre = ia;
 		biblioteca = library;
 		initBibliotecaInterfaz();
@@ -63,7 +63,9 @@ public class BibliotecaInterfaz extends JFrame{
 	{
 		this.setSize(600, 300);
 		this.setLayout(new BorderLayout());
-		this.setJMenuBar(getBarraMenu());
+		JMenuBar JMenuAux = getBarraMenu();
+		this.add(JMenuAux,BorderLayout.NORTH);
+		
 		
 		
 		// Instanciamos nuestro modelo de datos, por ejemplo, DefaultTableModel

@@ -37,6 +37,7 @@ public class InterfazAvanzada extends JFrame {
 	private SongInterfaz infoPlaylist = null;
 	private SongInfoInterfaz infoSong = null;
 	private JPanel infoSong2 = null;
+	private BibliotecaInterfaz biliotecaInterfaz = null;
 
 	private BotonAvanzado stopButton = null;
 	private BotonAvanzado pauseButton = null;
@@ -93,26 +94,39 @@ public class InterfazAvanzada extends JFrame {
 		//fondo = new TransparentBackground(this);
 		
 		JPanelRound aux = new JPanelRound();	
-		aux.setSize(500,400);
-		aux.setBackground(Color.BLUE);
+		aux.setSize(700,700);
+		//aux.setBackground(Color.BLUE);
 		aux.setOpaque(false);
 		aux.setLayout(null);
-		aux.setColorPrimario(Color.darkGray);
+		aux.setColorPrimario(Color.black);
 		Mover mml = new Mover(aux);
 		aux.addMouseListener(mml);
 		aux.addMouseMotionListener(mml);
 
 		JPanel interno = getPanel();
 		aux.add(interno);
-		interno.setBounds(25,25,400,300);
+		interno.setBounds(25,25,650,300);
+		JMenuBar JMenuAux = getBarraMenu();
+		aux.add(JMenuAux);
+		JMenuAux.setBounds(25, 5, 40, 20);
 		
-		this.setSize(450,400);
+		this.setSize(700,600);
 		this.setContentPane(aux);
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
 		this.setUndecorated(true);	
 		this.setVisible(true);
-		this.setJMenuBar(getBarraMenu());
+		
+		GestorXML b = new GestorXML();
+		b.cargar();
+		this.setBiblioteca(b,this);
+		
+		biliotecaInterfaz = new BibliotecaInterfaz(b,this); 
+		aux.add(biliotecaInterfaz);
+		biliotecaInterfaz.setBounds(25,350, 650, 200);
+		
+		
+		//this.setJMenuBar(getBarraMenu());
 		
 		//aux.setVisible(true);
 	//	aux.add(getPanel());// GridBagLayout

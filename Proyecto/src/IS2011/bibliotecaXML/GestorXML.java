@@ -70,11 +70,21 @@ public class GestorXML {
 		this.biblioteca.add(tr);
 	}
 	
-	/**
+	//TODO Igual no lo hace bien!
+	
+	
+	/** 
 	 * Esta función simplemente llama a la de biblioteca
 	 */
 	public ArrayList<Track> getBiblioteca(){
 		return biblioteca.getBiblioteca();
+	}
+	
+	/**
+	 * Esta función devuelve la variable biblioteca
+	 */
+	public Biblioteca getClaseBiblioteca(){
+		return biblioteca;
 	}
 	
 	/**
@@ -147,8 +157,4 @@ public class GestorXML {
 			}
 		}
 	}
-
-	
-	
-	
 }

@@ -109,7 +109,7 @@ public class SongInfoInterfaz extends JPanelTransparente {
 		}
 		if(track.getNumCaratulas() > 0 && track.getArtwork() != null){
 			caratula = new ImageIcon(track.getArtwork().getScaledInstance(90,90,Image.SCALE_SMOOTH));
-		}else 	caratula = new ImageIcon(new ImageIcon("images/monkeyIcon.jpg").getImage()
+		}else 	caratula = new ImageIcon(new ImageIcon("images/monkeyIcon2.png").getImage()
 											.getScaledInstance(90, 90, Image.SCALE_SMOOTH));
 		etiquetaCaratula.setIcon(caratula);
 

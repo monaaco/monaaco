@@ -2,19 +2,26 @@ package IS2011.bibliotecaXML;
 
 import java.util.*;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+@XStreamAlias("playlist")
 public class Playlist {
 	
-	private List<Track> lista;
+	@XStreamAlias("trackList")
+	private ArrayList<Track> lista;
 
-	private Track currentTrack;
+	private int currentTrack;
 
 	private boolean repeat;
 
 	private boolean random;
 
-
+	/**
+	 * Constructora
+	 */
 	public Playlist(){
-		lista = new LinkedList<Track>();
+		lista = new ArrayList<Track>();
+		currentTrack = -1;
 		reset();
 	}
 
@@ -23,22 +30,39 @@ public class Playlist {
 	 * @throws file not found exception?
 	 */
 	public boolean add(String fileName){
-		currentTrack = new Track(fileName);
-		return lista.add(currentTrack);
+		return lista.add(new Track(fileName));
 	}
 	
-	public LinkedList<Track> getEntries(){
-		return (LinkedList<Track>) lista;
+	/**
+	 *
+	 * @return la lista de reproducción en un arrayList
+	 */
+	public ArrayList<Track> getEntries(){
+		return (ArrayList<Track>) lista;
 	}
 
+	/**
+	 * 
+	 * @param track
+	 * @return posición del track
+	 */
 	public int getIndex(Track track){
 		return lista.indexOf(track);
 	}
 
+	/**
+	 * 
+	 * @param index
+	 * @return posición del track
+	 */
 	public Track getTrack(int index){
 		return (Track) lista.get(index);
 	}
 	
+	/**
+	 * 
+	 * @return array con la info de los tracks
+	 */
 	public String[] getListado(){
 		int tamaño =this.getNumTracks();
 		String[] array = new String[tamaño];
@@ -55,151 +79,139 @@ public class Playlist {
 	}
 	
 	
+	/**
+	 * 
+	 * @return
+	 */
+	public Track getCurrent(){
+		if((currentTrack == -1) && (getNumTracks() != 0)){
+			currentTrack = 0;
+			return getTrack(0);
+		}else if(currentTrack == -1){
+			return null;
+		}
+		return getTrack(currentTrack);
+	}
+
+	/**
+	 * 
+	 * @param track
+	 */
+	public void setCurrentTrack(Track track){
+		currentTrack = getIndex(track);
+	}
 	
-	// Devuelve la siguiente canción del playList puede ser null si no quedan.
-	public Track next(){
-		
-		Track nextTrack = getNext();
-
-		if (nextTrack == null && repeat){
-			if (!lista.isEmpty()){
-				nextTrack = (Track) lista.get(0);
-			}
-		}
-
-		if (nextTrack != null){
-			selectTrack(false);
-			currentTrack = nextTrack;
-			selectTrack(true);
-		}
-
-		return nextTrack;
+	/**
+	 * 
+	 * @param track
+	 */
+	public void setCurrentTrack(int pos){
+		currentTrack = pos;
 	}
-
-	public Track current(){
-		return currentTrack;
-	}
-
-
-	public Track previous(){
-		Track prevTrack = getPrevious();
-
-		if (prevTrack == null && repeat){
-			if (!lista.isEmpty()){
-				prevTrack = (Track) lista.get(lista.size() > 0 ? lista.size() - 1 : 0);
-			}
-		}
-
-		if (prevTrack != null){
-			selectTrack(false);
-			currentTrack = prevTrack;
-			selectTrack(true);
-		}
-
-		return prevTrack;
-	}
-
-
-	public void setCurrent(Track track){
-		selectTrack(false);
-		currentTrack = track;
-		selectTrack(true);
-	}
-
+	
+	/**
+	 * 
+	 */
 	public void reset(){
-		// iterator = list.listIterator();
-		if (lista.isEmpty())	{
-			currentTrack = null;
+		if (lista.isEmpty()){
+			currentTrack = -1;
 		}
 		else{
-			currentTrack = (Track) lista.get(0);
+			currentTrack = 0;
 		}
 	}
 
-
+	/**
+	 * Vacia la lista de reproducción
+	 */
 	public void clear()
 	{
-/*		for (Iterator<Track> it = lista.iterator(); it.hasNext();){ //xq un for????
-			Track track = (Track) it.next();
-			//fireEntryRemovedEvent(track);
-		}
-*/
 		lista.clear();
 		reset();
 	}
 
-
-	private Track getNext()	{
-		Track track = null;
-
-		if (hasNext()) {
-			track = (Track) lista.get(lista.indexOf(currentTrack) + 1);
+	/**
+	 * Devuelve la siguiente canción marcándola como currentTrack
+	 * @return siguiente track
+	 */
+	public Track next(){
+		if( currentTrack ==  (getNumTracks() - 1)){
+			if(repeat){
+				currentTrack = 0;
+				return this.getTrack(currentTrack);
+			}else if (random){
+				currentTrack = (int)( Math.random() % (getNumTracks() - 1));
+				return this.getTrack(currentTrack);
+			}else return null;
 		}
-
-		return track;
+		currentTrack++;
+		return this.getTrack(currentTrack);
 	}
-
-	private Track getPrevious()	{
-		Track track = null;
-
-		if (hasPrevious()) {
-			track = (Track) lista.get(lista.indexOf(currentTrack) - 1);
+	
+	/**
+	 * 
+	 * @return track anterior
+	 */
+	public Track previous()	{
+		if( currentTrack == 0){
+			if(isRepeat()){
+				currentTrack = getNumTracks() - 1;
+				return this.getTrack(currentTrack);
+			}else if (isRandom()){
+				currentTrack = (int)( Math.random() % (getNumTracks() - 1));
+				return this.getTrack(currentTrack);
+			}else return null;
 		}
-
-		return track;
+		currentTrack--;
+		return this.getTrack(currentTrack);
 	}
+	
+	/**
+	 * 
+	 * @return
+	 */
 	public int getNumTracks(){
 		return lista.size();
 	}
-
-	private boolean hasNext() {
-		if (currentTrack != null) {
-			if (lista.indexOf(currentTrack) + 1 < lista.size()){
-				return true;
-			}
-			else {
-				return false;
-			}
-		}
-		else {
-			return false;
-		}
-	}
-
-	private boolean hasPrevious() {
-		if (currentTrack != null) {
-			if (lista.indexOf(currentTrack) - 1 >= 0){
-				return true;
-			}
-			else {
-				return false;
-			}
-		}
-		else {
-			return false;
-		}
-	}
-
-	private void selectTrack(boolean select){
-		/*if (currentTrack != null){
-			currentTrack.setRead(select);
-			fireEntryChangedEvent(currentTrack);
-		}*/
-	}	
-
+	
+	/**
+	 * 
+	 * @return repeat
+	 */
 	public boolean isRepeat() {
 		return repeat;
 	}
-
+	
+	/**
+	 * 
+	 * @param b
+	 */
 	public void setRepeat(boolean b) {
 		repeat = b;
 	}
+	
+	/**
+	 * 
+	 * @return random
+	 */
 	public boolean isRandom() {
 		return random;
 	}
 
+	/**
+	 * 
+	 * @param b
+	 */
 	public void setRandom(boolean b) {
 		random = b;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public int getCurrentNumber() {
+		return currentTrack;
 	}
 	
 

@@ -60,7 +60,6 @@ public class InterfazAvanzada extends JFrame {
 	private JMenuItem previousItem = null;
 	private JPanelRound backGround = null;
 	
-	private Color c= new Color(240,240,240);
 	private JLabel infoSongLabel = null;
 
 	
@@ -78,6 +77,7 @@ public class InterfazAvanzada extends JFrame {
 	private Shape figura;
 	private Track _pista;
 	private Color bgcolor = Color.black;
+	private Color fgcolor = new Color(240,240,240);
 	private boolean reproduciendo = false;
 	private boolean restante= false;
 	
@@ -200,7 +200,7 @@ public class InterfazAvanzada extends JFrame {
 
 
 		segundero = new JLabel("0:00");
-		segundero.setForeground(c);
+		segundero.setForeground(fgcolor);
 		segundero.setFont(new java.awt.Font("Helvetica", 1, 12));
 		segundero.addMouseListener(new MouseAdapter() 
 		{
@@ -256,18 +256,13 @@ public class InterfazAvanzada extends JFrame {
 	
 	private void getDefaultPalyList() {
 		listaReproduccion = new Playlist();
-		listaReproduccion.setRepeat(true);
-		listaReproduccion.add("sounds/prueba2.ogg"); 
-		listaReproduccion.add("sounds/prueba.mp3"); 
-		setCurrentTrack(listaReproduccion.current());
-
-		
+		listaReproduccion.setRepeat(true);		
 	}
 
 	private JLabel getInfoSongLabel() {
 		if(infoSongLabel == null) {
 			infoSongLabel=new JLabel("Monaaaco Player");
-			infoSongLabel.setForeground(c);
+			infoSongLabel.setForeground(fgcolor);
 			segundero.setFont(new java.awt.Font("Helvetica", 1, 12));
 		}
 		return infoSongLabel;
@@ -284,7 +279,7 @@ public class InterfazAvanzada extends JFrame {
 			//playerMenu.setIcon(monkeyIcon);
 			playerMenu.add(getCargarArchivoItem());
 		    playerMenu.setBackground(Color.black);
-			playerMenu.setForeground(c);
+			playerMenu.setForeground(fgcolor);
 			playerMenu.add(getPreviousItem());
 			playerMenu.add(getNextItem());
 			playerMenu.add(getSalirItem());
@@ -292,7 +287,7 @@ public class InterfazAvanzada extends JFrame {
 			
 			JLabel movimiento = new JLabel("");
 			movimiento.setBackground(Color.black);
-			movimiento.setForeground(c);
+			movimiento.setForeground(fgcolor);
 	      		      	
 	      /*	try{
 				//@SuppressWarnings("rawtypes")
@@ -314,7 +309,7 @@ public class InterfazAvanzada extends JFrame {
         if (cargarArchivoItem == null) {
         	cargarArchivoItem = new JMenuItem("Cargar Archivo",carpetaIcon);
         	cargarArchivoItem.setBackground(Color.black);
-        	cargarArchivoItem.setForeground(c);
+        	cargarArchivoItem.setForeground(fgcolor);
         	cargarArchivoItem.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     try {
@@ -341,7 +336,7 @@ public class InterfazAvanzada extends JFrame {
                         		/*File f = array[i];
                                 listaReproduccion.add(f.getAbsolutePath());*/
                         	}
-                        	setCurrentTrack(listaReproduccion.current());
+                        	setCurrentTrack(listaReproduccion.getCurrent());
                             String[] temas = listaReproduccion.getListado();
                             infoPlaylist.actualizaTemas(temas);
                         }
@@ -466,11 +461,21 @@ public class InterfazAvanzada extends JFrame {
 			playButton.addMouseListener(new java.awt.event.MouseAdapter() {
 				public void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
-						if(reproduciendo == false){
+						if((reproduciendo == false) && listaReproduccion.getCurrentNumber()==-1)
+						{
+							//TODO lo que queriamos meter la 1º
+							listaReproduccion.reset();
+							if(listaReproduccion.getCurrentNumber()!=-1)
+							{
+								setTrackNumber(0);
+								infoSong.actualiza(listaReproduccion.getCurrent());
+								mPlayer.play();
+							}
+						}
+						else if(reproduciendo == false){
 							playButton.setIcon(pauseIcon);	
 							mPlayer.play();
 							reproduciendo = true;
-						
 						}
 						else{
 							if (pause == false) {
@@ -540,7 +545,7 @@ public class InterfazAvanzada extends JFrame {
 			salirItem = new JMenuItem("Salir");
 			//salirItem.setBackground(bgcolor);
 			salirItem.setBackground(Color.black);
-			salirItem.setForeground(c);
+			salirItem.setForeground(fgcolor);
 			salirItem.addMouseListener(new java.awt.event.MouseAdapter() {
 				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
@@ -565,21 +570,35 @@ public class InterfazAvanzada extends JFrame {
         try {
             pause = false;
             mPlayer.stop();
-            infoSong.actualiza(listaReproduccion.current());
+            infoSong.actualiza(listaReproduccion.getCurrent());
+            mPlayer.play();
+        } catch (BasicPlayerException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void reproducirAnterior(){
+        setCurrentTrack(listaReproduccion.previous());
+        try {
+            pause = false;
+            mPlayer.stop();
+            infoSong.actualiza(listaReproduccion.getCurrent());
             mPlayer.play();
         } catch (BasicPlayerException e) {
             e.printStackTrace();
         }
     }
    
+    /**
+     * 
+     * @return
+     */
     public JMenuItem getNextItem() {
-    	
-    	
         if (nextItem == null){
             nextItem = new JMenuItem("siguiente");
             //nextItem.setBackground(bgcolor);
             nextItem.setBackground(Color.black);
-            nextItem.setForeground(c);
+            nextItem.setForeground(fgcolor);
             nextItem.addMouseListener(new java.awt.event.MouseAdapter() {
                 public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
                     reproducirSiguiente();
@@ -598,15 +617,12 @@ public class InterfazAvanzada extends JFrame {
 			previousItem = new JMenuItem("anterior");
 			//nextItem.setBackground(bgcolor);
 			previousItem.setBackground(Color.black);
-			previousItem.setForeground(c);
+			previousItem.setForeground(fgcolor);
 			previousItem.addMouseListener(new java.awt.event.MouseAdapter() {
 				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
 						//previous cambia el currentTrack de la clase palylist y le devuelve playlist
-						setCurrentTrack(listaReproduccion.previous());
-						pause = false;
-						mPlayer.stop();
-						mPlayer.play();
+						reproducirAnterior();
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
@@ -624,6 +640,7 @@ public class InterfazAvanzada extends JFrame {
 	public void setCurrentTrack(Track track) {
 		try {
 			 File f = new File(track.getLocation());
+			 
 			 /* TODO 
 			  * - poner la info en la interfaz en la interfaz;
 			  * - Se podria hacer que la esto se mostrara en una ventana semi trasparente 
@@ -662,8 +679,7 @@ public class InterfazAvanzada extends JFrame {
              reproductorListener = new ReproductorListener(this);
              mPlayer.addBasicPlayerListener(reproductorListener);
              mPlayer.open(f); 
-                  
-             
+                         
              posTag = 0-infoSongLabel.getSize().width;
              infoSongLabel.setText(null);
              infoSongLabel.setText(track.getArtist() + " - " + track.getName()
@@ -736,14 +752,22 @@ public class InterfazAvanzada extends JFrame {
         this.setLocation((pantalla.width - ventana.width) / 2,
                         (((pantalla.height - ventana.height) / 2))-100);
 	}
-	public void setTrackNumber(int number){
+	
+	public void setTrackNumber(int pos){
 		try{
-		setCurrentTrack(listaReproduccion.getTrack(number));
-		pause = false;
-		mPlayer.stop();
-		mPlayer.play();
-		  reproduciendo = true;
-          playButton.setIcon(pauseIcon);
+			listaReproduccion.setCurrentTrack(pos);
+			setCurrentTrack(listaReproduccion.getTrack(pos));
+			pause = false;
+			mPlayer.stop();
+			mPlayer.play();
+			if(!reproduciendo){
+				reproduciendo = true;
+				playButton.setIcon(pauseIcon);
+			}else{
+				reproduciendo = false;
+				playButton.setIcon(playIcon);
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

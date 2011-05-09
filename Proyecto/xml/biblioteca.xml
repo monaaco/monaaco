@@ -24,5 +24,44 @@
       <comments></comments>
       <location>sounds\prueba2.ogg</location>
     </track>
+    <track id="0">
+      <name>Intro</name>
+      <artist>Monaaco Player</artist>
+      <albumArtist></albumArtist>
+      <album>Monaaco Player</album>
+      <genre></genre>
+      <kind>MPEG-1 Layer 3</kind>
+      <size>16106127360</size>
+      <totalTime>4</totalTime>
+      <bitRate>128</bitRate>
+      <comments></comments>
+      <location>C:\hlocal\workspace-3.4.2\Proyecto\sounds\mic_check.mp3</location>
+    </track>
+    <track id="1">
+      <name>Donde duele inspira</name>
+      <artist>Flowklorikos</artist>
+      <albumArtist></albumArtist>
+      <album>Donde duele inspira</album>
+      <genre>Hip-Hop</genre>
+      <kind>MPEG-1 Layer 3</kind>
+      <size>16106127360</size>
+      <totalTime>216</totalTime>
+      <bitRate>320</bitRate>
+      <comments>www.HHGroups.com</comments>
+      <location>C:\hlocal\workspace-3.4.2\Proyecto\sounds\prueba.mp3</location>
+    </track>
+    <track id="2">
+      <name>Three Little Birds</name>
+      <artist>Bob Marley</artist>
+      <albumArtist></albumArtist>
+      <album>One Love - The Very Best Of Bob Marley</album>
+      <genre>Reggae</genre>
+      <kind>Ogg Vorbis v1</kind>
+      <size>16106127360</size>
+      <totalTime>183</totalTime>
+      <bitRate>160</bitRate>
+      <comments></comments>
+      <location>C:\hlocal\workspace-3.4.2\Proyecto\sounds\prueba2.ogg</location>
+    </track>
   </trackList>
 </biblioteca>

@@ -699,7 +699,7 @@ public class InterfazAvanzada extends JFrame {
 	
 	public void cambiaSegundos(int min, int segs) {
 		String texto;
-		
+		texto= "";
 		if(restante)
 		{
 			//TODO obtenemos los restantes en segundos como en el Track.
@@ -710,16 +710,17 @@ public class InterfazAvanzada extends JFrame {
 			segTotales = infoSong.getTrack().getTotalTime();
 			//deberia estar cargado ya por ahi no estar cargandolo siempre.
 			resultado = (segTotales - ((60*min)+segs));
-			min = -(resultado / 60);
+			min = (resultado / 60);
 			segs = resultado % 60;
+			texto= "-";
 		}
-		if(segs>10)
+		if(segs>=10)
 		{
-			texto = min +":"+ segs;
+			texto+= min +":"+ segs;
 		}
 		else
 		{
-			texto = min +":0"+ segs;
+			texto+= min +":0"+ segs;
 		}
         segundero.setText(texto);
         if(posTag == 400){

@@ -1,0 +1,20 @@
+Tests Carga de archivos correspondientes a la historia #28 "Cargar varios archivos a la vez incluyendo los contenidos en subcarpetas"
+
+
+
+	Pasos:
+		1. Ejecutar la aplicación
+		2. Añadir archivos mediante el botón del menú seleccionando una carpeta con subcarpetas, en las cuales se encuentre al menos algún archivo mp3.
+		3. Comprobar que el/los archivo/s se han añadido correctamente.
+
+
+
+Test tiempo transcurrido y restante correspondiente a la historia #30 "Mostrar tiempo transcurrido y tiempo restante"
+
+
+	Pasos: 
+		1. Ejecutar la aplicación.
+		2. cargar una canción y darle al play.
+		3. Comprobamos que los segundos mostrados empiezan de 0:00 y se incrementan. 
+		4. Haciendo click sobre los segundos deberá mostrar los restantes con signo segundo a segundo negativo y 		el tiempo ahora deberá decrementarse segundo a segundo.
+		5. Comprobar que cuando la canción termina los segundos restantes son 0:00.

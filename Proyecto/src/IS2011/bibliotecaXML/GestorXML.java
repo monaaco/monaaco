@@ -79,6 +79,9 @@ public class GestorXML {
 	public ArrayList<Track> getBiblioteca(){
 		return biblioteca.getBiblioteca();
 	}
+	public HashMap<String,Boolean> crearHashMap(){
+		return biblioteca.creaHashMap();
+	}
 	
 	/**
 	 * Esta función devuelve la variable biblioteca

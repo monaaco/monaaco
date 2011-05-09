@@ -1,6 +1,7 @@
 package IS2011.bibliotecaXML;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -46,5 +47,15 @@ public class Biblioteca {
 		}
 	}
 	
+	public HashMap<String,Boolean> creaHashMap(){
+		HashMap<String,Boolean> resultado = new HashMap<String,Boolean>();
+		Iterator it = getBiblioteca().iterator();
+		String s;
+		while (it.hasNext()){
+			s = ((Track)it.next()).getLocation();
+			resultado.put(s, Boolean.TRUE);
+		}
+		return resultado;
+	} 
 }
 

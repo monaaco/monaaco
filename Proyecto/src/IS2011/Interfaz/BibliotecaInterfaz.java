@@ -6,6 +6,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import javax.swing.JButton;
@@ -48,6 +49,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 	private JMenuItem editarPropiedades=null;
 	private JMenuItem filtroAvanzado=null;
 	private JMenuItem elimina= null;
+	private JMenuItem anadirAPlayList=null;
 	private JTextField busquedaRapida= null;
 	private JTable tabla= null;
 	private GestorXML biblioteca=null; //Sino es un ArrayList es la propia biblioteca.
@@ -149,6 +151,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 			
 			JMenu menuArchivo = new JMenu("Añadir archivo");
 			menuArchivo.add(getAnadirArchivos());
+			menuArchivo.add(getAnadirAPlayList());
 			JMenu menuFiltro = new JMenu("Filtro");
 			menuFiltro.add(getFiltroAvanzado());
 			JMenu menuPropiedades = new JMenu("Propiedades");
@@ -159,12 +162,42 @@ public class BibliotecaInterfaz extends JPanelRound{
 			menuBI.add(menuFiltro);
 			menuBI.add(menuPropiedades);
 			menuBI.add(menuEliminar);
-			
 		}
 		return menuBI;
 	}
 
 	
+	private JMenuItem getAnadirAPlayList() {
+		if (anadirAPlayList == null) {
+			anadirAPlayList = new JMenuItem("Añadir seleccionados a la PlayList");
+			anadirAPlayList.addMouseListener(new java.awt.event.MouseAdapter() {
+				public  void mouseReleased(java.awt.event.MouseEvent evt) {		
+						int[] seleccionadas = tabla.getSelectedRows();
+						if(seleccionadas.length != 0)
+						{
+							int fila;
+							Track aux;
+							Playlist listaRepr = interfazPadre.getListaReproduccion();
+							for(int i= 0; i<seleccionadas.length ;i++)
+							{
+								fila = seleccionadas[i];
+								fila = tabla.convertRowIndexToModel (fila);
+								aux = biblioteca.getBiblioteca().get(fila);
+					        	listaRepr.add(aux.getLocation());
+							}
+							String[] temas = listaRepr.getListado();
+		                    interfazPadre.getInfoPlaylist().actualizaTemas(temas);
+						}
+						else
+						{
+							JOptionPane.showMessageDialog(frame, "Selecciona las filas para pasar a la PlayList");
+						}
+                    }
+				});
+		}
+		return anadirAPlayList;
+	}
+
 	private JMenuItem getElimina() {
 		if (elimina == null) {
 			elimina = new JMenuItem("Eliminar seleccionados de la biblioteca");
@@ -184,7 +217,6 @@ public class BibliotecaInterfaz extends JPanelRound{
 								fila = tabla.convertRowIndexToModel (fila);
 								biblioteca.getBiblioteca().remove(fila);
 							}
-							
 	                    	actualiza();
 	                    	busquedaRapida.setText("");
 						}
@@ -233,8 +265,13 @@ public class BibliotecaInterfaz extends JPanelRound{
 			}
 		}
 		else if(file.getName().toLowerCase().endsWith(".mp3") || file.getName().toLowerCase().endsWith(".ogg")){
-			Track aux = new Track(file.getAbsolutePath());
-			biblioteca.add(aux);
+			HashMap<String,Boolean> hash = biblioteca.crearHashMap();
+			if(!hash.containsKey(file.getAbsolutePath()))
+			{
+				Track aux = new Track(file.getAbsolutePath());
+				biblioteca.add(aux);
+				hash.put(file.getAbsolutePath(), Boolean.TRUE);
+			}
 		}
 	}
 	

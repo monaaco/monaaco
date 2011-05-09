@@ -380,6 +380,7 @@ public class InterfazAvanzada extends JFrame {
 					System.out.println("Ancho: " + ancho);
 					System.out.println("Maximo valor" + MaxValor);
 					System.out.println("Deberiamos apuntar el setValue a: " + resultado);
+					if(mPlayer!=null)
 					try {
 						mPlayer.seek((long) resultado);
 						barraProgreso.setValue((int)resultado );

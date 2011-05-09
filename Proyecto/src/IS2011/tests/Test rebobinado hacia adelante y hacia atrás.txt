@@ -1,0 +1,8 @@
+Test de rebobinado hacia adelante y hacia atrás correspondiente a la historia #29 "Opción de rebobinado hacia adelante y hacia atrás"
+
+
+	Pasos: 
+		1. Ejecutar la aplicación.
+		2. Cargar un archivo mp3 y darle al play.
+		3. Pulsar en la barra de progreso de la canción, en cualquier punto.
+		4. Comprobar que la canción comienza a reproducirse desde ese punto y cambia el tiempo actual de la canción.

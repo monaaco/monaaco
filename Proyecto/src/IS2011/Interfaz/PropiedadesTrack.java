@@ -44,6 +44,8 @@ public class PropiedadesTrack extends JDialog //o JWindow, probar ambas.
 	private JTextField album=null;
 	private JLabel labelComentario= null;
 	private JTextField comentario=null;
+	private JLabel labelGenero= null;
+	private JTextField genero=null;
 	/*private artworkList ; pensarlo bien, realmente la interfaz muestra un label con un imgIcon y el artworkList es el mismo, salvo que se cambie. Lo mismo no interesa de primeras cambiar la imagen.
 	*/
 	private JButton botonOk = null;
@@ -68,18 +70,21 @@ public class PropiedadesTrack extends JDialog //o JWindow, probar ambas.
 	 * Inicializa la ventana
 	 */
 	public void initPropiedadesUI(){
-		this.setSize(400,200);
+		this.setSize(380,250);
+		this.setResizable(false);
 		this.setLayout(new FlowLayout());
-		labelNombre = new JLabel("Titulo: ");
-		labelArtista = new JLabel("Artista: ");
-		labelAlbumArtista = new JLabel("Album Artista: ");
-		labelAlbum = new JLabel("Album: ");
+		labelNombre =  new JLabel("Titulo:   ");
+		labelArtista = new JLabel("Artista:  ");
+		labelAlbumArtista = new JLabel("Album Artista:     ");
+		labelAlbum =   new JLabel("Album:    ");
 		labelComentario = new JLabel("Comentario: ");
-		nombre = new JTextField(track.getName(),10);
-		artista = new JTextField(track.getArtist(),10);
-		albumArtista = new JTextField(track.getAlbumArtist(),10);
-		album = new JTextField(track.getAlbum(),10);
-		comentario = new JTextField(track.getComments(),20);
+		labelGenero = new JLabel("Genero:   ");
+		nombre = new JTextField(track.getName(),25);
+		artista = new JTextField(track.getArtist(),25);
+		albumArtista = new JTextField(track.getAlbumArtist(),20);
+		album = new JTextField(track.getAlbum(),25);
+		comentario = new JTextField(track.getComments(),25);
+		genero = new JTextField(track.getGenre(),25);
 		
 		botonOk = new JButton("OK");
 		botonOk.addMouseListener(new MouseAdapter() {
@@ -101,6 +106,7 @@ public class PropiedadesTrack extends JDialog //o JWindow, probar ambas.
 					if((artista.getText() != null) && (artista.getText() != "")) track.setArtist(artista.getText());
 					if((albumArtista.getText() != null) && (albumArtista.getText() != "")) track.setAlbumArtist(albumArtista.getText());
 					if((album.getText() != null) && (album.getText() != "")) track.setAlbum(album.getText());
+					if((genero.getText() != null)&& (album.getText() != "")) track.setGenre(genero.getText());
 					/*if((comentario.getText() != null) && (comentario.getText() != ""))*/ track.setComments(comentario.getText());
 				}
 				catch(Exception ex){
@@ -133,6 +139,8 @@ public class PropiedadesTrack extends JDialog //o JWindow, probar ambas.
 		this.add(album);
 		this.add(labelComentario);
 		this.add(comentario);
+		this.add(labelGenero);
+		this.add(genero);
 		this.add(botonOk);
 		this.add(botonCancel);
 	}

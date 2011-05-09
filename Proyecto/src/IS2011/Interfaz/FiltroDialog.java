@@ -1,5 +1,6 @@
 package IS2011.Interfaz;
 
+import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -25,12 +26,10 @@ public class FiltroDialog extends JDialog{
 	private JTextField nombre= null;
 	private JLabel labelArtista= null;
 	private JTextField artista=null;
-	private JLabel labelAlbumArtista= null;
-	private JTextField albumArtista= null;
 	private JLabel labelAlbum= null;
 	private JTextField album=null;
-	private JLabel labelComentario= null;
-	private JTextField comentario=null;
+	private JLabel labelGenero= null;
+	private JTextField genero=null;
 
 	private JButton botonOk = null;
 	private JButton botonCancel = null;
@@ -50,18 +49,17 @@ public class FiltroDialog extends JDialog{
 	}
 	
 	public void initPropiedadesUI(){
-		this.setSize(400,200);
-		this.setLayout(new GridBagLayout());
-		labelNombre = new JLabel("Titulo: ");
+		this.setSize(380,200);
+		this.setResizable(false);
+		this.setLayout(new FlowLayout());
+		labelNombre = new JLabel("Titulo:  ");
 		labelArtista = new JLabel("Artista: ");
-		labelAlbumArtista = new JLabel("Album Artista: ");
-		labelAlbum = new JLabel("Album: ");
-		labelComentario = new JLabel("Comentario: ");
-		nombre = new JTextField("");
-		artista = new JTextField("");
-		albumArtista = new JTextField("");
-		album = new JTextField("");
-		comentario = new JTextField("");
+		labelAlbum = new JLabel("Album:   ");
+		labelGenero =  new JLabel("Genero:  ");
+		nombre = new JTextField("",25);
+		artista = new JTextField("",25);
+		album = new JTextField("",25);
+		genero = new JTextField("",25);
 		
 		botonOk = new JButton("OK");
 		botonOk.addMouseListener(new MouseAdapter() {
@@ -83,14 +81,11 @@ public class FiltroDialog extends JDialog{
 				if(artista.getText()!=""){
 					lista.add(RowFilter.regexFilter("(?i)"+artista.getText(),1));
 				}
-				if(albumArtista.getText()!=""){
-					lista.add(RowFilter.regexFilter("(?i)"+albumArtista.getText(),2));
+				if(album.getText()!=""){
+					lista.add(RowFilter.regexFilter("(?i)"+album.getText(),2));
 				}
-				/*if(album.getText()!=""){
-					lista.add(RowFilter.regexFilter("(?i)"+album.getText(),0));
-				}*/
-				if(comentario.getText()!=""){
-					lista.add(RowFilter.regexFilter("(?i)"+comentario.getText(),5));
+				if(genero.getText()!=""){
+					lista.add(RowFilter.regexFilter("(?i)"+genero.getText(),4));
 				}
 				
 				RowFilter filtroAnd = RowFilter.andFilter(lista);
@@ -113,12 +108,10 @@ public class FiltroDialog extends JDialog{
 		this.add(nombre);
 		this.add(labelArtista);
 		this.add(artista);
-		this.add(labelAlbumArtista);
-		this.add(albumArtista);
 		this.add(labelAlbum);
 		this.add(album);
-		this.add(labelComentario);
-		this.add(comentario);
+		this.add(labelGenero);
+		this.add(genero);
 		this.add(botonOk);
 		this.add(botonCancel);
 	}

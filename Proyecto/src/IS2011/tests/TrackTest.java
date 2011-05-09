@@ -5,7 +5,7 @@ import javazoom.jlgui.basicplayer.BasicPlayerException;
 import junit.framework.TestCase;
 
 public class TrackTest extends TestCase {
-	
+	/*
 	private Track track;
 	private String cadena;
 	private Playlist listaReproduccion;
@@ -93,5 +93,5 @@ public class TrackTest extends TestCase {
 		
 		assertEquals(listaReproduccion.current().getBitRate(),(Integer)Integer.parseInt("320"));
 	}
-	
+	*/
 }

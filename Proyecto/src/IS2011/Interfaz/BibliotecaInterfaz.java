@@ -79,10 +79,9 @@ public class BibliotecaInterfaz extends JPanelRound{
 		modelo = new MyDefaultTableModel();
 		modelo.addColumn("Titulo");
 		modelo.addColumn("Artista");
-		modelo.addColumn("Album artista");
+		modelo.addColumn("Album");
 		modelo.addColumn("Tiempo total (seg)");
-		modelo.addColumn("Bitrate");
-		modelo.addColumn("Comentarios");
+		modelo.addColumn("Genero");
 		tabla = new JTable(modelo);
 		tabla.setSize(500,250);
 
@@ -282,9 +281,12 @@ public class BibliotecaInterfaz extends JPanelRound{
 				public  void mouseReleased(java.awt.event.MouseEvent evt) {
 					//TODO Mostrar el PropiedadesTrack	
 					int[] seleccionadas = tabla.getSelectedRows();
+					int fila;
 					if(seleccionadas.length > 0){
 						for(int i =0;i< seleccionadas.length ;i++){
-							Track track = biblioteca.getBiblioteca().get(seleccionadas[i]);
+							fila = seleccionadas[i];
+							fila = tabla.convertRowIndexToModel (fila);
+							Track track = biblioteca.getBiblioteca().get(fila);
 							PropiedadesTrack pt = new PropiedadesTrack(interfazPadre, true ,track);
 							pt.setVisible(true);
 						}
@@ -326,7 +328,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 		while (it.hasNext())
 		{
 			aux = (Track)it.next();
-			((DefaultTableModel) modelo).addRow(new Object[] { aux.getName(), aux.getArtist(), aux.getAlbumArtist(), aux.getTotalTime(), aux.getBitRate(), aux.getComments()});
+			((DefaultTableModel) modelo).addRow(new Object[] { aux.getName(), aux.getArtist(), aux.getAlbum(), aux.getTotalTime(), aux.getGenre()});
 		}
 		
 		repaint();

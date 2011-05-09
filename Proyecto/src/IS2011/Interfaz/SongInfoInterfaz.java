@@ -57,7 +57,7 @@ public class SongInfoInterfaz extends JPanelTransparente {
 			infoPanel.setTran(0);
 			infoPanel.setLayout(new GridLayout());
 			//infoPanel.setBackground(Color.black);
-			infoPanel.setSize(300, 100);
+			infoPanel.setSize(400, 100);
 			infoPanel.setArcw(0); 
 			infoPanel.setArch(0); 
 			infoPanel.setColorPrimario(Color.white);

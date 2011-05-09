@@ -26,6 +26,8 @@ public class InterfazAvanzada extends JFrame {
 	private ImageIcon monkeyIcon = new ImageIcon("images/monkeyIcon.jpg");
 	private ImageIcon carpetaIcon = new ImageIcon("images/carpetaIcon.jpg");
 	
+	private ImageIcon FFIcon = new ImageIcon("images/Skin3/ff.png");
+	private ImageIcon wwIcon = new ImageIcon("images/Skin3/ww.png");
 	private ImageIcon playIcon = new ImageIcon("images/Skin3/play.png");
 	private ImageIcon libreriaIcon = new ImageIcon("images/Skin3/libreria.png");
 	private ImageIcon cerrarIcon = new ImageIcon("images/Skin3/cerrar.png");
@@ -115,7 +117,7 @@ public class InterfazAvanzada extends JFrame {
 		interno.setBounds(25,25,650,250);
 		
 		JMenuBar JMenuAux = getBarraMenu();
-		backGround.add(JMenuAux);
+		//backGround.add(JMenuAux);
 		JMenuAux.setBounds(25, 5, 40, 20);
 		
 		JButton cerrarBoton = getSalirButton();
@@ -192,7 +194,7 @@ public class InterfazAvanzada extends JFrame {
 
 		constraints.gridx = 0;
 		constraints.gridy = 0;
-		constraints.gridwidth = 1;
+		constraints.gridwidth = 3;
 		constraints.gridheight = 1;
 		constraints.weightx = 0.0;
 		constraints.fill = GridBagConstraints.WEST;
@@ -210,17 +212,32 @@ public class InterfazAvanzada extends JFrame {
 				restante=!restante;
 			}
 		});
+		constraints.gridx = 1;
+		constraints.gridy = 1;
+		constraints.gridwidth = 1;
+		constraints.gridheight = 1;
+		constraints.fill = GridBagConstraints.WEST;
+		main.add(segundero, constraints);
+		
+		constraints.gridx = 2;
+		constraints.gridy = 1;
+		constraints.gridwidth = 1;
+		constraints.gridheight = 1;
+		constraints.fill = GridBagConstraints.WEST;
+		main.add(getFfButton(), constraints);
+
 		constraints.gridx = 0;
 		constraints.gridy = 1;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
-		constraints.fill = GridBagConstraints.CENTER;
-		main.add(segundero, constraints);
+		constraints.fill = GridBagConstraints.WEST;
+		main.add(getWwButton(), constraints);
+
 
 		
 		constraints.gridx = 0;
 		constraints.gridy = 3;
-		constraints.gridwidth = 2;
+		constraints.gridwidth = 4;
 		constraints.gridheight = 1;
 		constraints.fill = GridBagConstraints.BOTH;
 		main.add(getBarraProgreso(), constraints);
@@ -242,12 +259,12 @@ public class InterfazAvanzada extends JFrame {
 		       
         
 		GridBagConstraints position1 = new GridBagConstraints();
-       	position1.gridx = 1;
+       	position1.gridx = 3;
        	position1.gridy = 0;
        	position1.gridheight = 1;
        	position1.gridwidth = 1;
         position1.weightx = 1.0;
-        position1.fill = GridBagConstraints.CENTER ;
+        position1.fill = GridBagConstraints.BOTH ;
         main.add(infoSong, position1);
       	
      return main;    
@@ -438,18 +455,12 @@ public class InterfazAvanzada extends JFrame {
 	
 	
 	
-	public BotonAvanzado getStopButton() {
+	public BotonAvanzado getFfButton() {
 		if (stopButton == null){
-			stopButton = new BotonAvanzado(stopIcon,stopedIcon);
+			stopButton = new BotonAvanzado(FFIcon,FFIcon);
 			stopButton.addMouseListener(new java.awt.event.MouseAdapter() {
 				public void mouseReleased(java.awt.event.MouseEvent evt) {
-					try {
-						pause = false;
-						cambiaSegundos("0:00");
-						mPlayer.stop();
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
+					reproducirSiguiente();
 				};
 			});
 		}
@@ -500,19 +511,13 @@ public class InterfazAvanzada extends JFrame {
 		return playButton;
 	}
 
-	public BotonAvanzado getPauseButton() {
+	public BotonAvanzado getWwButton() {
 		if (pauseButton == null){
-			pauseButton = new BotonAvanzado(pauseIcon,pausedIcon);
+			pauseButton = new BotonAvanzado(wwIcon,wwIcon);
 			pauseButton.addMouseListener(new java.awt.event.MouseAdapter() {
 				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
-						if (pause == false) {
-							pause = true;
-							mPlayer.pause();
-						} else {
-							pause = false;
-							mPlayer.resume();
-						}
+						reproducirAnterior();
 					} catch (Exception e) {
 						e.printStackTrace();
 					}

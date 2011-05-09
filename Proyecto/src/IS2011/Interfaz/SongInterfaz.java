@@ -1,5 +1,6 @@
 package IS2011.Interfaz;
 import java.awt.*;
+import java.awt.event.MouseEvent;
 
 import javax.swing.event.*;
 import javax.swing.*;
@@ -87,25 +88,23 @@ public class SongInterfaz extends JFrame{
 		
 		});
 		 
-		listado.addListSelectionListener(new ListSelectionListener() {
+		/*listado.addListSelectionListener(new ListSelectionListener() {
 		      public void valueChanged(ListSelectionEvent evt) {
 		        if (evt.getValueIsAdjusting())
 		        	 interfazAvanzada.setTrackNumber(listado.getSelectedIndex());
 		      }
-		});
+		});*/
 		
-		/*listado.addMouseListener(new java.awt.event.MouseAdapter() 
-		{ 
+		listado.addMouseListener(new java.awt.event.MouseAdapter(){ 
 			public void mouseClicked(MouseEvent e) 
-			{ 
-				jList1_mouseClicked(e); 
-			} 
-			private void jList1_mouseClicked(MouseEvent e) 
-			{ 
-				 interfazAvanzada.setTrackNumber(listado.getSelectedIndex());	
-			
-			} 
-		}); */
+		    {
+				if (e.getClickCount() == 2)
+		        {
+		        	interfazAvanzada.setTrackNumber(listado.locationToIndex(e.getPoint()));
+		        }
+		    }
+		});
+
 
 		return listado;
 		

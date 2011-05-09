@@ -6,6 +6,7 @@
       <albumArtist></albumArtist>
       <album>Donde duele inspira</album>
       <genre>Hip-Hop</genre>
+      <size>0</size>
       <totalTime>216</totalTime>
       <bitRate>320</bitRate>
       <comments>www.HHGroups.com</comments>
@@ -17,21 +18,11 @@
       <albumArtist></albumArtist>
       <album>One Love - The Very Best Of Bob Marley</album>
       <genre>Reggae</genre>
+      <size>0</size>
       <totalTime>183</totalTime>
       <bitRate>160</bitRate>
       <comments></comments>
       <location>sounds\prueba2.ogg</location>
-    </track>
-    <track id="3">
-      <name>Eyes Wide Shut (Official Remix)</name>
-      <artist>JLS  ft Tinie Tempah</artist>
-      <albumArtist></albumArtist>
-      <album></album>
-      <genre>(14)</genre>
-      <totalTime>231</totalTime>
-      <bitRate>192</bitRate>
-      <comments>www.RnB4U.in</comments>
-      <location>D:\iPhone 09-10\jls ft tinie tempah - eyes wide shut (official remix).mp3</location>
     </track>
   </trackList>
 </biblioteca>

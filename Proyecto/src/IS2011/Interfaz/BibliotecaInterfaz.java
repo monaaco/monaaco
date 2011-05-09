@@ -207,14 +207,12 @@ public class BibliotecaInterfaz extends JPanelRound{
                     fc.setFileFilter(new FiltroMP3());
                     fc.setFileFilter(new FiltroOGG());
                     fc.setFileFilter(new FiltroSoportados());
-                    
+                    fc.setFileSelectionMode(fc.FILES_AND_DIRECTORIES);
                     fc.setMultiSelectionEnabled(true);
                     if(fc.showOpenDialog(frame) == JFileChooser.APPROVE_OPTION) {
                     	File[] array = fc.getSelectedFiles();
                     	for(int i=0; i<array.length; i++){
-                    		File f = array[i];
-                    		Track aux = new Track(f.getAbsolutePath());
-                    		biblioteca.add(aux);
+                    		getAudioFiles(array[i]);
                     	}
                     	actualiza();
                     	busquedaRapida.setText("");
@@ -223,6 +221,21 @@ public class BibliotecaInterfaz extends JPanelRound{
 			});
 		}
 		return anadirArchivos;
+	}
+	
+	private void getAudioFiles(File file){
+		if(file.isDirectory()){
+			File[] array = file.listFiles();
+			int n = array.length;
+			int i;
+			for(i = 0; i < n; i++){
+				getAudioFiles(array[i]);
+			}
+		}
+		else if(file.getName().toLowerCase().endsWith(".mp3") || file.getName().toLowerCase().endsWith(".ogg")){
+			Track aux = new Track(file.getAbsolutePath());
+			biblioteca.add(aux);
+		}
 	}
 	
 	public JMenuItem getEditarPropiedades(){

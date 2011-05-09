@@ -79,6 +79,7 @@ public class InterfazAvanzada extends JFrame {
 	private Track _pista;
 	private Color bgcolor = Color.black;
 	private boolean reproduciendo = false;
+	private boolean restante= false;
 	
 	//private TransparentBackground fondo = null;
 
@@ -108,7 +109,7 @@ public class InterfazAvanzada extends JFrame {
 		Mover mml = new Mover(backGround);
 		backGround.addMouseListener(mml);
 		backGround.addMouseMotionListener(mml);
-
+		backGround.setColorSecundario(Color.white);
 		JPanel interno = getPanel();
 		backGround.add(interno);
 		interno.setBounds(25,25,650,250);
@@ -128,7 +129,7 @@ public class InterfazAvanzada extends JFrame {
 		this.setUndecorated(true);	
 		this.setVisible(true);
 		
-		
+		restante= false;
 		
 		JButton bibliotecaIcono= this.getBotonBiblioteca();
 		bibliotecaIcono.setBounds(470,290,90,45);
@@ -201,6 +202,14 @@ public class InterfazAvanzada extends JFrame {
 		segundero = new JLabel("0:00");
 		segundero.setForeground(c);
 		segundero.setFont(new java.awt.Font("Helvetica", 1, 12));
+		segundero.addMouseListener(new MouseAdapter() 
+		{
+            @Override
+            public void mouseReleased(MouseEvent e) 
+			{
+				restante=!restante;
+			}
+		});
 		constraints.gridx = 0;
 		constraints.gridy = 1;
 		constraints.gridwidth = 1;
@@ -323,14 +332,14 @@ public class InterfazAvanzada extends JFrame {
                         fc.setFileFilter(new FiltroMP3());
                         fc.setFileFilter(new FiltroOGG());
                         fc.setFileFilter(new FiltroSoportados());
-                        
                         fc.setMultiSelectionEnabled(true);
+                        fc.setFileSelectionMode(fc.FILES_AND_DIRECTORIES);
                         if(fc.showOpenDialog(principal) == JFileChooser.APPROVE_OPTION) {
                         	File[] array = fc.getSelectedFiles();
                         	for(int i=0; i<array.length; i++){
-                        		File f = array[i];
-                                listaReproduccion.add(f.getAbsolutePath());
-
+                        		getAudioFiles(array[i]);
+                        		/*File f = array[i];
+                                listaReproduccion.add(f.getAbsolutePath());*/
                         	}
                         	setCurrentTrack(listaReproduccion.current());
                             String[] temas = listaReproduccion.getListado();
@@ -344,6 +353,20 @@ public class InterfazAvanzada extends JFrame {
         }
         return cargarArchivoItem;
     }
+	
+	private void getAudioFiles(File file){
+		if(file.isDirectory()){
+			File[] array = file.listFiles();
+			int n = array.length;
+			int i;
+			for(i = 0; i < n; i++){
+				getAudioFiles(array[i]);
+			}
+		}
+		else if(file.getName().toLowerCase().endsWith(".mp3") || file.getName().toLowerCase().endsWith(".ogg")){
+			listaReproduccion.add(file.getAbsolutePath());
+		}
+	}
 
 
 	public JSlider getBarraProgreso(){
@@ -673,6 +696,39 @@ public class InterfazAvanzada extends JFrame {
 			infoSongLabel.setLocation(posTag,(int) infoSongLabel.getLocation().getY());
 		
 	}
+	
+	public void cambiaSegundos(int min, int segs) {
+		String texto;
+		
+		if(restante)
+		{
+			//TODO obtenemos los restantes en segundos como en el Track.
+			
+			int segTotales;
+			int resultado;
+			
+			segTotales = infoSong.getTrack().getTotalTime();
+			//deberia estar cargado ya por ahi no estar cargandolo siempre.
+			resultado = (segTotales - ((60*min)+segs));
+			min = -(resultado / 60);
+			segs = resultado % 60;
+		}
+		if(segs>10)
+		{
+			texto = min +":"+ segs;
+		}
+		else
+		{
+			texto = min +":0"+ segs;
+		}
+        segundero.setText(texto);
+        if(posTag == 400){
+                posTag=0-infoSongLabel.getSize().width;
+        }
+        else
+                posTag++;
+                infoSongLabel.setLocation(posTag,(int) infoSongLabel.getLocation().getY());
+}
 	
 	private void centrarVentana() {
         

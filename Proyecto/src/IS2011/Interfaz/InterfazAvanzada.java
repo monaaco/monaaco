@@ -79,6 +79,7 @@ public class InterfazAvanzada extends JFrame {
 	private JMenuItem guardarXML = null;
 */
 	private boolean pause = false;
+	private boolean desplegado = false;
 	private double bytesArchivoActual; 
 	private BasicPlayer mPlayer;
 	private ReproductorListener reproductorListener;
@@ -282,7 +283,7 @@ public class InterfazAvanzada extends JFrame {
        	position1.gridheight = 1;
        	position1.gridwidth = 1;
         position1.weightx = 1.0;
-        position1.fill = GridBagConstraints.BOTH ;
+        position1.fill = GridBagConstraints.CENTER ;
         main.add(infoSong, position1);
       	
      return main;    
@@ -454,12 +455,22 @@ public class InterfazAvanzada extends JFrame {
 			botonBiblioteca.addMouseListener(new java.awt.event.MouseAdapter() {
 				public void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
+						if (desplegado == false){
 						principal.setSize(700,600);
 										
 						biliotecaInterfaz = new BibliotecaInterfaz(b,principal); 
 						backGround.add(biliotecaInterfaz);
 						biliotecaInterfaz.setBounds(25,350, 650, 200);
+						desplegado = true;
 						repaint();
+						}
+						else{
+							principal.setSize(700,350);
+							biliotecaInterfaz=null;
+							desplegado = false;
+							
+						}
+						
 					} catch (Exception e) {
 						e.printStackTrace();
 					}

@@ -12,6 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.JWindow;
 import javax.swing.UIManager;
 
+import com.sun.org.apache.bcel.internal.generic.GETSTATIC;
+
 import IS2011.bibliotecaXML.GestorXML;
 
 import javazoom.jlgui.basicplayer.BasicPlayer;
@@ -128,7 +130,7 @@ public class Launcher extends JWindow {
 		//Cargamos las opciones
 		
 		InterfazAvanzada interfaz;
-		interfaz = new InterfazAvanzada();
+		interfaz = InterfazAvanzada.getSingleton();
 		
 		interfaz.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		interfaz.setVisible(true);

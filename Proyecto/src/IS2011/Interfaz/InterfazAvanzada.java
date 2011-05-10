@@ -1,4 +1,5 @@
 package IS2011.Interfaz;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
@@ -37,7 +38,12 @@ public class InterfazAvanzada extends JFrame {
 	private ImageIcon pauseIcon = new ImageIcon("images/Skin3/pause.png");
 	private ImageIcon pausedIcon = new ImageIcon("images/skin1/pauseIcon3.jpg");
 	
-	private InterfazAvanzada principal = null;
+	/**
+	 * principal: Instancia de InterfazAvanzada para el método singleton
+	 * (Es statica y privada)
+	 */
+	static private InterfazAvanzada principal = null;
+	
 	private SongInterfaz infoPlaylist = null;
 	private SongInfoInterfaz infoSong = null;
 	private JPanel infoSong2 = null;
@@ -94,9 +100,21 @@ public class InterfazAvanzada extends JFrame {
 
 	private int posTag=0;
 	
+	/**
+	 * Método getSingleton() para la implementacion del patrón Singleton
+	 * @return principal
+	 */
+	static public InterfazAvanzada getSingleton() {
+		if (principal == null) {
+			principal = new InterfazAvanzada();
+		}
+		return principal;
+	}
 	
-	
-	public InterfazAvanzada() {
+	/**
+	 * Constructora privada para la implementacion del patrón Singleton
+	 */
+	private InterfazAvanzada() {
 		
 		super("Monaaaaco"); // El título
 		// infoSong.actualiza(null);

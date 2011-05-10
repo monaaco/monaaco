@@ -16,7 +16,7 @@ import junit.framework.TestCase;
 
 public class SongInterfazTest extends TestCase {
 	public void testConstructor(){
-		InterfazAvanzada interfazAvanzada = new InterfazAvanzada();
+		InterfazAvanzada interfazAvanzada = InterfazAvanzada.getSingleton();
 		String[] temas = null;
 	
 		SongInterfaz songInterfaz = new SongInterfaz(temas, interfazAvanzada);

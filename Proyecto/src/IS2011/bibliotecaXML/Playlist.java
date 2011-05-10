@@ -23,15 +23,27 @@ public class Playlist {
 		lista = new ArrayList<Track>();
 		currentTrack = -1;
 		reset();
+		setRandom(false);
+		setRepeat(false);
 	}
 
 	/**
 	 * @param ruta válida o falla.
-	 * @throws file not found exception?
+	 * @throws file not found exception
 	 */
 	public boolean add(String fileName){
 		return lista.add(new Track(fileName));
 	}
+	
+	/**
+	 * @param rutas válidas o falla.
+	 * @throws file not found exception
+	 */
+	public void addAll(List<String> listaRutas){
+		//TODO
+		/*while
+		return lista.add(new Track(fileName));*/
+	}	
 	
 	/**
 	 *
@@ -81,13 +93,10 @@ public class Playlist {
 	
 	/**
 	 * 
-	 * @return
+	 * @return Track actual
 	 */
 	public Track getCurrent(){
-		if((currentTrack == -1) && (getNumTracks() != 0)){
-			currentTrack = 0;
-			return getTrack(0);
-		}else if(currentTrack == -1){
+		if(getCurrentTrack() == -1){
 			return null;
 		}
 		return getTrack(currentTrack);
@@ -111,6 +120,20 @@ public class Playlist {
 	
 	/**
 	 * 
+	 * @return int con la posición de la cancion actual
+	 */
+	public int getCurrentTrack(){
+		if((currentTrack == -1) && (!lista.isEmpty())){
+			currentTrack = 0;
+			return currentTrack;
+		}else if(currentTrack == -1){
+			return -1;
+		}
+		return currentTrack;
+	}
+	
+	/**
+	 * resetea el current track
 	 */
 	public void reset(){
 		if (lista.isEmpty()){
@@ -135,13 +158,19 @@ public class Playlist {
 	 * @return siguiente track
 	 */
 	public Track next(){
-		if( currentTrack ==  (getNumTracks() - 1)){
+		//Comprobar si no hay canciones
+		if(getCurrentTrack() == -1) return null;
+		//Comprobar si es la última canción
+		if(getCurrentTrack() == (getNumTracks() - 1)){
+			//si esta en modo repeat devolver la primera
 			if(repeat){
 				currentTrack = 0;
 				return this.getTrack(currentTrack);
+			//si esta en random devolver cualquiera
 			}else if (random){
 				currentTrack = (int)( Math.random() % (getNumTracks() - 1));
 				return this.getTrack(currentTrack);
+			// si no, no hay siguiente
 			}else return null;
 		}
 		currentTrack++;
@@ -153,7 +182,8 @@ public class Playlist {
 	 * @return track anterior
 	 */
 	public Track previous()	{
-		if( currentTrack == 0){
+		if((getCurrentTrack() == -1)) return null;
+		if( getCurrentTrack() == 0){
 			if(isRepeat()){
 				currentTrack = getNumTracks() - 1;
 				return this.getTrack(currentTrack);

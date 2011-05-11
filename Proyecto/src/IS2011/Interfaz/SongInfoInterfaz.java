@@ -34,10 +34,10 @@ public class SongInfoInterfaz extends JPanelTransparente {
 	public SongInfoInterfaz(){
 		super();
 		principal = this;
-		principal.setLayout(new GridBagLayout());
+		//principal.setLayout(new GridBagLayout());
 		//principal.setBackground(Color.white);
 		principal.setEnabled(true);	
-		principal.setSize(300,110);
+		principal.setSize(500,150);
 		//principal.setAlwaysOnTop(true);
 		//principal.setResizable(false);
 		principal.setVisible(true);
@@ -45,7 +45,9 @@ public class SongInfoInterfaz extends JPanelTransparente {
 		principal.setArch(0); 
 		principal.setColorPrimario(Color.black);
 		principal.setColorSecundario(Color.black);
-		principal.setTran(0.5f);
+		principal.setTran(0.8f);
+		principal.setVisible(true);
+		principal.setLayout(new GridBagLayout());
 
 		//cerrar a los 5 min
 		
@@ -57,7 +59,7 @@ public class SongInfoInterfaz extends JPanelTransparente {
 			infoPanel.setTran(0);
 			infoPanel.setLayout(new GridLayout());
 			//infoPanel.setBackground(Color.black);
-			infoPanel.setSize(400, 100);
+			infoPanel.setSize(300,150);
 			infoPanel.setArcw(0); 
 			infoPanel.setArch(0); 
 			infoPanel.setColorPrimario(Color.white);
@@ -66,7 +68,8 @@ public class SongInfoInterfaz extends JPanelTransparente {
 			etiqueta = new JLabel();
 			etiqueta.setFont(new java.awt.Font("Helvetica", 1, 12));
 			//etiqueta.setBackground(null);			
-			etiqueta.setForeground(c);			
+			etiqueta.setForeground(c);	
+			
 			
 			infoPanel.add(etiqueta);
 		}
@@ -84,22 +87,33 @@ public class SongInfoInterfaz extends JPanelTransparente {
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
 		constraints.weightx = 0.0;
-		constraints.fill = GridBagConstraints.CENTER;
+		constraints.insets= new Insets(10,10,10,10);
+		constraints.fill = GridBagConstraints.NONE;
+		constraints.anchor = GridBagConstraints.WEST; 
 		principal.add(getCaratulaPanel(),constraints);
+	/*	JPanel caratula = getCaratulaPanel();
+		caratula.setBounds(20,20, 110, 110);
+		principal.add(getCaratulaPanel());*/
 		constraints.gridx = 1;
 		constraints.gridy = 0;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
 		constraints.weightx = 1.0;
-		constraints.fill = GridBagConstraints.EAST;
-		principal.add(getInfoPanel(), constraints);
+		constraints.anchor = GridBagConstraints.CENTER; 
+		constraints.fill = GridBagConstraints.NONE;
+		/*JPanelTransparente info = getInfoPanel();
+		info.setBounds(160,20,110,400);
+		principal.add(getInfoPanel());
+		principal.setSize(600,150);*/
+		principal.add(getInfoPanel(),constraints);
+		
 
 		
 	}
 	private JPanel getCaratulaPanel() {
 		if(caratulaPanel == null){
 			caratulaPanel = new JPanel();
-			caratulaPanel.setSize(90,90);
+			caratulaPanel.setSize(150,150);
 			caratulaPanel.setBackground(Color.black);
 			//caratulaPanel.setForeground(Color.c);	
 			etiquetaCaratula = new JLabel();
@@ -108,9 +122,9 @@ public class SongInfoInterfaz extends JPanelTransparente {
 				caratulaPanel.getGraphics().drawImage((Image)track.getArtwork(), 0, 0, null);*/
 		}
 		if(track.getNumCaratulas() > 0 && track.getArtwork() != null){
-			caratula = new ImageIcon(track.getArtwork().getScaledInstance(90,90,Image.SCALE_SMOOTH));
+			caratula = new ImageIcon(track.getArtwork().getScaledInstance(150,150,Image.SCALE_SMOOTH));
 		}else 	caratula = new ImageIcon(new ImageIcon("images/monkeyIcon2.png").getImage()
-											.getScaledInstance(90, 90, Image.SCALE_SMOOTH));
+											.getScaledInstance(150,150, Image.SCALE_SMOOTH));
 		etiquetaCaratula.setIcon(caratula);
 
 		return caratulaPanel;

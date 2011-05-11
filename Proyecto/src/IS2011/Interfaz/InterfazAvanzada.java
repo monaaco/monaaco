@@ -216,7 +216,8 @@ public class InterfazAvanzada extends JFrame {
 		constraints.gridwidth = 3;
 		constraints.gridheight = 1;
 		constraints.weightx = 0.0;
-		constraints.fill = GridBagConstraints.WEST;
+		constraints.anchor = GridBagConstraints.SOUTH; 
+		constraints.fill = GridBagConstraints.NONE;
 		main.add(getPlayButton(), constraints);
 
 
@@ -235,21 +236,24 @@ public class InterfazAvanzada extends JFrame {
 		constraints.gridy = 1;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
-		constraints.fill = GridBagConstraints.WEST;
+		constraints.anchor = GridBagConstraints.CENTER; 
+		constraints.fill = GridBagConstraints.CENTER;
 		main.add(segundero, constraints);
 		
 		constraints.gridx = 2;
 		constraints.gridy = 1;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
-		constraints.fill = GridBagConstraints.WEST;
+		constraints.anchor = GridBagConstraints.CENTER; 
+		constraints.fill = GridBagConstraints.CENTER;
 		main.add(getFfButton(), constraints);
 
 		constraints.gridx = 0;
 		constraints.gridy = 1;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
-		constraints.fill = GridBagConstraints.WEST;
+		constraints.anchor = GridBagConstraints.CENTER; 
+		constraints.fill = GridBagConstraints.CENTER;
 		main.add(getWwButton(), constraints);
 
 
@@ -258,7 +262,8 @@ public class InterfazAvanzada extends JFrame {
 		constraints.gridy = 3;
 		constraints.gridwidth = 4;
 		constraints.gridheight = 1;
-		constraints.fill = GridBagConstraints.BOTH;
+		constraints.anchor = GridBagConstraints.WEST; 
+		constraints.fill = GridBagConstraints.HORIZONTAL;
 		main.add(getBarraProgreso(), constraints);
 		// constraints.weighty = 0.0; // Restauramos al valor por defecto, para
 		// no afectar a los siguientes componentes.
@@ -267,8 +272,9 @@ public class InterfazAvanzada extends JFrame {
        	position.gridx = 0;
        	position.gridy = 2;
        	position.gridheight = 1;
-       	position.gridwidth = 2;
-       	position.fill = GridBagConstraints.HORIZONTAL;
+       	position.gridwidth = 4;
+       	constraints.anchor = GridBagConstraints.WEST; 
+		constraints.fill = GridBagConstraints.NONE;
       	main.add(getInfoSongLabel(), position);
 						
       	getDefaultPalyList();
@@ -280,10 +286,12 @@ public class InterfazAvanzada extends JFrame {
 		GridBagConstraints position1 = new GridBagConstraints();
        	position1.gridx = 3;
        	position1.gridy = 0;
-       	position1.gridheight = 1;
+       	position1.gridheight = 2;
        	position1.gridwidth = 1;
         position1.weightx = 1.0;
-        position1.fill = GridBagConstraints.CENTER ;
+        position1.anchor = GridBagConstraints.CENTER; 
+        position1.insets= new Insets(0,0,0,20);
+        position1.fill = GridBagConstraints.BOTH ;
         main.add(infoSong, position1);
       	
      return main;    
@@ -799,8 +807,7 @@ public class InterfazAvanzada extends JFrame {
 				reproduciendo = true;
 				playButton.setIcon(pauseIcon);
 			}else{
-				reproduciendo = false;
-				playButton.setIcon(playIcon);
+				playButton.setIcon(pauseIcon);
 			}
 
 		} catch (Exception e) {

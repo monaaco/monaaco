@@ -20,13 +20,13 @@ public JPanelTransparente(){
 
 @Override
 protected void paintComponent(Graphics g) {
-Graphics2D g2 = (Graphics2D) g;
-g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
-RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-AlphaComposite old = (AlphaComposite) g2.getComposite();
-g2.setComposite(AlphaComposite.SrcOver.derive(getTran()));
-super.paintComponent(g);
-g2.setComposite(old);
+	Graphics2D g2 = (Graphics2D) g;
+	g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
+	RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+	AlphaComposite old = (AlphaComposite) g2.getComposite();
+	g2.setComposite(AlphaComposite.SrcOver.derive(getTran()));
+	super.paintComponent(g);
+	g2.setComposite(old);
 }
 
 public float getTran() {

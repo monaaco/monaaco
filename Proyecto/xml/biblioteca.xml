@@ -24,5 +24,18 @@
       <comments></comments>
       <location>sounds\prueba2.ogg</location>
     </track>
+    <track id="0">
+      <name>Shrink the World</name>
+      <artist>Yellowcard</artist>
+      <albumArtist>Yellowcard</albumArtist>
+      <album>Paper Walls</album>
+      <genre>Alternative Punk</genre>
+      <kind>MPEG-1 Layer 3</kind>
+      <size>468294995968</size>
+      <totalTime>201</totalTime>
+      <bitRate>128</bitRate>
+      <comments>http://glamorous-indie-rocknroll.blogspot.com</comments>
+      <location>C:\Users\Jazuma\Documents\Universidad\IS\monaaco\Proyecto\sounds\prueba3.mp3</location>
+    </track>
   </trackList>
 </biblioteca>

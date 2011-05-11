@@ -74,8 +74,7 @@ public class Launcher extends JWindow {
 		
 		try
 		{
-		   //Correcion hecha por Chuster Boy ;)
-			
+		   			
 		  // UIManager.setLookAndFeel("net.sourceforge.napkinlaf.NapkinLookAndFeel");
 
 		}

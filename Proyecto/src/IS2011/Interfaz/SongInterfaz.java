@@ -8,13 +8,13 @@ import javax.swing.*;
 //import javazoom.jlgui.basicplayer.BasicPlayerException;
 import com.sun.awt.AWTUtilities;
 
-
+/**
+ * Nos muestra la playlist en la derecha de la pantalla mediante un JFrame transparente
+ */
 public class SongInterfaz extends JFrame{
 	
 	
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private JFrame principal;
 	private JList listado;

@@ -113,7 +113,8 @@ public class InterfazAvanzada extends JFrame {
 	}
 	
 	/**
-	 * Constructora privada para la implementacion del patrón Singleton
+	 * Constructora privada para la implementacion del patrón Singleton,
+	 * dfine un panel de fonfo
 	 */
 	private InterfazAvanzada() {
 		
@@ -172,6 +173,11 @@ public class InterfazAvanzada extends JFrame {
 		
 		this.centrarVentana();
 	}
+	/**
+	 * Panel donde se mostrará la información de la canción así como los controles básicos, usa un GridBagLayout,
+	 * muy complicado de usar se recomienda leer tutorial, la variable constraits indica los detalles de posició
+	 * de cada elemento en el panel
+	 */
 	private JPanel getPanel(){
 		JPanelRound main = new JPanelRound();
 		main.setColorPrimario(bgcolor);
@@ -297,12 +303,18 @@ public class InterfazAvanzada extends JFrame {
      return main;    
         
 	}
-	
+	/**
+	 * Creamos una PlayList vacia
+	 * 
+	 */
 	private void getDefaultPalyList() {
 		listaReproduccion = new Playlist();
 		listaReproduccion.setRepeat(true);		
 	}
-
+	/**
+	 * Creamos el Jlabel que se mostrará por pantalla con el título de la cancón
+	 * @return
+	 */
 	private JLabel getInfoSongLabel() {
 		if(infoSongLabel == null) {
 			infoSongLabel=new JLabel("Monaaaco Player");
@@ -311,7 +323,10 @@ public class InterfazAvanzada extends JFrame {
 		}
 		return infoSongLabel;
 	}
-
+	/** 
+	 * Definimos la barra del menú, obsoleto ya no se usa
+	 * @return
+	 */
 	private JMenuBar getBarraMenu() {
 		// TODO más elementos ¿e iconos?
 		if (barraMenu == null) {
@@ -348,7 +363,10 @@ public class InterfazAvanzada extends JFrame {
 		return barraMenu;
 	}
 	
-
+/**
+ * Méotod para cargar un archivo, obsoleto ya no se usa
+ * @return
+ */
 	private JMenuItem getCargarArchivoItem() {
         if (cargarArchivoItem == null) {
         	cargarArchivoItem = new JMenuItem("Cargar Archivo",carpetaIcon);
@@ -392,7 +410,10 @@ public class InterfazAvanzada extends JFrame {
         }
         return cargarArchivoItem;
     }
-	
+	/**
+	 * Metodo que utilizamos para sacar todos los archivos de audia de un directorio
+	 * @param file
+	 */
 	private void getAudioFiles(File file){
 		if(file.isDirectory()){
 			File[] array = file.listFiles();
@@ -407,7 +428,11 @@ public class InterfazAvanzada extends JFrame {
 		}
 	}
 
-
+	/**
+	 * Nos proporcioan una Jslider con la que iremos siguiendo el transcurso de la canción, nos proporcionará la capacidad de adelantar
+	 * o atrasar el curso de la misma
+	 * @return
+	 */
 	public JSlider getBarraProgreso(){
 		if(barraProgreso == null){
 			barraProgreso = new JSlider();
@@ -454,7 +479,11 @@ public class InterfazAvanzada extends JFrame {
 	
 	
 	
-
+	/**
+	 * Botón que nos dotará de la posibilidad de ocultar o mostrar la biblioteca, se implementa mediante in listener de manera que
+	 * cada vez que se pulse ampliará el JFrame y mostrará la biblioteca y lo contrario
+	 * @return
+	 */
 	
 	public JButton getBotonBiblioteca() {
 		if (botonBiblioteca == null){
@@ -491,7 +520,10 @@ public class InterfazAvanzada extends JFrame {
 	
 	
 	
-	
+	/**
+	 * Proporciona el boton de avance
+	 * @return
+	 */
 	public BotonAvanzado getFfButton() {
 		if (stopButton == null){
 			stopButton = new BotonAvanzado(FFIcon,FFIcon);
@@ -503,7 +535,11 @@ public class InterfazAvanzada extends JFrame {
 		}
 		return stopButton;
 	}
-
+	/**
+	 * Proporciona el boton de play, se implementa meciate un listener si el reproducotor esta en este momento reproduciendo
+	 * su funcionalidad cambia a la pause
+	 * @return
+	 */
 	public BotonAvanzado getPlayButton() {
 		if (playButton == null){
 			playButton = new BotonAvanzado(playIcon,pauseIcon);

@@ -40,7 +40,7 @@ import IS2011.bibliotecaXML.Track;
 
 public class BibliotecaInterfaz extends JPanelRound{
 
-	private JPanel frame= null;
+	private BibliotecaInterfaz frame= null;
 	
 	private InterfazAvanzada interfazPadre= null;
 	private JMenuBar menuBI=null;
@@ -51,6 +51,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 	private JMenuItem elimina= null;
 	private JMenuItem anadirAPlayList=null;
 	private JTextField busquedaRapida= null;
+	JFrame popup = null;
 	private JTable tabla= null;
 	private GestorXML biblioteca=null; //Sino es un ArrayList es la propia biblioteca.
 	private TableRowSorter<TableModel> elQueOrdena=null; 
@@ -62,6 +63,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 		biblioteca = library;
 		initBibliotecaInterfaz();
 		frame = this;
+		
 		//this.setTran(0.5f);
 	}
 
@@ -242,9 +244,11 @@ public class BibliotecaInterfaz extends JPanelRound{
                     fc.setMultiSelectionEnabled(true);
                     if(fc.showOpenDialog(frame) == JFileChooser.APPROVE_OPTION) {
                     	File[] array = fc.getSelectedFiles();
+                    	
                     	for(int i=0; i<array.length; i++){
                     		getAudioFiles(array[i]);
                     	}
+                    	remove(popup);
                     	actualiza();
                     	busquedaRapida.setText("");
                     }
@@ -253,6 +257,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 		}
 		return anadirArchivos;
 	}
+	
 	
 	private void getAudioFiles(File file){
 		if(file.isDirectory()){

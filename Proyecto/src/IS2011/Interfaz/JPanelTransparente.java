@@ -6,9 +6,10 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
 /**
-*
-* @author Edisoncor
-*/
+ * Redefinidmos el la clase ya creada JPanelRound para conseguir transparancias
+ * 
+ *
+ */
 public class JPanelTransparente extends JPanelRound{
 
 

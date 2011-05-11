@@ -9,10 +9,12 @@ import java.awt.Paint;
 import java.awt.RenderingHints; import java.awt.geom.RoundRectangle2D;
 import javax.swing.JPanel;
 
+
 /**
-*
-* @author Edisoncor
-*/
+ * Clase que extiende a JPanel modificando sus métodos para que lo pinte con bordes redondos 
+ * y con degradado de dos colores de fondo, los atributos arcw y arch nos miden el ángulo de
+ * las esquinas
+ */
 public class JPanelRound extends JPanel{
 
     private Color colorPrimario = new Color(0x666f7f);
@@ -20,13 +22,19 @@ public class JPanelRound extends JPanel{
     private Color colorContorno = new Color(0x262d3d);
     private int arcw=20;
     private int arch=20;
-   
+   /**
+    * Clase que extiende a JPanel modificando sus métodos para que lo pinte con bordes redondos 
+    * y con degradado de dos colores de fondo
+    */
     public JPanelRound() {
         super();
         setOpaque(false);
     }
    
-   
+   /**
+    * Sobreescirtura del métodos paintComponent que es el que nos pinta el JPanel
+    * 
+    */
      @Override
     protected void paintComponent(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;

@@ -248,7 +248,7 @@ public class BibliotecaInterfaz extends JPanelRound{
                     	for(int i=0; i<array.length; i++){
                     		getAudioFiles(array[i]);
                     	}
-                    	remove(popup);
+                    
                     	actualiza();
                     	busquedaRapida.setText("");
                     }

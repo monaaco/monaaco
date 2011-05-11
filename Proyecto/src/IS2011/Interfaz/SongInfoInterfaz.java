@@ -59,7 +59,7 @@ public class SongInfoInterfaz extends JPanelTransparente {
 			infoPanel.setTran(0);
 			infoPanel.setLayout(new GridLayout());
 			//infoPanel.setBackground(Color.black);
-			infoPanel.setSize(300,150);
+			infoPanel.setSize(300,120);
 			infoPanel.setArcw(0); 
 			infoPanel.setArch(0); 
 			infoPanel.setColorPrimario(Color.white);
@@ -113,7 +113,7 @@ public class SongInfoInterfaz extends JPanelTransparente {
 	private JPanel getCaratulaPanel() {
 		if(caratulaPanel == null){
 			caratulaPanel = new JPanel();
-			caratulaPanel.setSize(150,150);
+			caratulaPanel.setSize(120,120);
 			caratulaPanel.setBackground(Color.black);
 			//caratulaPanel.setForeground(Color.c);	
 			etiquetaCaratula = new JLabel();
@@ -122,9 +122,9 @@ public class SongInfoInterfaz extends JPanelTransparente {
 				caratulaPanel.getGraphics().drawImage((Image)track.getArtwork(), 0, 0, null);*/
 		}
 		if(track.getNumCaratulas() > 0 && track.getArtwork() != null){
-			caratula = new ImageIcon(track.getArtwork().getScaledInstance(150,150,Image.SCALE_SMOOTH));
+			caratula = new ImageIcon(track.getArtwork().getScaledInstance(120,120,Image.SCALE_SMOOTH));
 		}else 	caratula = new ImageIcon(new ImageIcon("images/monkeyIcon2.png").getImage()
-											.getScaledInstance(150,150, Image.SCALE_SMOOTH));
+											.getScaledInstance(120,120, Image.SCALE_SMOOTH));
 		etiquetaCaratula.setIcon(caratula);
 
 		return caratulaPanel;

@@ -2,6 +2,7 @@ package IS2011.Interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
@@ -113,6 +114,16 @@ public class BibliotecaInterfaz extends JPanelRound{
 		    	}
 		      }
 		   });
+		
+		tabla.addKeyListener(new java.awt.event.KeyAdapter(){
+			public void keyReleased(KeyEvent k){
+				int c = k.getKeyCode();
+				switch(c){	// Elegimos las posibles teclas
+				case 127:	// suprimir
+					borraElemBiblioteca();
+				}
+			}
+		});
 
 		JScrollPane scroll = new JScrollPane(tabla);
 		scroll.setSize(500,250);
@@ -204,27 +215,8 @@ public class BibliotecaInterfaz extends JPanelRound{
 			elimina = new JMenuItem("Eliminar seleccionados de la biblioteca");
 			elimina.addMouseListener(new java.awt.event.MouseAdapter() {
 				public  void mouseReleased(java.awt.event.MouseEvent evt) {		
-						int[] seleccionadas = tabla.getSelectedRows();
-						if(seleccionadas.length != 0)
-						{
-							//Nos devuelve un vecotor con las filas a borrar ordenadas
-							
-							//Lo pasamos al global para evitar el filtro y lo borramos
-							// en el mismo paso gracias al orden
-							int fila;
-							for(int i= seleccionadas.length - 1; i>=0 ;i--)
-							{
-								fila = seleccionadas[i];
-								fila = tabla.convertRowIndexToModel (fila);
-								biblioteca.getBiblioteca().remove(fila);
-							}
-	                    	actualiza();
-	                    	busquedaRapida.setText("");
-						}
-						else
-						{
-							JOptionPane.showMessageDialog(frame, "Selecciona las filas antes de borrar.");
-						}
+						borraElemBiblioteca();	
+						//He movido el codigo a este metodo para no duplicarlo con las key
                     }
 				});
 		}
@@ -341,5 +333,29 @@ public class BibliotecaInterfaz extends JPanelRound{
 	
 	public void filtraRapido(){
 		elQueOrdena.setRowFilter(javax.swing.RowFilter.regexFilter("(?i)"+busquedaRapida.getText()));
+	}
+	
+	public void borraElemBiblioteca(){
+		int[] seleccionadas = tabla.getSelectedRows();
+		if(seleccionadas.length != 0)
+		{
+			//Nos devuelve un vecotor con las filas a borrar ordenadas
+			
+			//Lo pasamos al global para evitar el filtro y lo borramos
+			// en el mismo paso gracias al orden
+			int fila;
+			for(int i= seleccionadas.length - 1; i>=0 ;i--)
+			{
+				fila = seleccionadas[i];
+				fila = tabla.convertRowIndexToModel (fila);
+				biblioteca.getBiblioteca().remove(fila);
+			}
+        	actualiza();
+        	busquedaRapida.setText("");
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(frame, "Selecciona las filas antes de borrar.");
+		}
 	}
 }

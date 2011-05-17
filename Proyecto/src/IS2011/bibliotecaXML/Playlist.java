@@ -244,5 +244,13 @@ public class Playlist {
 		return currentTrack;
 	}
 	
-
+	/**
+	 * 
+	 * Borramos los elementos de la lista
+	 */
+	public void borraTrack(int[] listaTracks){
+		for(int i = listaTracks.length-1;i >= 0 ; i--){
+			lista.remove(listaTracks[i]);
+		}
+	}
 }

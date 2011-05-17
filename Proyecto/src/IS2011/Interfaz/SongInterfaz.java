@@ -1,11 +1,14 @@
 package IS2011.Interfaz;
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
 import javax.swing.event.*;
 import javax.swing.*;
 
 //import javazoom.jlgui.basicplayer.BasicPlayerException;
+import IS2011.bibliotecaXML.Track;
+
 import com.sun.awt.AWTUtilities;
 
 /**
@@ -100,18 +103,38 @@ public class SongInterfaz extends JFrame{
 		    {
 				if (e.getClickCount() == 2)
 		        {
-		        	interfazAvanzada.setTrackNumber(listado.locationToIndex(e.getPoint()));
+					if(listado.getMaximumSize().getHeight() >= e.getPoint().getY()){
+                        interfazAvanzada.setTrackNumber(listado.locationToIndex(e.getPoint()));
+                    }
 		        }
 		    }
 		});
 
-
+		listado.addKeyListener(new java.awt.event.KeyAdapter(){
+			public void keyReleased(KeyEvent k){
+				int c = k.getKeyCode();
+				switch(c){	// Elegimos las posibles teclas
+				case 127:	// suprimir
+					borrarSeleccionados();
+				}
+			}
+		});
 		return listado;
-		
 	}
 	/*protected void this_windowOpened(WindowEvent e) {
         centrarVentana();
 	}*/
+	
+	/**
+	 * 
+	 * Borramos los elementos de la lista
+	 */
+	public void borrarSeleccionados(){
+		int[] listaIndices = listado.getSelectedIndices();
+		interfazAvanzada.getListaReproduccion().borraTrack(listaIndices);
+		actualizaTemas(interfazAvanzada.getListaReproduccion().getListado());
+	}
+	
 	public void actualizaTemas(String[] temas){
 		listado.setListData(temas);		
 	}

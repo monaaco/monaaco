@@ -107,7 +107,7 @@ public class SongInterfaz extends JFrame{
                         interfazAvanzada.setTrackNumber(listado.locationToIndex(e.getPoint()));
                     }
 		        }
-		    }
+			}
 		});
 
 		listado.addKeyListener(new java.awt.event.KeyAdapter(){

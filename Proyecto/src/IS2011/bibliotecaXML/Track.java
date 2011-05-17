@@ -69,18 +69,60 @@ public class Track {
             try {
                 File f = new File(ruta);
                 AudioFile af = AudioFileIO.read(f);
-                Tag tag = af.getTag();
+                Tag tag = af.getTagOrCreateAndSetDefault();
                 AudioHeader ah = af.getAudioHeader();
                 
-                this.name = tag.getFirst(FieldKey.TITLE);
-                this.artist = tag.getFirst(FieldKey.ARTIST);
-                this.albumArtist = tag.getFirst(FieldKey.ALBUM_ARTIST);
+                this.location = ruta;
+                
+                if(tag != null )
+                {
+                	this.name = tag.getFirst(FieldKey.TITLE);
+                	if(name ==""){
+                		name = "No title";
+                	}
+                }
+                if(tag != null)
+                {
+                	this.artist = tag.getFirst(FieldKey.ARTIST);
+                	if(artist == ""){
+                		artist = "No Artist";
+                	}
+                }
+                if(tag != null && !tag.hasField(FieldKey.ALBUM_ARTIST.name()))
+                {
+                	this.albumArtist = tag.getFirst(FieldKey.ALBUM_ARTIST);
+                }
+                else
+                {
+                	this.albumArtist ="";
+                }
                 this.bitRate = Integer.valueOf(ah.getBitRate());
-                this.comments = tag.getFirst(FieldKey.COMMENT);
-                this.artist = tag.getFirst(FieldKey.ARTIST);
-                this.album = tag.getFirst(FieldKey.ALBUM);
-                this.genre = tag.getFirst(FieldKey.GENRE);
+                if(tag != null && !tag.hasField(FieldKey.COMMENT.name()))
+                {
+                	this.comments = tag.getFirst(FieldKey.COMMENT);
+                }
+                else
+                {
+                	this.comments = "";
+                }
+                if(tag != null && !tag.hasField(FieldKey.ALBUM.name()))
+                {
+                	this.album = tag.getFirst(FieldKey.ALBUM);
+                }
+                else
+                {
+                	this.album = "";
+                }
+                if(tag != null && !tag.hasField(FieldKey.GENRE.name()))
+                {
+                	this.genre = tag.getFirst(FieldKey.GENRE);
+                }
+                else
+                {
+                	this.genre= "";
+                }
                 this.kind = ah.getFormat();
+ 
 	
                 setId(sid++);    
                 
@@ -88,7 +130,6 @@ public class Track {
                 
                 this.size = f.getTotalSpace();
                 
-                this.location = ruta;
             } catch (Exception e) {
             		//TODO SHOW DIALOG
                     System.out.println(e.getMessage());
@@ -170,7 +211,11 @@ public class Track {
         		File f = new File(getLocation());
         		AudioFile af = AudioFileIO.read(f);
         		Tag tag = af.getTag();
-                return tag.getArtworkList().size();
+        		if(tag!=null){
+        			return tag.getArtworkList().size();
+        		}
+        		else 
+        			return 0;
 	        } catch (IOException e) {
 	                e.printStackTrace();
 	    			JOptionPane.showMessageDialog(new JFrame(),
@@ -248,7 +293,7 @@ public class Track {
 		public void setAlbum(String album) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException {
 			this.album = album;
 			AudioFile f = AudioFileIO.read(new File(this.getLocation()));
-			Tag tag = f.getTag();
+			Tag tag = f.getTagOrCreateAndSetDefault();
 			tag.setField(FieldKey.ALBUM, album);
 			f.commit();
 		}
@@ -275,7 +320,7 @@ public class Track {
         public void setName(String name) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException {
             this.name = name;
 			AudioFile f = AudioFileIO.read(new File(this.getLocation()));
-			Tag tag = f.getTag();
+			Tag tag = f.getTagOrCreateAndSetDefault();
 			tag.setField(FieldKey.TITLE, name);
 			f.commit();
     	}
@@ -303,7 +348,7 @@ public class Track {
         public void setArtist(String artist) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException {
             this.artist = artist;
 			AudioFile f = AudioFileIO.read(new File(this.getLocation()));
-			Tag tag = f.getTag();
+			Tag tag = f.getTagOrCreateAndSetDefault();
 			tag.setField(FieldKey.ARTIST, artist);
 			f.commit();
     	}
@@ -332,7 +377,7 @@ public class Track {
         public void setAlbumArtist(String albumArtist) throws KeyNotFoundException, CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException {
             this.albumArtist = albumArtist;
 			AudioFile f = AudioFileIO.read(new File(this.getLocation()));
-			Tag tag = f.getTag();
+			Tag tag = f.getTagOrCreateAndSetDefault();
 			tag.setField(FieldKey.ALBUM_ARTIST, albumArtist);
 			f.commit();
 		}
@@ -360,7 +405,7 @@ public class Track {
         public void setGenre(String genre) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException {
             this.genre = genre;
 			AudioFile f = AudioFileIO.read(new File(this.getLocation()));
-			Tag tag = f.getTag();
+			Tag tag = f.getTagOrCreateAndSetDefault();
 			tag.setField(FieldKey.GENRE, genre);
 			f.commit();
 		}
@@ -404,7 +449,7 @@ public class Track {
         public void setYear(Integer year) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException {
             this.year = year;
 			AudioFile f = AudioFileIO.read(new File(this.getLocation()));
-			Tag tag = f.getTag();
+			Tag tag = f.getTagOrCreateAndSetDefault();
 			tag.setField(FieldKey.YEAR, String.valueOf(year));
 			f.commit();
         }
@@ -479,7 +524,7 @@ public class Track {
         public void setComments(String comments) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException {
                 this.comments = comments;
     			AudioFile f = AudioFileIO.read(new File(this.getLocation()));
-    			Tag tag = f.getTag();
+    			Tag tag = f.getTagOrCreateAndSetDefault();
     			tag.setField(FieldKey.COMMENT, comments);
     			f.commit();
         }

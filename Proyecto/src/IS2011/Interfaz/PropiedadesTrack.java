@@ -61,7 +61,7 @@ public class PropiedadesTrack extends JDialog //o JWindow, probar ambas.
 	{
 		super(comp, modal);
 		this.track = track;
-		this.setTitle("Propiedades del archivo:");
+		this.setTitle("Propiedades del archivo: "+ track.getLocation());
 		pt = this;
 		initPropiedadesUI();
 	}	

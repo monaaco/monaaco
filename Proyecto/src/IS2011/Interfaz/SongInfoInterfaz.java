@@ -126,7 +126,7 @@ public class SongInfoInterfaz extends JPanelTransparente {
 		}else 	caratula = new ImageIcon(new ImageIcon("images/monkeyIcon2.png").getImage()
 											.getScaledInstance(120,120, Image.SCALE_SMOOTH));
 		etiquetaCaratula.setIcon(caratula);
-
+		this.repaint();
 		return caratulaPanel;
 	}
 	

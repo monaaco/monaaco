@@ -270,7 +270,8 @@ public class BibliotecaInterfaz extends JPanelRound{
 				getAudioFiles(array[i]);
 			}
 		}
-		else if(file.getName().toLowerCase().endsWith(".mp3") || file.getName().toLowerCase().endsWith(".ogg")){
+		else if(file.getName().toLowerCase().endsWith(".mp3") || file.getName().toLowerCase().endsWith(".ogg") || file.getName().toLowerCase().endsWith(".wav"))
+		{
 			HashMap<String,Boolean> hash = biblioteca.crearHashMap();
 			if(!hash.containsKey(file.getAbsolutePath()))
 			{

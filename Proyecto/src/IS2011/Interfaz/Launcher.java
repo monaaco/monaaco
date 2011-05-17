@@ -70,18 +70,6 @@ public class Launcher extends JWindow {
 	  }
 	  
 	public static void main(String[] args) throws NullPointerException, IllegalStateException, MalformedURLException, IOException {
-		
-		
-		try
-		{
-		   			
-		  // UIManager.setLookAndFeel("net.sourceforge.napkinlaf.NapkinLookAndFeel");
-
-		}
-		catch (Exception e)
-		{
-		   e.printStackTrace();
-		}
 
 		// TODO Auto-generated method stub
 		Launcher l = new Launcher();

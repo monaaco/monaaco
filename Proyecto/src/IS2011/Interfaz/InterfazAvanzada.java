@@ -757,8 +757,7 @@ public class InterfazAvanzada extends JFrame {
              mPlayer = new BasicPlayer();
              reproductorListener = new ReproductorListener(this);
              mPlayer.addBasicPlayerListener(reproductorListener);
-             mPlayer.open(f); 
-                         
+             mPlayer.open(f);          
              posTag = 0-infoSongLabel.getSize().width;
              infoSongLabel.setText(null);
              infoSongLabel.setText(track.getArtist() + " - " + track.getName()
@@ -768,7 +767,8 @@ public class InterfazAvanzada extends JFrame {
              infoSong.actualiza(track);
 
      } catch (Exception e) {
-             System.err.printf("%s\n", e.getMessage());
+    	 System.err.println("Error la libreria no soporta el formato especificado.");
+    	 System.err.printf("%s\n", e.getMessage());
      }
 	}
 
@@ -847,6 +847,7 @@ public class InterfazAvanzada extends JFrame {
 			}
 
 		} catch (Exception e) {
+			System.out.println("ALGO");
 			e.printStackTrace();
 		}
 	}

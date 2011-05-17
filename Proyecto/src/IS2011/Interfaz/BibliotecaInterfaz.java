@@ -57,6 +57,8 @@ public class BibliotecaInterfaz extends JPanelRound{
 	private GestorXML biblioteca=null; //Sino es un ArrayList es la propia biblioteca.
 	private TableRowSorter<TableModel> elQueOrdena=null; 
 	private MyDefaultTableModel modelo= null;
+	private String escrito;
+	private long mili;
 	
 	public BibliotecaInterfaz(GestorXML library, InterfazAvanzada ia){
 		//super("Biblioteca");
@@ -64,7 +66,8 @@ public class BibliotecaInterfaz extends JPanelRound{
 		biblioteca = library;
 		initBibliotecaInterfaz();
 		frame = this;
-		
+		escrito = "";
+		mili = System.currentTimeMillis();
 		//this.setTran(0.5f);
 	}
 
@@ -118,9 +121,16 @@ public class BibliotecaInterfaz extends JPanelRound{
 		tabla.addKeyListener(new java.awt.event.KeyAdapter(){
 			public void keyReleased(KeyEvent k){
 				int c = k.getKeyCode();
-				switch(c){	// Elegimos las posibles teclas
-				case 127:	// suprimir
-					borraElemBiblioteca();
+				if(((65 <= c) && (c <= 90)) || c == 32){ 
+						//Si es una letra o un espacio
+					acumulaLetra(k.getKeyChar());
+				}
+				else{	//Si no...
+					escrito = "";
+					switch(c){	// Elegimos las posibles teclas
+					case 127:	// suprimir
+						borraElemBiblioteca();
+					}
 				}
 			}
 		});
@@ -356,6 +366,31 @@ public class BibliotecaInterfaz extends JPanelRound{
 		else
 		{
 			JOptionPane.showMessageDialog(frame, "Selecciona las filas antes de borrar.");
+		}
+	}
+	
+	public void acumulaLetra(char c){
+		if(System.currentTimeMillis() - mili > 1000){
+			escrito = "";
+		}
+		mili = System.currentTimeMillis();
+		escrito += c;
+		buscaNombre(escrito);
+		System.out.println(escrito);
+	}
+	
+	public void buscaNombre(String nombre){
+		Iterator it = biblioteca.getBiblioteca().iterator();
+		Track tr;
+		int i = 0;
+		while(it.hasNext()){
+			tr = (Track)it.next();
+			if(tr.getAlbum().toLowerCase().contains(nombre) || tr.getArtist().toLowerCase().contains(nombre) ||
+			tr.getName().toLowerCase().contains(nombre) || tr.getGenre().toLowerCase().contains(nombre)){
+				tabla.setRowSelectionInterval(i, i);
+				return;
+			}
+			i++;
 		}
 	}
 }

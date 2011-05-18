@@ -1,0 +1,25 @@
+Test de la configuracion de la carpeta de skins.
+
+	Cada carpeta de skin:
+		A) Debe estar en la carpeta images del proyecto. Ejemplo ruta: "images/skin3/"
+		B) Debe contener los archivosy carpetas:
+				"launcher/monkeyLoading1.png"
+				"launcher/monkeyLoading2.png"
+				"launcher/monkeyLoading3.png"
+				"launcher/monkeyLoading4.png"
+				"launcher/monkeyLoading5.png"
+				"launcher/monkeyLoading6.png"
+				"launcher/monkeyLoading7.png"
+				"launcher/monkeyLoading8.png"
+				"cerrar.png"
+				"ff.png"
+				"libreria.png"
+				"pause.png"
+				"play.png"
+				"play2.png"
+				"ww.png"
+
+	Pasos del test:
+		1. Abrir la carpeta del proyecto.
+		2. Comprobar que en la carpeta images cada carpeta contiene los archivos indicados anteriormente.
+		

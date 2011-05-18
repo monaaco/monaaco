@@ -1,0 +1,18 @@
+Test de la configuración de la lista.
+
+	Borrado de archivo/s
+	Pasos:
+		1. Ejecutar la aplicación
+		2. Añadir canciones al playList
+		3. Borrar una canción.
+		4. Comprobar que la canción desaparece de la lista (no de la lista y la biblioteca).
+	
+	Borrado de archivo en reproducción:
+	Pasos:
+		1. Ejecutar la aplicación
+		2. Añadir canciones al playList
+		3. Reproducir una canción
+		3. Borrar la canción en reproducción de la lista.
+		4. Comprobar que la canción desaparece de la lista (no de la lista y la biblioteca).
+		5. Comprobar que la cancion deja de reproducirse y empieza la rerpoducción de la siguiente.
+		

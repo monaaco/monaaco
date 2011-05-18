@@ -1,0 +1,6 @@
+Test de Bugs
+
+	Tamaño de carátulas
+	Pasos:
+		1. Añadir una canción con carátula de tamaño superior a 800x600 a la lista de reproducción.
+		2. Comprobar que se reproduce correctamente.

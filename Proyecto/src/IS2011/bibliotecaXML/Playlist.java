@@ -198,7 +198,7 @@ public class Playlist {
 	
 	/**
 	 * 
-	 * @return
+	 * @return tamaño de la lista
 	 */
 	public int getNumTracks(){
 		return lista.size();

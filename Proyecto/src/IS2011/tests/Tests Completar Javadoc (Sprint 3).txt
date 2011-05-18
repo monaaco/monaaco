@@ -1,0 +1,5 @@
+Test Javadoc
+
+	Pasos:
+		1. Generar el archivo html javadoc.
+		2. Comprobar que no haya partes incompletas.

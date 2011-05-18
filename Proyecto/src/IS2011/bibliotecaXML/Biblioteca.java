@@ -39,7 +39,7 @@ public class Biblioteca {
 	 */
 	public void addAll(List<Track> trList) {
 		Track aux;
-		Iterator it = trList.iterator();
+		Iterator<Track> it = trList.iterator();
 		while(it.hasNext())
 		{
 			aux = (Track)it.next();
@@ -49,7 +49,7 @@ public class Biblioteca {
 	
 	public HashMap<String,Boolean> creaHashMap(){
 		HashMap<String,Boolean> resultado = new HashMap<String,Boolean>();
-		Iterator it = getBiblioteca().iterator();
+		Iterator<Track> it = getBiblioteca().iterator();
 		String s;
 		while (it.hasNext()){
 			s = ((Track)it.next()).getLocation();

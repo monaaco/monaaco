@@ -1,0 +1,14 @@
+Tests de la interfaz
+
+	- Apariencia.
+	
+		Pasos de la prueba:
+			1. Ejecutar la aplicación
+			2. Comprobar que la apariencia es similar a la del boceto:
+			   https://docs.google.com/drawings/d/1z5PCB5y9NGC3BOuGAtYwDcqorBOVeWzCigg6jDl8a7c/edit?hl=es&authkey=CJXPmfoO
+
+	- Funcionalidades
+	
+		Pasos de la prueba:
+			1. Ejecutar la aplicación
+			2. Comprobar que la ventana se mueve al pinchar con el rraton en el fondo de la ventana y arrastrar.

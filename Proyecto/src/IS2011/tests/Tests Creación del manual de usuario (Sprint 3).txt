@@ -1,0 +1,5 @@
+Test del manual de usuario
+
+	Objetivo: Probar la funcionalidad del manual.
+	Pasos:
+		1. Comprobar las explicaciones del manual en la aplicación

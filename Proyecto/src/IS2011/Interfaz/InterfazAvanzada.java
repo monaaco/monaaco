@@ -24,18 +24,19 @@ public class InterfazAvanzada extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	// Imagenes:
-	private ImageIcon monkeyIcon = new ImageIcon("images/monkeyIcon.jpg");
-	private ImageIcon carpetaIcon = new ImageIcon("images/carpetaIcon.jpg");
+	private ImageIcon monkeyIcon = new ImageIcon("images/Skin3/monkeyIcon.jpg");
+	private ImageIcon carpetaIcon = new ImageIcon("images/Skin3/carpetaIcon.jpg");
 	
 	private ImageIcon FFIcon = new ImageIcon("images/Skin3/ff.png");
 	private ImageIcon wwIcon = new ImageIcon("images/Skin3/ww.png");
 	private ImageIcon playIcon = new ImageIcon("images/Skin3/play.png");
 	private ImageIcon libreriaIcon = new ImageIcon("images/Skin3/libreria.png");
 	private ImageIcon cerrarIcon = new ImageIcon("images/Skin3/cerrar.png");
+	private ImageIcon pauseIcon = new ImageIcon("images/Skin3/pause.png");
+	
 	private ImageIcon playedIcon = new ImageIcon("images/skin1/playIcon3.jpg");
 	private ImageIcon stopIcon = new ImageIcon("images/skin1/stopIcon1.jpg");
 	private ImageIcon stopedIcon = new ImageIcon("images/skin1/stopIcon3.jpg");
-	private ImageIcon pauseIcon = new ImageIcon("images/Skin3/pause.png");
 	private ImageIcon pausedIcon = new ImageIcon("images/skin1/pauseIcon3.jpg");
 	
 	/**

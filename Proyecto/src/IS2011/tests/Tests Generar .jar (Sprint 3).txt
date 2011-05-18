@@ -1,0 +1,8 @@
+Test jar
+
+	Pasos:
+		1. Generar archivo .jar ejecutable
+		2. Ejecutar el archivo generado.
+		3. Comprobar las funcionalidades del programa.
+		4. Comprobar que las imagenes del skin se muestren todas correctamente.
+		5. Comprobar el guardado de la biblioteca.

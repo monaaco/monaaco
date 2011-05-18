@@ -1,0 +1,37 @@
+Tests correspondientes a la historia excritura XML
+
+
+	Escritura XML
+		Objetivo: Actualizacion de la biblioteca en formato xml con la siguiente estructura
+			<biblioteca>
+			  <trackList>
+				<track id="3">
+				  <name>Donde duele inspira</name>
+				  <artist>Flowklorikos</artist>
+				  <albumArtist></albumArtist>
+				  <album>Donde duele inspira</album>
+				  <genre>Hip-Hop</genre>
+				  <totalTime>216</totalTime>
+				  <bitRate>320</bitRate>
+				  <comments>www.HHGroups.com</comments>
+				  <location>sounds\prueba.mp3</location>
+				</track>
+				<track id="4">
+				  <name>Three Little Birds</name>
+				  <artist>Bob Marley</artist>
+				  <albumArtist></albumArtist>
+				  <album>One Love - The Very Best Of Bob Marley</album>
+				  <genre>Reggae</genre>
+				  <totalTime>183</totalTime>
+				  <bitRate>160</bitRate>
+				  <comments></comments>
+				  <location>sounds\prueba2.ogg</location>
+				</track>
+			  </trackList>
+			</biblioteca>
+			
+		Pasos para la prueba:
+			1. Ejecutar la aplicación.  
+			2. Añadir alguna cancion a la biblioteca.(Automáticamente se guardara la biblioteca en la ruta "/xml/biblioteca.xml")
+			3. Comprobar que el archivo contiene la canción o canciones añadidas gardando la misma estructura que en el ejemplo.
+			

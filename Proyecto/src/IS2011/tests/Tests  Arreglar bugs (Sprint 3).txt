@@ -1,0 +1,11 @@
+Test de Bugs
+
+	Tamaño de carátulas
+	Pasos:
+		1. Añadir una canción con carátula de tamaño superior a 800x600 a la lista de reproducción.
+		2. Comprobar que se reproduce correctamente.
+		
+	Archivo xml incorrecto
+	Pasos:
+		1. Borrar el contenido del archivo xml, se puede guardar en su lugar cualquier cosa.
+		2. Comprobar que el programa al iniciarse detecta el archivo incorrecto y lo soluciona creando uno nuevo vacío en su lugar

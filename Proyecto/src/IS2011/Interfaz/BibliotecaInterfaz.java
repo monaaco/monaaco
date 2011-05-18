@@ -101,19 +101,10 @@ public class BibliotecaInterfaz extends JPanelRound{
 		    public void mouseClicked(MouseEvent e) 
 		      {
 		    	if(e.getClickCount()==2){
-		         int fila = tabla.rowAtPoint(e.getPoint());
-		         if ((fila > -1))
-		         {
-		        	 fila = tabla.convertRowIndexToModel (fila);
-		        	 Track aux = biblioteca.getBiblioteca().get(fila);
-		        	 Playlist listaRepr = interfazPadre.getListaReproduccion();
-		        	 listaRepr.add(aux.getLocation());
-		        	 //interfazPadre.setCurrentTrack(listaRepr.current());
-                     String[] temas = listaRepr.getListado();
-                     interfazPadre.getInfoPlaylist().actualizaTemas(temas);
-		        	 //pasamos de la fila recibida a la fila sin filtrar
-		        	 //Anade a la listaReproduccion
-		         }
+		    		int[] fila = new int[1];
+		    		fila[0] = tabla.rowAtPoint(e.getPoint());
+		    		meterEnPlayList(fila);
+		    		//TODO CODIGO MOVIDO A meterEnPlayList
 		    	}
 		      }
 		   });
@@ -130,6 +121,9 @@ public class BibliotecaInterfaz extends JPanelRound{
 					switch(c){	// Elegimos las posibles teclas
 					case 127:	// suprimir
 						borraElemBiblioteca();
+						break;
+					case 10:	// ENTER
+						meterEnPlayList(tabla.getSelectedRows());
 					}
 				}
 			}
@@ -344,6 +338,23 @@ public class BibliotecaInterfaz extends JPanelRound{
 	
 	public void filtraRapido(){
 		elQueOrdena.setRowFilter(javax.swing.RowFilter.regexFilter("(?i)"+busquedaRapida.getText()));
+	}
+	
+	public void meterEnPlayList(int[] fila){
+        for(int i = 0;i<=fila.length-1;i++){
+			if ((fila[i] > -1))
+	        {
+		       	fila[i] = tabla.convertRowIndexToModel(fila[i]);
+		       	Track aux = biblioteca.getBiblioteca().get(fila[i]);
+		       	Playlist listaRepr = interfazPadre.getListaReproduccion();
+		       	listaRepr.add(aux.getLocation());
+		       	//interfazPadre.setCurrentTrack(listaRepr.current());
+		        String[] temas = listaRepr.getListado();
+		        interfazPadre.getInfoPlaylist().actualizaTemas(temas);
+		       	//pasamos de la fila recibida a la fila sin filtrar
+		       	//Anade a la listaReproduccion
+	        }
+        }
 	}
 	
 	public void borraElemBiblioteca(){

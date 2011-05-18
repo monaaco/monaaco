@@ -117,7 +117,7 @@ public class SongInterfaz extends JFrame{
 				case 127:	// suprimir
 					borrarSeleccionados();
 					break;
-				case 10:
+				case 10:	// ENTER
 					if(listado.getSelectedIndices().length == 1){
 						int pos = listado.getSelectedIndex();
 						interfazAvanzada.setTrackNumber(pos);

@@ -105,9 +105,10 @@ public class Playlist {
 	/**
 	 * 
 	 * @param track
+	 * @return posicion en el playlist de la canción añadida
 	 */
-	public void setCurrentTrack(Track track){
-		currentTrack = getIndex(track);
+	public int setCurrentTrack(Track track){
+		return currentTrack = getIndex(track);
 	}
 	
 	/**
@@ -257,4 +258,21 @@ public class Playlist {
 		}
 		return b;
 	}
+	
+	/**
+	 * Desordena la playlist actualizando el currentrack
+	 * @return nueva posicion en el playlist de la canción actual
+	 */
+	public int desordenar(){
+		
+		//obtener la cancion actual en reproducción
+		Track aux = getCurrent();
+		
+		//desordenar la lista
+		Collections.shuffle(lista);
+		
+		//actualizar currentrac con la nueva posición de la cancion actual en reproducción
+		return setCurrentTrack(aux);
+	}
+	
 }

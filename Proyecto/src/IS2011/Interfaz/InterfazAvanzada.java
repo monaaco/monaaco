@@ -495,7 +495,6 @@ public class InterfazAvanzada extends JFrame {
 					try {
 						if (desplegado == false){
 						principal.setSize(700,600);
-										
 						biliotecaInterfaz = new BibliotecaInterfaz(b,principal); 
 						backGround.add(biliotecaInterfaz);
 						biliotecaInterfaz.setBounds(25,350, 650, 200);
@@ -828,9 +827,9 @@ public class InterfazAvanzada extends JFrame {
 }
 	
 	private void centrarVentana() {
-        
-        this.setLocation((pantalla.width - ventana.width) / 2,
-                        (((pantalla.height - ventana.height) / 2))-100);
+		this.setLocationRelativeTo(null);
+//        this.setLocation((pantalla.width - ventana.width) / 2,
+//                        (((pantalla.height - ventana.height) / 2))-100);
 	}
 	
 	public void setTrackNumber(int pos){

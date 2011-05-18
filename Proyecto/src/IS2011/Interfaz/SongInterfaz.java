@@ -116,6 +116,13 @@ public class SongInterfaz extends JFrame{
 				switch(c){	// Elegimos las posibles teclas
 				case 127:	// suprimir
 					borrarSeleccionados();
+					break;
+				case 10:
+					if(listado.getSelectedIndices().length == 1){
+						int pos = listado.getSelectedIndex();
+						interfazAvanzada.setTrackNumber(pos);
+					}
+					break;
 				}
 			}
 		});

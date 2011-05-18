@@ -870,7 +870,7 @@ public class InterfazAvanzada extends JFrame {
 	}
 	
 	public void borradoElemActualPlaylist(){
-		if(pause == false){
+		if(pause == false || reproduciendo == false){
 			try {
 				mPlayer.stop();
 			} catch (BasicPlayerException e) {
@@ -884,6 +884,7 @@ public class InterfazAvanzada extends JFrame {
 					//TODO FALTAAAAA!!!!
 					//TODO Si no quedan canciones en la playlist se quita de la interfaz la ultima
 				} catch (BasicPlayerException e) {
+					System.out.println("ALGO");
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}

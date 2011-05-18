@@ -16,3 +16,9 @@ Test de la configuración de la lista.
 		4. Comprobar que la canción desaparece de la lista (no de la lista y la biblioteca).
 		5. Comprobar que la cancion deja de reproducirse y empieza la rerpoducción de la siguiente.
 		
+	Reproducir el elemento seleccionado pulsando ENTER:
+	Pasos:
+		1. Ejecutar la aplicación
+		2. Añadir canciones al playList
+		3. Pulsar con el ratón sobre una canción y pulsar a continuación la tecla ENTER.
+		4. Comprobar que la canción comienza a reproducirse inmediatamente.

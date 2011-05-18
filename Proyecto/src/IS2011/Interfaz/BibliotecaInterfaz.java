@@ -2,6 +2,8 @@ package IS2011.Interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -19,6 +21,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -46,6 +49,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 	private InterfazAvanzada interfazPadre= null;
 	private JMenuBar menuBI=null;
 	
+	private JPopupMenu menu = null;
 	private JMenuItem anadirArchivos=null;
 	private JMenuItem editarPropiedades=null;
 	private JMenuItem filtroAvanzado=null;
@@ -90,6 +94,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 		modelo.addColumn("Genero");
 		tabla = new JTable(modelo);
 		tabla.setSize(500,250);
+		getPopUp();
 
 		// Instanciamos el TableRowSorter y lo añadimos al JTable
 		elQueOrdena = new TableRowSorter<TableModel>(modelo);
@@ -109,6 +114,19 @@ public class BibliotecaInterfaz extends JPanelRound{
 		      }
 		   });
 		
+		tabla.addMouseListener(new MouseAdapter() {
+		    public void mousePressed(MouseEvent evt) {
+		        if (evt.isPopupTrigger()) {
+		            menu.show(evt.getComponent(), evt.getX(), evt.getY());
+		        }
+		    }
+		    public void mouseReleased(MouseEvent evt) {
+		        if (evt.isPopupTrigger()) {
+		            menu.show(evt.getComponent(), evt.getX(), evt.getY());
+		            
+		        }
+		    }
+		});
 		tabla.addKeyListener(new java.awt.event.KeyAdapter(){
 			public void keyReleased(KeyEvent k){
 				int c = k.getKeyCode();
@@ -155,7 +173,41 @@ public class BibliotecaInterfaz extends JPanelRound{
 		});
 		menuBI.add(busquedaRapida);
 	}
-	
+	/*
+	 * Crea y define los listener del menu PopUp que borra y agrega canciones
+	 */
+	private JPopupMenu getPopUp(){
+		
+		menu = new JPopupMenu();
+		
+		menu.setBorderPainted(false);
+		
+		JMenuItem eliminar = new JMenuItem("Eliminar");
+		eliminar.addActionListener(new ActionListener() {
+			 
+	            public void actionPerformed(ActionEvent e)
+	            {
+	            	 borraElemBiblioteca();
+		    		
+	            }
+	        });
+
+		
+		menu.add(eliminar);
+		JMenuItem Agregar = new JMenuItem("Agregar");
+		Agregar.addActionListener(new ActionListener() {
+			 
+            public void actionPerformed(ActionEvent e)
+            {
+            	int[] seleccionadas = tabla.getSelectedRows();
+	    		meterEnPlayList(seleccionadas);
+	    		
+            }
+        });
+		menu.add(Agregar);
+		return menu;
+		
+	}
 	private JMenuBar getBarraMenu() {
 		
 		

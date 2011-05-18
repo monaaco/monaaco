@@ -22,3 +22,27 @@ Test de la configuración de la lista.
 		2. Añadir canciones al playList
 		3. Pulsar con el ratón sobre una canción y pulsar a continuación la tecla ENTER.
 		4. Comprobar que la canción comienza a reproducirse inmediatamente.
+		
+	Reproducir en orden aleatorio:
+	Pasos:
+		1. Ejecutar la aplicación
+		2. Añadir varias canciones al playList
+		3. Activar modo aleatorio.
+		4. Comprobar al seleccionar el botón siguiente, se reproduce una cancion al azar de la lista.
+			
+	Desordenar la lista:
+	Pasos:
+		1. Ejecutar la aplicación
+		2. Añadir varias canciones al playList
+		3. Seleccionar la opcion desordenar.
+		4. Comprobar que las canciones aparecen en orden aleatorio en la lista de reproducción.
+				
+	Ordenar la lista por artista:
+	Pasos:
+		1. Ejecutar la aplicación
+		2. Añadir varias canciones al playList
+		3. Seleccionar la opción ordenar por artista.
+		4. Comprobar que las canciones aparecen por orden alfabético descendiente de artista en la lista de reproducción.
+
+		
+	

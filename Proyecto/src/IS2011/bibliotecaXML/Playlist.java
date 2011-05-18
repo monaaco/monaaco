@@ -2,6 +2,8 @@ package IS2011.bibliotecaXML;
 
 import java.util.*;
 
+import IS2011.bibliotecaXML.comparators.*;
+
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("playlist")
@@ -270,6 +272,38 @@ public class Playlist {
 		
 		//desordenar la lista
 		Collections.shuffle(lista);
+		
+		//actualizar currentrac con la nueva posición de la cancion actual en reproducción
+		return setCurrentTrack(aux);
+	}
+	
+	/**
+	 * Ordena la playlist por artista actualizando el currentrack
+	 * @return nueva posicion en el playlist de la canción actual
+	 */
+	public int ordenarPorArtista(){
+		
+		//obtener la cancion actual en reproducción
+		Track aux = getCurrent();
+		
+		//desordenar la lista
+		Collections.sort(lista, new ComparatorArtista());
+		
+		//actualizar currentrac con la nueva posición de la cancion actual en reproducción
+		return setCurrentTrack(aux);
+	}
+	
+	/**
+	 * Ordena la playlist por titulo actualizando el currentrack
+	 * @return nueva posicion en el playlist de la canción actual
+	 */
+	public int ordenarPorTitulo(){
+		
+		//obtener la cancion actual en reproducción
+		Track aux = getCurrent();
+		
+		//desordenar la lista
+		Collections.sort(lista, new ComparatorTitulo());
 		
 		//actualizar currentrac con la nueva posición de la cancion actual en reproducción
 		return setCurrentTrack(aux);

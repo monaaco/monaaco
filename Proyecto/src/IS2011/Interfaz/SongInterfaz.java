@@ -131,7 +131,10 @@ public class SongInterfaz extends JFrame{
 	 */
 	public void borrarSeleccionados(){
 		int[] listaIndices = listado.getSelectedIndices();
-		interfazAvanzada.getListaReproduccion().borraTrack(listaIndices);
+		boolean b = interfazAvanzada.getListaReproduccion().borraTrack(listaIndices);
+		if(b){
+			interfazAvanzada.borradoElemActualPlaylist();
+		}
 		actualizaTemas(interfazAvanzada.getListaReproduccion().getListado());
 	}
 	

@@ -386,8 +386,8 @@ public class BibliotecaInterfaz extends JPanelRound{
 		int i = 0;
 		while(it.hasNext()){
 			tr = (Track)it.next();
-			if(tr.getAlbum().toLowerCase().contains(nombre) || tr.getArtist().toLowerCase().contains(nombre) ||
-			tr.getName().toLowerCase().contains(nombre) || tr.getGenre().toLowerCase().contains(nombre)){
+			if(tr.getAlbum().toLowerCase().contains(nombre.toLowerCase()) || tr.getArtist().toLowerCase().contains(nombre.toLowerCase()) ||
+			tr.getName().toLowerCase().contains(nombre.toLowerCase()) || tr.getGenre().toLowerCase().contains(nombre.toLowerCase())){
 				tabla.setRowSelectionInterval(i, i);
 				return;
 			}

@@ -869,6 +869,28 @@ public class InterfazAvanzada extends JFrame {
 		bInterfaz.setVisible(true);
 	}
 	
+	public void borradoElemActualPlaylist(){
+		if(pause == false){
+			try {
+				mPlayer.stop();
+			} catch (BasicPlayerException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if(listaReproduccion.getNumTracks() != 0){
+				try {
+					setCurrentTrack(listaReproduccion.getCurrent());
+					mPlayer.play();
+					//TODO FALTAAAAA!!!!
+					//TODO Si no quedan canciones en la playlist se quita de la interfaz la ultima
+				} catch (BasicPlayerException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
 	public SongInterfaz getInfoPlaylist(){
 		return infoPlaylist;
 	}

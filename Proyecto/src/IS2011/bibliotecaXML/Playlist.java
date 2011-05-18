@@ -246,11 +246,15 @@ public class Playlist {
 	
 	/**
 	 * 
-	 * Borramos los elementos de la lista
+	 * Borramos los elementos de la lista y devolvemos si alguno de los borrados era el que se estaba reproduciendo
 	 */
-	public void borraTrack(int[] listaTracks){
+	public boolean borraTrack(int[] listaTracks){
+		boolean b = false;
 		for(int i = listaTracks.length-1;i >= 0 ; i--){
+			if(getCurrentNumber() == listaTracks[i])b = true;
+			if(currentTrack >= listaTracks[i])setCurrentTrack(currentTrack-1);
 			lista.remove(listaTracks[i]);
 		}
+		return b;
 	}
 }

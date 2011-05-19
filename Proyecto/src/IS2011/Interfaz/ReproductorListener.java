@@ -41,8 +41,8 @@ public class ReproductorListener implements BasicPlayerListener{
 	     {
 	    	 microsecond = microseconds;
 	     }
-		 System.out.println(" -&gt; " + progressNow +"    en segs= "+microseconds/1000);
-		 System.out.println(" -&gt; " + progressNow +"    en segs= "+microseconds/1000);
+		// System.out.println(" -&gt; " + progressNow +"    en segs= "+microseconds/1000);
+		// System.out.println(" -&gt; " + progressNow +"    en segs= "+microseconds/1000);
          player.cambiaSegundos((int)(microsecond/60000000),((int)(microsecond/1000000)%60));
 			 player.actualizaBarraProgreso(progressNow);
 		}

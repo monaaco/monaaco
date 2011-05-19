@@ -47,9 +47,8 @@ public class InterfazAvanzada extends JFrame {
 	
 	private SongInterfaz infoPlaylist = null;
 	private SongInfoInterfaz infoSong = null;
-	private JPanel infoSong2 = null;
-	private BibliotecaInterfaz biliotecaInterfaz = null;
-	private GestorXML b = null;
+	private BibliotecaInterfaz bibliotecaInterfaz = null;
+	private GestorXML gestorBiblioteca = null;
 
 	private BotonAvanzado stopButton = null;
 	private BotonAvanzado pauseButton = null;
@@ -71,14 +70,9 @@ public class InterfazAvanzada extends JFrame {
 	
 	private JLabel infoSongLabel = null;
 
+
 	
-/*	// menu XML  Por si lo usaramos que esta en la otra playerInterface!
-	private JMenuItem bibliotecaMenu = null;
-	private JMenu leerMenu = null;
-	private JMenuItem leerXML = null;
-	private JMenu guardarMenu = null;
-	private JMenuItem guardarXML = null;
-*/
+
 	private boolean pause = false;
 	private boolean desplegado = false;
 	private double bytesArchivoActual; 
@@ -158,9 +152,9 @@ public class InterfazAvanzada extends JFrame {
 		bibliotecaIcono.setBounds(470,290,90,45);
 		backGround.add(bibliotecaIcono);
 		
-		b = new GestorXML();
-		b.cargar();
-		this.setBiblioteca(b,this);
+		gestorBiblioteca = new GestorXML();
+		gestorBiblioteca.cargar();
+		this.setBiblioteca(gestorBiblioteca,this);
 		
 		/*biliotecaInterfaz = new BibliotecaInterfaz(b,this); 
 		aux.add(biliotecaInterfaz);
@@ -284,7 +278,7 @@ public class InterfazAvanzada extends JFrame {
 		constraints.fill = GridBagConstraints.NONE;
       	main.add(getInfoSongLabel(), position);
 						
-      	getDefaultPalyList();
+      	setDefaultPalyList();
         String[] temas = listaReproduccion.getListado();
         infoPlaylist = new SongInterfaz(temas,this);
 		infoSong = new SongInfoInterfaz();
@@ -308,7 +302,7 @@ public class InterfazAvanzada extends JFrame {
 	 * Creamos una PlayList vacia
 	 * 
 	 */
-	private void getDefaultPalyList() {
+	private void setDefaultPalyList() {
 		listaReproduccion = new Playlist();
 		listaReproduccion.setRepeat(true);		
 	}
@@ -495,15 +489,15 @@ public class InterfazAvanzada extends JFrame {
 					try {
 						if (desplegado == false){
 						principal.setSize(700,600);
-						biliotecaInterfaz = new BibliotecaInterfaz(b,principal); 
-						backGround.add(biliotecaInterfaz);
-						biliotecaInterfaz.setBounds(25,350, 650, 200);
+						bibliotecaInterfaz = new BibliotecaInterfaz(gestorBiblioteca,principal); 
+						backGround.add(bibliotecaInterfaz);
+						bibliotecaInterfaz.setBounds(25,350, 650, 200);
 						desplegado = true;
 						repaint();
 						}
 						else{
 							principal.setSize(700,350);
-							biliotecaInterfaz=null;
+							bibliotecaInterfaz=null;
 							desplegado = false;
 							
 						}
@@ -607,7 +601,7 @@ public class InterfazAvanzada extends JFrame {
 			salirButton.addMouseListener(new java.awt.event.MouseAdapter() {
 				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
-						biblioteca.guardar();
+						gestorBiblioteca.guardar();
 						System.exit(0);
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -628,7 +622,7 @@ public class InterfazAvanzada extends JFrame {
 			salirItem.addMouseListener(new java.awt.event.MouseAdapter() {
 				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
-						biblioteca.guardar();
+						gestorBiblioteca.guardar();
 						System.exit(0);
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -720,45 +714,18 @@ public class InterfazAvanzada extends JFrame {
 		try {
 			 File f = new File(track.getLocation());
 			 
-			 /* TODO 
-			  * - poner la info en la interfaz en la interfaz;
-			  * - Se podria hacer que la esto se mostrara en una ventana semi trasparente 
-			  * similar a la del playlist, de forma que la info de cancion se muestre
-			  * durante unos segundos cuando hay un cambio de cancion.
-			  * - Resaltar la cancion actual en el playlist (Songinterfaz)
-			  *
-			 caratula = track.getArtwork();
-			 infoFrame = new JFrame("Información");
-			 infoFrame.dispose();
-			
-			 infoFrame = new JFrame("Información");
-			 infoPanel = new JPanel(new FlowLayout());
-			 infoPanel.add(new JLabel((Icon)caratula));
-			 infoPanel.add(new JLabel(track.getArtist() + " - " + track.getName()
-					 	+ " (" + track.getAlbumArtist() +") "	) );
-			 infoPanel.setEnabled(true);
-			 infoPanel.setVisible(true);
-			 infoFrame.setEnabled(true);
-			 infoFrame.setVisible(true);
-			 infoFrame.add(infoPanel);
-			 infoFrame.setSize(500, 100);
-			 infoFrame.setLocation((pantalla.width - ventana.width) / 2,
-                     ((pantalla.height - ventana.height) / 2)-110);
-			  *
-			  * 
-			  * 
-			  * */
-			 
-			 
              if (mPlayer != null) {
                      mPlayer.stop();
                                 
              }
+             
              mPlayer = new BasicPlayer();
              reproductorListener = new ReproductorListener(this);
              mPlayer.addBasicPlayerListener(reproductorListener);
              mPlayer.open(f);          
              posTag = 0-infoSongLabel.getSize().width;
+             
+             //TODO quitar
              infoSongLabel.setText(null);
              infoSongLabel.setText(track.getArtist() + " - " + track.getName()
 					 	+ " (" + track.getAlbumArtist() +") "	 );
@@ -863,11 +830,12 @@ public class InterfazAvanzada extends JFrame {
 	 * @param ia Referencia a la interfaz avanzada de la que procede
 	 */
 	public void setBiblioteca(GestorXML b, InterfazAvanzada ia){
-		biblioteca = b;
-		bInterfaz = new BibliotecaInterfaz(b, ia);
-		bInterfaz.setVisible(true);
+		gestorBiblioteca = b;
+		bibliotecaInterfaz = new BibliotecaInterfaz(b, ia);
+		bibliotecaInterfaz.setVisible(true);
 	}
 	
+
 	public void borradoElemActualPlaylist(){
 		if(pause == false || reproduciendo == false){
 			try {
@@ -895,8 +863,17 @@ public class InterfazAvanzada extends JFrame {
 		return infoPlaylist;
 	}
 	
-	private GestorXML biblioteca= null;
-	private BibliotecaInterfaz bInterfaz = null;
-
+	
+	/**
+	 * Accesora
+	 * @return la lista de reproducción
+	 */
+	public Playlist getPlaylist(){
+		if( listaReproduccion == null ){
+			setDefaultPalyList();
+		}
+		return listaReproduccion;
+	}
+	
 }
 

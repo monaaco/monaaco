@@ -66,13 +66,29 @@ public class GestorXML<T>{
 	}
 
 	/**
-	 * Carga en objeto el contenido del XML
+	 * Carga en objeto el contenido del XML en el fichero pasado a la constructora
 	 */
 	public void cargar(){
+		cargar(fichero);
+	}
+	
+	/**
+	 * Carga en objeto el contenido del XML en el fichero "filename"
+	 * @param filename
+	 */
+	public void cargar(String filename){
+		cargar(new File(filename));
+	}
+	
+	/**
+	 * Carga en objeto el contenido del XML en el fichero File
+	 * @param file
+	 */
+	public void cargar(File file){
 		try {
-			 XStream xs = new XStream(new DomDriver());
-			 is = new FileInputStream(fichero);
-			 objeto = (T) new Object();
+			 XStream xs = new XStream();
+			 is = new FileInputStream(file);
+			 objeto  = (T) new Object();
 			 xs.processAnnotations(objeto.getClass());
 			 //necesario InputStreamReader para que lea carácteres especiales como tíldes!
 			 objeto = (T) xs.fromXML(new InputStreamReader(is));
@@ -82,20 +98,11 @@ public class GestorXML<T>{
 				    e.getMessage(),
 				    "Error carga de la biblioteca",
 				    JOptionPane.WARNING_MESSAGE);
-			//TODO crear un nuevo biblioteca.xml 
+			//TODO crear un nuevo xml vacío
 			e.printStackTrace();
 		}
-		//xs.fromXML
-		//String xml = xs.toXML(is);
-		//String aux=(String)xs.fromXML(xml);
-		//Iterator it=(Iterator)tracks.listIterator();
-		
-		//while(it.hasNext()){
-			//Track t=(Track)it.next();
-		//	System.out.println(t.getName());
-		//}		
+
 	}
-	
 
 	/**
 	 * Guarda en el XML todo el contenido actual de la objeto objeto
@@ -121,7 +128,7 @@ public class GestorXML<T>{
 	public void guardar(File file){
 		if( objeto != null){
 			try {
-				XStream xstream = new XStream(new DomDriver());
+				XStream xstream = new XStream();
 				// Esta linea es para que haga caso de las anotaciones del tipo @XStream*
 				xstream.processAnnotations(objeto.getClass());
 				xstream.toXML(objeto, new FileOutputStream(file));

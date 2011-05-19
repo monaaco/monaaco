@@ -255,7 +255,8 @@ public class Playlist {
 		boolean b = false;
 		for(int i = listaTracks.length-1;i >= 0 ; i--){
 			if(getCurrentNumber() == listaTracks[i])b = true;
-			if(currentTrack >= listaTracks[i])setCurrentTrack(currentTrack-1);
+			if(currentTrack > listaTracks[i])setCurrentTrack(currentTrack-1);
+			if(currentTrack > lista.size())setCurrentTrack(currentTrack-1);
 			lista.remove(listaTracks[i]);
 		}
 		return b;

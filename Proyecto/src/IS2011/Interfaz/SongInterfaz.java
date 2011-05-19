@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.event.*;
 import javax.swing.*;
+import javax.xml.bind.Marshaller.Listener;
 
 //import javazoom.jlgui.basicplayer.BasicPlayerException;
 import IS2011.bibliotecaXML.Track;
@@ -194,6 +195,7 @@ public class SongInterfaz extends JFrame{
 			        {
 						if(listado.getMaximumSize().getHeight() >= e.getPoint().getY()){
 	                        interfazAvanzada.setTrackNumber(listado.locationToIndex(e.getPoint()));
+	                        marcaActual();
 	                    }
 			        }
 				}
@@ -205,11 +207,13 @@ public class SongInterfaz extends JFrame{
 					switch(c){	// Elegimos las posibles teclas
 					case 127:	// suprimir
 						borrarSeleccionados();
+						marcaActual();
 						break;
 					case 10:	// ENTER
 						if(listado.getSelectedIndices().length == 1){
 							int pos = listado.getSelectedIndex();
 							interfazAvanzada.setTrackNumber(pos);
+							marcaActual();
 						}
 						break;
 					}
@@ -233,6 +237,19 @@ public class SongInterfaz extends JFrame{
 		return listado;
 	}
 
+	/**
+	 * Pone en mayuscula el track actual
+	 * 
+	 * 
+	 *
+	 */
+	public void marcaActual(){
+		String[] lista = interfazAvanzada.getPlaylist().getListado();
+		lista[interfazAvanzada.getPlaylist().getCurrentTrack()] = lista[interfazAvanzada.getPlaylist().getCurrentTrack()].toUpperCase();
+		listado.removeAll();
+		setListado(lista);
+	}
+	
 	/**
 	 * 
 	 * @param temas (array con los nombres de las canciones)
@@ -303,7 +320,9 @@ public class SongInterfaz extends JFrame{
 		    	}
 		    	//actualizar el listado de canciones:
 	    		getListado().setSelectedIndex(ct);
+				String[] lista = interfazAvanzada.getPlaylist().getListado();
 		    	actualizaTemas(interfazAvanzada.getPlaylist().getListado());
+		    	marcaActual();
 
 		    }
 		  /*  public void mouseReleased(MouseEvent evt) {

@@ -524,6 +524,7 @@ public class InterfazAvanzada extends JFrame {
 			stopButton.addMouseListener(new java.awt.event.MouseAdapter() {
 				public void mouseReleased(java.awt.event.MouseEvent evt) {
 					reproducirSiguiente();
+					infoPlaylist.marcaActual();
 				};
 			});
 		}
@@ -549,11 +550,13 @@ public class InterfazAvanzada extends JFrame {
 								setTrackNumber(0);
 								infoSong.actualiza(listaReproduccion.getCurrent());
 								mPlayer.play();
+								infoPlaylist.marcaActual();
 							}
 						}
 						else if(reproduciendo == false){
 							playButton.setIcon(pauseIcon);	
 							mPlayer.play();
+							infoPlaylist.marcaActual();
 							reproduciendo = true;
 						}
 						else{
@@ -585,6 +588,7 @@ public class InterfazAvanzada extends JFrame {
 				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
 						reproducirAnterior();
+						infoPlaylist.marcaActual();
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
@@ -856,6 +860,10 @@ public class InterfazAvanzada extends JFrame {
 					e.printStackTrace();
 				}
 			}
+		}
+		else{
+			setCurrentTrack(listaReproduccion.getCurrent());
+			reproduciendo = false;
 		}
 	}
 	

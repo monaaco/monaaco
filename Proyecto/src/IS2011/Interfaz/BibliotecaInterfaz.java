@@ -57,7 +57,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 	private JMenuItem anadirAPlayList=null;
 	private JTextField busquedaRapida= null;
 	JFrame popup = null;
-	private JTable tabla= null;
+	private ZebraJTable tabla= null;
 	private GestorXML biblioteca=null; //Sino es un ArrayList es la propia biblioteca.
 	private TableRowSorter<TableModel> elQueOrdena=null; 
 	private MyDefaultTableModel modelo= null;
@@ -80,6 +80,8 @@ public class BibliotecaInterfaz extends JPanelRound{
 		this.setSize(600, 300);
 		this.setLayout(new BorderLayout());
 		JMenuBar JMenuAux = getBarraMenu();
+		//JMenuAux.setBounds(5, 10, 590, 10)
+	
 		this.add(JMenuAux,BorderLayout.SOUTH);
 		
 		
@@ -92,8 +94,15 @@ public class BibliotecaInterfaz extends JPanelRound{
 		modelo.addColumn("Album");
 		modelo.addColumn("Tiempo total (seg)");
 		modelo.addColumn("Genero");
-		tabla = new JTable(modelo);
+	
+		
+		tabla = new ZebraJTable(modelo);
+		/*tabla.setBackground( Color.darkGray );
+		tabla.setForeground( Color.white );
+		tabla.setSelectionBackground( Color.yellow );
+		tabla.setSelectionForeground( Color.black );*/
 		tabla.setSize(500,250);
+		
 		getPopUp();
 
 		// Instanciamos el TableRowSorter y lo añadimos al JTable
@@ -109,6 +118,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 		    		int[] fila = new int[1];
 		    		fila[0] = tabla.rowAtPoint(e.getPoint());
 		    		meterEnPlayList(fila);
+		    		repaint();
 		    		//TODO CODIGO MOVIDO A meterEnPlayList
 		    	}
 		      }
@@ -149,7 +159,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 
 		JScrollPane scroll = new JScrollPane(tabla);
 		scroll.setSize(500,250);
-		this.add(scroll);
+		this.add(scroll,BorderLayout.CENTER);
 		
 		busquedaRapida = new JTextField("");
 		busquedaRapida.setSize(100,10);
@@ -159,16 +169,19 @@ public class BibliotecaInterfaz extends JPanelRound{
 			@Override
 			public void removeUpdate(DocumentEvent e) {
 				filtraRapido();
+				repaint();
 			}
 
 			@Override
 			public void insertUpdate(DocumentEvent e) {
 				filtraRapido();
+				repaint();
 			}
 			
 			@Override
 			public void changedUpdate(DocumentEvent e) {
 				filtraRapido();
+				repaint();
 			}
 		});
 		menuBI.add(busquedaRapida);
@@ -255,6 +268,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 							}
 							String[] temas = listaRepr.getListado();
 		                    interfazPadre.getInfoPlaylist().actualizaTemas(temas);
+		                    repaint();
 						}
 						else
 						{
@@ -271,7 +285,8 @@ public class BibliotecaInterfaz extends JPanelRound{
 			elimina = new JMenuItem("Eliminar seleccionados de la biblioteca");
 			elimina.addMouseListener(new java.awt.event.MouseAdapter() {
 				public  void mouseReleased(java.awt.event.MouseEvent evt) {		
-						borraElemBiblioteca();	
+						borraElemBiblioteca();
+						repaint();
 						//He movido el codigo a este metodo para no duplicarlo con las key
                     }
 				});
@@ -299,6 +314,7 @@ public class BibliotecaInterfaz extends JPanelRound{
                     
                     	actualiza();
                     	busquedaRapida.setText("");
+                    	repaint();
                     }
 				};
 			});
@@ -345,6 +361,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 							pt.setVisible(true);
 						}
 						actualiza();
+						repaint();
 					}
 				}
 			});
@@ -360,6 +377,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 					//TODO Mostrar un panel con los campos a buscar		
 					FiltroDialog fd = new FiltroDialog(interfazPadre, true,elQueOrdena);
 					fd.setVisible(true);
+					repaint();
 				}
 			});
 		}
@@ -390,6 +408,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 	
 	public void filtraRapido(){
 		elQueOrdena.setRowFilter(javax.swing.RowFilter.regexFilter("(?i)"+busquedaRapida.getText()));
+		repaint();
 	}
 	
 	public void meterEnPlayList(int[] fila){
@@ -405,6 +424,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 		        interfazPadre.getInfoPlaylist().actualizaTemas(temas);
 		       	//pasamos de la fila recibida a la fila sin filtrar
 		       	//Anade a la listaReproduccion
+		        repaint();
 	        }
         }
 	}
@@ -426,6 +446,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 			}
         	actualiza();
         	busquedaRapida.setText("");
+        	repaint();
 		}
 		else
 		{
@@ -456,5 +477,6 @@ public class BibliotecaInterfaz extends JPanelRound{
 			}
 			i++;
 		}
+		repaint();
 	}
 }

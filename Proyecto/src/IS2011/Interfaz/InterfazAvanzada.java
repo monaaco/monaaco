@@ -140,11 +140,14 @@ public class InterfazAvanzada extends JFrame {
 		backGround.add(cerrarBoton);
 		
 		this.setSize(700,350);
-		this.setContentPane(backGround);
+		
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
 		this.setUndecorated(true);	
 		this.setVisible(true);
+		this.setIconImage(Toolkit.getDefaultToolkit().getImage("images/Icono.png")); 
+		AWTUtilities.setWindowOpaque(this, false);
+		this.setContentPane(backGround);
 		
 		restante= false;
 		
@@ -431,6 +434,8 @@ public class InterfazAvanzada extends JFrame {
 	public JSlider getBarraProgreso(){
 		if(barraProgreso == null){
 			barraProgreso = new JSlider();
+			CustomSlider sliderUI = new CustomSlider(barraProgreso);
+			//barraProgreso.setUI(sliderUI);
 			barraProgreso.setOpaque(false);
 			barraProgreso.addMouseListener(new MouseAdapter() {
 				@Override

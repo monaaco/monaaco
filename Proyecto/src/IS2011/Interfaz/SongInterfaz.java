@@ -58,6 +58,7 @@ public class SongInterfaz extends JFrame{
 		this.setForeground(fgColor);
 		this.setEnabled(true);	
 		this.setAlwaysOnTop(true);
+		this.setIconImage(Toolkit.getDefaultToolkit().getImage("images/Icono.png")); 
 
 		
 		

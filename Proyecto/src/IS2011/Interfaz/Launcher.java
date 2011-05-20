@@ -5,6 +5,10 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 
+
+import java.awt.event.*; 
+
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -24,9 +28,17 @@ public class Launcher extends JWindow {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	static java.awt.TrayIcon trayIcon; 
+	static java.awt.SystemTray tray;  
+	
 	BorderLayout borderLayout1 = new BorderLayout();
-	  JLabel imageLabel = new JLabel();
-	  JPanel southPanel = new JPanel();
+	JLabel imageLabel = new JLabel();
+	JPanel southPanel = new JPanel();
+	static InterfazAvanzada interfaz;
+	
+	static ImageIcon menuBarIcon = new ImageIcon("images/barIcon.png");
+	static ImageIcon icono = new ImageIcon("images/Icono.png");
 	  
 	ImageIcon monkeyLoading1 = new ImageIcon("images/Skin3/launcher/monkeyLoading1.png");	
 	ImageIcon monkeyLoading2 = new ImageIcon("images/Skin3/launcher/monkeyLoading2.png");	
@@ -68,6 +80,65 @@ public class Launcher extends JWindow {
 		  imageLabel.setIcon(im);
 		  this.repaint();
 	  }
+	  public static void IconTray(){ 
+	        /*Se verifica si el sistema soporta los try icons*/ 
+	        if (SystemTray.isSupported()) { 
+
+	            tray = SystemTray.getSystemTray(); 
+
+	            //Se asigna la imagen que del tray icon 
+	            ImageIcon im = menuBarIcon; 
+	                       
+	            //Este listener permite salir de la aplicacion 
+	            ActionListener salirListener = new ActionListener() { 
+	                public void actionPerformed(ActionEvent e) { 
+	                    System.out.println("Cerrando..."); 
+	                    System.exit(0); 
+	                } 
+	            }; 
+	             
+	            /*Creamos un acction listener que se ejecuta cuando le damos 
+	            doble click al try icon*/ 
+	            ActionListener abrirListener = new ActionListener() { 
+	                public void actionPerformed(ActionEvent e) { 
+	                    trayIconActionPerformed(e); 
+	                } 
+	            }; 
+
+	            //Aquí se crea un popup menu 
+	            PopupMenu popup = new PopupMenu(); 
+	            //Se agrega la opción de salir 
+	            MenuItem salirItem = new MenuItem("Salir");             
+
+	            //Se le asigna al item del popup el listener para salir de la app 
+	            salirItem.addActionListener(salirListener);             
+
+	            popup.add(salirItem);             
+
+	            /*Aqui creamos una instancia del tray icon y asignamos 
+	            La imagen, el nombre del tray icon y el popup*/ 
+	            trayIcon = new TrayIcon(im.getImage(), "Monaaco Player", popup);            
+
+	            trayIcon.setImageAutoSize(true); 
+	            trayIcon.addActionListener(abrirListener); 
+
+	            try { 
+	                tray.add(trayIcon); 
+
+	            } catch (AWTException ex) { 
+	                ex.printStackTrace(); 
+	            } 
+
+	        } else { 
+	            System.err.println("System tray is currently not supported."); 
+	        } 
+	    } 
+	   
+	    private static void trayIconActionPerformed(java.awt.event.ActionEvent evt){ 
+	    	interfaz.setVisible(true); 
+	    	interfaz.toFront(); 
+	       // tray.remove(trayIcon); 
+	    }  
 	  
 	public static void main(String[] args) throws NullPointerException, IllegalStateException, MalformedURLException, IOException {
 
@@ -116,11 +187,15 @@ public class Launcher extends JWindow {
 		
 		//Cargamos las opciones
 		
-		InterfazAvanzada interfaz;
+		
 		interfaz = InterfazAvanzada.getSingleton();
 		
 		interfaz.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		interfaz.setVisible(true);
+		
+		IconTray();
+
+		
 		
 		
 		//interfaz = new PlayerInterface(); 

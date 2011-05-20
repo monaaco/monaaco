@@ -1,6 +1,6 @@
 <biblioteca>
   <trackList>
-    <track id="2">
+    <track id="1">
       <name>Donde duele inspira</name>
       <artist>Flowklorikos</artist>
       <albumArtist></albumArtist>
@@ -11,9 +11,9 @@
       <totalTime>216</totalTime>
       <bitRate>320</bitRate>
       <comments>www.HHGroups.com</comments>
-      <location>sounds\prueba.mp3</location>
+      <location>C:\hlocal\workspace-3.4.2\Proyecto\sounds\prueba.mp3</location>
     </track>
-    <track id="3">
+    <track id="2">
       <name>Three Little Birds</name>
       <artist>Bob Marley</artist>
       <albumArtist></albumArtist>
@@ -24,9 +24,9 @@
       <totalTime>183</totalTime>
       <bitRate>160</bitRate>
       <comments></comments>
-      <location>sounds\prueba2.ogg</location>
+      <location>C:\hlocal\workspace-3.4.2\Proyecto\sounds\prueba2.ogg</location>
     </track>
-    <track id="4">
+    <track id="3">
       <name>Shrink the World</name>
       <artist>Yellowcard</artist>
       <albumArtist>Yellowcard</albumArtist>
@@ -37,7 +37,7 @@
       <totalTime>201</totalTime>
       <bitRate>128</bitRate>
       <comments>http://glamorous-indie-rocknroll.blogspot.com</comments>
-      <location>sounds\prueba3.mp3</location>
+      <location>C:\hlocal\workspace-3.4.2\Proyecto\sounds\prueba3.mp3</location>
     </track>
   </trackList>
 </biblioteca>

@@ -33,7 +33,6 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import javax.swing.text.Document;
 
-import com.sun.imageio.plugins.png.RowFilter;
 
 import IS2011.FiltrosArchivos.*;
 import IS2011.biblioteca.GestorBiblioteca;
@@ -337,7 +336,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 		}
 		else if(file.getName().toLowerCase().endsWith(".mp3") || file.getName().toLowerCase().endsWith(".ogg") || file.getName().toLowerCase().endsWith(".wav"))
 		{
-			HashMap<String,Boolean> hash = GestorBiblioteca.getInstance().crearHashMap();
+			HashMap<String,Boolean> hash = GestorBiblioteca.getInstance().getHashMap();
 			if(!hash.containsKey(file.getAbsolutePath()))
 			{
 				Track aux = new Track(file.getAbsolutePath());

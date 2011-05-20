@@ -18,7 +18,10 @@ import javax.swing.UIManager;
 
 import com.sun.org.apache.bcel.internal.generic.GETSTATIC;
 
+import IS2011.GestorXML.GestorXML;
+import IS2011.biblioteca.Biblioteca;
 import IS2011.biblioteca.GestorBiblioteca;
+import IS2011.biblioteca.Track;
 
 import javazoom.jlgui.basicplayer.BasicPlayer;
 
@@ -69,6 +72,7 @@ public class Launcher extends JWindow {
 		    this.getContentPane().setLayout(borderLayout1);
 		    this.getContentPane().add(imageLabel, BorderLayout.CENTER);
 		    this.pack();
+		    GestorBiblioteca.getInstance();
 		   Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
 		   Dimension ventana = this.getSize();
 		   this.setLocation((pantalla.width - ventana.width) / 2,(pantalla.height - ventana.height) / 2);

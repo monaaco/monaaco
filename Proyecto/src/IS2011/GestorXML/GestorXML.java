@@ -9,15 +9,16 @@ import java.io.InputStreamReader;
 
 import javax.swing.JOptionPane;
 
+
 import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.DomDriver;
-import com.thoughtworks.xstream.io.xml.StaxDriver;
-import com.thoughtworks.xstream.io.xml.XomDriver;
+import com.thoughtworks.xstream.io.xml.*;
+
 
 public class GestorXML<T extends Object>{
 
 
 	private InputStream is = null;
+	
 	private XStream xs = null;
 	
 	/**
@@ -25,39 +26,34 @@ public class GestorXML<T extends Object>{
 	 */
 	public GestorXML(){	
 		//DomDriver carga mas lento
-		 //xs = new XStream();
 		xs = new XStream(new DomDriver());
+		//StaxDriver genera un xml de una sola linea
+		//xs = new XStream(new StaxDriver());
 	}
 	
 	
 	/**
 	 * Carga en objeto el contenido del XML en el fichero "filename"
 	 * @param filename
+	 * @return objeto cargada
+	 * @throws FileNotFoundException 
 	 */
-	public void cargar(String filename){
-		cargar(new File(filename));
+	public T cargar(String filename) throws FileNotFoundException{
+		return cargar(new File(filename));
 	}
 	
 	/**
 	 * Carga en objeto el contenido del XML en el fichero File
 	 * @param file
+	 * @return objeto cargada
+	 * @throws FileNotFoundException 
 	 */
-	public T cargar(File file){
+	public T cargar(File file) throws FileNotFoundException{
 		T objeto = (T) new Object();
-		try {
 			 is = new FileInputStream(file);
 			 xs.processAnnotations(objeto.getClass());
 			 //necesario InputStreamReader para que lea carácteres especiales como tíldes!
 			 objeto = (T) xs.fromXML(new InputStreamReader(is));
-		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null,
-				    "Problema en la carga, el formato es erróneo.\n" +
-				    e.getMessage(),
-				    "Error carga de la biblioteca",
-				    JOptionPane.WARNING_MESSAGE);
-			//TODO crear un nuevo xml vacío
-			e.printStackTrace();
-		}
 		return objeto;
 	}
 

@@ -19,7 +19,7 @@ public class FiltroSoportados extends FileFilter{
 
 	@Override
 	public String getDescription() {
-        return ("Archivos de audio soportados.(*.MP3; *.OGG)");
+        return ("Archivos de audio soportados.(*.WAV; *.MP3; *.OGG)");
 	}
 
 }

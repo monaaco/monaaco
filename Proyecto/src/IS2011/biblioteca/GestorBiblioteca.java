@@ -1,12 +1,9 @@
 package IS2011.biblioteca;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.*;
 
 import javax.swing.JOptionPane;
-
-import com.thoughtworks.xstream.mapper.CannotResolveClassException;
 
 import IS2011.GestorXML.GestorXML;
 
@@ -22,10 +19,10 @@ public class GestorBiblioteca {
 	private GestorXML<Biblioteca> gestorXML = null;
 	
 	/**
-	 * Fichero por defecto
-	 */
-	private File fileBiblioteca = new File("xml/biblioteca.xml");
-	
+	 * Ruta de la biblioteca por defecto 
+	 */	
+	private final String rutaBiblioteca = "xml/biblioteca.xml";
+			
 	private Biblioteca biblioteca = null;
 	
 	/**
@@ -118,7 +115,7 @@ public class GestorBiblioteca {
 	 * Guarda la biblioteca en XML en la ruta por defecto
 	 */
 	public void guardarXML(){
-		gestorXML.guardar(getBiblioteca(), fileBiblioteca);
+		gestorXML.guardar(getBiblioteca(), rutaBiblioteca);
 	}
 	
 	/**
@@ -141,29 +138,7 @@ public class GestorBiblioteca {
 	 * Carga el archivo xml
 	 */
 	public void cargarXML() {
-		try {
-			setBiblioteca(gestorXML.cargar(fileBiblioteca));
-		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null,
-				    "Problema en la carga, el formato es erróneo.\n" +
-				    "Se procederá a crear una biblioteca vacía\n" +
-				    e.getMessage(),
-				    "Error carga de la biblioteca",
-				    JOptionPane.WARNING_MESSAGE);
-					//crear y cargar un nuevo xml vacío
-					gestorXML.guardar(new Biblioteca(), fileBiblioteca);
-			e.printStackTrace();
-		} finally {
-			try {
-				setBiblioteca(gestorXML.cargar(fileBiblioteca));
-			} catch (Exception e) {
-				JOptionPane.showMessageDialog(null,
-					    "Problema en la carga, el formato es erróneo.\n" +
-					    e.getMessage(),
-					    "Error carga de la biblioteca",
-					    JOptionPane.WARNING_MESSAGE);
-			}
-		}
+			cargarXML(rutaBiblioteca);
 	}
 	
 	/**
@@ -179,7 +154,6 @@ public class GestorBiblioteca {
 	 * @param file
 	 */
 	public void cargarXML(File file) {
-	
 		try {
 			setBiblioteca(gestorXML.cargar(file));
 		} catch (Exception e) {
@@ -190,11 +164,11 @@ public class GestorBiblioteca {
 				    "Error carga de la biblioteca",
 				    JOptionPane.WARNING_MESSAGE);
 					//crear y cargar un nuevo xml vacío
-					gestorXML.guardar(new Biblioteca(), fileBiblioteca);
-			e.printStackTrace();
+					gestorXML.guardar(new Biblioteca(), rutaBiblioteca);
+				e.printStackTrace();
 		} finally {
 			try {
-				setBiblioteca(gestorXML.cargar(fileBiblioteca));
+				setBiblioteca(gestorXML.cargar(rutaBiblioteca));
 			} catch (Exception e) {
 				JOptionPane.showMessageDialog(null,
 					    "Problema en la carga, el formato es erróneo.\n" +

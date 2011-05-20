@@ -16,7 +16,6 @@ import com.thoughtworks.xstream.io.xml.*;
 
 public class GestorXML<T extends Object>{
 
-
 	private InputStream is = null;
 	
 	private XStream xs = null;
@@ -29,6 +28,7 @@ public class GestorXML<T extends Object>{
 		xs = new XStream(new DomDriver());
 		//StaxDriver genera un xml de una sola linea
 		//xs = new XStream(new StaxDriver());
+		//xs.processAnnotations();
 	}
 	
 	
@@ -49,12 +49,9 @@ public class GestorXML<T extends Object>{
 	 * @throws Exception 
 	 */
 	public T cargar(File file) throws Exception{
-		 T objeto = (T) new Object();
 		 is = new FileInputStream(file);
-		 xs.processAnnotations(objeto.getClass());
 		 //necesario InputStreamReader para que lea carácteres especiales como tíldes!
-		 objeto = (T) xs.fromXML(new InputStreamReader(is));
-		 return objeto;
+		 return (T) xs.fromXML(new InputStreamReader(is));
 	}
 
 	
@@ -74,15 +71,14 @@ public class GestorXML<T extends Object>{
 		if( objeto  != null){
 			try {
 				// Esta linea es para que haga caso de las anotaciones del tipo @XStream*
-				xs.processAnnotations(objeto.getClass());
 				xs.toXML(objeto, new FileOutputStream(file));
 			} catch (FileNotFoundException e) {
+				e.printStackTrace();
 				JOptionPane.showMessageDialog(null,
 					    "El fichero xml no ha podido ser guardado.\n" +
 					    e.getMessage(),
 					    "Error carga de la biblioteca",
 					    JOptionPane.WARNING_MESSAGE);
-				e.printStackTrace();
 			}
 		}
 	}

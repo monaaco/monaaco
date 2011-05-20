@@ -72,8 +72,11 @@ public class Launcher extends JWindow {
 		    this.getContentPane().setLayout(borderLayout1);
 		    this.getContentPane().add(imageLabel, BorderLayout.CENTER);
 		    this.pack();
+		    
+		    //Carga de la biblioteca
 		    GestorBiblioteca.getInstance();
-		   Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+		   
+		    Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
 		   Dimension ventana = this.getSize();
 		   this.setLocation((pantalla.width - ventana.width) / 2,(pantalla.height - ventana.height) / 2);
 		   

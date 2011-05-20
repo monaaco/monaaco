@@ -53,6 +53,10 @@ public class SongInfoInterfaz extends JPanelTransparente {
 		
 	}
 	
+	/**
+	 *  Inicializa el JPanelTransparenet infoPanel en caso de que no exista 
+	 *  @return JPanelTransparente 
+	 */
 	private JPanelTransparente getInfoPanel() {
 		if(infoPanel == null){
 			infoPanel = new JPanelTransparente();
@@ -79,6 +83,10 @@ public class SongInfoInterfaz extends JPanelTransparente {
 		return infoPanel;
 	}
 	
+	/**
+	 * Modificamos el Track mostrado actualmente por el que pasamos por parametro
+	 *  @param pista indica la pista a mostrar
+	 */
 	public void actualiza(Track pista){
 		this.track = pista;
 		GridBagConstraints constraints = new GridBagConstraints();
@@ -105,11 +113,13 @@ public class SongInfoInterfaz extends JPanelTransparente {
 		info.setBounds(160,20,110,400);
 		principal.add(getInfoPanel());
 		principal.setSize(600,150);*/
-		principal.add(getInfoPanel(),constraints);
-		
-
-		
+		principal.add(getInfoPanel(),constraints);	
 	}
+	
+	/**
+	 *  Inicializa el JPanel caratulaPanel en caso de que no exista 
+	 *  @return JPanel 
+	 */
 	private JPanel getCaratulaPanel() {
 		if(caratulaPanel == null){
 			caratulaPanel = new JPanel();
@@ -132,11 +142,18 @@ public class SongInfoInterfaz extends JPanelTransparente {
 	
 
 	
-	
+	/**
+	 *  Accesora para Track
+	 *  @return Track 
+	 */
 	public Track getTrack(){
 		return track;
 	}
 	
+	/**
+	 *  Accesora para principal
+	 *  @return SongInfoInterfaz
+	 */
 	public SongInfoInterfaz getPrincipal(){
 		return principal;
 	}

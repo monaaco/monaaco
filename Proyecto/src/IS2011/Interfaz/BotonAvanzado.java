@@ -1,12 +1,11 @@
 package IS2011.Interfaz;
 import java.awt.*;
-import java.awt.event.*;
 import java.awt.geom.*;
 import javax.swing.*;
 
 public class BotonAvanzado extends JButton {
 	
-	private Color colorFondo,colorPresionado;
+	private Color colorFondo, colorPresionado;
 	private Shape figura;
 	private ImageIcon iCon;
 	private ImageIcon iConS;

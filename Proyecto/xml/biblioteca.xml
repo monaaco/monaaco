@@ -1,30 +1,32 @@
 <biblioteca>
   <trackList>
-    <track id="3">
+    <track id="2">
       <name>Donde duele inspira</name>
       <artist>Flowklorikos</artist>
       <albumArtist></albumArtist>
       <album>Donde duele inspira</album>
       <genre>Hip-Hop</genre>
-      <size>0</size>
+      <kind>MPEG-1 Layer 3</kind>
+      <size>16106127360</size>
       <totalTime>216</totalTime>
       <bitRate>320</bitRate>
       <comments>www.HHGroups.com</comments>
       <location>sounds\prueba.mp3</location>
     </track>
-    <track id="4">
+    <track id="3">
       <name>Three Little Birds</name>
       <artist>Bob Marley</artist>
       <albumArtist></albumArtist>
-      <album>One Love - The Very Best Of Bob Marley</album>
-      <genre>Reggae</genre>
-      <size>0</size>
+      <album></album>
+      <genre></genre>
+      <kind>Ogg Vorbis v1</kind>
+      <size>16106127360</size>
       <totalTime>183</totalTime>
       <bitRate>160</bitRate>
       <comments></comments>
       <location>sounds\prueba2.ogg</location>
     </track>
-    <track id="0">
+    <track id="4">
       <name>Shrink the World</name>
       <artist>Yellowcard</artist>
       <albumArtist>Yellowcard</albumArtist>

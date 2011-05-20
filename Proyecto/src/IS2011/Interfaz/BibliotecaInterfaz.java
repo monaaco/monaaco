@@ -35,14 +35,17 @@ import javax.swing.text.Document;
 
 import com.sun.imageio.plugins.png.RowFilter;
 
-import IS2011.FiltrosArchivos.FiltroMP3;
-import IS2011.FiltrosArchivos.FiltroOGG;
-import IS2011.FiltrosArchivos.FiltroSoportados;
-import IS2011.bibliotecaXML.GestorXML;
-import IS2011.bibliotecaXML.Playlist;
-import IS2011.bibliotecaXML.Track;
+import IS2011.FiltrosArchivos.*;
+import IS2011.biblioteca.GestorBiblioteca;
+import IS2011.biblioteca.Playlist;
+import IS2011.biblioteca.Track;
 
 public class BibliotecaInterfaz extends JPanelRound{
+
+	/**
+	 * serialVersionUID
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private BibliotecaInterfaz frame= null;
 	
@@ -58,16 +61,16 @@ public class BibliotecaInterfaz extends JPanelRound{
 	private JTextField busquedaRapida= null;
 	JFrame popup = null;
 	private ZebraJTable tabla= null;
-	private GestorXML biblioteca=null; //Sino es un ArrayList es la propia biblioteca.
+	
+	
 	private TableRowSorter<TableModel> elQueOrdena=null; 
 	private MyDefaultTableModel modelo= null;
 	private String escrito;
 	private long mili;
 	
-	public BibliotecaInterfaz(GestorXML library, InterfazAvanzada ia){
-		//super("Biblioteca");
+	public BibliotecaInterfaz(InterfazAvanzada ia){
+		//super("library");
 		interfazPadre = ia;
-		biblioteca = library;
 		initBibliotecaInterfaz();
 		frame = this;
 		escrito = "";
@@ -263,7 +266,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 							{
 								fila = seleccionadas[i];
 								fila = tabla.convertRowIndexToModel (fila);
-								aux = biblioteca.getBiblioteca().get(fila);
+								aux = GestorBiblioteca.getInstance().getArrayList().get(fila);
 					        	listaRepr.add(aux.getLocation());
 							}
 							String[] temas = listaRepr.getListado();
@@ -334,11 +337,11 @@ public class BibliotecaInterfaz extends JPanelRound{
 		}
 		else if(file.getName().toLowerCase().endsWith(".mp3") || file.getName().toLowerCase().endsWith(".ogg") || file.getName().toLowerCase().endsWith(".wav"))
 		{
-			HashMap<String,Boolean> hash = biblioteca.crearHashMap();
+			HashMap<String,Boolean> hash = GestorBiblioteca.getInstance().crearHashMap();
 			if(!hash.containsKey(file.getAbsolutePath()))
 			{
 				Track aux = new Track(file.getAbsolutePath());
-				biblioteca.add(aux);
+				GestorBiblioteca.getInstance().add(aux);
 				hash.put(file.getAbsolutePath(), Boolean.TRUE);
 			}
 		}
@@ -356,7 +359,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 						for(int i =0;i< seleccionadas.length ;i++){
 							fila = seleccionadas[i];
 							fila = tabla.convertRowIndexToModel (fila);
-							Track track = biblioteca.getBiblioteca().get(fila);
+							Track track = GestorBiblioteca.getInstance().getArrayList().get(fila);
 							PropiedadesTrack pt = new PropiedadesTrack(interfazPadre, true ,track);
 							pt.setVisible(true);
 						}
@@ -395,7 +398,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 		
 		
 		/*2º Meter todo en la tabla*/
-		Iterator it = biblioteca.getBiblioteca().iterator();
+		Iterator<Track> it = GestorBiblioteca.getInstance().getArrayList().iterator();
 		Track aux= null;
 		while (it.hasNext())
 		{
@@ -416,7 +419,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 			if ((fila[i] > -1))
 	        {
 		       	fila[i] = tabla.convertRowIndexToModel(fila[i]);
-		       	Track aux = biblioteca.getBiblioteca().get(fila[i]);
+		       	Track aux = GestorBiblioteca.getInstance().getArrayList().get(fila[i]);
 		       	Playlist listaRepr = interfazPadre.getListaReproduccion();
 		       	listaRepr.add(aux.getLocation());
 		       	//interfazPadre.setCurrentTrack(listaRepr.current());
@@ -442,7 +445,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 			{
 				fila = seleccionadas[i];
 				fila = tabla.convertRowIndexToModel (fila);
-				biblioteca.getBiblioteca().remove(fila);
+				GestorBiblioteca.getInstance().getArrayList().remove(fila);
 			}
         	actualiza();
         	busquedaRapida.setText("");
@@ -465,7 +468,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 	}
 	
 	public void buscaNombre(String nombre){
-		Iterator it = biblioteca.getBiblioteca().iterator();
+		Iterator<Track> it = GestorBiblioteca.getInstance().getArrayList().iterator();
 		Track tr;
 		int i = 0;
 		while(it.hasNext()){

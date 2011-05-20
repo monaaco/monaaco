@@ -6,7 +6,7 @@ import javax.swing.*;
 
 
 //import javazoom.jlgui.basicplayer.BasicPlayerException;
-import IS2011.bibliotecaXML.Track;
+import IS2011.biblioteca.Track;
 
 import com.sun.awt.AWTUtilities;
 

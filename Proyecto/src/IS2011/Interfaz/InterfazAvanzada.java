@@ -3,15 +3,12 @@ package IS2011.Interfaz;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
-import java.lang.reflect.Method;
 
 import javax.swing.*;
-//import javax.swing.event.*;
-//import javax.swing.filechooser.FileFilter;
 
 
 import IS2011.FiltrosArchivos.*;
-import IS2011.bibliotecaXML.*;
+import IS2011.biblioteca.*;
 
 import com.sun.awt.AWTUtilities;
 
@@ -48,7 +45,6 @@ public class InterfazAvanzada extends JFrame {
 	private SongInterfaz infoPlaylist = null;
 	private SongInfoInterfaz infoSong = null;
 	private BibliotecaInterfaz bibliotecaInterfaz = null;
-	private GestorXML gestorBiblioteca = null;
 
 	private BotonAvanzado stopButton = null;
 	private BotonAvanzado pauseButton = null;
@@ -155,9 +151,7 @@ public class InterfazAvanzada extends JFrame {
 		bibliotecaIcono.setBounds(470,290,90,45);
 		backGround.add(bibliotecaIcono);
 		
-		gestorBiblioteca = new GestorXML();
-		gestorBiblioteca.cargar();
-		this.setBiblioteca(gestorBiblioteca,this);
+		this.setBiblioteca(this);
 		
 		/*biliotecaInterfaz = new BibliotecaInterfaz(b,this); 
 		aux.add(biliotecaInterfaz);
@@ -494,7 +488,7 @@ public class InterfazAvanzada extends JFrame {
 					try {
 						if (desplegado == false){
 						principal.setSize(700,600);
-						bibliotecaInterfaz = new BibliotecaInterfaz(gestorBiblioteca,principal); 
+						bibliotecaInterfaz = new BibliotecaInterfaz(principal); 
 						backGround.add(bibliotecaInterfaz);
 						bibliotecaInterfaz.setBounds(25,350, 650, 200);
 						desplegado = true;
@@ -610,7 +604,7 @@ public class InterfazAvanzada extends JFrame {
 			salirButton.addMouseListener(new java.awt.event.MouseAdapter() {
 				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
-						gestorBiblioteca.guardar();
+						GestorBiblioteca.getInstance().guardar();
 						System.exit(0);
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -631,7 +625,7 @@ public class InterfazAvanzada extends JFrame {
 			salirItem.addMouseListener(new java.awt.event.MouseAdapter() {
 				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
-						gestorBiblioteca.guardar();
+						GestorBiblioteca.getInstance().guardar();
 						System.exit(0);
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -838,9 +832,8 @@ public class InterfazAvanzada extends JFrame {
 	 * @param b  Biblioteca asociada
 	 * @param ia Referencia a la interfaz avanzada de la que procede
 	 */
-	public void setBiblioteca(GestorXML b, InterfazAvanzada ia){
-		gestorBiblioteca = b;
-		bibliotecaInterfaz = new BibliotecaInterfaz(b, ia);
+	public void setBiblioteca(InterfazAvanzada ia){
+		bibliotecaInterfaz = new BibliotecaInterfaz(ia);
 		bibliotecaInterfaz.setVisible(true);
 	}
 	

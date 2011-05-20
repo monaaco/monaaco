@@ -1,7 +1,8 @@
 package IS2011.tests;
 
 import java.util.*;
-import IS2011.bibliotecaXML.*;
+
+import IS2011.biblioteca.*;
 import junit.framework.TestCase;
 
 public class BibliotecaTest extends TestCase {
@@ -19,9 +20,9 @@ public class BibliotecaTest extends TestCase {
 		trList.add(tr);
 		trList.add(tr2);
 		b.addAll(trList);
-		assertEquals(b.getBiblioteca().get(0), tr);
-		assertEquals(b.getBiblioteca().get(1), tr2);
-		assertEquals(b.getBiblioteca(), trList);
+		assertEquals(b.getArrayList().get(0), tr);
+		assertEquals(b.getArrayList().get(1), tr2);
+		assertEquals(b.getArrayList(), trList);
 	}
 	
 	/**
@@ -34,8 +35,8 @@ public class BibliotecaTest extends TestCase {
 		Track tr2 = new Track("sounds/prueba.mp3");
 		b.add(tr);
 		b.add(tr2);
-		assertEquals(b.getBiblioteca().get(0), tr);
-		assertEquals(b.getBiblioteca().get(1), tr2);
+		assertEquals(b.getArrayList().get(0), tr);
+		assertEquals(b.getArrayList().get(1), tr2);
 	}
 	
 	/**
@@ -50,9 +51,9 @@ public class BibliotecaTest extends TestCase {
 		trList.add(tr);
 		trList.add(tr2);
 		b.addAll(trList);
-		assertEquals(b.getBiblioteca().get(0), tr);
-		assertEquals(b.getBiblioteca().get(1), tr2);
-		assertEquals(b.getBiblioteca(), trList);
+		assertEquals(b.getArrayList().get(0), tr);
+		assertEquals(b.getArrayList().get(1), tr2);
+		assertEquals(b.getArrayList(), trList);
 	}
 	
 	

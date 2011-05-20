@@ -1,7 +1,7 @@
 package IS2011.Interfaz;
 import java.util.Map;
 
-import IS2011.bibliotecaXML.Track;
+import IS2011.biblioteca.Track;
 
 
 import javazoom.jlgui.basicplayer.BasicController;

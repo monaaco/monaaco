@@ -12,7 +12,7 @@ import javax.swing.*;
 import javax.xml.bind.Marshaller.Listener;
 
 //import javazoom.jlgui.basicplayer.BasicPlayerException;
-import IS2011.bibliotecaXML.Track;
+import IS2011.biblioteca.Track;
 
 import com.sun.awt.AWTUtilities;
 

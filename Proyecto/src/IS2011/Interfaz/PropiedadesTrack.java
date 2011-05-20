@@ -21,7 +21,7 @@ import org.jaudiotagger.audio.AudioFileIO;
 import org.jaudiotagger.tag.FieldKey;
 import org.jaudiotagger.tag.Tag;
 
-import IS2011.bibliotecaXML.Track;
+import IS2011.biblioteca.Track;
 
 /*Nuevo Frame
 En este frame mostramos la info de la linea seleccionada en la biblioteca 

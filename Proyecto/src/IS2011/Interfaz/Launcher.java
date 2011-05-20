@@ -18,7 +18,7 @@ import javax.swing.UIManager;
 
 import com.sun.org.apache.bcel.internal.generic.GETSTATIC;
 
-import IS2011.bibliotecaXML.GestorXML;
+import IS2011.biblioteca.GestorBiblioteca;
 
 import javazoom.jlgui.basicplayer.BasicPlayer;
 

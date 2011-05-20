@@ -1,6 +1,6 @@
 package IS2011.tests;
 
-import IS2011.bibliotecaXML.*;
+import IS2011.biblioteca.*;
 import javazoom.jlgui.basicplayer.BasicPlayerException;
 import junit.framework.TestCase;
 

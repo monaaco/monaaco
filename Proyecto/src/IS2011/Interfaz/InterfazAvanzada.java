@@ -523,7 +523,6 @@ public class InterfazAvanzada extends JFrame {
 			stopButton.addMouseListener(new java.awt.event.MouseAdapter() {
 				public void mouseReleased(java.awt.event.MouseEvent evt) {
 					reproducirSiguiente();
-					infoPlaylist.marcaActual();
 				};
 			});
 		}
@@ -587,7 +586,6 @@ public class InterfazAvanzada extends JFrame {
 				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
 						reproducirAnterior();
-						infoPlaylist.marcaActual();
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
@@ -648,9 +646,11 @@ public class InterfazAvanzada extends JFrame {
             mPlayer.stop();
             infoSong.actualiza(listaReproduccion.getCurrent());
             mPlayer.play();
+            infoPlaylist.marcaActual();
         } catch (BasicPlayerException e) {
             e.printStackTrace();
         }
+       
     }
     
     public void reproducirAnterior(){
@@ -660,6 +660,7 @@ public class InterfazAvanzada extends JFrame {
             mPlayer.stop();
             infoSong.actualiza(listaReproduccion.getCurrent());
             mPlayer.play();
+            infoPlaylist.marcaActual();
         } catch (BasicPlayerException e) {
             e.printStackTrace();
         }
@@ -879,6 +880,11 @@ public class InterfazAvanzada extends JFrame {
 			setDefaultPalyList();
 		}
 		return listaReproduccion;
+	}
+	
+	public boolean isPlaying(){
+		if(mPlayer != null)return (mPlayer.getStatus() == mPlayer.PLAYING);
+		else return false;
 	}
 	
 }

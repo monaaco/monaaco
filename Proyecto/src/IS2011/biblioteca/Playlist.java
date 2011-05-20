@@ -256,9 +256,10 @@ public class Playlist {
 		for(int i = listaTracks.length-1;i >= 0 ; i--){
 			if(getCurrentNumber() == listaTracks[i])b = true;
 			if(currentTrack > listaTracks[i])setCurrentTrack(currentTrack-1);
-			if(currentTrack > lista.size())setCurrentTrack(currentTrack-1);
+			else if(currentTrack >= lista.size())setCurrentTrack(lista.size()-1);
 			lista.remove(listaTracks[i]);
 		}
+		if(currentTrack >= lista.size())setCurrentTrack(lista.size()-1);
 		return b;
 	}
 	

@@ -426,6 +426,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 		        interfazPadre.getInfoPlaylist().actualizaTemas(temas);
 		       	//pasamos de la fila recibida a la fila sin filtrar
 		       	//Anade a la listaReproduccion
+		        interfazPadre.getInfoPlaylist().marcaActual();
 		        repaint();
 	        }
         }

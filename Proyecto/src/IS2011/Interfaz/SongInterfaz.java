@@ -245,10 +245,12 @@ public class SongInterfaz extends JFrame{
 	 *
 	 */
 	public void marcaActual(){
-		String[] lista = interfazAvanzada.getPlaylist().getListado();
-		lista[interfazAvanzada.getPlaylist().getCurrentTrack()] = lista[interfazAvanzada.getPlaylist().getCurrentTrack()].toUpperCase();
-		listado.removeAll();
-		setListado(lista);
+		if(interfazAvanzada.isPlaying()){
+			String[] lista = interfazAvanzada.getPlaylist().getListado();
+			lista[interfazAvanzada.getPlaylist().getCurrentTrack()] = lista[interfazAvanzada.getPlaylist().getCurrentTrack()].toUpperCase();
+			listado.removeAll();
+			setListado(lista);
+		}
 	}
 	
 	/**

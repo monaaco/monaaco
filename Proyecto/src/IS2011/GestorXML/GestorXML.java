@@ -23,12 +23,12 @@ public class GestorXML<T extends Object>{
 	/**
 	 * Constructora
 	 */
-	public GestorXML(){	
+	public GestorXML(Class t){	
 		//DomDriver carga mas lento
 		xs = new XStream(new DomDriver());
 		//StaxDriver genera un xml de una sola linea
 		//xs = new XStream(new StaxDriver());
-		//xs.processAnnotations();
+		xs.processAnnotations(t);
 	}
 	
 	

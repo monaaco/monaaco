@@ -47,7 +47,7 @@ public class GestorBiblioteca {
 	 * @param b
 	 */
 	private GestorBiblioteca() {
-		gestorXML = new GestorXML<Biblioteca>();
+		gestorXML = new GestorXML<Biblioteca>(Biblioteca.class);
 		cargarXML();
 	}
 

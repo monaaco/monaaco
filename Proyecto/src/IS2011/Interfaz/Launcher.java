@@ -87,59 +87,81 @@ public class Launcher extends JWindow {
 		  imageLabel.setIcon(im);
 		  this.repaint();
 	  }
-	  public static void IconTray(){ 
-	        /*Se verifica si el sistema soporta los try icons*/ 
-	        if (SystemTray.isSupported()) { 
+	  
+	  /**
+	   * Tray icon
+	   */
+	  public static void IconTray(){
+          /*Se verifica si el sistema soporta los try icons*/
+          if (SystemTray.isSupported()) {
 
-	            tray = SystemTray.getSystemTray(); 
+              tray = SystemTray.getSystemTray();
 
-	            //Se asigna la imagen que del tray icon 
-	            ImageIcon im = menuBarIcon; 
-	                       
-	            //Este listener permite salir de la aplicacion 
-	            ActionListener salirListener = new ActionListener() { 
-	                public void actionPerformed(ActionEvent e) { 
-	                    System.out.println("Cerrando..."); 
-	                    System.exit(0); 
-	                } 
-	            }; 
-	             
-	            /*Creamos un acction listener que se ejecuta cuando le damos 
-	            doble click al try icon*/ 
-	            ActionListener abrirListener = new ActionListener() { 
-	                public void actionPerformed(ActionEvent e) { 
-	                    trayIconActionPerformed(e); 
-	                } 
-	            }; 
+              //Se asigna la imagen que del tray icon
+              ImageIcon im = menuBarIcon;
+                        
+              //Este listener permite salir de la aplicacion
+              ActionListener salirListener = new ActionListener() {
+                  public void actionPerformed(ActionEvent e) {
+                      System.out.println("Cerrando...");
+                      System.exit(0);
+                  }
+              };
+              /*creamos un action listener para pasar a la siguiente cancion*/
+              ActionListener siguienteListener = new ActionListener() {
+                  public void actionPerformed(ActionEvent e) {
+                      interfaz. reproducirSiguiente();
+                  }
+              };
+              /*Creamos un action Listener para volver a la anterior canción"
+                      */
+              ActionListener anteriorListener = new ActionListener() {
+                  public void actionPerformed(ActionEvent e) {
+                      interfaz. reproducirAnterior();;
+                  }
+              };
+              /*Creamos un acction listener que se ejecuta cuando le damos
+              doble click al try icon*/
+              ActionListener abrirListener = new ActionListener() {
+                  public void actionPerformed(ActionEvent e) {
+                      trayIconActionPerformed(e);
+                  }
+              };
 
-	            //Aquí se crea un popup menu 
-	            PopupMenu popup = new PopupMenu(); 
-	            //Se agrega la opción de salir 
-	            MenuItem salirItem = new MenuItem("Salir");             
+              //Aquí se crea un popup menu
+              PopupMenu popup = new PopupMenu();
+              //Se agrega la opción de salir
+              MenuItem salirItem = new MenuItem("Salir");   
+              MenuItem siguienteItem = new MenuItem("Siguiente");
+              MenuItem anteriorItem = new MenuItem("Anterior");
 
-	            //Se le asigna al item del popup el listener para salir de la app 
-	            salirItem.addActionListener(salirListener);             
+              //Se le asigna al item del popup el listener para salir de la app
+              siguienteItem.addActionListener(siguienteListener);
+              salirItem.addActionListener(salirListener); 
+              anteriorItem.addActionListener(anteriorListener);
 
-	            popup.add(salirItem);             
+              popup.add(salirItem);    
+              popup.add(siguienteItem);   
+              popup.add(anteriorItem);  
 
-	            /*Aqui creamos una instancia del tray icon y asignamos 
-	            La imagen, el nombre del tray icon y el popup*/ 
-	            trayIcon = new TrayIcon(im.getImage(), "Monaaco Player", popup);            
+              /*Aqui creamos una instancia del tray icon y asignamos
+              La imagen, el nombre del tray icon y el popup*/
+              trayIcon = new TrayIcon(im.getImage(), "Monaaco Player", popup);           
 
-	            trayIcon.setImageAutoSize(true); 
-	            trayIcon.addActionListener(abrirListener); 
+              trayIcon.setImageAutoSize(true);
+              trayIcon.addActionListener(abrirListener);
 
-	            try { 
-	                tray.add(trayIcon); 
+              try {
+                  tray.add(trayIcon);
 
-	            } catch (AWTException ex) { 
-	                ex.printStackTrace(); 
-	            } 
+              } catch (AWTException ex) {
+                  ex.printStackTrace();
+              }
 
-	        } else { 
-	            System.err.println("System tray is currently not supported."); 
-	        } 
-	    } 
+          } else {
+              System.err.println("System tray is currently not supported.");
+          }
+      } 
 	   
 	    private static void trayIconActionPerformed(java.awt.event.ActionEvent evt){ 
 	    	interfaz.setVisible(true); 

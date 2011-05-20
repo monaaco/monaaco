@@ -142,13 +142,12 @@ public class BibliotecaInterfaz extends JPanelRound{
 		tabla.addKeyListener(new java.awt.event.KeyAdapter(){
 			public void keyReleased(KeyEvent k){
 				int c = k.getKeyCode();
-				if(((65 <= c) && (c <= 90)) || c == 32){ 
-						//Si es una letra o un espacio
+				if(((65 <= c) && (c <= 90)) || c == 32){ //Si es una letra o un espacio
 					acumulaLetra(k.getKeyChar());
 				}
 				else{	//Si no...
 					escrito = "";
-					switch(c){	// Elegimos las posibles teclas
+					switch(c){	// Elegimos el resto de las posibles teclas
 					case 127:	// suprimir
 						borraElemBiblioteca();
 						break;

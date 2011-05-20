@@ -803,6 +803,10 @@ public class InterfazAvanzada extends JFrame {
 //                        (((pantalla.height - ventana.height) / 2))-100);
 	}
 	
+	/**
+	 * Modificamos el trackActual y reproducimos pos
+	 * @param pos indica la posición de la playlist que vamos a reproducir
+	 */
 	public void setTrackNumber(int pos){
 		try{
 			listaReproduccion.setCurrentTrack(pos);
@@ -823,6 +827,11 @@ public class InterfazAvanzada extends JFrame {
 		}
 	}
 
+	
+	/**
+	 * Mutadora de bytesArchivoActual
+	 * 
+	 */
 	public void setBytesArchivo(double bytesLength) {
 		this.bytesArchivoActual = bytesLength;
 	}
@@ -830,15 +839,17 @@ public class InterfazAvanzada extends JFrame {
 	
 	/**
 	 * Asocia una biblioteca a nuestra interfaz de reproduccion
-	 * @param b  Biblioteca asociada
 	 * @param ia Referencia a la interfaz avanzada de la que procede
 	 */
 	public void setBiblioteca(InterfazAvanzada ia){
 		bibliotecaInterfaz = new BibliotecaInterfaz(ia);
 		bibliotecaInterfaz.setVisible(true);
 	}
-	
 
+	/**
+	 * Cambia el elemento actual por el que corresponda
+	 * 
+	 */
 	public void borradoElemActualPlaylist(){
 		if(pause == false || reproduciendo == false){
 			try {
@@ -866,14 +877,18 @@ public class InterfazAvanzada extends JFrame {
 		}
 	}
 	
+	/**
+	 * Accesora a infoPlaylist
+	 * @return SongInterfaz
+	 */
 	public SongInterfaz getInfoPlaylist(){
 		return infoPlaylist;
 	}
 	
 	
 	/**
-	 * Accesora
-	 * @return la lista de reproducción
+	 * Accesora a listaReproduccion
+	 * @return PlayList
 	 */
 	public Playlist getPlaylist(){
 		if( listaReproduccion == null ){
@@ -882,6 +897,10 @@ public class InterfazAvanzada extends JFrame {
 		return listaReproduccion;
 	}
 	
+	/**
+	 * Nos indica si hay alguna canción en reproducción en mPlayer.
+	 * @return boolean
+	 */
 	public boolean isPlaying(){
 		if(mPlayer != null)return (mPlayer.getStatus() == mPlayer.PLAYING);
 		else return false;

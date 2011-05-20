@@ -905,6 +905,19 @@ public class InterfazAvanzada extends JFrame {
 		if(mPlayer != null)return (mPlayer.getStatus() == mPlayer.PLAYING);
 		else return false;
 	}
-	
+	private void reproducir(){
+		try {
+			mPlayer.play();
+		} catch (BasicPlayerException e) {
+			int[] lista = new int[0];
+			lista[0] = listaReproduccion.getCurrentNumber();
+			boolean b = listaReproduccion.borraTrack(lista);
+			if(b){
+				borradoElemActualPlaylist();
+			}
+			infoPlaylist.marcaActual();
+			e.printStackTrace();
+		}
+	}
 }
 

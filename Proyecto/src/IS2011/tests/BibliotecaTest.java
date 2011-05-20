@@ -13,16 +13,16 @@ public class BibliotecaTest extends TestCase {
 	 *  que se agregan bien las tracks.
 	 */
 	public void testGetBiblioteca() {
-		Biblioteca b = new Biblioteca();
+		GestorBiblioteca.getInstance();
 		Track tr = new Track("sounds/prueba.mp3");
 		Track tr2 = new Track("sounds/prueba.mp3");
 		List<Track> trList = new LinkedList<Track>();
 		trList.add(tr);
 		trList.add(tr2);
-		b.addAll(trList);
-		assertEquals(b.getArrayList().get(0), tr);
-		assertEquals(b.getArrayList().get(1), tr2);
-		assertEquals(b.getArrayList(), trList);
+		GestorBiblioteca.getInstance().addAll(trList);
+		assertEquals(GestorBiblioteca.getInstance().getArrayList().get(0), tr);
+		assertEquals(GestorBiblioteca.getInstance().getArrayList().get(1), tr2);
+		assertEquals(GestorBiblioteca.getInstance().getArrayList(), trList);
 	}
 	
 	/**

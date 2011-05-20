@@ -11,7 +11,7 @@
       <totalTime>216</totalTime>
       <bitRate>320</bitRate>
       <comments>www.HHGroups.com</comments>
-      <location>C:\hlocal\workspace-3.4.2\Proyecto\sounds\prueba.mp3</location>
+      <location>sounds\prueba.mp3</location>
     </track>
     <track id="2">
       <name>Three Little Birds</name>
@@ -24,7 +24,7 @@
       <totalTime>183</totalTime>
       <bitRate>160</bitRate>
       <comments></comments>
-      <location>C:\hlocal\workspace-3.4.2\Proyecto\sounds\prueba2.ogg</location>
+      <location>sounds\prueba2.ogg</location>
     </track>
     <track id="3">
       <name>Shrink the World</name>
@@ -37,7 +37,7 @@
       <totalTime>201</totalTime>
       <bitRate>128</bitRate>
       <comments>http://glamorous-indie-rocknroll.blogspot.com</comments>
-      <location>C:\hlocal\workspace-3.4.2\Proyecto\sounds\prueba3.mp3</location>
+      <location>ounds\prueba3.mp3</location>
     </track>
   </trackList>
 </biblioteca>

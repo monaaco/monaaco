@@ -36,9 +36,9 @@ public class GestorXML<T extends Object>{
 	 * Carga en objeto el contenido del XML en el fichero "filename"
 	 * @param filename
 	 * @return objeto cargada
-	 * @throws FileNotFoundException 
+	 * @throws Exception 
 	 */
-	public T cargar(String filename) throws FileNotFoundException{
+	public T cargar(String filename) throws Exception{
 		return cargar(new File(filename));
 	}
 	
@@ -46,15 +46,15 @@ public class GestorXML<T extends Object>{
 	 * Carga en objeto el contenido del XML en el fichero File
 	 * @param file
 	 * @return objeto cargada
-	 * @throws FileNotFoundException 
+	 * @throws Exception 
 	 */
-	public T cargar(File file) throws FileNotFoundException{
-		T objeto = (T) new Object();
-			 is = new FileInputStream(file);
-			 xs.processAnnotations(objeto.getClass());
-			 //necesario InputStreamReader para que lea carácteres especiales como tíldes!
-			 objeto = (T) xs.fromXML(new InputStreamReader(is));
-		return objeto;
+	public T cargar(File file) throws Exception{
+		 T objeto = (T) new Object();
+		 is = new FileInputStream(file);
+		 xs.processAnnotations(objeto.getClass());
+		 //necesario InputStreamReader para que lea carácteres especiales como tíldes!
+		 objeto = (T) xs.fromXML(new InputStreamReader(is));
+		 return objeto;
 	}
 
 	

@@ -1,4 +1,4 @@
-package IS2011.bibliotecaXML;
+package IS2011.biblioteca;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,13 +15,11 @@ public class Biblioteca {
 
 	//TODO aqui podriamos tener los playlists
 	
-	public Biblioteca()
-	{
+	public Biblioteca()	{
 		b=new ArrayList<Track>();
 	}
 	
-	public ArrayList<Track> getBiblioteca()
-	{
+	public ArrayList<Track> getBiblioteca()	{
 		return b;
 	}
 	
@@ -47,7 +45,7 @@ public class Biblioteca {
 		}
 	}
 	
-	public HashMap<String,Boolean> creaHashMap(){
+	public HashMap<String,Boolean> getHashMap(){
 		HashMap<String,Boolean> resultado = new HashMap<String,Boolean>();
 		Iterator<Track> it = getBiblioteca().iterator();
 		String s;
@@ -56,6 +54,14 @@ public class Biblioteca {
 			resultado.put(s, Boolean.TRUE);
 		}
 		return resultado;
+	}
+
+	/**
+	 * Vacia la biblioteca
+	 */
+	public void removeAll() {
+		b.clear();		
+		
 	} 
 }
 

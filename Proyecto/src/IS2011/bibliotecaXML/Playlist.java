@@ -1,8 +1,8 @@
-package IS2011.bibliotecaXML;
+package IS2011.biblioteca;
 
 import java.util.*;
 
-import IS2011.bibliotecaXML.comparators.*;
+import IS2011.biblioteca.comparators.*;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 

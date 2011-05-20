@@ -1,8 +1,8 @@
-package IS2011.bibliotecaXML.comparators;
+package IS2011.biblioteca.comparators;
 
 import java.util.Comparator;
 
-import IS2011.bibliotecaXML.Track;
+import IS2011.biblioteca.Track;
 
 public class ComparatorTitulo implements Comparator<Track> {
 

@@ -1,4 +1,4 @@
-package IS2011.bibliotecaXML;
+package IS2011.biblioteca;
 
 import java.util.*;
 import java.awt.image.BufferedImage;

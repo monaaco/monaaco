@@ -54,7 +54,7 @@ public class GestorBiblioteca {
 	/**
 	 * Esta función devuelve la variable biblioteca
 	 */
-	public Biblioteca getBiblioteca(){
+	private Biblioteca getBiblioteca(){
 		return biblioteca;
 	}
 	
@@ -62,7 +62,7 @@ public class GestorBiblioteca {
 	 * Mutadora de la variable biblioteca
 	 * @param biblioteca
 	 */
-	public void setBiblioteca(Biblioteca biblioteca){
+	private void setBiblioteca(Biblioteca biblioteca){
 		this.biblioteca = biblioteca;
 	}
 
@@ -75,7 +75,7 @@ public class GestorBiblioteca {
 	}
 
 	/**
-	 * Esta función simplemente llama a la de biblioteca
+	 * Esta función adapta la de biblioteca
 	 * @param tr
 	 */
 	public void add(Track tr) {
@@ -83,14 +83,14 @@ public class GestorBiblioteca {
 	}	
 	
 	/** 
-	 * Esta función simplemente llama a la de biblioteca
+	 * Esta función adapta la de biblioteca
 	 */
 	public ArrayList<Track> getArrayList(){
 		return biblioteca.getBiblioteca();
 	}
 	
 	/** 
-	 * Esta función simplemente llama a la de biblioteca
+	 * Esta función adapta la de biblioteca
 	 */
 	public void remove(Track track){
 		//TODO
@@ -120,7 +120,7 @@ public class GestorBiblioteca {
 	
 	/**
 	 * Guarda la biblioteca en XML en la ruta indicada
-	 * @param file
+	 * @param ruta
 	 */
 	public void guardarXML(String ruta){
 		gestorXML.guardar(getBiblioteca(), ruta);
@@ -154,29 +154,7 @@ public class GestorBiblioteca {
 	 * @param file
 	 */
 	public void cargarXML(File file) {
-		try {
 			setBiblioteca(gestorXML.cargar(file));
-		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null,
-				    "Problema en la carga, el formato es erróneo.\n" +
-				    "Se procederá a crear una biblioteca vacía\n" +
-				    e.getMessage(),
-				    "Error carga de la biblioteca",
-				    JOptionPane.WARNING_MESSAGE);
-					//crear y cargar un nuevo xml vacío
-					gestorXML.guardar(new Biblioteca(), rutaBiblioteca);
-				e.printStackTrace();
-		} finally {
-			try {
-				setBiblioteca(gestorXML.cargar(rutaBiblioteca));
-			} catch (Exception e) {
-				JOptionPane.showMessageDialog(null,
-					    "Problema en la carga, el formato es erróneo.\n" +
-					    e.getMessage(),
-					    "Error carga de la biblioteca",
-					    JOptionPane.WARNING_MESSAGE);
-			}
-		}
 	}
 	
 	

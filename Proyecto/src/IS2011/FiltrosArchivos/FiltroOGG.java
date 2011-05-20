@@ -9,7 +9,6 @@ public class FiltroOGG extends FileFilter{
 	@Override
 	public boolean accept(File f) {
         if (f.getName().toLowerCase().endsWith(".ogg")
-        	|| f.getName().toLowerCase().endsWith(".OGG")
         	|| f.isDirectory()) {
             return true;
         }

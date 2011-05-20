@@ -8,8 +8,7 @@ public class FiltroSoportados extends FileFilter{
 
 	@Override
 	public boolean accept(File f) {
-        if (f.getName().toLowerCase().endsWith(".OGG")
-            || f.getName().toLowerCase().endsWith(".MP3")
+        if (f.getName().toLowerCase().endsWith(".wav")
             || f.getName().toLowerCase().endsWith(".ogg")
             || f.getName().toLowerCase().endsWith(".mp3")
         	|| f.isDirectory()) {

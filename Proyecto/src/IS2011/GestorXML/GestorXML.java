@@ -10,6 +10,8 @@ import java.io.InputStreamReader;
 import javax.swing.JOptionPane;
 
 
+import IS2011.biblioteca.Biblioteca;
+
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.*;
 
@@ -46,12 +48,25 @@ public class GestorXML<T extends Object>{
 	 * Carga en objeto el contenido del XML en el fichero File
 	 * @param file
 	 * @return objeto cargada
-	 * @throws Exception 
 	 */
-	public T cargar(File file) throws Exception{
-		 is = new FileInputStream(file);
-		 //necesario InputStreamReader para que lea carácteres especiales como tíldes!
-		 return (T) xs.fromXML(new InputStreamReader(is));
+	public T cargar(File file) {
+		T object = (T) new Object();
+		try{	
+			is = new FileInputStream(file);
+		 	//necesario InputStreamReader para que lea carácteres especiales como tíldes!
+			object = (T) xs.fromXML(new InputStreamReader(is));
+		} catch (Exception e) {
+				JOptionPane.showMessageDialog(null,
+					    "Problema en la carga, el formato es erróneo.\n" +
+					    "Se procederá a crear una biblioteca vacía\n" +
+					    e.getMessage(),
+					    "Error carga de la biblioteca",
+				JOptionPane.WARNING_MESSAGE);
+				e.printStackTrace();
+				//crear biblioteca vacía
+				return (T) new Object();
+		}
+		 return object;
 	}
 
 	

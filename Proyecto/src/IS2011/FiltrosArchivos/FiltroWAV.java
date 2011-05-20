@@ -9,13 +9,6 @@ public class FiltroWAV extends FileFilter{
 	@Override
 	public boolean accept(File f) {
         if (f.getName().toLowerCase().endsWith(".wav")
-            	|| f.getName().toLowerCase().endsWith(".WAV")
-            	|| f.getName().toLowerCase().endsWith(".wAV")
-            	|| f.getName().toLowerCase().endsWith(".waV")
-            	|| f.getName().toLowerCase().endsWith(".wAv")
-            	|| f.getName().toLowerCase().endsWith(".WaV")
-            	|| f.getName().toLowerCase().endsWith(".Wav")
-            	|| f.getName().toLowerCase().endsWith(".WAv")
             	|| f.isDirectory()) {
             return true;
         }

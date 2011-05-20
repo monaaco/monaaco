@@ -576,15 +576,14 @@ public class Track {
 			return true;
 		}
 
-
+		
 		/**
 		 *  Devuelve la información principal de la canción
+		 *  @return string con info del artusta y título
 		 */
 		public String toString(){
                 String aux = "Artist: " + getArtist();
-                aux += "\n Name: " + name;
-                aux += "\n Time: " + totalTime.toString();
-                aux += "\n";
+                aux += "\n Name: " + name + "\n";
                 return aux;             
         }
 }

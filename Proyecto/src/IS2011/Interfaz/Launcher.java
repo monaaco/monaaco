@@ -27,8 +27,8 @@ import javazoom.jlgui.basicplayer.BasicPlayer;
 
 public class Launcher extends JWindow {
 
-	  /**
-	 * 
+	 /**
+	 * serialVersionUID
 	 */
 	private static final long serialVersionUID = 1L;
 	

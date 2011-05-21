@@ -67,6 +67,10 @@ public class BibliotecaInterfaz extends JPanelRound{
 	private String escrito;
 	private long mili;
 	
+	/**
+	 * Constructora de la interterz de biblioteca
+	 * @param ia - InterfazAvanzada a la que va asociada
+	 */
 	public BibliotecaInterfaz(InterfazAvanzada ia){
 		//super("library");
 		interfazPadre = ia;
@@ -77,6 +81,9 @@ public class BibliotecaInterfaz extends JPanelRound{
 		//this.setTran(0.5f);
 	}
 
+	/**
+	 * Inicializa los componentes de la interfaz de la biblioteca
+	 */
 	public void initBibliotecaInterfaz()
 	{
 		this.setSize(600, 300);
@@ -187,7 +194,8 @@ public class BibliotecaInterfaz extends JPanelRound{
 		});
 		menuBI.add(busquedaRapida);
 	}
-	/*
+	
+	/**
 	 * Crea y define los listener del menu PopUp que borra y agrega canciones
 	 */
 	private JPopupMenu getPopUp(){
@@ -222,10 +230,13 @@ public class BibliotecaInterfaz extends JPanelRound{
 		return menu;
 		
 	}
-	private JMenuBar getBarraMenu() {
-		
-		
-		
+	
+	/**
+	  * Devuelve y crea ,en el caso de que no exista, la barra de menú 
+	  * para la BibliotecaInterfaz 
+	  * @return JMenuBar 
+	 */
+	private JMenuBar getBarraMenu() {	
 		// TODO más elementos ¿e iconos?
 		if (menuBI == null) {
 			menuBI = new JMenuBar();
@@ -248,7 +259,11 @@ public class BibliotecaInterfaz extends JPanelRound{
 		return menuBI;
 	}
 
-	
+	/**
+	  * Devuelve y crea ,en el caso de que no exista, menú de añadir a la 
+	  * PlayList para la BibliotecaInterfaz 
+	  * @return JMenuItem 
+	 */
 	private JMenuItem getAnadirAPlayList() {
 		if (anadirAPlayList == null) {
 			anadirAPlayList = new JMenuItem("Añadir seleccionados a la PlayList");
@@ -281,6 +296,11 @@ public class BibliotecaInterfaz extends JPanelRound{
 		return anadirAPlayList;
 	}
 
+	/**
+	  * Devuelve y crea ,en el caso de que no exista, el menú de
+	  * eliminar de la biblioteca 
+	  * @return JMenuItem
+	 */
 	private JMenuItem getElimina() {
 		if (elimina == null) {
 			elimina = new JMenuItem("Eliminar seleccionados de la biblioteca");
@@ -295,6 +315,11 @@ public class BibliotecaInterfaz extends JPanelRound{
 		return elimina;
 	}
 
+	/**
+	  * Devuelve y crea ,en el caso de que no exista, menú de añadir archivos a la 
+	  * biblioteca
+	  * @return JMenuItem 
+	 */
 	private JMenuItem getAnadirArchivos() {
 		if (anadirArchivos == null) {
 			anadirArchivos = new JMenuItem("Añadir archivos a la biblioteca");
@@ -323,7 +348,13 @@ public class BibliotecaInterfaz extends JPanelRound{
 		return anadirArchivos;
 	}
 	
-	
+	/**
+	 *Metodo recursivo que comprueba si los archivos son de las clases soportadas
+	 *(mp3, ogg, wav) o directorio. 
+	 *Si el tipo es compatible lo agrega a la biblioteca siempre y cuando este todavia
+	 *no exista. Si es un directorio llama a este metodo recursivamente.
+	 *param File - Archivo a leer
+	 */
 	private void getAudioFiles(File file){
 		if(file.isDirectory()){
 			File[] array = file.listFiles();
@@ -345,6 +376,11 @@ public class BibliotecaInterfaz extends JPanelRound{
 		}
 	}
 	
+	/**
+	  * Devuelve y crea ,en el caso de que no exista, menú de editar propiedades a la 
+	  * biblioteca
+	  * @return JMenuItem 
+	 */
 	public JMenuItem getEditarPropiedades(){
 		if(editarPropiedades==null){
 			editarPropiedades= new JMenuItem("Editar propiedades");
@@ -370,6 +406,11 @@ public class BibliotecaInterfaz extends JPanelRound{
 		return editarPropiedades;
 	}
 
+	/**
+	  * Devuelve y crea ,en el caso de que no exista, menú de insertar un Filtro Avanzado a la 
+	  * biblioteca
+	  * @return JMenuItem 
+	 */
 	public JMenuItem getFiltroAvanzado(){
 		if(filtroAvanzado==null){
 			filtroAvanzado= new JMenuItem("Busqueda avanzada");
@@ -385,6 +426,11 @@ public class BibliotecaInterfaz extends JPanelRound{
 		return filtroAvanzado;
 	}
 	
+	/**
+	 * Carga sobre el modelo asociado al JTable, toda la biblioteca.
+	 * Además para ello quita los filtros que estuvieran asociados a la tabla
+	 * y sus posibles ordenaciones.
+	 */
 	public void actualiza(){
 		DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
 		/*1º Borrar todo lo que tenga la tabla*/
@@ -407,11 +453,20 @@ public class BibliotecaInterfaz extends JPanelRound{
 		repaint();
 	}
 	
+	/**
+	 * Aplica un patron de filtrado sobre toda la tabla de la biblioteca teniendo como entrada 
+	 * el TextArea de busquedaRapida. La expresión regular obtenida por el TextArea no distingue 
+	 * entre mayúsculas y minúsculas.
+	 */
 	public void filtraRapido(){
 		elQueOrdena.setRowFilter(javax.swing.RowFilter.regexFilter("(?i)"+busquedaRapida.getText()));
 		repaint();
 	}
 	
+	/**
+	 * Mete en la PlayList una serie de Tracks de la tabla asociados con la biblioteca
+	 * @param fila - int[] posiciones de las filas de la tabla.
+	 */
 	public void meterEnPlayList(int[] fila){
         for(int i = 0;i<=fila.length-1;i++){
 			if ((fila[i] > -1))
@@ -431,6 +486,11 @@ public class BibliotecaInterfaz extends JPanelRound{
         }
 	}
 	
+	/**
+	 * Borra las filas seleccionadas de la biblioteca.
+	 * Borra tanto de la tabla como de la biblioteca. Tras acabar
+	 * actualiza el estado de la tabla.
+	 */
 	public void borraElemBiblioteca(){
 		int[] seleccionadas = tabla.getSelectedRows();
 		if(seleccionadas.length != 0)
@@ -456,6 +516,10 @@ public class BibliotecaInterfaz extends JPanelRound{
 		}
 	}
 	
+	/**
+	 * Acumula letras para la busqueda rapida por caracteres sin campo de texto.
+	 * @param c
+	 */
 	public void acumulaLetra(char c){
 		if(System.currentTimeMillis() - mili > 1000){
 			escrito = "";
@@ -466,6 +530,10 @@ public class BibliotecaInterfaz extends JPanelRound{
 		System.out.println(escrito);
 	}
 	
+	/**
+	 * Busca en la biblioteca por nombre.
+	 * @param nombre - String nombre por el que buscar
+	 */
 	public void buscaNombre(String nombre){
 		Iterator<Track> it = GestorBiblioteca.getInstance().getArrayList().iterator();
 		Track tr;

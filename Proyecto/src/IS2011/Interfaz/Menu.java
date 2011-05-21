@@ -12,8 +12,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
+import java.io.IOException;
 
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 
 import com.sun.awt.AWTUtilities;
@@ -43,6 +45,27 @@ public class Menu extends JPopupMenu{
 		this.add(Castores);
 		ItemsMenu agregar = new ItemsMenu("Agregar");
 		this.add(agregar);
+		ItemsMenu preferencias = new ItemsMenu("Preferencias");
+		ItemsMenu documentacion = new ItemsMenu("Consulta el manual");
+		documentacion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler "+ System.getProperty("user.dir")+ "\\doc\\ManualdeusuarioMonaaco.pdf");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		this.add(documentacion);
+		ItemsMenu acercaDe = new ItemsMenu("Acerca de Monnaco Player");
+		acercaDe.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String s = "Monaaco Player V1.0 2011\n\nManuel Baez Sanchez\nAlfredo Cerezo Luna\nJorge Cordero Sanchez\nMiguel González Perez\nBeatriz Torres Salcedo";
+                JOptionPane.showMessageDialog(null,s);
+			}
+		});	
+		this.add(acercaDe);
+		
 		this.setColorPrimario(Color.black);
 		this.setColorSecundario(Color.white);
 		this.setBackground(Color.black);

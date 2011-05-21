@@ -23,6 +23,7 @@ public class InterfazAvanzada extends JFrame {
 	// Imagenes:
 	private ImageIcon monkeyIcon = new ImageIcon("images/Skin3/monkeyIcon.jpg");
 	private ImageIcon carpetaIcon = new ImageIcon("images/Skin3/carpetaIcon.jpg");
+	private ImageIcon menuIcon = new ImageIcon("images/Skin3/monkeyIcon2.png");
 	
 	private ImageIcon FFIcon = new ImageIcon("images/Skin3/ff.png");
 	private ImageIcon wwIcon = new ImageIcon("images/Skin3/ww.png");
@@ -51,11 +52,13 @@ public class InterfazAvanzada extends JFrame {
 	private BotonAvanzado playButton = null;
 	private JButton botonBiblioteca = null;
 	private JLabel segundero = null;
+	private JLabel menuLabel = null;
 	private JSlider barraProgreso = null;
 	private JButton salirButton = null;
 	
+	
 	// Barra de menu principal
-	private JMenuBar barraMenu = null;
+	private Menu menuPrincipal = null;
 	// menu player
 	private JMenu playerMenu = null;
 	private JMenuItem cargarArchivoItem = null;
@@ -105,7 +108,11 @@ public class InterfazAvanzada extends JFrame {
 	
 	/**
 	 * Constructora privada para la implementacion del patrón Singleton,
-	 * dfine un panel de fonfo
+	 * define un Frame principal el cual será transparente, su contentPane será 
+	 * un JLayeredPane que nor permite agregar elemento en capas, así conseguimos el efecto del
+	 * icono del menu, luego se le añade un JPanelRound que será el fondo de la aplicación
+	 * y a este úñtimo se le añade otro JPanel que nos facilita la opciones para la reproducción
+	 * y la información de la canción
 	 */
 	private InterfazAvanzada() {
 		
@@ -123,28 +130,41 @@ public class InterfazAvanzada extends JFrame {
 		backGround.addMouseListener(mml);
 		backGround.addMouseMotionListener(mml);
 		backGround.setColorSecundario(Color.white);
+		backGround.setBounds(50,50, 700,350); //movemos el background 50 pixels en ambos ejes para dar paso al icono de Menu
 		JPanel interno = getPanel();
 		backGround.add(interno);
 		interno.setBounds(25,25,650,250);
 		
-		JMenuBar JMenuAux = getBarraMenu();
+		menuLabel = new JLabel();
+		ImageIcon menuAux =new ImageIcon(menuIcon.getImage().getScaledInstance(120,120, Image.SCALE_SMOOTH)); //Resizamos la imagen
+		menuLabel.setIcon(menuAux);
+		menuLabel.setBounds(0,0, 120,120);
+		menuPrincipal = new Menu();
+		menuLabel.addMouseListener(new MouseAdapter() {
+		    public void mousePressed(MouseEvent evt) {
+		          menuPrincipal.show(evt.getComponent(), backGround.getX(), backGround.getY());
+		    }
+		});
+		
+	//	JMenuBar JMenuAux = getBarraMenu();
 		//backGround.add(JMenuAux);
-		JMenuAux.setBounds(25, 5, 40, 20);
+		//JMenuAux.setBounds(25, 5, 40, 20);
 		
 		JButton cerrarBoton = getSalirButton();
 		cerrarBoton.setBounds(585,290,90,45);
 		backGround.add(cerrarBoton);
 		
-		this.setSize(700,350);
+		this.setSize(750,400); //hacemos la vrntana 50 pixels mas grandes
+		this.setContentPane(new JLayeredPane()); //nos permite crear capas
 		
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
 		this.setUndecorated(true);	
 		this.setVisible(true);
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("images/Icono.png")); 
-		AWTUtilities.setWindowOpaque(this, false);
-		this.setContentPane(backGround);
-		
+		this.getContentPane().add(backGround, new Integer(1));
+		this.getContentPane().add(menuLabel,new Integer(2));
+		AWTUtilities.setWindowOpaque(this, false); //hacemos transparente el JFrame
 		restante= false;
 		
 		JButton bibliotecaIcono= this.getBotonBiblioteca();
@@ -152,6 +172,8 @@ public class InterfazAvanzada extends JFrame {
 		backGround.add(bibliotecaIcono);
 		
 		this.setBiblioteca(this);
+		
+		
 		
 		/*biliotecaInterfaz = new BibliotecaInterfaz(b,this); 
 		aux.add(biliotecaInterfaz);
@@ -167,8 +189,9 @@ public class InterfazAvanzada extends JFrame {
 	}
 	/**
 	 * Panel donde se mostrará la información de la canción así como los controles básicos, usa un GridBagLayout,
-	 * muy complicado de usar se recomienda leer tutorial, la variable constraits indica los detalles de posició
+	 * muy complicado de usar se recomienda leer tutorial, la variable constraits indica los detalles de posición
 	 * de cada elemento en el panel
+	 * @return panelPrincipal
 	 */
 	private JPanel getPanel(){
 		JPanelRound main = new JPanelRound();
@@ -183,10 +206,6 @@ public class InterfazAvanzada extends JFrame {
 		bytesArchivoActual =0;
 		
 		main.setEnabled(true);						//En la otra principal
-		//main.setResizable(false);		*/			//En la otra principal
-		//main.setIconImage(monkeyIcon.getImage());	//En la otra principal AÑADIDO POR MI
-		//main.setTitle("Monaaco Player");			//En la otra principal AÑADIDO POR MI
-		//main.setJMenuBar(getBarraMenu());
 		main.setBackground(bgcolor);
 		main.setEnabled(true);
 		main.setVisible(true);
@@ -319,9 +338,9 @@ public class InterfazAvanzada extends JFrame {
 	 * Definimos la barra del menú, obsoleto ya no se usa
 	 * @return
 	 */
-	private JMenuBar getBarraMenu() {
-		// TODO más elementos ¿e iconos?
-		if (barraMenu == null) {
+	/*private JMenuBar getBarraMenu() {
+		 TODO más elementos ¿e iconos?
+		if (/*barraMenu == null) {
 			barraMenu = new JMenuBar();
 			barraMenu.setBackground(bgcolor);
 			
@@ -340,20 +359,20 @@ public class InterfazAvanzada extends JFrame {
 			movimiento.setBackground(Color.black);
 			movimiento.setForeground(fgcolor);
 	      		      	
-	      /*	try{
+	     	try{
 				//@SuppressWarnings("rawtypes")
 				//Class clazz= Class.forName("com.sun.awt.AWTUtilities");
 				//@SuppressWarnings("unchecked")
 				//Method method = clazz.getMethod("setWindowOpaque",java.awt.Window.class, Boolean.TYPE);
 				//method.invoke(clazz, this,false);
-			}catch (Exception e){}*/
+			}catch (Exception e){}
 			Mover mml = new Mover(movimiento);
 			barraMenu.addMouseListener(mml);
 			barraMenu.addMouseMotionListener(mml);
 	    	barraMenu.add(movimiento);
 		}
 		return barraMenu;
-	}
+	}*/
 	
 /**
  * Méotod para cargar un archivo, obsoleto ya no se usa
@@ -475,7 +494,7 @@ public class InterfazAvanzada extends JFrame {
 	
 	/**
 	 * Botón que nos dotará de la posibilidad de ocultar o mostrar la biblioteca, se implementa mediante in listener de manera que
-	 * cada vez que se pulse ampliará el JFrame y mostrará la biblioteca y lo contrario
+	 * cada vez que se pulse ampliará el JFrame y el BackGround,  mostrando la biblioteca y lo contrario
 	 * @return
 	 */
 	
@@ -487,7 +506,8 @@ public class InterfazAvanzada extends JFrame {
 				public void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
 						if (desplegado == false){
-						principal.setSize(700,600);
+						principal.setSize(750,700); //Resizamos el frame Principal (tranparente)
+						backGround.setSize(700,650); //Resizamos el backgruond
 						bibliotecaInterfaz = new BibliotecaInterfaz(principal); 
 						backGround.add(bibliotecaInterfaz);
 						bibliotecaInterfaz.setBounds(25,350, 650, 200);
@@ -495,7 +515,7 @@ public class InterfazAvanzada extends JFrame {
 						repaint();
 						}
 						else{
-							principal.setSize(700,350);
+							principal.setSize(750,400);
 							bibliotecaInterfaz=null;
 							desplegado = false;
 							

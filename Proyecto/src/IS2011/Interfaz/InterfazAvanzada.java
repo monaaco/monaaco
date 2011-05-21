@@ -36,6 +36,7 @@ public class InterfazAvanzada extends JFrame {
 	private ImageIcon stopIcon = new ImageIcon("images/skin1/stopIcon1.jpg");
 	private ImageIcon stopedIcon = new ImageIcon("images/skin1/stopIcon3.jpg");
 	private ImageIcon pausedIcon = new ImageIcon("images/skin1/pauseIcon3.jpg");
+	private Cursor cursor = null;
 	
 	/**
 	 * principal: Instancia de InterfazAvanzada para el método singleton
@@ -83,6 +84,7 @@ public class InterfazAvanzada extends JFrame {
 	private Color fgcolor = new Color(240,240,240);
 	private boolean reproduciendo = false;
 	private boolean restante= false;
+	
 	
 	//private TransparentBackground fondo = null;
 
@@ -144,6 +146,7 @@ public class InterfazAvanzada extends JFrame {
 		    public void mousePressed(MouseEvent evt) {
 		          menuPrincipal.show(evt.getComponent(), backGround.getX(), backGround.getY());
 		    }
+		   
 		});
 		
 	//	JMenuBar JMenuAux = getBarraMenu();
@@ -172,6 +175,7 @@ public class InterfazAvanzada extends JFrame {
 		backGround.add(bibliotecaIcono);
 		
 		this.setBiblioteca(this);
+		//this.changeCursor();
 		
 		
 		
@@ -448,8 +452,9 @@ public class InterfazAvanzada extends JFrame {
 		if(barraProgreso == null){
 			barraProgreso = new JSlider();
 			CustomSlider sliderUI = new CustomSlider(barraProgreso);
-			//barraProgreso.setUI(sliderUI);
+			//barraProgreso.setCursor(cursor);
 			barraProgreso.setOpaque(false);
+			
 			barraProgreso.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseReleased(MouseEvent e) {
@@ -487,6 +492,24 @@ public class InterfazAvanzada extends JFrame {
 	        });*/
 		}
 	    return barraProgreso;
+	}
+	/**
+	 * Metodo que nos crea el nuevo cursor de la Slider, ojo que la path del cursor va a capón
+	 * @return cursor
+	 */
+	public void changeCursor(){ //TODO
+		
+		//Get the default toolkit  
+		Toolkit toolkit = Toolkit.getDefaultToolkit();  
+		  
+		//Load an image for the cursor  
+		Image image = toolkit.getImage("images/cursorBlanco.png");  //OJO con esto
+		//Create the hotspot for the cursor  
+		Point hotSpot = new Point(0,0);  
+		//Create the custom cursor  
+		cursor = toolkit.createCustomCursor(image, hotSpot, "Oro");  
+		setCursor(cursor);
+		
 	}
 	
 	

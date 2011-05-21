@@ -30,16 +30,22 @@ public class Menu extends JPopupMenu{
 	
 	public Menu(){
 		super();
-		this.setSize(200,200);
-		this.setBounds(50, 50,100,100);
+		this.setSize(300,300);
+		this.setBounds(50, 50,300,300);
 
 		ItemsMenu eliminar = new ItemsMenu("Eliminar");
 		this.add(eliminar);
+		ItemsMenu monaaco = new ItemsMenu("MOnaaco");
+		this.add(monaaco);
+		ItemsMenu BodaAntuan = new ItemsMenu("BodaAntuan");
+		this.add(BodaAntuan);
+		ItemsMenu Castores = new ItemsMenu("Castores");
+		this.add(Castores);
 		ItemsMenu agregar = new ItemsMenu("Agregar");
 		this.add(agregar);
 		this.setColorPrimario(Color.black);
 		this.setColorSecundario(Color.white);
-		//this.setBackground(Color.black);
+		this.setBackground(Color.black);
 		//this.setOpaque(true);
 		this.setBorderPainted(false);
 		
@@ -68,8 +74,8 @@ public class Menu extends JPopupMenu{
 	            g2.fillRect(0,0,getWidth(),getHeight());
 	           
 	            g2.setStroke(new BasicStroke(4f));
-	            g2.setPaint(new GradientPaint(0.0f, 0.0f,getColorContorno(),
-	                    0.0f, getHeight(), getColorContorno()));
+	          /*  g2.setPaint(new GradientPaint(0.0f, 0.0f,getColorContorno(),
+	                    0.0f, getHeight(), getColorContorno()));*/
 	            g2.drawRoundRect(0, 0, getWidth()-2 , getHeight() -2, 18, 18);
 	       
 	        g2.setPaint(oldPaint);

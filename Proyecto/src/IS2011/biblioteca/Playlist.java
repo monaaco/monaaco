@@ -310,5 +310,24 @@ public class Playlist {
 		//actualizar currentrac con la nueva posición de la cancion actual en reproducción
 		return setCurrentTrack(aux);
 	}
+
+	/**
+	 * Mueve, intercala una cancion dentro de la playList
+	 * @param inicio - int posición origen
+	 * @param fin - int posición destino
+	 */
+	public void mueve(int inicio, int fin) {
+		Track aux = getTrack(inicio);
+		if(fin != lista.size())
+		{
+			lista.remove(inicio);
+			lista.add(fin,aux);
+		}
+		else
+		{
+			lista.remove(inicio);
+			lista.add(aux);
+		}
+	}
 	
 }

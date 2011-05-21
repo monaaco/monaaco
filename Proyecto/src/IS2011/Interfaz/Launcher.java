@@ -68,20 +68,16 @@ public class Launcher extends JWindow {
 		   cargaInicio = new BasicPlayer();
 		   cargaInicio.open(new File("sounds/mic_check.mp3"));
 		   cargaInicio.play();
-		    imageLabel.setIcon(monkeyLoading1);
-		    this.getContentPane().setLayout(borderLayout1);
-		    this.getContentPane().add(imageLabel, BorderLayout.CENTER);
-		    this.pack();
-		    
-		    //Carga de la biblioteca
-		    GestorBiblioteca.getInstance();
-		   
-		    Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+		   imageLabel.setIcon(monkeyLoading1);
+		   this.getContentPane().setLayout(borderLayout1);
+		   this.getContentPane().add(imageLabel, BorderLayout.CENTER);
+		   this.pack();
+		   GestorBiblioteca b = GestorBiblioteca.getInstance();
+		   Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
 		   Dimension ventana = this.getSize();
 		   this.setLocation((pantalla.width - ventana.width) / 2,(pantalla.height - ventana.height) / 2);
-		   
 		   this.setVisible(true);
-		  }
+	  }
 	  
 	  void cambiaImagen(ImageIcon im){
 		  imageLabel.setIcon(im);
@@ -113,8 +109,7 @@ public class Launcher extends JWindow {
                       interfaz. reproducirSiguiente();
                   }
               };
-              /*Creamos un action Listener para volver a la anterior canción"
-                      */
+              /*Creamos un action Listener para volver a la anterior canción"*/
               ActionListener anteriorListener = new ActionListener() {
                   public void actionPerformed(ActionEvent e) {
                       interfaz. reproducirAnterior();;

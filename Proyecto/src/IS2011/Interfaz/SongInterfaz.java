@@ -26,7 +26,7 @@ public class SongInterfaz extends JFrame{
 	private static final long serialVersionUID = 1L;
 	JPopupMenu menu = new JPopupMenu();
 	private JFrame principal = null;
-	private JList listado = null;
+	private DragDropList listado = null;
 	private JScrollPane scrollListado = null; 
 	private JPanelRound panelInterno;
 	private Dimension pantalla = null;
@@ -158,10 +158,10 @@ public class SongInterfaz extends JFrame{
 	 * Si no exite el listado genera uno vacío
 	 * @return listado
 	 */
-	public  JList getListado(){
+	public  DragDropList getListado(){
 		if( listado == null ){
 			String[] temas = {};
-			listado = new JList(temas);
+			listado = new DragDropList(temas, interfazAvanzada.getListaReproduccion());
 			listado.setLayout(new BorderLayout());
 			listado.setSize(100, pantalla.height);
 			listado.setFont(new java.awt.Font("Helvetica", 1, 12));

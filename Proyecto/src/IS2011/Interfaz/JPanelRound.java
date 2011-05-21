@@ -59,26 +59,51 @@ public class JPanelRound extends JPanel{
         super.paintComponent(g);
     }
 
+    /**
+     * Devuelve el color primario
+     * @return Color
+     */
     public Color getColorPrimario() {
         return colorPrimario;
     }
 
+    /**
+     * Cambia el color primario
+     * @param colorPrimario - Color
+     */
     public void setColorPrimario(Color colorPrimario) {
         this.colorPrimario = colorPrimario;
     }
 
+    /**
+     * Devuelve el color secundario
+     * @return Color
+     */
     public Color getColorSecundario() {
         return colorSecundario;
     }
 
+
+    /**
+     * Cambia el color secundario
+     * @param colorSecundario - Color
+     */
     public void setColorSecundario(Color colorSecundario) {
         this.colorSecundario = colorSecundario;
     }
 
+    /**
+     * Devuelve el color del contorno
+     * @return Color
+     */
     public Color getColorContorno() {
         return colorContorno;
     }
 
+    /**
+     * Cambia el color del contorno
+     * @param colorContorno - Color
+     */
     public void setColorContorno(Color colorContorno) {
         this.colorContorno = colorContorno;
     }

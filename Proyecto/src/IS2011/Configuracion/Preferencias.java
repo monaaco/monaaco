@@ -35,39 +35,39 @@ public class Preferencias {
 	}
 
 	/**
-	 * 
-	 * @return nombre del skin
+	 * Devuelve el nombre del skin
+	 * @return String
 	 */
 	public String getSkin() {
 		return skin;
 	}
 	
 	/**
-	 * 
-	 * @param skin
+	 * Cambia el skin asociado
+	 * @param skin - String
 	 */
 	public void setSkin(String skin) {
 		this.skin = skin;
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Devuelve el nombre del launcher
+	 * @return String 
 	 */
 	public String getLauncher() {
 		return launcher;
 	}
 	
 	/**
-	 * 
-	 * @param launcher
+	 * Cambia el launcher asociado
+	 * @param launcher - String
 	 */
 	public void setLauncher(String launcher) {
 		this.launcher = launcher;
 	}
 	
 	/**
-	 * 
+	 * Devuelve el nombre del sonido asociado
 	 * @return
 	 */
 	public String getSound() {
@@ -75,40 +75,40 @@ public class Preferencias {
 	}
 	
 	/**
-	 * 
-	 * @param sound
+	 * Cambia el sonido asociado
+	 * @param sound - String
 	 */
 	public void setSound(String sound) {
 		this.sound = sound;
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Devuelve el color de fondo
+	 * @return Color
 	 */
 	public Color getBgColor() {
 		return bgColor;
 	}
 	
 	/**
-	 * 
-	 * @param bgColor
+	 * Cambia el color de fondo
+	 * @param bgColor - Color
 	 */
 	public void setBgColor(Color bgColor) {
 		this.bgColor = bgColor;
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Devuelve el color frontal
+	 * @return Color
 	 */
 	public Color getFgColor() {
 		return fgColor;
 	}
 	
 	/**
-	 * 
-	 * @param fgColor
+	 * Cambia el color frontal
+	 * @param fgColor - Color
 	 */
 	public void setFgColor(Color fgColor) {
 		this.fgColor = fgColor;

@@ -20,6 +20,9 @@ public JPanelTransparente(){
 }
 
 @Override
+/**
+ * Redefinicón del metodo paintComponents para el JPanelTransparente.
+ */
 protected void paintComponent(Graphics g) {
 	Graphics2D g2 = (Graphics2D) g;
 	g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
@@ -30,10 +33,18 @@ protected void paintComponent(Graphics g) {
 	g2.setComposite(old);
 }
 
+/**
+ * Devuelve el porcentaje de transparencia
+ * @return float
+ */
 public float getTran() {
 return tran;
 }
 
+/**
+ * Cambia el porcentaje de transparencia
+ * @param tran
+ */
 public void setTran(float tran) {
 this.tran = tran;
 }

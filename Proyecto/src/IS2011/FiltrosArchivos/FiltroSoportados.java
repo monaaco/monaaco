@@ -6,7 +6,11 @@ import javax.swing.filechooser.FileFilter;
 
 public class FiltroSoportados extends FileFilter{
 
-	@Override
+	@Override	
+	/**
+	 * Redefinción del metedo accept. Acepta archivos .wav .ogg .mp3 y directorios.
+	 * @param File f 
+	 */
 	public boolean accept(File f) {
         if (f.getName().toLowerCase().endsWith(".wav")
             || f.getName().toLowerCase().endsWith(".ogg")
@@ -18,6 +22,10 @@ public class FiltroSoportados extends FileFilter{
 	}
 
 	@Override
+	/**
+	 * Devuelve la descripción del filtro
+	 * returns String
+	 */
 	public String getDescription() {
         return ("Archivos de audio soportados.(*.WAV; *.MP3; *.OGG)");
 	}

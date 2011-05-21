@@ -13,12 +13,17 @@ public class Biblioteca {
 	@XStreamAlias("trackList")
 	private ArrayList<Track> b = null;
 
-	//TODO aqui podriamos tener los playlists
-	
+	/**
+	 * Constructora por defecto de la biblioteca
+	 */
 	public Biblioteca()	{
 		b = new ArrayList<Track>();
 	}
 	
+	/**
+	 * Devuelve un ArrayList con el contenido de la biblioteca 
+	 * @return ArrayList<Track>
+	 */
 	public ArrayList<Track> getBiblioteca()	{
 		return b;
 	}
@@ -45,6 +50,11 @@ public class Biblioteca {
 		}
 	}
 	
+	/**
+	 * Nos proporciona un HashMap de la biblioteca, en la clave devuelve la ruta 
+	 * del track y en el contenido TRUE
+	 * @return HashMap <String, Boolean>
+	 */
 	public HashMap<String,Boolean> getHashMap(){
 		HashMap<String,Boolean> resultado = new HashMap<String,Boolean>();
 		Iterator<Track> it = getBiblioteca().iterator();
@@ -60,8 +70,7 @@ public class Biblioteca {
 	 * Vacia la biblioteca
 	 */
 	public void removeAll() {
-		b.clear();		
-		
+		b.clear();				
 	} 
 }
 

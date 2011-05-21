@@ -31,10 +31,19 @@ public class BotonAvanzado extends JButton {
 	
 	
 	//Los siguientes dos getters son necesarios para los test
+	
+	/**
+	 * Devuelve el icono principal
+	 * return ImageIcon
+	 */
 	public ImageIcon getICon(){
 		return iCon;
 	}
 	
+	/**
+	 * Devuelve el icono secundario
+	 * return ImageIcon
+	 */
 	public ImageIcon getIConS(){
 		return iConS;
 	}

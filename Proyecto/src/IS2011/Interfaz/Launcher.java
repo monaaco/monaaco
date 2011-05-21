@@ -63,7 +63,10 @@ public class Launcher extends JWindow {
 	    }
 	}
 	
-	
+	 /**
+	  * Inicio del launcher, carga del programa principal
+	  * @throws Exception 
+	  */
 	  void jbInit() throws Exception {
 		   cargaInicio = new BasicPlayer();
 		   cargaInicio.open(new File("sounds/mic_check.mp3"));
@@ -79,6 +82,10 @@ public class Launcher extends JWindow {
 		   this.setVisible(true);
 	  }
 	  
+	  /**
+	   * Cambia el icono
+	   * @param im - ImageIcon
+	   */
 	  void cambiaImagen(ImageIcon im){
 		  imageLabel.setIcon(im);
 		  this.repaint();
@@ -158,12 +165,24 @@ public class Launcher extends JWindow {
           }
       } 
 	   
+	  /**
+	   * Accion sobre el tray, hace la interfaz visible y la trae al frente
+	   * @param evt
+	   */
 	    private static void trayIconActionPerformed(java.awt.event.ActionEvent evt){ 
 	    	interfaz.setVisible(true); 
 	    	interfaz.toFront(); 
 	       // tray.remove(trayIcon); 
 	    }  
 	  
+	/** 
+	 * MAIN del programa.
+	 * @param args
+	 * @throws NullPointerException
+	 * @throws IllegalStateException
+	 * @throws MalformedURLException
+	 * @throws IOException
+	 */
 	public static void main(String[] args) throws NullPointerException, IllegalStateException, MalformedURLException, IOException {
 
 		// TODO Auto-generated method stub

@@ -28,6 +28,7 @@ public class SongInfoInterfaz extends JPanelTransparente {
 
 	private Color c= new Color(240,240,240);
 	/**
+	 * 	Constructora
 	 *  @param track de la que hay que mostrar la info 
 	 *  @throws InterruptedException 
 	 */

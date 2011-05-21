@@ -64,7 +64,9 @@ public class Track {
         
         //private Tag tag = null;
  
-
+        /**
+         * Constructora de Track a partir de la ruta de un archivo de audio.
+         */
         public Track(String ruta){
             try {
                 File f = new File(ruta);
@@ -138,7 +140,10 @@ public class Track {
         }
         
 
-        
+        /**
+         * Nos devuelve las caratulas del track
+         * @return List<Artwork>
+         */
         public List<Artwork> getArtworkList() {
 			try {
 	        	File f = new File(getLocation());
@@ -547,7 +552,6 @@ public class Track {
         }
 
 
-
 		@Override
 		public int hashCode() {
 			final int prime = 31;
@@ -558,7 +562,10 @@ public class Track {
 		}
 
 
-
+		/**
+		 * Redefinición del meteodo equals, compara solo por ubicación del archivo
+		 * asociado al Track
+		 */
 		@Override
 		public boolean equals(Object obj) {
 			if (this == obj)

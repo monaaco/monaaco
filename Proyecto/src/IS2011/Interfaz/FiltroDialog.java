@@ -48,6 +48,9 @@ public class FiltroDialog extends JDialog{
 		initPropiedadesUI();
 	}
 	
+	/**
+	 * Inicializa la interfaz del FiltroDialog.
+	 */
 	public void initPropiedadesUI(){
 		this.setSize(380,200);
 		this.setResizable(false);

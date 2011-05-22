@@ -1,0 +1,9 @@
+Test generar .exe
+
+Pasos:
+	1.Haber generado el archivo .jar con el mismo nombre que el archivo .exe(está ubicado ya en la carpeta)
+	2.Ejecutar el archivo .exe
+	3.Comprobar las funconalidades del programa
+	4.Comprobar interfaz con todas sus skin 
+	5.Comprobar correcto funcionamiento de la bilbioteca
+	

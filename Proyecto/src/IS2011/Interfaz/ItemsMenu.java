@@ -11,14 +11,21 @@ import java.awt.RenderingHints;
 import java.awt.geom.RoundRectangle2D;
 
 import javax.swing.JMenuItem;
-
+/**
+ * Clase para reescribri el ItemMenu y conseguir la armonia con la aplicación
+ * @extends JMenuItem
+ * @author Jazuma
+ *
+ */
 public class ItemsMenu extends JMenuItem {
 	 private Color colorPrimario = new Color(0x666f7f);
 	   
 	    private float tran= 0.5f;
 	   /**
-	    * Clase que extiende a JPanel modificando sus métodos para que lo pinte con bordes redondos 
-	    * y con degradado de dos colores de fondo
+	    * redefinimos sus métodos para que lo pinte con bordes redondos 
+	    * y con degradado de dos colores de fondo y la capacidad de ser transparentes, el parámetro que mide la
+	    * intencidad de transparencia es tran
+	    * @param datos: string con la info del elemento.
 	    */
 	    public ItemsMenu(String datos) {
 	        super();

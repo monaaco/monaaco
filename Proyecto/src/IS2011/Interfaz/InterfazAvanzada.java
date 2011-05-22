@@ -15,12 +15,20 @@ import com.sun.awt.AWTUtilities;
 import javazoom.jlgui.basicplayer.BasicPlayer;
 import javazoom.jlgui.basicplayer.BasicPlayerException;
 
+/**
+ * Clase que nos va a proporcionar una interfaz de usuario para la reproducción musical
+ * tambien implementaremos aquí las funciones de reproducción,
+ *  *
+ */
 
 @SuppressWarnings("restriction")
 public class InterfazAvanzada extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	// Imagenes:
+	
+	/**
+	 * Imágenes de la interfaz
+	 */
 	private ImageIcon monkeyIcon = new ImageIcon("images/Skin3/monkeyIcon.jpg");
 	private ImageIcon carpetaIcon = new ImageIcon("images/Skin3/carpetaIcon.jpg");
 	private ImageIcon menuIcon = new ImageIcon("images/Skin3/monkeyIcon2.png");
@@ -327,8 +335,9 @@ public class InterfazAvanzada extends JFrame {
 		listaReproduccion.setRepeat(true);		
 	}
 	/**
-	 * Creamos el Jlabel que se mostrará por pantalla con el título de la cancón
-	 * @return
+	 * Creamos el Jlabel que se mostrará por pantalla con el título de la canción moviendose 
+	 * a lo largo de la pantall
+	 * @return infoSonfLabel
 	 */
 	private JLabel getInfoSongLabel() {
 		if(infoSongLabel == null) {
@@ -446,7 +455,7 @@ public class InterfazAvanzada extends JFrame {
 	/**
 	 * Nos proporcioan una Jslider con la que iremos siguiendo el transcurso de la canción, nos proporcionará la capacidad de adelantar
 	 * o atrasar el curso de la misma
-	 * @return
+	 * @return barraProgreso
 	 */
 	public JSlider getBarraProgreso(){
 		if(barraProgreso == null){
@@ -495,6 +504,7 @@ public class InterfazAvanzada extends JFrame {
 	}
 	/**
 	 * Metodo que nos crea el nuevo cursor de la Slider, ojo que la path del cursor va a capón
+	 * tambié puede usarse para modificar el cursor del ratón, mirar setCursor()
 	 * @return cursor
 	 */
 	public void changeCursor(){ //TODO
@@ -518,7 +528,7 @@ public class InterfazAvanzada extends JFrame {
 	/**
 	 * Botón que nos dotará de la posibilidad de ocultar o mostrar la biblioteca, se implementa mediante in listener de manera que
 	 * cada vez que se pulse ampliará el JFrame y el BackGround,  mostrando la biblioteca y lo contrario
-	 * @return
+	 * @return botonBiblioteca
 	 */
 	
 	public JButton getBotonBiblioteca() {
@@ -538,6 +548,7 @@ public class InterfazAvanzada extends JFrame {
 						repaint();
 						}
 						else{
+							backGround.setSize(700,350);
 							principal.setSize(750,400);
 							bibliotecaInterfaz=null;
 							desplegado = false;
@@ -557,9 +568,10 @@ public class InterfazAvanzada extends JFrame {
 	
 	
 	/**
-	 * Proporciona el boton de avance
-	 * @return
+	 * Proporciona el boton de avance, el nombre del botón no corresponde con su función
+	 * @return stopButton
 	 */
+	//TODO
 	public BotonAvanzado getFfButton() {
 		if (stopButton == null){
 			stopButton = new BotonAvanzado(FFIcon,FFIcon);
@@ -572,9 +584,9 @@ public class InterfazAvanzada extends JFrame {
 		return stopButton;
 	}
 	/**
-	 * Proporciona el boton de play, se implementa meciate un listener si el reproducotor esta en este momento reproduciendo
-	 * su funcionalidad cambia a la pause
-	 * @return
+	 * Proporciona el boton de play, se implementa mediante un listener, si el reproducotor esta en este momento reproduciendo
+	 * su funcionalidad cambia a la pause al igual que su imagen
+	 * @return playButton
 	 */
 	public BotonAvanzado getPlayButton() {
 		if (playButton == null){
@@ -621,7 +633,10 @@ public class InterfazAvanzada extends JFrame {
 		}
 		return playButton;
 	}
-
+	/**
+	 * Misma función que el botón de avance, su función no se corresponde con el nombre
+	 * @return pauseButton
+	 */
 	public BotonAvanzado getWwButton() {
 		if (pauseButton == null){
 			pauseButton = new BotonAvanzado(wwIcon,wwIcon);
@@ -637,7 +652,10 @@ public class InterfazAvanzada extends JFrame {
 		}
 		return pauseButton;
 	}
-	
+	/**
+	 * Botón para cerrar la aplicación
+	 * @return salirButton
+	 */
 	public JButton getSalirButton() {
 		if (salirButton == null){
 			salirButton = new JButton(cerrarIcon);
@@ -655,7 +673,10 @@ public class InterfazAvanzada extends JFrame {
 		}
 		return salirButton;
 	}
-
+	/**
+	 * Obseloto ya no se usa
+	 * @return
+	 */
 	public JMenuItem getSalirItem() {
 		
 		if (salirItem == null){
@@ -676,12 +697,17 @@ public class InterfazAvanzada extends JFrame {
 		}
 		return salirItem;
 	}
-
+	/**
+	 * Devuelve la lista de reproducción
+	 * @return listaReproduccion
+	 */
 	public Playlist getListaReproduccion(){
 		return listaReproduccion;
 	}
 
-	
+	/**
+	 * Pasa a reproducir la siguiente canción
+	 */
     public void reproducirSiguiente(){
         setCurrentTrack(listaReproduccion.next());
         try {
@@ -695,7 +721,9 @@ public class InterfazAvanzada extends JFrame {
         }
        
     }
-    
+    /**
+     * Pasa a reproducir la canción anterior
+     */
     public void reproducirAnterior(){
         setCurrentTrack(listaReproduccion.previous());
         try {
@@ -710,8 +738,8 @@ public class InterfazAvanzada extends JFrame {
     }
    
     /**
-     * 
-     * @return
+     * Obsoleto ya no se usa
+     * @return nextItem
      */
     public JMenuItem getNextItem() {
         if (nextItem == null){
@@ -727,11 +755,17 @@ public class InterfazAvanzada extends JFrame {
         }
         return nextItem;
     }
-    
+    /**
+     * devuelve la info de la canción que suena
+     * @return
+     */
     public SongInfoInterfaz getInfoSong(){
     	return infoSong;
     }
-
+    /**
+     * Obsoleto ya no se usa
+     * @return
+     */
 	public JMenuItem getPreviousItem() {
 		if (previousItem == null){
 			previousItem = new JMenuItem("anterior");
@@ -805,7 +839,10 @@ public class InterfazAvanzada extends JFrame {
 			infoSongLabel.setLocation(posTag,(int) infoSongLabel.getLocation().getY());
 		
 	}
-	
+	/**
+	 * Actualiza el reloj que marca el transcurso y mueve por la pantalla el nombre de la 
+	 * canción que suena en ese momento (infoSongLabel).
+	 */
 	public void cambiaSegundos(int min, int segs) {
 		String texto;
 		texto= "";

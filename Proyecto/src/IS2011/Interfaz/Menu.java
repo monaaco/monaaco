@@ -19,7 +19,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 
 import com.sun.awt.AWTUtilities;
-
+/**
+ * Para conseguir un menu apropiado redefinimos el JPopUp menu, le dotamos
+ * de bordes redondeados y transparencia
+ * @ extends JPopUpMenu
+ * @author Jazuma
+ *
+ */
 public class Menu extends JPopupMenu{
 	
 	private Color colorPrimario = new Color(0x666f7f);
@@ -73,7 +79,10 @@ public class Menu extends JPopupMenu{
 		this.setBorderPainted(false);
 		
 	}
-	
+	/**
+	 * Redefinimos us método paintComponent para que lo pinte redondeado
+	 * y con transparencia
+	 */
 	 protected void paintComponent(Graphics g) {
 	     
 		    Graphics2D g2 = (Graphics2D) g;
@@ -108,10 +117,13 @@ public class Menu extends JPopupMenu{
 	       // g2.setComposite(old);
 
 	    }
-	 public Color getColorPrimario() {
+	 	public Color getColorPrimario() {
 	        return colorPrimario;
 	    }
-
+	 	/**
+	 	 * Establece el primer color del degradado
+	 	 * @param colorPrimario
+	 	 */
 	    public void setColorPrimario(Color colorPrimario) {
 	        this.colorPrimario = colorPrimario;
 	    }
@@ -119,7 +131,10 @@ public class Menu extends JPopupMenu{
 	    public Color getColorSecundario() {
 	        return colorSecundario;
 	    }
-
+	    /**
+	     * Establece el color secundario del degradado
+	     * @param colorSecundario
+	     */
 	    public void setColorSecundario(Color colorSecundario) {
 	        this.colorSecundario = colorSecundario;
 	    }

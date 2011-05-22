@@ -9,7 +9,14 @@ import java.awt.event.MouseMotionListener;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 
-
+/**
+ * Clase que nos va a proporcionar la fincionalidad de mover los componentes con el click y arrastre del ratón
+ * redefiniendo los métodos necesario, luego solamente habrá que añadirsela a listener de algun componente
+ * @implements MouseMotionListener
+ * @implements MouseListener
+ * 
+ *
+ */
 public class Mover implements MouseMotionListener, MouseListener{
 	JComponent target;
     Point start_drag;
@@ -25,13 +32,20 @@ public class Mover implements MouseMotionListener, MouseListener{
     return getFrame(target.getParent());
   }
 
-
+    /**
+     * Obtenemos el lugar donde se pincho de la pantalla
+     * @param e
+     * @return
+     */
   Point getScreenLocation(MouseEvent e) {
     Point cursor = e.getPoint();
     Point target_location = this.target.getLocationOnScreen();
     return new Point((int) (target_location.getX() + cursor.getX()),
         (int) (target_location.getY() + cursor.getY()));
   }
+  /**
+   * movemos el component al sitio donde soltamos el ratón
+   */
     public void mouseDragged(MouseEvent e) {
         Point current = this.getScreenLocation(e);
         Point offset = new Point((int) current.getX() - (int) start_drag.getX(),(int) current.getY() - (int) start_drag.getY());

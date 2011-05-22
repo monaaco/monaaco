@@ -14,6 +14,7 @@ import javax.swing.JPanel;
  * Clase que extiende a JPanel modificando sus métodos para que lo pinte con bordes redondos 
  * y con degradado de dos colores de fondo, los atributos arcw y arch nos miden el ángulo de
  * las esquinas
+ * @extends JPanel
  */
 public class JPanelRound extends JPanel{
 

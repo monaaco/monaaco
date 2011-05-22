@@ -21,7 +21,8 @@ public JPanelTransparente(){
 
 @Override
 /**
- * Redefinicón del metodo paintComponents para el JPanelTransparente.
+ * Redefinicón del metodo paintComponents para el JPanelTransparente, utilizamos el patron "Composite"
+ * redefinimos la clase JPanel unificando la JPanleRound y los métodos de esta nueva
  */
 protected void paintComponent(Graphics g) {
 	Graphics2D g2 = (Graphics2D) g;
@@ -30,7 +31,7 @@ protected void paintComponent(Graphics g) {
 	AlphaComposite old = (AlphaComposite) g2.getComposite();
 	g2.setComposite(AlphaComposite.SrcOver.derive(getTran()));
 	super.paintComponent(g);
-	g2.setComposite(old);
+	g2.setComposite(old);  //Patron composite
 }
 
 /**

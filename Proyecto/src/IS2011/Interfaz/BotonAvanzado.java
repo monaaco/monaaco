@@ -35,7 +35,7 @@ public class BotonAvanzado extends JButton {
 	/**
 	 * Devuelve el icono principal
 	 * return ImageIcon
-	 */
+	 * */
 	public ImageIcon getICon(){
 		return iCon;
 	}
@@ -71,6 +71,8 @@ public class BotonAvanzado extends JButton {
 	/** 
 	 * Define el are que será sensible al clik del ratón, usamos la clase Ellipse2d para dibujar in
 	 * círculo con los parametros que se le pasa
+	 * @param x
+	 * @param y
 	 */
 	public boolean contains(int x,int y)
 	{

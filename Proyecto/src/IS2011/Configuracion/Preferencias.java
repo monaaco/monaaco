@@ -27,9 +27,9 @@ public class Preferencias {
 	 * Asigna valores por defecto
 	 */
 	private void setDefault() {
-		skin = "data/skin3";
-		launcher = "data/skin3";
-		sound = "data/skin3";
+		skin = "images/skin3";
+		launcher = "images/skin3";
+		sound = "images/skin3";
 		bgColor = Color.black;
 		fgColor = Color.white;		
 	}

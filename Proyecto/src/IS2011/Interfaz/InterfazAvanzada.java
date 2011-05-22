@@ -7,6 +7,7 @@ import java.io.File;
 import javax.swing.*;
 
 
+import IS2011.Configuracion.Preferencias;
 import IS2011.FiltrosArchivos.*;
 import IS2011.biblioteca.*;
 
@@ -55,6 +56,7 @@ public class InterfazAvanzada extends JFrame {
 	private SongInterfaz infoPlaylist = null;
 	private SongInfoInterfaz infoSong = null;
 	private BibliotecaInterfaz bibliotecaInterfaz = null;
+	private Preferencias preferencias = null;
 
 	private BotonAvanzado stopButton = null;
 	private BotonAvanzado pauseButton = null;
@@ -130,6 +132,8 @@ public class InterfazAvanzada extends JFrame {
 		// infoSong.actualiza(null);
 		//fondo = new TransparentBackground(this);
 		principal = this;
+		preferencias = new Preferencias();
+		//TODO Cargar con Xstream las preferencias
 		backGround = new JPanelRound();	
 		//backGround.setSize(700,700);
 		//aux.setBackground(Color.BLUE);
@@ -149,7 +153,7 @@ public class InterfazAvanzada extends JFrame {
 		ImageIcon menuAux =new ImageIcon(menuIcon.getImage().getScaledInstance(120,120, Image.SCALE_SMOOTH)); //Resizamos la imagen
 		menuLabel.setIcon(menuAux);
 		menuLabel.setBounds(0,0, 120,120);
-		menuPrincipal = new Menu();
+		menuPrincipal = new Menu(this);
 		menuLabel.addMouseListener(new MouseAdapter() {
 		    public void mousePressed(MouseEvent evt) {
 		          menuPrincipal.show(evt.getComponent(), backGround.getX(), backGround.getY());
@@ -998,6 +1002,10 @@ public class InterfazAvanzada extends JFrame {
 			infoPlaylist.marcaActual();
 			e.printStackTrace();
 		}
+	}
+
+	public Preferencias getPreferencias(){
+		return preferencias;
 	}
 }
 

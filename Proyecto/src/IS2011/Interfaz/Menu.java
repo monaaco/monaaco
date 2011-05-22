@@ -36,8 +36,11 @@ public class Menu extends JPopupMenu{
 
 	private float tran= 0.5f;
 	
-	public Menu(){
+	private InterfazAvanzada ia;
+	
+	public Menu(InterfazAvanzada interfaz){
 		super();
+		ia = interfaz;
 		this.setSize(300,300);
 		this.setBounds(50, 50,300,300);
 
@@ -52,6 +55,13 @@ public class Menu extends JPopupMenu{
 		ItemsMenu agregar = new ItemsMenu("Agregar");
 		this.add(agregar);
 		ItemsMenu preferencias = new ItemsMenu("Preferencias");
+		preferencias.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				PreferenciasDialog pd = new PreferenciasDialog(ia, true, ia.getPreferencias());
+				ia.repaint();
+			}
+		});
+		this.add(preferencias);
 		ItemsMenu documentacion = new ItemsMenu("Consulta el manual");
 		documentacion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

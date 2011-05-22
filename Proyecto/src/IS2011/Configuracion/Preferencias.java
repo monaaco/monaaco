@@ -26,7 +26,7 @@ public class Preferencias {
 	/**
 	 * Asigna valores por defecto
 	 */
-	private void setDefault() {
+	public void setDefault() {
 		skin = "images/skin3";
 		launcher = "images/skin3";
 		sound = "images/skin3";

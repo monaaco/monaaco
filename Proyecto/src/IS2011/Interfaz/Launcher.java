@@ -18,6 +18,7 @@ import javax.swing.UIManager;
 
 import com.sun.org.apache.bcel.internal.generic.GETSTATIC;
 
+import IS2011.Configuracion.GestorPreferencias;
 import IS2011.GestorXML.GestorXML;
 import IS2011.biblioteca.Biblioteca;
 import IS2011.biblioteca.GestorBiblioteca;
@@ -75,7 +76,15 @@ public class Launcher extends JWindow {
 		   this.getContentPane().setLayout(borderLayout1);
 		   this.getContentPane().add(imageLabel, BorderLayout.CENTER);
 		   this.pack();
-		   GestorBiblioteca b = GestorBiblioteca.getInstance();
+		   
+		   /* No hace falta: GestorBiblioteca b = 
+		   * Llamamos a los getInstance para que cargue la biblioteca y las preferencias,
+		   * No hace falta almacenar el valor devuelto, ya que se almacena dentro de la 
+		   * clase GestorBiblioteca y GestorPreferencias (patrón singleton) 
+		   */
+		   GestorBiblioteca.getInstance();
+		   GestorPreferencias.getInstance();
+		   
 		   Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
 		   Dimension ventana = this.getSize();
 		   this.setLocation((pantalla.width - ventana.width) / 2,(pantalla.height - ventana.height) / 2);

@@ -1,0 +1,17 @@
+<preferencias>
+  <skin>images/Skin3</skin>
+  <launcher>images/Skin3</launcher>
+  <sound>images/Skin3</sound>
+  <bgColor>
+    <red>192</red>
+    <green>192</green>
+    <blue>192</blue>
+    <alpha>255</alpha>
+  </bgColor>
+  <fgColor>
+    <red>255</red>
+    <green>200</green>
+    <blue>0</blue>
+    <alpha>255</alpha>
+  </fgColor>
+</preferencias>

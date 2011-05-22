@@ -12,6 +12,7 @@ import javax.swing.*;
 import javax.xml.bind.Marshaller.Listener;
 
 //import javazoom.jlgui.basicplayer.BasicPlayerException;
+import IS2011.Configuracion.GestorPreferencias;
 import IS2011.biblioteca.Track;
 
 import com.sun.awt.AWTUtilities;
@@ -54,8 +55,6 @@ public class SongInterfaz extends JFrame{
 		this.centrarVentana();
 		this.setResizable(false);					//En la otra principal
 		this.setUndecorated(true);
-		this.setBackground(bgColor);
-		this.setForeground(fgColor);
 		this.setEnabled(true);	
 		this.setAlwaysOnTop(true);
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("images/Icono.png")); 
@@ -81,9 +80,35 @@ public class SongInterfaz extends JFrame{
 		//JFrame.setDefaultLookAndFeelDecorated(true);
 		AWTUtilities.setWindowOpacity(this, (float) 0.3);
 		
+		cargarPreferencias();
 		
 		
 	}
+	
+	/**
+	 * carga las preferencias de la clase GestorPreferencias
+	 */
+	public void cargarPreferencias(){
+		this.setBackground(GestorPreferencias.getInstance().getBgColor());
+		this.setForeground(GestorPreferencias.getInstance().getFgColor());
+		this.setRutaIconos(GestorPreferencias.getInstance().getSkin());
+		//TODO más cosas
+	}
+
+	
+	/**
+	 * Carga las imagenes de botones e iconos
+	 * @param skin
+	 */
+	private void setRutaIconos(String skin) {
+		
+		String ruta = GestorPreferencias.getInstance().getSkin();
+
+		minIcon1 = new ImageIcon(ruta + "/minIcon1.jpg");
+		minIcon2 = new ImageIcon(ruta + "/minIcon2.jpg");
+		
+	}
+	
 	
 	/**
 	 * Crea el panelInterno con la lista temas dentro

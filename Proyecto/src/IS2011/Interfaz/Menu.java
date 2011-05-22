@@ -18,6 +18,8 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 
+import IS2011.Configuracion.GestorPreferencias;
+
 import com.sun.awt.AWTUtilities;
 /**
  * Para conseguir un menu apropiado redefinimos el JPopUp menu, le dotamos
@@ -57,7 +59,7 @@ public class Menu extends JPopupMenu{
 		ItemsMenu preferencias = new ItemsMenu("Preferencias");
 		preferencias.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				PreferenciasDialog pd = new PreferenciasDialog(ia, true, ia.getPreferencias());
+				PreferenciasDialog pd = new PreferenciasDialog(ia, true);
 				ia.repaint();
 			}
 		});

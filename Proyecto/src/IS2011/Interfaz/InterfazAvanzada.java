@@ -7,6 +7,7 @@ import java.io.File;
 import javax.swing.*;
 
 
+import IS2011.Configuracion.GestorPreferencias;
 import IS2011.Configuracion.Preferencias;
 import IS2011.FiltrosArchivos.*;
 import IS2011.biblioteca.*;
@@ -41,11 +42,17 @@ public class InterfazAvanzada extends JFrame {
 	private ImageIcon cerrarIcon = new ImageIcon("images/Skin3/cerrar.png");
 	private ImageIcon pauseIcon = new ImageIcon("images/Skin3/pause.png");
 	
-	private ImageIcon playedIcon = new ImageIcon("images/skin1/playIcon3.jpg");
+/*  TODO	no usados
+ 	private ImageIcon playedIcon = new ImageIcon("images/skin1/playIcon3.jpg");
 	private ImageIcon stopIcon = new ImageIcon("images/skin1/stopIcon1.jpg");
 	private ImageIcon stopedIcon = new ImageIcon("images/skin1/stopIcon3.jpg");
 	private ImageIcon pausedIcon = new ImageIcon("images/skin1/pauseIcon3.jpg");
+*/	
+	private Color bgColor = Color.black;
+	private Color fgColor = new Color(240,240,240);
+
 	private Cursor cursor = null;
+
 	
 	/**
 	 * principal: Instancia de InterfazAvanzada para el método singleton
@@ -56,7 +63,6 @@ public class InterfazAvanzada extends JFrame {
 	private SongInterfaz infoPlaylist = null;
 	private SongInfoInterfaz infoSong = null;
 	private BibliotecaInterfaz bibliotecaInterfaz = null;
-	private Preferencias preferencias = null;
 
 	private BotonAvanzado stopButton = null;
 	private BotonAvanzado pauseButton = null;
@@ -90,8 +96,6 @@ public class InterfazAvanzada extends JFrame {
 	private ReproductorListener reproductorListener;
 	private Shape figura;
 	private Track _pista;
-	private Color bgcolor = Color.black;
-	private Color fgcolor = new Color(240,240,240);
 	private boolean reproduciendo = false;
 	private boolean restante= false;
 	
@@ -132,7 +136,6 @@ public class InterfazAvanzada extends JFrame {
 		// infoSong.actualiza(null);
 		//fondo = new TransparentBackground(this);
 		principal = this;
-		preferencias = new Preferencias();
 		//TODO Cargar con Xstream las preferencias
 		backGround = new JPanelRound();	
 		//backGround.setSize(700,700);
@@ -202,6 +205,10 @@ public class InterfazAvanzada extends JFrame {
 	//	aux.add(getPanel());// GridBagLayout
 		
 		this.centrarVentana();
+		
+		
+		//Carga de Preferencias
+		this.cargarPreferencias();
 	}
 	/**
 	 * Panel donde se mostrará la información de la canción así como los controles básicos, usa un GridBagLayout,
@@ -211,7 +218,7 @@ public class InterfazAvanzada extends JFrame {
 	 */
 	private JPanel getPanel(){
 		JPanelRound main = new JPanelRound();
-		main.setColorPrimario(bgcolor);
+		main.setColorPrimario(bgColor);
 		main.setLayout(new GridBagLayout()); // Le ponemos el
 	//	main.setUndecorated(true);														// GridBagLayout
 		main.setSize(300, 300);
@@ -222,7 +229,7 @@ public class InterfazAvanzada extends JFrame {
 		bytesArchivoActual =0;
 		
 		main.setEnabled(true);						//En la otra principal
-		main.setBackground(bgcolor);
+		main.setBackground(bgColor);
 		main.setEnabled(true);
 		main.setVisible(true);
 	
@@ -255,7 +262,7 @@ public class InterfazAvanzada extends JFrame {
 
 
 		segundero = new JLabel("0:00");
-		segundero.setForeground(fgcolor);
+		segundero.setForeground(fgColor);
 		segundero.setFont(new java.awt.Font("Helvetica", 1, 12));
 		segundero.addMouseListener(new MouseAdapter() 
 		{
@@ -346,7 +353,7 @@ public class InterfazAvanzada extends JFrame {
 	private JLabel getInfoSongLabel() {
 		if(infoSongLabel == null) {
 			infoSongLabel=new JLabel("Monaaaco Player");
-			infoSongLabel.setForeground(fgcolor);
+			infoSongLabel.setForeground(fgColor);
 			segundero.setFont(new java.awt.Font("Helvetica", 1, 12));
 		}
 		return infoSongLabel;
@@ -399,7 +406,7 @@ public class InterfazAvanzada extends JFrame {
         if (cargarArchivoItem == null) {
         	cargarArchivoItem = new JMenuItem("Cargar Archivo",carpetaIcon);
         	cargarArchivoItem.setBackground(Color.black);
-        	cargarArchivoItem.setForeground(fgcolor);
+        	cargarArchivoItem.setForeground(fgColor);
         	cargarArchivoItem.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     try {
@@ -687,7 +694,7 @@ public class InterfazAvanzada extends JFrame {
 			salirItem = new JMenuItem("Salir");
 			//salirItem.setBackground(bgcolor);
 			salirItem.setBackground(Color.black);
-			salirItem.setForeground(fgcolor);
+			salirItem.setForeground(fgColor);
 			salirItem.addMouseListener(new java.awt.event.MouseAdapter() {
 				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
@@ -750,7 +757,7 @@ public class InterfazAvanzada extends JFrame {
             nextItem = new JMenuItem("siguiente");
             //nextItem.setBackground(bgcolor);
             nextItem.setBackground(Color.black);
-            nextItem.setForeground(fgcolor);
+            nextItem.setForeground(fgColor);
             nextItem.addMouseListener(new java.awt.event.MouseAdapter() {
                 public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
                     reproducirSiguiente();
@@ -775,7 +782,7 @@ public class InterfazAvanzada extends JFrame {
 			previousItem = new JMenuItem("anterior");
 			//nextItem.setBackground(bgcolor);
 			previousItem.setBackground(Color.black);
-			previousItem.setForeground(fgcolor);
+			previousItem.setForeground(fgColor);
 			previousItem.addMouseListener(new java.awt.event.MouseAdapter() {
 				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
@@ -989,6 +996,10 @@ public class InterfazAvanzada extends JFrame {
 		if(mPlayer != null)return (mPlayer.getStatus() == mPlayer.PLAYING);
 		else return false;
 	}
+	
+	/**
+	 * Inicia la reproducción
+	 */
 	private void reproducir(){
 		try {
 			mPlayer.play();
@@ -1004,8 +1015,59 @@ public class InterfazAvanzada extends JFrame {
 		}
 	}
 
-	public Preferencias getPreferencias(){
-		return preferencias;
+	/**
+	 * carga las preferencias de la clase GestorPreferencias
+	 */
+	public void cargarPreferencias(){
+		this.setBgColor(GestorPreferencias.getInstance().getBgColor());
+		this.setFgColor(GestorPreferencias.getInstance().getFgColor());
+		this.setRutaIconos(GestorPreferencias.getInstance().getSkin());
+		//TODO más cosas
+	}
+	
+
+
+	/**
+	 * Carga las imagenes de botones e iconos
+	 * @param skin
+	 */
+	private void setRutaIconos(String skin) {
+		
+		String ruta = GestorPreferencias.getInstance().getSkin();
+		
+		monkeyIcon = new ImageIcon(ruta + "/monkeyIcon.jpg");
+		carpetaIcon = new ImageIcon(ruta + "/carpetaIcon.jpg");
+		menuIcon = new ImageIcon(ruta + "/monkeyIcon2.png");
+
+		FFIcon = new ImageIcon(ruta + "/ff.png");
+		wwIcon = new ImageIcon(ruta + "/ww.png");
+		playIcon = new ImageIcon(ruta + "/play.png");
+		libreriaIcon = new ImageIcon(ruta + "/libreria.png");
+		cerrarIcon = new ImageIcon(ruta + "/cerrar.png");
+		pauseIcon = new ImageIcon(ruta + "/pause.png");
+		
+/*		TODO no usados
+ 		playedIcon = new ImageIcon("images/skin1/playIcon3.jpg");
+		stopIcon = new ImageIcon("images/skin1/stopIcon1.jpg");
+		stopedIcon = new ImageIcon("images/skin1/stopIcon3.jpg");
+		pausedIcon = new ImageIcon("images/skin1/pauseIcon3.jpg");		
+*/
+	}
+
+	/**
+	 * 
+	 * @param fgColor2
+	 */
+	private void setFgColor(Color fgColor2) {
+		this.fgColor = fgColor2;
+	}
+
+	/**
+	 * 
+	 * @param bgColor2
+	 */
+	private void setBgColor(Color bgColor2) {
+		this.bgColor = bgColor2;
 	}
 }
 

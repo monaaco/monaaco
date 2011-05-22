@@ -55,7 +55,7 @@ public class GestorPreferencias {
 	/**
 	 * Esta función devuelve la variable preferencias
 	 */
-	private Preferencias getPreferencias(){
+	public Preferencias getPreferencias(){
 		return preferencias;
 	}
 	
@@ -64,7 +64,7 @@ public class GestorPreferencias {
 	 * @param biblioteca
 	 */
 	private void setPreferencias(Preferencias preferencias){
-		this.preferencias = preferencias;
+		if(preferencias != null) this.preferencias = preferencias;
 	}
 
 	
@@ -79,7 +79,7 @@ public class GestorPreferencias {
 	 * Devuelve el nombre del skin
 	 * @return String
 	 */
-	public String getRutaSkin() {
+	public String getSkin() {
 		return getPreferencias().getSkin();
 	}
 	
@@ -96,7 +96,7 @@ public class GestorPreferencias {
 	 * @return String 
 	 */
 	public String getLauncher() {
-		return 		getPreferencias().getLauncher();
+		return 	getPreferencias().getLauncher();
 	}
 	
 	/**

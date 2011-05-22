@@ -1,36 +1,50 @@
 package IS2011.Interfaz;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.colorchooser.ColorSelectionModel;
 
+import IS2011.Configuracion.GestorPreferencias;
 import IS2011.Configuracion.Preferencias;
 import IS2011.biblioteca.Track;
 
 public class PreferenciasDialog extends JDialog{
 	
-	private Preferencias preferencias;
+
+	/**
+	 * serialVersionUID
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	private JLabel textoSkin;
 	private JLabel textoRuta;
 	private JLabel textoColorF;
 	private JLabel textoColorB;
 	
-	private JButton selColF;
-	private JButton selColB;
-	private JButton ok;
+	private JButton selColFButton;
+	private JButton selColBButton;
 	
-	public PreferenciasDialog(JFrame comp, boolean modal, Preferencias config){
+	/**
+	 * Combo box con los skins disponibles (Carpetas dentro del directorio images)
+	 */
+	private JComboBox skins = null;
+	
+	private JButton guardarButton = null;
+	private JButton cancelarButton = null;
+	
+	public PreferenciasDialog(JFrame comp, boolean modal){
 		super(comp, modal);
-		preferencias = config;
 		setTitle("Preferencias");
 		init();
 		setVisible(true);
@@ -42,46 +56,119 @@ public class PreferenciasDialog extends JDialog{
 		textoRuta = new JLabel("Carpeta de la ruta a indexar con la bilbioteca:");
 		textoColorF = new JLabel("Color frontal");
 		textoColorB = new JLabel("Color de fondo");
-		
-		selColF = new JButton();
-		selColF.setBackground(preferencias.getFgColor());
-		selColF.addActionListener(new ActionListener() {
-		
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				Color newColor = JColorChooser.showDialog(null, "Selecciona color frontal", preferencias.getFgColor());
-				if(newColor != null){
-					preferencias.setFgColor(newColor);
-					selColF.setBackground(newColor);
-				}
-			}
-		});
-		
-		selColB = new JButton();		
-		selColB.setBackground(preferencias.getBgColor());
-		selColB.addActionListener(new ActionListener() {
-		
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				Color newColor = JColorChooser.showDialog(null, "Selecciona color de fondo", preferencias.getBgColor());
-				if(newColor != null){
-					preferencias.setBgColor(newColor);
-					selColB.setBackground(newColor);
-				}
-			}
-		});
-		
-		
-		ok = new JButton("Ok");
-		
+				
 		this.setLayout(new GridBagLayout());
 		
 		add(textoColorF);
-		add(selColF);
+		add(getSelColFButton());
 		add(textoColorB);
-		add(selColB);
+		add(getSelColBButton());
 		add(textoRuta);
 		add(textoSkin);
+		add(getGuardarButton());
+		add(getCancelarButton());
+
+		
 	}
 
+	/**
+	 * Botón color foreground
+	 * @return
+	 */
+	private JButton getSelColFButton() {
+		if (selColFButton == null){
+			selColFButton = new JButton();
+			selColFButton.setBackground(GestorPreferencias.getInstance().getFgColor());
+			selColFButton.addActionListener(new ActionListener() {
+			
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					Color newColor = JColorChooser.showDialog(null, "Selecciona color frontal", GestorPreferencias.getInstance().getFgColor());
+					if(newColor != null){
+						GestorPreferencias.getInstance().setFgColor(newColor);
+						selColFButton.setBackground(newColor);
+					}
+				}
+			});
+		}
+		return selColFButton;
+	}
+
+	/**
+	 * 	Botón color backgroud
+	 * @return
+	 */
+	private JButton getSelColBButton() {
+		if (selColBButton == null){
+			selColBButton = new JButton();		
+			selColBButton.setBackground(GestorPreferencias.getInstance().getBgColor());
+			selColBButton.addActionListener(new ActionListener() {
+			
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					Color newColor = JColorChooser.showDialog(null, "Selecciona color de fondo", GestorPreferencias.getInstance().getBgColor());
+					if(newColor != null){
+						GestorPreferencias.getInstance().setBgColor(newColor);
+						selColBButton.setBackground(newColor);
+					}
+				}
+			});
+		}
+		return selColBButton;
+	}
+	
+	/**
+	 * 	Botón guardar, guarda las preferencias
+	 * @return
+	 */
+	private JButton getGuardarButton() {
+		if (guardarButton == null){
+			guardarButton = new JButton("Guardar");		
+			guardarButton.setBackground(GestorPreferencias.getInstance().getBgColor());
+			guardarButton.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					//TODO obtener los datos del formulario y pasarselos a guardarPreferencias
+					guardarPreferencias("skinMig", Color.lightGray, Color.orange);
+					//TODO salir.
+				}
+			});
+		}
+		return guardarButton;
+	}
+	
+	/**
+	 * 	Botón cancelar, para salir sin guardar
+	 * @return
+	 */
+	private JButton getCancelarButton() {
+		if (cancelarButton == null){
+			cancelarButton = new JButton("Cancelar");		
+			cancelarButton.setBackground(GestorPreferencias.getInstance().getBgColor());
+			cancelarButton.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					//TODO salir.
+					
+				}
+			});
+		}
+		return cancelarButton;
+	}
+
+	
+	/**
+	 * Modifica las preferencias de la clase GestorPreferencias
+	 * @param skin ruta de la carpeta que contiene las imagenes del skin
+	 * @param bgColor (background color)
+	 * @param fgColor (foreground color)
+	 */
+	public void guardarPreferencias(String skin, Color bgColor, Color fgColor){
+		GestorPreferencias.getInstance().setBgColor(bgColor);
+		GestorPreferencias.getInstance().setFgColor(fgColor);
+		GestorPreferencias.getInstance().setSkin("images/" + skin);
+		GestorPreferencias.getInstance().guardarXML();
+		JOptionPane.showConfirmDialog(null, "Los cambios se aplicarán al reiniciar la aplicación");
+	}
+	
 }

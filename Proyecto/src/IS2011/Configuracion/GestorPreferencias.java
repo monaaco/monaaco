@@ -218,6 +218,21 @@ public class GestorPreferencias {
 		return getPreferencias().getFgColorInterno();
 	}
 	
+	/**
+	 * 
+	 * @return String
+	 */
+	public String getRutaIndexada() {
+		return getPreferencias().getRutaIndexada();
+	}
 	
+	/**
+	 * 
+	 * @param ruta
+	 */
+	public void setRutaIndexada(String ruta) {
+		getPreferencias().setRutaIndexada(ruta);
+	}
+		
 
 }

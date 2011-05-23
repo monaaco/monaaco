@@ -8,6 +8,8 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 public class Preferencias {
 
 	
+	private String rutaIndexada;
+	
 	private String skin;
 	private String launcher;
 	private String sound;
@@ -36,8 +38,22 @@ public class Preferencias {
 		fgColor = Color.white;	
 		bgColorInterno = Color.black;
 		fgColorInterno = Color.lightGray;
+		rutaIndexada = "sounds";
+	}
+	
+	/**
+	 * @return the rutaIndexada
+	 */
+	public String getRutaIndexada() {
+		return rutaIndexada;
 	}
 
+	/**
+	 * @param rutaIndexada the rutaIndexada to set
+	 */
+	public void setRutaIndexada(String rutaIndexada) {
+		this.rutaIndexada = rutaIndexada;
+	}
 
 	/**
 	 * @return the bgColorInterno

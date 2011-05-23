@@ -110,6 +110,8 @@ public class InterfazAvanzada extends JFrame {
     private Dimension ventana = this.getSize();
 
 	private int posTag=0;
+
+	private String rutaIndexada;
 	
 	/**
 	 * Método getSingleton() para la implementacion del patrón Singleton
@@ -1057,9 +1059,19 @@ public class InterfazAvanzada extends JFrame {
 		this.setFgColor(GestorPreferencias.getInstance().getFgColor());	
 		this.setBgColorInterno(GestorPreferencias.getInstance().getBgColorInterno());
 		this.setFgColorInterno(GestorPreferencias.getInstance().getFgColorInterno());	
+		this.setRutaIndexada(GestorPreferencias.getInstance().getRutaIndexada());
 		//TODO más cosas
+		
 	}
 	
+	/**
+	 * 
+	 * @param rutaIndexada
+	 */
+	private void setRutaIndexada(String rutaIndexada) {
+		this.rutaIndexada = rutaIndexada;
+		//Actualizar la biblioteca con la ruta.
+	}
 
 	/**
 	 * 

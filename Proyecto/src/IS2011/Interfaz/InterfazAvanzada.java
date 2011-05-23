@@ -1131,5 +1131,9 @@ public class InterfazAvanzada extends JFrame {
 		this.getMyBackground().setColorSecundario(bgColor2);
 	}
 	
+	
+	public void sincronizaBiblioteca(){
+		bibliotecaInterfaz.sincroniza(this.rutaIndexada);
+	}
 }
 

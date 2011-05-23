@@ -1,17 +1,18 @@
 <preferencias>
+  <rutaIndexada>sounds</rutaIndexada>
   <skin>images/skinMig</skin>
   <launcher>images/Skin3</launcher>
   <sound>images/Skin3</sound>
   <bgColor>
-    <red>255</red>
-    <green>255</green>
-    <blue>120</blue>
+    <red>102</red>
+    <green>102</green>
+    <blue>102</blue>
     <alpha>255</alpha>
   </bgColor>
   <fgColor>
-    <red>51</red>
-    <green>51</green>
-    <blue>255</blue>
+    <red>153</red>
+    <green>153</green>
+    <blue>153</blue>
     <alpha>255</alpha>
   </fgColor>
   <bgColorInterno>

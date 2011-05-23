@@ -54,8 +54,13 @@ public class Menu extends JPopupMenu{
 		this.add(BodaAntuan);
 		ItemsMenu Castores = new ItemsMenu("Castores");
 		this.add(Castores);
-		ItemsMenu agregar = new ItemsMenu("Agregar");
-		this.add(agregar);
+		ItemsMenu sincronizar = new ItemsMenu("Sincronizar Biblioteca");
+		sincronizar.addActionListener(new ActionListener() {
+			    public void actionPerformed(ActionEvent arg0) {
+					ia.sincronizaBiblioteca();
+				}
+		});
+		this.add(sincronizar);
 		ItemsMenu preferencias = new ItemsMenu("Preferencias");
 		preferencias.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

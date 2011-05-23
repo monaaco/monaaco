@@ -599,4 +599,33 @@ public class BibliotecaInterfaz extends JPanelRound{
 		}
 		repaint();
 	}
+
+	/**
+	 * sincroniza la biblioteca con la ruta que se marca
+	 * @param rutaIndexada
+	 */
+	public void sincroniza(String rutaIndexada) {
+		/*Borramos de la biblioteca los que no existan*/
+		Iterator<Track> it = GestorBiblioteca.getInstance().getArrayList().iterator();
+		Track tr;
+		File f;
+		while(it.hasNext()){
+			tr = (Track)it.next();
+			if(tr.getLocation()== null){
+				it.remove();
+			}
+			else
+			{
+				f = new File(tr.getLocation());
+				if(!f.exists())
+				{
+					it.remove();
+				}
+			}
+		}
+		/*Actualizamos la carpeta indexada*/
+		getAudioFiles(new File(rutaIndexada));
+		
+		actualiza();
+	}
 }

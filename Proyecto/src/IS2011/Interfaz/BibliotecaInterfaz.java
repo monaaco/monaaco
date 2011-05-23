@@ -12,10 +12,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -46,6 +48,11 @@ public class BibliotecaInterfaz extends JPanelRound{
 	 */
 	private static final long serialVersionUID = 1L;
 
+	
+	
+	private ImageIcon agregarIcon = new ImageIcon("images/Skin3/agregar.png");
+	private ImageIcon filtrarIcon = new ImageIcon("images/Skin3/filter.png");
+	
 	private BibliotecaInterfaz frame= null;
 	
 	private InterfazAvanzada interfazPadre= null;
@@ -58,7 +65,9 @@ public class BibliotecaInterfaz extends JPanelRound{
 	private JMenuItem elimina= null;
 	private JMenuItem anadirAPlayList=null;
 	private JTextField busquedaRapida= null;
-	JFrame popup = null;
+	private JButton agregar = null;
+	private JButton filtro = null;
+	private JFrame popup = null;
 	private ZebraJTable tabla= null;
 	
 	
@@ -79,6 +88,14 @@ public class BibliotecaInterfaz extends JPanelRound{
 		escrito = "";
 		mili = System.currentTimeMillis();
 		//this.setTran(0.5f);
+		JButton añadir = getAnadirArchivos();
+		añadir.setBounds(25,575,90,45);
+		interfazPadre.getMyBackground().add(añadir);
+		
+		JButton filtro1 = getFiltroAvanzado();
+		filtro1.setBounds(140,575,90,45);
+		interfazPadre.getMyBackground().add(filtro1);
+		
 	}
 
 	/**
@@ -86,12 +103,12 @@ public class BibliotecaInterfaz extends JPanelRound{
 	 */
 	public void initBibliotecaInterfaz()
 	{
-		this.setSize(600, 300);
+		this.setSize(650, 200);
 		this.setLayout(new BorderLayout());
-		JMenuBar JMenuAux = getBarraMenu();
+		//JMenuBar JMenuAux = getBarraMenu(); OBSOLETO
 		//JMenuAux.setBounds(5, 10, 590, 10)
 	
-		this.add(JMenuAux,BorderLayout.SOUTH);
+		//this.add(JMenuAux,BorderLayout.SOUTH);
 		
 		
 		
@@ -170,7 +187,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 		this.add(scroll,BorderLayout.CENTER);
 		
 		busquedaRapida = new JTextField("");
-		busquedaRapida.setSize(100,10);
+		busquedaRapida.setSize(200,20);
 		Document d = busquedaRapida.getDocument();
 		d.addDocumentListener(new DocumentListener() {
 			
@@ -192,12 +209,20 @@ public class BibliotecaInterfaz extends JPanelRound{
 				repaint();
 			}
 		});
-		menuBI.add(busquedaRapida);
+		JLabel textoBusqueda = new JLabel("Búsqueda:");
+		textoBusqueda.setBounds(400,555,60,20);
+		textoBusqueda.setForeground(Color.white);
+		interfazPadre.getMyBackground().add(textoBusqueda);
+		
+		busquedaRapida.setBounds(475,555,200,20);
+		interfazPadre.getMyBackground().add(busquedaRapida);
+		repaint();
 	}
 	
 	/**
 	 * Crea y define los listener del menu PopUp que borra y agrega canciones
 	 */
+	
 	private JPopupMenu getPopUp(){
 		
 		menu = new JPopupMenu();
@@ -213,9 +238,30 @@ public class BibliotecaInterfaz extends JPanelRound{
 		    		
 	            }
 	        });
-
-		
 		menu.add(eliminar);
+		JMenuItem propiedades = new JMenuItem("Propiedades");
+		propiedades.addActionListener(new ActionListener() {
+			 
+	            public void actionPerformed(ActionEvent e)
+	            {
+	            	         	
+						int[] seleccionadas = tabla.getSelectedRows();
+						int fila;
+						if(seleccionadas.length > 0){
+							for(int i =0;i< seleccionadas.length ;i++){
+								fila = seleccionadas[i];
+								fila = tabla.convertRowIndexToModel (fila);
+								Track track = GestorBiblioteca.getInstance().getArrayList().get(fila);
+								PropiedadesTrack pt = new PropiedadesTrack(interfazPadre, true ,track);
+								pt.setVisible(true);
+							}
+							actualiza();
+							repaint();
+						}
+					}
+	        });
+
+		menu.add(propiedades);
 		JMenuItem Agregar = new JMenuItem("Agregar");
 		Agregar.addActionListener(new ActionListener() {
 			 
@@ -233,10 +279,10 @@ public class BibliotecaInterfaz extends JPanelRound{
 	
 	/**
 	  * Devuelve y crea ,en el caso de que no exista, la barra de menú 
-	  * para la BibliotecaInterfaz 
+	  * para la BibliotecaInterfaz, OBSOLETO
 	  * @return JMenuBar 
 	 */
-	private JMenuBar getBarraMenu() {	
+/*	private JMenuBar getBarraMenu() {	
 		// TODO más elementos ¿e iconos?
 		if (menuBI == null) {
 			menuBI = new JMenuBar();
@@ -251,20 +297,20 @@ public class BibliotecaInterfaz extends JPanelRound{
 			menuPropiedades.add(getEditarPropiedades());
 			JMenu menuEliminar = new JMenu("Eliminar");
 			menuEliminar.add(getElimina());
-			menuBI.add(menuArchivo);
+			menuBI.add(menuArchivo);done
 			menuBI.add(menuFiltro);
 			menuBI.add(menuPropiedades);
 			menuBI.add(menuEliminar);
 		}
 		return menuBI;
-	}
+	}*/
 
 	/**
 	  * Devuelve y crea ,en el caso de que no exista, menú de añadir a la 
-	  * PlayList para la BibliotecaInterfaz 
+	  * PlayList para la BibliotecaInterfaz OBSOLETO
 	  * @return JMenuItem 
 	 */
-	private JMenuItem getAnadirAPlayList() {
+	/*private JMenuItem getAnadirAPlayList() {
 		if (anadirAPlayList == null) {
 			anadirAPlayList = new JMenuItem("Añadir seleccionados a la PlayList");
 			anadirAPlayList.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -294,14 +340,14 @@ public class BibliotecaInterfaz extends JPanelRound{
 				});
 		}
 		return anadirAPlayList;
-	}
+	}*/
 
 	/**
 	  * Devuelve y crea ,en el caso de que no exista, el menú de
-	  * eliminar de la biblioteca 
+	  * eliminar de la biblioteca OBSOLETO
 	  * @return JMenuItem
 	 */
-	private JMenuItem getElimina() {
+	/*private JMenuItem getElimina() {
 		if (elimina == null) {
 			elimina = new JMenuItem("Eliminar seleccionados de la biblioteca");
 			elimina.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -314,16 +360,18 @@ public class BibliotecaInterfaz extends JPanelRound{
 		}
 		return elimina;
 	}
-
+*/
 	/**
 	  * Devuelve y crea ,en el caso de que no exista, menú de añadir archivos a la 
 	  * biblioteca
 	  * @return JMenuItem 
 	 */
-	private JMenuItem getAnadirArchivos() {
-		if (anadirArchivos == null) {
-			anadirArchivos = new JMenuItem("Añadir archivos a la biblioteca");
-			anadirArchivos.addMouseListener(new java.awt.event.MouseAdapter() {
+	private JButton getAnadirArchivos() {
+		if (agregar == null) {
+			agregar = new JButton(agregarIcon);
+			agregar.setBorderPainted(false);
+			//anadirArchivos = new JMenuItem("Añadir archivos a la biblioteca");
+			agregar.addMouseListener(new java.awt.event.MouseAdapter() {
 				public  void mouseReleased(java.awt.event.MouseEvent evt) {
 					JFileChooser fc = new JFileChooser();
                     fc.setFileFilter(new FiltroMP3());
@@ -345,7 +393,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 				};
 			});
 		}
-		return anadirArchivos;
+		return agregar;
 	}
 	
 	/**
@@ -378,10 +426,10 @@ public class BibliotecaInterfaz extends JPanelRound{
 	
 	/**
 	  * Devuelve y crea ,en el caso de que no exista, menú de editar propiedades a la 
-	  * biblioteca
+	  * biblioteca OBSOLETO
 	  * @return JMenuItem 
 	 */
-	public JMenuItem getEditarPropiedades(){
+	/*public JMenuItem getEditarPropiedades(){
 		if(editarPropiedades==null){
 			editarPropiedades= new JMenuItem("Editar propiedades");
 			editarPropiedades.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -404,17 +452,19 @@ public class BibliotecaInterfaz extends JPanelRound{
 			});
 		}
 		return editarPropiedades;
-	}
+	}*/
 
 	/**
 	  * Devuelve y crea ,en el caso de que no exista, menú de insertar un Filtro Avanzado a la 
 	  * biblioteca
 	  * @return JMenuItem 
 	 */
-	public JMenuItem getFiltroAvanzado(){
-		if(filtroAvanzado==null){
-			filtroAvanzado= new JMenuItem("Busqueda avanzada");
-			filtroAvanzado.addMouseListener(new java.awt.event.MouseAdapter() {
+	public JButton getFiltroAvanzado(){
+		if(filtro==null){
+			filtro = new JButton(filtrarIcon);
+			filtro.setBorderPainted(false);
+			//filtroAvanzado= new JMenuItem("Busqueda avanzada");
+			filtro.addMouseListener(new java.awt.event.MouseAdapter() {
 				public  void mouseReleased(java.awt.event.MouseEvent evt) {
 					//TODO Mostrar un panel con los campos a buscar		
 					FiltroDialog fd = new FiltroDialog(interfazPadre, true,elQueOrdena);
@@ -423,7 +473,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 				}
 			});
 		}
-		return filtroAvanzado;
+		return filtro;
 	}
 	
 	/**

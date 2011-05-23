@@ -2,6 +2,7 @@ package IS2011.Interfaz;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -48,26 +49,72 @@ public class PreferenciasDialog extends JDialog{
 		setTitle("Preferencias");
 		init();
 		setVisible(true);
+		
 	}
 
 	public void init(){
-		setSize(400,600);
+		setSize(400,200);
 		textoSkin = new JLabel("Carpeta del skin");
-		textoRuta = new JLabel("Carpeta de la ruta a indexar con la bilbioteca:");
+		textoRuta = new JLabel("Carpeta con la bilbioteca:");
 		textoColorF = new JLabel("Color frontal");
 		textoColorB = new JLabel("Color de fondo");
-				
-		this.setLayout(new GridBagLayout());
 		
-		add(textoColorF);
-		add(getSelColFButton());
-		add(textoColorB);
-		add(getSelColBButton());
-		add(textoRuta);
-		add(textoSkin);
-		add(getGuardarButton());
-		add(getCancelarButton());
-
+		GridBagConstraints constraints = new GridBagConstraints();
+		this.getContentPane().setLayout(new GridBagLayout());
+				
+		
+		
+		//constraints.weightx = 1.0;
+		//constraints.fill = GridBagConstraints.EAST;
+	   //	main.add(getStopButton(), constraints);
+		
+		constraints.gridx = 0;
+		constraints.gridy = 0;
+		constraints.gridwidth = 1;
+		constraints.gridheight = 1;
+		constraints.anchor = GridBagConstraints.WEST; 
+		this.getContentPane().add(textoColorF,constraints);
+		constraints.gridx = 1;
+		constraints.gridy = 0;
+		constraints.gridwidth = 1;
+		constraints.gridheight = 1;
+		this.getContentPane().add(getSelColFButton(),constraints);
+		
+		constraints.gridx = 0;
+		constraints.gridy = 2;
+		constraints.gridwidth = 1;
+		constraints.gridheight = 1;
+		this.getContentPane().add(textoColorB,constraints);
+		constraints.gridx = 1;
+		constraints.gridy = 2;
+		constraints.gridwidth = 1;
+		constraints.gridheight = 1;
+		this.getContentPane().add(getSelColBButton(),constraints);
+		
+		constraints.gridx = 0;
+		constraints.gridy = 3;
+		constraints.gridwidth = 1;
+		constraints.gridheight = 1;
+		this.getContentPane().add(textoRuta,constraints);
+		constraints.gridx = 1;
+		constraints.gridy = 3;
+		constraints.gridwidth = 1;
+		constraints.gridheight = 1;
+		this.getContentPane().add(textoSkin,constraints);
+		
+		constraints.gridx = 0;
+		constraints.gridy = 5;
+		constraints.gridwidth = 1;
+		constraints.gridheight = 1;
+		this.getContentPane().add(getGuardarButton(),constraints);
+		constraints.gridx = 1;
+		constraints.gridy = 5;
+		constraints.gridwidth = 1;
+		constraints.gridheight = 1;
+		this.getContentPane().add(getCancelarButton(),constraints);
+		
+		this.getContentPane().setBackground(Color.gray);
+		this.getContentPane().setForeground(Color.white);
 		
 	}
 

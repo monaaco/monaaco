@@ -575,7 +575,9 @@ public class InterfazAvanzada extends JFrame {
 		return botonBiblioteca;
 	}
 	
-	
+	public JPanelRound getMyBackground(){
+		return backGround;
+	}
 	
 	
 	/**

@@ -91,9 +91,11 @@ public class Menu extends JPopupMenu{
 		this.setBorderPainted(false);
 		
 	}
+	
 	/**
-	 * Redefinimos us método paintComponent para que lo pinte redondeado
+	 * Redefinimos un método paintComponent para que lo pinte redondeado
 	 * y con transparencia
+	 * @param g Graphics usado para la interfaz.
 	 */
 	 protected void paintComponent(Graphics g) {
 	     
@@ -129,32 +131,51 @@ public class Menu extends JPopupMenu{
 	       // g2.setComposite(old);
 
 	    }
+	 
+	 	/**
+	 	 * Accesora al color primario del degradado
+	 	 * @return Color primario actual
+	 	 */
 	 	public Color getColorPrimario() {
 	        return colorPrimario;
 	    }
+	 	
 	 	/**
 	 	 * Establece el primer color del degradado
-	 	 * @param colorPrimario
+	 	 * @param colorPrimario nuevo color primario
 	 	 */
 	    public void setColorPrimario(Color colorPrimario) {
 	        this.colorPrimario = colorPrimario;
 	    }
 
+	 	/**
+	 	 * Accesora al color secundario del degradado
+	 	 * @return Color secundario actual
+	 	 */
 	    public Color getColorSecundario() {
 	        return colorSecundario;
 	    }
-	    /**
-	     * Establece el color secundario del degradado
-	     * @param colorSecundario
-	     */
+	    
+	 	/**
+	 	 * Establece el segundo color del degradado
+	 	 * @param colorSecundario nuevo color secundario
+	 	 */
 	    public void setColorSecundario(Color colorSecundario) {
 	        this.colorSecundario = colorSecundario;
 	    }
 
+	 	/**
+	 	 * Accesora al color del contorno del degradado
+	 	 * @return Color contorno actual
+	 	 */
 	    public Color getColorContorno() {
 	        return colorContorno;
 	    }
 
+	 	/**
+	 	 * Establece el color del contorno del degradado
+	 	 * @param colorContorno nuevo color del contorno
+	 	 */
 	    public void setColorContorno(Color colorContorno) {
 	        this.colorContorno = colorContorno;
 	    }
@@ -174,10 +195,19 @@ public class Menu extends JPopupMenu{
 	    public void setArch(int arch) {
 	        this.arch = arch;
 	    }
+	    
+	    /**
+	     * Accesora al porcentaje de transparencia
+	     * @return porcentaje de transparencia
+	     */
 	    public float getTran() {
 	    	return tran;
-	    	}
+	    }
 
+	    /**
+	     * Mutadora del porcentaje de transparencia
+	     * @param tran nuevo porcentaje de transparencia
+	     */
 	    public void setTran(float tran) {
 	    	this.tran = tran;
 	    }

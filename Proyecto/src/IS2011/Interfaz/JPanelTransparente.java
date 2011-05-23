@@ -36,7 +36,7 @@ protected void paintComponent(Graphics g) {
 
 /**
  * Devuelve el porcentaje de transparencia
- * @return float
+ * @return valor del porcentaje de transparencia
  */
 public float getTran() {
 return tran;
@@ -44,7 +44,7 @@ return tran;
 
 /**
  * Cambia el porcentaje de transparencia
- * @param tran
+ * @param tran nuevo porcentaje de transparencia
  */
 public void setTran(float tran) {
 this.tran = tran;

@@ -221,8 +221,8 @@ public class BibliotecaInterfaz extends JPanelRound{
 	
 	/**
 	 * Crea y define los listener del menu PopUp que borra y agrega canciones
+	 * @return menu devuelve el menu ya inicializado correctamente
 	 */
-	
 	private JPopupMenu getPopUp(){
 		
 		menu = new JPopupMenu();
@@ -308,7 +308,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 	/**
 	  * Devuelve y crea ,en el caso de que no exista, menú de añadir a la 
 	  * PlayList para la BibliotecaInterfaz OBSOLETO
-	  * @return JMenuItem 
+	  * @return JMenuItem
 	 */
 	/*private JMenuItem getAnadirAPlayList() {
 		if (anadirAPlayList == null) {
@@ -362,9 +362,9 @@ public class BibliotecaInterfaz extends JPanelRound{
 	}
 */
 	/**
-	  * Devuelve y crea ,en el caso de que no exista, menú de añadir archivos a la 
-	  * biblioteca
-	  * @return JMenuItem 
+	  * Devuelve y crea ,en el caso de que no exista, 
+	  * menú de añadir archivos a la biblioteca
+	  * @return agregar devuelve agregar ya inicializado correctamente
 	 */
 	private JButton getAnadirArchivos() {
 		if (agregar == null) {
@@ -397,11 +397,11 @@ public class BibliotecaInterfaz extends JPanelRound{
 	}
 	
 	/**
-	 *Metodo recursivo que comprueba si los archivos son de las clases soportadas
-	 *(mp3, ogg, wav) o directorio. 
-	 *Si el tipo es compatible lo agrega a la biblioteca siempre y cuando este todavia
-	 *no exista. Si es un directorio llama a este metodo recursivamente.
-	 *param File - Archivo a leer
+	 * Metodo recursivo que comprueba si los archivos son de las clases soportadas
+	 * (mp3, ogg, wav) o directorio. 
+	 * Si el tipo es compatible lo agrega a la biblioteca siempre y cuando este todavia
+	 * no exista. Si es un directorio llama a este metodo recursivamente.
+	 * @param file Archivo o directorio a leer.
 	 */
 	private void getAudioFiles(File file){
 		if(file.isDirectory()){
@@ -457,7 +457,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 	/**
 	  * Devuelve y crea ,en el caso de que no exista, menú de insertar un Filtro Avanzado a la 
 	  * biblioteca
-	  * @return JMenuItem 
+	  * @return filtro devuelve filtro ya inicializado correctamente.
 	 */
 	public JButton getFiltroAvanzado(){
 		if(filtro==null){
@@ -515,7 +515,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 	
 	/**
 	 * Mete en la PlayList una serie de Tracks de la tabla asociados con la biblioteca
-	 * @param fila - int[] posiciones de las filas de la tabla.
+	 * @param fila int[] posiciones de las filas de la tabla.
 	 */
 	public void meterEnPlayList(int[] fila){
         for(int i = 0;i<=fila.length-1;i++){
@@ -568,7 +568,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 	
 	/**
 	 * Acumula letras para la busqueda rapida por caracteres sin campo de texto.
-	 * @param c
+	 * @param c nuevo carácter a procesar
 	 */
 	public void acumulaLetra(char c){
 		if(System.currentTimeMillis() - mili > 1000){
@@ -582,7 +582,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 	
 	/**
 	 * Busca en la biblioteca por nombre.
-	 * @param nombre - String nombre por el que buscar
+	 * @param nombre String nombre por el que buscar
 	 */
 	public void buscaNombre(String nombre){
 		Iterator<Track> it = GestorBiblioteca.getInstance().getArrayList().iterator();

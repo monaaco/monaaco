@@ -15,7 +15,7 @@ public class ReproductorListener implements BasicPlayerListener{
 	
 	/**
 	 * Constructora del Reproductor Listene
-	 * @param p - InterfazAvanzada a la que esta asociada
+	 * @param p InterfazAvanzada a la que esta asociada
 	 */
 	public ReproductorListener(InterfazAvanzada p){
 		super();
@@ -23,8 +23,10 @@ public class ReproductorListener implements BasicPlayerListener{
 	}
 	
 	/**
-	 * Actualiza el player y la barra de progerso al abrir una nueva pista de 
-	 * audio
+	 * Actualiza el player y la barra de progerso 
+	 * al abrir una nueva pista de audio
+	 * @param arg0
+	 * @param arg1
 	 */
 	public void opened(Object arg0, Map arg1) {
 		//Nos devuelve el numero de bytes al abrir el archivo
@@ -37,8 +39,12 @@ public class ReproductorListener implements BasicPlayerListener{
 	}
 
 	/**
-	 * Este metodo se va ejecutando a medida que avanza la canción. Actualiza barra y tiempo
-	 * en la interfaz
+	 * Este metodo se va ejecutando a medida que avanza la canción.
+	 * Actualiza barra y tiempo en la interfaz.
+	 * @param bytesread bytes leidos hasta el momento.
+	 * @param microseconds 
+	 * @param pcmdata
+	 * @param properties
 	 */
 	public void progress(int bytesread, long microseconds, byte[] pcmdata,  Map properties) {
 		 float progressUpdate = (float) (bytesread * 1.0f / bytesLength * 1.0f);
@@ -62,6 +68,7 @@ public class ReproductorListener implements BasicPlayerListener{
 
 	/**
 	 * Ajusta los controles sobre el reproductor
+	 * @param arg0
 	 */
 	public void setController(BasicController arg0) {
 		System.out.println("Listener, ajustado control.");
@@ -71,6 +78,7 @@ public class ReproductorListener implements BasicPlayerListener{
 	 * Actualiza el estado del reproductor.
 	 * Actualiza barra progreso y segundero, tambien cambia de canción al 
 	 * acabar la pista actual.
+	 * @param arg0
 	 */
 	public void stateUpdated(BasicPlayerEvent arg0) {
 		System.out.println("Listener, cambio de estado.");

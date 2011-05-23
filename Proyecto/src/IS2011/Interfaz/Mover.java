@@ -26,26 +26,28 @@ public class Mover implements MouseMotionListener, MouseListener{
         this.target = target;
     }
     public static JFrame getFrame(Container target) {
-    if (target instanceof JFrame) {
-      return (JFrame) target;
+	    if (target instanceof JFrame) {
+	      return (JFrame) target;
+	    }
+	    return getFrame(target.getParent());
     }
-    return getFrame(target.getParent());
-  }
 
     /**
      * Obtenemos el lugar donde se pincho de la pantalla
-     * @param e
-     * @return
+     * @param e Entra por parámetro un mouseEvent para conocer la posición del ratón.
+     * @return el punto de la pantalla donde está el ratón.
      */
-  Point getScreenLocation(MouseEvent e) {
-    Point cursor = e.getPoint();
-    Point target_location = this.target.getLocationOnScreen();
-    return new Point((int) (target_location.getX() + cursor.getX()),
-        (int) (target_location.getY() + cursor.getY()));
-  }
-  /**
-   * movemos el component al sitio donde soltamos el ratón
-   */
+    Point getScreenLocation(MouseEvent e) {
+	    Point cursor = e.getPoint();
+	    Point target_location = this.target.getLocationOnScreen();
+	    return new Point((int) (target_location.getX() + cursor.getX()),
+	        (int) (target_location.getY() + cursor.getY()));
+    }
+    
+    /**
+     * Movemos el component al sitio donde soltamos el ratón
+     * @param e Entra por parámetro un mouseEvent para saber la posición del ratón.
+     */
     public void mouseDragged(MouseEvent e) {
         Point current = this.getScreenLocation(e);
         Point offset = new Point((int) current.getX() - (int) start_drag.getX(),(int) current.getY() - (int) start_drag.getY());

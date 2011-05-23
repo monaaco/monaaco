@@ -36,13 +36,11 @@ public class ItemsMenu extends JMenuItem {
 	        this.setBackground(Color.black);
 	        this.setForeground(Color.white);
 	        this.setBorderPainted(false);
-	        
-	       
 	    }
 	   
 	   /**
 	    * Sobreescirtura del métodos paintComponent que es el que nos pinta el JPanel
-	    * 
+	    * @param g Graphics usado para la clase BotonAvanzado
 	    */
 	    @Override
 	    protected void paintComponent(Graphics g) {
@@ -56,14 +54,20 @@ public class ItemsMenu extends JMenuItem {
 			g2.setComposite(old);
 		        
 	    }
-
+	    
+	    /**
+	     * Accesora de la variable tran de tipo float
+	     * @return tran devuelve el valor actual de tran
+	     */
 	    public float getTran() {
 	    	return tran;
-	    	}
-
+	    }
+	    
+	    /**
+	     * Mutadora de la variable tran de tipo float
+	     * @param tran nuevo valor de tran
+	     */
 	    public void setTran(float tran) {
 	    	this.tran = tran;
 	    }
-
-
 }

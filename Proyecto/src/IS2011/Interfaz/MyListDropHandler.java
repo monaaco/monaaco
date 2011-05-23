@@ -13,7 +13,7 @@ class MyListDropHandler extends TransferHandler {
 
 	  /**
 	   * Constructora del handler sobre la DragNDropList
-	   * @param list - DragDropList lista a asociar con el handler 
+	   * @param list DragDropList lista a asociar con el handler 
 	   */
 	  public MyListDropHandler(DragDropList list) {
 	    this.list = list;
@@ -22,7 +22,8 @@ class MyListDropHandler extends TransferHandler {
 	  /**
 	   * Este método comprueba que se pueda importar los datos sobre la lista 
 	   * durante el DragNDrop
-	   * return boolean 
+	   * @param support
+	   * @return si se pueden importar los datos o no.
 	   */
 	  public boolean canImport(TransferHandler.TransferSupport support) {
 	    if (!support.isDataFlavorSupported(DataFlavor.stringFlavor)) {
@@ -37,9 +38,10 @@ class MyListDropHandler extends TransferHandler {
 	  }
 
 	  /**
-	   * Este metodo se encarga de reordenar la y la PlayList asociada,
-	   * una vez conseguido el cambio, la DragDropList se repinta. 
-	   *returns boolean 
+	   * Este metodo se encarga de reordenar la tabla y la PlayList asociada,
+	   * una vez conseguido el cambio, la DragDropList se repinta.
+	   * @param support 
+	   * @return si se ha podido reordenar la tabla y la Playlist.
 	   */
 	  public boolean importData(TransferHandler.TransferSupport support) {
 	    int index;

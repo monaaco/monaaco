@@ -18,17 +18,17 @@ class MyDragListener implements DragSourceListener, DragGestureListener {
 
 	  /**
 	   * Constructora de MyDragListener implementada para la DragDropList
-	   * @param list - DragDropList lista a la que se asocia el listener
+	   * @param list DragDropList lista a la que se asocia el listener
 	   */
 	  public MyDragListener(DragDropList list) {
 	    this.list = list;
 	    DragGestureRecognizer dgr = ds.createDefaultDragGestureRecognizer(list,
 	        DnDConstants.ACTION_MOVE, this);
-
 	  }
 
 	  /**
 	   * Convierte la selección del DragNDrop en string y comienza el Drag.
+	   * @param dge 
 	   */
 	  public void dragGestureRecognized(DragGestureEvent dge) {
 	    StringSelection transferable = new StringSelection(Integer.toString(list.getSelectedIndex()));
@@ -38,6 +38,7 @@ class MyDragListener implements DragSourceListener, DragGestureListener {
 	  /**
 	   * Metodo que implemente DragSourceListner y DragGestureListner, 
 	   * en nuestro caso sin redefinir.
+	   * @param dsde
 	   */
 	  public void dragEnter(DragSourceDragEvent dsde) {
 	  }
@@ -45,6 +46,7 @@ class MyDragListener implements DragSourceListener, DragGestureListener {
 	  /**
 	   * Metodo que implemente DragSourceListner y DragGestureListner, 
 	   * en nuestro caso sin redefinir.
+	   * @param dse
 	   */
 	  public void dragExit(DragSourceEvent dse) {
 	  }
@@ -52,6 +54,7 @@ class MyDragListener implements DragSourceListener, DragGestureListener {
 	  /**
 	   * Metodo que implemente DragSourceListner y DragGestureListner, 
 	   * en nuestro caso sin redefinir.
+	   * @param dsde
 	   */
 	  public void dragOver(DragSourceDragEvent dsde) {
 	  }
@@ -59,6 +62,7 @@ class MyDragListener implements DragSourceListener, DragGestureListener {
 	  /**
 	   * Metodo que se ejecuta al Final del dragDrop, comprueba si 
 	   * el comportamiento ha sido correcto.
+	   * @param dsde
 	   */
 	  public void dragDropEnd(DragSourceDropEvent dsde) {
 	    if (dsde.getDropSuccess()) {
@@ -71,6 +75,7 @@ class MyDragListener implements DragSourceListener, DragGestureListener {
 	  /**
 	   * Metodo que implemente DragSourceListner y DragGestureListner, 
 	   * en nuestro caso sin redefinir.
+	   * @param dsde
 	   */
 	  public void dropActionChanged(DragSourceDragEvent dsde) {
 	  }

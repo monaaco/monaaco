@@ -13,8 +13,8 @@ public class BotonAvanzado extends JButton {
 	/**
 	 * Clase que nos va a generar un botón redondo con la posibilidad de cambiar su imagen
 	 * cuando se pulse o se pase el ratón opr encima
-	 * @param imagen
-	 * @param imagenS
+	 * @param imagen imagen normal del botón
+	 * @param imagenS imagen cuando se pulsa o pasa por encima
 	 */
 	public BotonAvanzado(ImageIcon imagen,ImageIcon imagenS)
 	{
@@ -47,8 +47,10 @@ public class BotonAvanzado extends JButton {
 	public ImageIcon getIConS(){
 		return iConS;
 	}
+	
 	/**
 	 * Método que pinta el componente y lo rellena de color si es necesario
+	 * Graphics usado para la clase BotonAvanzado
 	 */
 	protected void paintComponent( Graphics g )
 	{
@@ -60,19 +62,22 @@ public class BotonAvanzado extends JButton {
 		g.fillOval(21,3,getSize().width-42,getSize().height-7);
 		super.paintComponent(g);
 	}
+	
 	/**
 	 * Define el color del contorno
+	 * @param g Graphics usado para la clase BotonAvanzado
 	 */
 	protected void paintBorder( Graphics g )
 	{
 		g.setColor(Color.black);
 		//g.drawOval(17,3,getSize().width-38,getSize().height-7);
 	}
+	
 	/** 
-	 * Define el are que será sensible al clik del ratón, usamos la clase Ellipse2d para dibujar in
+	 * Define el area que será sensible al clik del ratón, usamos la clase Ellipse2d para dibujar un
 	 * círculo con los parametros que se le pasa
-	 * @param x
-	 * @param y
+	 * @param x la coordenada X que delimita el área.
+	 * @param y la coordenada Y que delimita el área.
 	 */
 	public boolean contains(int x,int y)
 	{

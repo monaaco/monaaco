@@ -93,7 +93,7 @@ public class Launcher extends JWindow {
 	  
 	  /**
 	   * Cambia el icono
-	   * @param im - ImageIcon
+	   * @param im Nuevo icono
 	   */
 	  void cambiaImagen(ImageIcon im){
 		  imageLabel.setIcon(im);

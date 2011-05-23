@@ -16,8 +16,8 @@ public class DragDropList extends JList {
 	  /**
 	   * Constructora de DragDropList, hereda de JList 
 	   * pero esta lleva asociado DragNDrop
-	   * @param list - Strng[] listado para el JList
-	   * @param lista - PlayList listado de canciones al que está asociado
+	   * @param list Strng[] listado para el JList
+	   * @param lista PlayList listado de canciones al que está asociado
 	   */
 	  public DragDropList(String[] list, Playlist lista) {
 	    super(new DefaultListModel());
@@ -35,8 +35,8 @@ public class DragDropList extends JList {
 	  /**
 	   * Mueve, intercambia posiciones entre dos elementos 
 	   * del listado.
-	   * @param inicio int -> posición origen
-	   * @param fin -> posición fin
+	   * @param inicio int posición origen
+	   * @param fin posición fin
 	   */
 	  public void mueve(int inicio, int fin){
 		  listaRep.mueve(inicio, fin);

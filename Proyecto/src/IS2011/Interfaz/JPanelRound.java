@@ -34,7 +34,7 @@ public class JPanelRound extends JPanel{
    
    /**
     * Sobreescirtura del métodos paintComponent que es el que nos pinta el JPanel
-    * 
+    * @param g Graphics usado para la interfaz.
     */
      @Override
     protected void paintComponent(Graphics g) {
@@ -62,7 +62,7 @@ public class JPanelRound extends JPanel{
 
     /**
      * Devuelve el color primario
-     * @return Color
+     * @return nos da el color primario
      */
     public Color getColorPrimario() {
         return colorPrimario;
@@ -70,7 +70,7 @@ public class JPanelRound extends JPanel{
 
     /**
      * Cambia el color primario
-     * @param colorPrimario - Color
+     * @param colorPrimario nuevo color primario
      */
     public void setColorPrimario(Color colorPrimario) {
         this.colorPrimario = colorPrimario;
@@ -78,7 +78,7 @@ public class JPanelRound extends JPanel{
 
     /**
      * Devuelve el color secundario
-     * @return Color
+     * @return nos devuelve el color secundario
      */
     public Color getColorSecundario() {
         return colorSecundario;
@@ -87,7 +87,7 @@ public class JPanelRound extends JPanel{
 
     /**
      * Cambia el color secundario
-     * @param colorSecundario - Color
+     * @param colorSecundario Nuevo color secundario
      */
     public void setColorSecundario(Color colorSecundario) {
         this.colorSecundario = colorSecundario;
@@ -95,7 +95,7 @@ public class JPanelRound extends JPanel{
 
     /**
      * Devuelve el color del contorno
-     * @return Color
+     * @return Color contorno
      */
     public Color getColorContorno() {
         return colorContorno;
@@ -103,7 +103,7 @@ public class JPanelRound extends JPanel{
 
     /**
      * Cambia el color del contorno
-     * @param colorContorno - Color
+     * @param colorContorno Nuevo color del contorno
      */
     public void setColorContorno(Color colorContorno) {
         this.colorContorno = colorContorno;

@@ -343,7 +343,7 @@ public class InterfazAvanzada extends JFrame {
 	 */
 	private void setDefaultPalyList() {
 		listaReproduccion = new Playlist();
-		listaReproduccion.setRepeat(true);		
+		listaReproduccion.setRepeat(true);	
 	}
 	/**
 	 * Creamos el Jlabel que se mostrará por pantalla con el título de la canción moviendose 
@@ -446,8 +446,8 @@ public class InterfazAvanzada extends JFrame {
         return cargarArchivoItem;
     }
 	/**
-	 * Metodo que utilizamos para sacar todos los archivos de audia de un directorio
-	 * @param file
+	 * Metodo que utilizamos para sacar todos los archivos de audio de un directorio
+	 * @param file el fichero en el cual buscamos los archivos de audio
 	 */
 	private void getAudioFiles(File file){
 		if(file.isDirectory()){
@@ -575,6 +575,10 @@ public class InterfazAvanzada extends JFrame {
 		return botonBiblioteca;
 	}
 	
+	/**
+	 * Accesora JPanelRound backGround. 
+	 * @return backGround
+	 */
 	public JPanelRound getMyBackground(){
 		return backGround;
 	}
@@ -801,8 +805,8 @@ public class InterfazAvanzada extends JFrame {
 
 	
 	/**
-	 * 
-	 * @param track con la que se crea el BasicPlayer
+	 * Permite comenzar a reproducir el Track pasado por parámetro.
+	 * @param track es el track que se va a reproducir.
 	 */
 	public void setCurrentTrack(Track track) {
 		try {
@@ -833,15 +837,28 @@ public class InterfazAvanzada extends JFrame {
      }
 	}
 
-
+	/**
+	 * Modifica el valor actual de la JSlider barraProgreso. 
+	 * @param estado nuevo valor de la barraProgreso
+	 */
 	public void actualizaBarraProgreso(double estado) {
 		barraProgreso.setValue((int) estado);
 	}
-
+	
+	/**
+	 * Permite fijar un valor máximo
+	 * para la JSlider barraProgreso. 
+	 * @param fin pasa a ser el valor máximo de la barra de progreso.
+	 */
 	public void ajustaBarraProgreso(double fin) {
 		barraProgreso.setMaximum((int) fin);
 	}
-
+	
+	/**
+	 * Permite modificar el JLabel segundero que es el encargado
+	 * de mostrar en la interfaz el tiempo de la canción
+	 * @param texto nuevo valor de segundero.
+	 */
 	public void cambiaSegundos(String texto) {
 		segundero.setText(texto);
 		if(posTag == 400){
@@ -852,17 +869,20 @@ public class InterfazAvanzada extends JFrame {
 			infoSongLabel.setLocation(posTag,(int) infoSongLabel.getLocation().getY());
 		
 	}
+	
 	/**
-	 * Actualiza el reloj que marca el transcurso y mueve por la pantalla el nombre de la 
+	 * Actualiza el reloj que marca el transcurso
+	 * y mueve por la pantalla el nombre de la 
 	 * canción que suena en ese momento (infoSongLabel).
+	 * @param int min minutos actuales
+	 * @param int segs segundos actuales
 	 */
-	public void cambiaSegundos(int min, int segs) {
+	public void cambiaSegundos(int min, int segs) {		
 		String texto;
 		texto= "";
 		if(restante)
 		{
 			//TODO obtenemos los restantes en segundos como en el Track.
-			
 			int segTotales;
 			int resultado;
 			
@@ -889,7 +909,9 @@ public class InterfazAvanzada extends JFrame {
                 posTag++;
                 infoSongLabel.setLocation(posTag,(int) infoSongLabel.getLocation().getY());
 }
-	
+	/**
+	 * Centra la ventana principal del programa.
+	 */
 	private void centrarVentana() {
 		this.setLocationRelativeTo(null);
 //        this.setLocation((pantalla.width - ventana.width) / 2,
@@ -897,8 +919,9 @@ public class InterfazAvanzada extends JFrame {
 	}
 	
 	/**
-	 * Modificamos el trackActual y reproducimos pos
-	 * @param pos indica la posición de la playlist que vamos a reproducir
+	 * Modificamos el trackActual y reproducimos la posicion pos
+	 * de la playlist.
+	 * @param pos posicion de la playlist que pasa a ser reproducida.
 	 */
 	public void setTrackNumber(int pos){
 		try{
@@ -923,7 +946,7 @@ public class InterfazAvanzada extends JFrame {
 	
 	/**
 	 * Mutadora de bytesArchivoActual
-	 * 
+	 * @param bytesLength el nuevo valor de bytesArchivoActual
 	 */
 	public void setBytesArchivo(double bytesLength) {
 		this.bytesArchivoActual = bytesLength;
@@ -940,7 +963,7 @@ public class InterfazAvanzada extends JFrame {
 	}
 
 	/**
-	 * Cambia el elemento actual por el que corresponda
+	 * Cambia el elemento actual por el siguiente en la lista.
 	 * 
 	 */
 	public void borradoElemActualPlaylist(){
@@ -991,7 +1014,7 @@ public class InterfazAvanzada extends JFrame {
 	}
 	
 	/**
-	 * Nos indica si hay alguna canción en reproducción en mPlayer.
+	 * Nos indica si hay alguna canción en reproducción actualmente.
 	 * @return boolean
 	 */
 	public boolean isPlaying(){
@@ -1031,7 +1054,7 @@ public class InterfazAvanzada extends JFrame {
 
 	/**
 	 * Carga las imagenes de botones e iconos
-	 * @param skin
+	 * @param skin los iconos a cargar
 	 */
 	private void setRutaIconos(String skin) {
 		
@@ -1057,16 +1080,16 @@ public class InterfazAvanzada extends JFrame {
 	}
 
 	/**
-	 * 
-	 * @param fgColor2
+	 * Mutadora del color principal de la interfaz.
+	 * @param fgColor2 nuevo color principal.
 	 */
 	private void setFgColor(Color fgColor2) {
 		this.fgColor = fgColor2;
 	}
 
 	/**
-	 * 
-	 * @param bgColor2
+	 * Mutadora del color secundario de la interfaz.
+	 * @param bgColor2 nuevo color secundario.
 	 */
 	private void setBgColor(Color bgColor2) {
 		this.bgColor = bgColor2;

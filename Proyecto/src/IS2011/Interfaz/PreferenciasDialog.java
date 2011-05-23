@@ -33,14 +33,13 @@ public class PreferenciasDialog extends JDialog{
 	private JLabel textoColorF;
 	private JLabel textoColorB;
 	
-	private JButton selColFButton;
-	private JButton selColBButton;
-	
 	/**
 	 * Combo box con los skins disponibles (Carpetas dentro del directorio images)
 	 */
 	private JComboBox skins = null;
 	
+	private JButton selColFButton = null;
+	private JButton selColBButton = null;
 	private JButton guardarButton = null;
 	private JButton cancelarButton = null;
 	
@@ -155,7 +154,6 @@ public class PreferenciasDialog extends JDialog{
 				public void actionPerformed(ActionEvent e) {
 					Color newColor = JColorChooser.showDialog(null, "Selecciona color de fondo", GestorPreferencias.getInstance().getBgColor());
 					if(newColor != null){
-						GestorPreferencias.getInstance().setBgColor(newColor);
 						selColBButton.setBackground(newColor);
 					}
 				}
@@ -176,7 +174,8 @@ public class PreferenciasDialog extends JDialog{
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					//TODO obtener los datos del formulario y pasarselos a guardarPreferencias
-					guardarPreferencias("skinMig", Color.lightGray, Color.orange);
+					
+					guardarPreferencias("skinMig", getSelColBButton().getBackground(), getSelColFButton().getBackground());
 					//TODO salir.
 				}
 			});

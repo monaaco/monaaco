@@ -14,6 +14,8 @@ public class Preferencias {
 	
 	private Color bgColor;
 	private Color fgColor;
+	private Color bgColorInterno;
+	private Color fgColorInterno;
 	
 	/**
 	 * Constructora
@@ -31,7 +33,38 @@ public class Preferencias {
 		launcher = "images/Skin3";
 		sound = "images/Skin3";
 		bgColor = Color.black;
-		fgColor = Color.white;		
+		fgColor = Color.white;	
+		bgColorInterno = Color.black;
+		fgColorInterno = Color.lightGray;
+	}
+
+
+	/**
+	 * @return the bgColorInterno
+	 */
+	public Color getBgColorInterno() {
+		return bgColorInterno;
+	}
+
+	/**
+	 * @param bgColorInterno the bgColorInterno to set
+	 */
+	public void setBgColorInterno(Color bgColorInterno) {
+		this.bgColorInterno = bgColorInterno;
+	}
+
+	/**
+	 * @return the fgColorInterno
+	 */
+	public Color getFgColorInterno() {
+		return fgColorInterno;
+	}
+
+	/**
+	 * @param fgColorInterno the fgColorInterno to set
+	 */
+	public void setFgColorInterno(Color fgColorInterno) {
+		this.fgColorInterno = fgColorInterno;
 	}
 
 	/**

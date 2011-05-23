@@ -31,25 +31,23 @@ public class InterfazAvanzada extends JFrame {
 	/**
 	 * Imágenes de la interfaz
 	 */
-	private ImageIcon monkeyIcon = new ImageIcon("images/Skin3/monkeyIcon.jpg");
-	private ImageIcon carpetaIcon = new ImageIcon("images/Skin3/carpetaIcon.jpg");
-	private ImageIcon menuIcon = new ImageIcon("images/Skin3/monkeyIcon2.png");
+	private ImageIcon monkeyIcon = null;
+	private ImageIcon carpetaIcon = null;
+	private ImageIcon menuIcon = null;
 	
-	private ImageIcon FFIcon = new ImageIcon("images/Skin3/ff.png");
-	private ImageIcon wwIcon = new ImageIcon("images/Skin3/ww.png");
-	private ImageIcon playIcon = new ImageIcon("images/Skin3/play.png");
-	private ImageIcon libreriaIcon = new ImageIcon("images/Skin3/libreria.png");
-	private ImageIcon cerrarIcon = new ImageIcon("images/Skin3/cerrar.png");
-	private ImageIcon pauseIcon = new ImageIcon("images/Skin3/pause.png");
-	
-/*  TODO	no usados
- 	private ImageIcon playedIcon = new ImageIcon("images/skin1/playIcon3.jpg");
-	private ImageIcon stopIcon = new ImageIcon("images/skin1/stopIcon1.jpg");
-	private ImageIcon stopedIcon = new ImageIcon("images/skin1/stopIcon3.jpg");
-	private ImageIcon pausedIcon = new ImageIcon("images/skin1/pauseIcon3.jpg");
-*/	
-	private Color bgColor = Color.black;
-	private Color fgColor = new Color(240,240,240);
+	private ImageIcon FFIcon = null;
+	private ImageIcon wwIcon = null;
+	private ImageIcon playIcon = null;
+	private ImageIcon libreriaIcon = null;
+	private ImageIcon cerrarIcon = null;
+	private ImageIcon pauseIcon = null;
+
+	private Color bgColor = null;
+	private Color fgColor = null;
+	private Color bgColorInterno = null;
+	private Color fgColorInterno = null;
+
+
 
 	private Cursor cursor = null;
 
@@ -73,6 +71,7 @@ public class InterfazAvanzada extends JFrame {
 	private JSlider barraProgreso = null;
 	private JButton salirButton = null;
 	
+	private JPanelRound main = null;
 	
 	// Barra de menu principal
 	private Menu menuPrincipal = null;
@@ -82,6 +81,7 @@ public class InterfazAvanzada extends JFrame {
 	private JMenuItem salirItem = null;
 	private JMenuItem nextItem = null;
 	private JMenuItem previousItem = null;
+	
 	private JPanelRound backGround = null;
 	
 	private JLabel infoSongLabel = null;
@@ -131,26 +131,17 @@ public class InterfazAvanzada extends JFrame {
 	 * y la información de la canción
 	 */
 	private InterfazAvanzada() {
-		
 		super("Monaaaaco"); // El título
+		
+		principal = this;
+
+		//Carga con Xstream las Preferencias
+		this.cargarPreferencias();
+		
+
+		
 		// infoSong.actualiza(null);
 		//fondo = new TransparentBackground(this);
-		principal = this;
-		//TODO Cargar con Xstream las preferencias
-		backGround = new JPanelRound();	
-		//backGround.setSize(700,700);
-		//aux.setBackground(Color.BLUE);
-		backGround.setOpaque(false);
-		backGround.setLayout(null);
-		backGround.setColorPrimario(Color.black);
-		Mover mml = new Mover(backGround);
-		backGround.addMouseListener(mml);
-		backGround.addMouseMotionListener(mml);
-		backGround.setColorSecundario(Color.white);
-		backGround.setBounds(50,50, 700,350); //movemos el background 50 pixels en ambos ejes para dar paso al icono de Menu
-		JPanel interno = getPanel();
-		backGround.add(interno);
-		interno.setBounds(25,25,650,250);
 		
 		menuLabel = new JLabel();
 		ImageIcon menuAux =new ImageIcon(menuIcon.getImage().getScaledInstance(120,120, Image.SCALE_SMOOTH)); //Resizamos la imagen
@@ -206,9 +197,8 @@ public class InterfazAvanzada extends JFrame {
 		
 		this.centrarVentana();
 		
+
 		
-		//Carga de Preferencias
-		this.cargarPreferencias();
 	}
 	/**
 	 * Panel donde se mostrará la información de la canción así como los controles básicos, usa un GridBagLayout,
@@ -216,124 +206,124 @@ public class InterfazAvanzada extends JFrame {
 	 * de cada elemento en el panel
 	 * @return panelPrincipal
 	 */
-	private JPanel getPanel(){
-		JPanelRound main = new JPanelRound();
-		main.setColorPrimario(bgColor);
-		main.setLayout(new GridBagLayout()); // Le ponemos el
-	//	main.setUndecorated(true);														// GridBagLayout
-		main.setSize(300, 300);
-		
-		//main.centrarVentana();
-		
-		pause = false;
-		bytesArchivoActual =0;
-		
-		main.setEnabled(true);						//En la otra principal
-		main.setBackground(bgColor);
-		main.setEnabled(true);
-		main.setVisible(true);
+	private JPanelRound getPanel(){
+		if( main == null){
+			main = new JPanelRound();
+			main.setLayout(new GridBagLayout()); // Le ponemos el
+		//	main.setUndecorated(true);														// GridBagLayout
+			main.setSize(300, 300);
+			
+			//main.centrarVentana();
+			
+			pause = false;
+			bytesArchivoActual =0;
+			
+			main.setEnabled(true);						//En la otra principal
 	
-		GridBagConstraints constraints = new GridBagConstraints();
-	/*	constraints.gridx = 2;
-		constraints.gridy = 0;
-		constraints.gridwidth = 1;
-		constraints.gridheight = 1;
-		constraints.weightx = 1.0;
-		constraints.fill = GridBagConstraints.EAST;
-	//	main.add(getStopButton(), constraints);*/
-
-		/*constraints.gridx = 0;
-		constraints.gridy = 0;
-		constraints.gridwidth = 1;
-		constraints.gridheight = 1;
-		constraints.weightx = 1.0;
-		constraints.fill = GridBagConstraints.WEST;
-	//	main.add(getPauseButton(), constraints);
-		constraints.weightx = 0.0;*/
-
-		constraints.gridx = 0;
-		constraints.gridy = 0;
-		constraints.gridwidth = 3;
-		constraints.gridheight = 1;
-		constraints.weightx = 0.0;
-		constraints.anchor = GridBagConstraints.SOUTH; 
-		constraints.fill = GridBagConstraints.NONE;
-		main.add(getPlayButton(), constraints);
-
-
-		segundero = new JLabel("0:00");
-		segundero.setForeground(fgColor);
-		segundero.setFont(new java.awt.Font("Helvetica", 1, 12));
-		segundero.addMouseListener(new MouseAdapter() 
-		{
-            @Override
-            public void mouseReleased(MouseEvent e) 
+			main.setEnabled(true);
+			main.setVisible(true);
+		
+			GridBagConstraints constraints = new GridBagConstraints();
+		/*	constraints.gridx = 2;
+			constraints.gridy = 0;
+			constraints.gridwidth = 1;
+			constraints.gridheight = 1;
+			constraints.weightx = 1.0;
+			constraints.fill = GridBagConstraints.EAST;
+		//	main.add(getStopButton(), constraints);*/
+	
+			/*constraints.gridx = 0;
+			constraints.gridy = 0;
+			constraints.gridwidth = 1;
+			constraints.gridheight = 1;
+			constraints.weightx = 1.0;
+			constraints.fill = GridBagConstraints.WEST;
+		//	main.add(getPauseButton(), constraints);
+			constraints.weightx = 0.0;*/
+	
+			constraints.gridx = 0;
+			constraints.gridy = 0;
+			constraints.gridwidth = 3;
+			constraints.gridheight = 1;
+			constraints.weightx = 0.0;
+			constraints.anchor = GridBagConstraints.SOUTH; 
+			constraints.fill = GridBagConstraints.NONE;
+			main.add(getPlayButton(), constraints);
+	
+	
+			segundero = new JLabel("0:00");
+			segundero.setForeground(fgColor);
+			segundero.setFont(new java.awt.Font("Helvetica", 1, 12));
+			segundero.addMouseListener(new MouseAdapter() 
 			{
-				restante=!restante;
-			}
-		});
-		constraints.gridx = 1;
-		constraints.gridy = 1;
-		constraints.gridwidth = 1;
-		constraints.gridheight = 1;
-		constraints.anchor = GridBagConstraints.CENTER; 
-		constraints.fill = GridBagConstraints.CENTER;
-		main.add(segundero, constraints);
-		
-		constraints.gridx = 2;
-		constraints.gridy = 1;
-		constraints.gridwidth = 1;
-		constraints.gridheight = 1;
-		constraints.anchor = GridBagConstraints.CENTER; 
-		constraints.fill = GridBagConstraints.CENTER;
-		main.add(getFfButton(), constraints);
-
-		constraints.gridx = 0;
-		constraints.gridy = 1;
-		constraints.gridwidth = 1;
-		constraints.gridheight = 1;
-		constraints.anchor = GridBagConstraints.CENTER; 
-		constraints.fill = GridBagConstraints.CENTER;
-		main.add(getWwButton(), constraints);
-
-
-		
-		constraints.gridx = 0;
-		constraints.gridy = 3;
-		constraints.gridwidth = 4;
-		constraints.gridheight = 1;
-		constraints.anchor = GridBagConstraints.WEST; 
-		constraints.fill = GridBagConstraints.HORIZONTAL;
-		main.add(getBarraProgreso(), constraints);
-		// constraints.weighty = 0.0; // Restauramos al valor por defecto, para
-		// no afectar a los siguientes componentes.
-
-		GridBagConstraints position = new GridBagConstraints();
-       	position.gridx = 0;
-       	position.gridy = 2;
-       	position.gridheight = 1;
-       	position.gridwidth = 4;
-       	constraints.anchor = GridBagConstraints.WEST; 
-		constraints.fill = GridBagConstraints.NONE;
-      	main.add(getInfoSongLabel(), position);
-						
-      	setDefaultPalyList();
-        String[] temas = listaReproduccion.getListado();
-        infoPlaylist = new SongInterfaz(temas,this);
-		infoSong = new SongInfoInterfaz();
-		       
-        
-		GridBagConstraints position1 = new GridBagConstraints();
-       	position1.gridx = 3;
-       	position1.gridy = 0;
-       	position1.gridheight = 2;
-       	position1.gridwidth = 1;
-        position1.weightx = 1.0;
-        position1.anchor = GridBagConstraints.CENTER; 
-        position1.insets= new Insets(0,0,0,20);
-        position1.fill = GridBagConstraints.BOTH ;
-        main.add(infoSong, position1);
-      	
+	            @Override
+	            public void mouseReleased(MouseEvent e) 
+				{
+					restante=!restante;
+				}
+			});
+			constraints.gridx = 1;
+			constraints.gridy = 1;
+			constraints.gridwidth = 1;
+			constraints.gridheight = 1;
+			constraints.anchor = GridBagConstraints.CENTER; 
+			constraints.fill = GridBagConstraints.CENTER;
+			main.add(segundero, constraints);
+			
+			constraints.gridx = 2;
+			constraints.gridy = 1;
+			constraints.gridwidth = 1;
+			constraints.gridheight = 1;
+			constraints.anchor = GridBagConstraints.CENTER; 
+			constraints.fill = GridBagConstraints.CENTER;
+			main.add(getFfButton(), constraints);
+	
+			constraints.gridx = 0;
+			constraints.gridy = 1;
+			constraints.gridwidth = 1;
+			constraints.gridheight = 1;
+			constraints.anchor = GridBagConstraints.CENTER; 
+			constraints.fill = GridBagConstraints.CENTER;
+			main.add(getWwButton(), constraints);
+	
+	
+			
+			constraints.gridx = 0;
+			constraints.gridy = 3;
+			constraints.gridwidth = 4;
+			constraints.gridheight = 1;
+			constraints.anchor = GridBagConstraints.WEST; 
+			constraints.fill = GridBagConstraints.HORIZONTAL;
+			main.add(getBarraProgreso(), constraints);
+			// constraints.weighty = 0.0; // Restauramos al valor por defecto, para
+			// no afectar a los siguientes componentes.
+	
+			GridBagConstraints position = new GridBagConstraints();
+	       	position.gridx = 0;
+	       	position.gridy = 2;
+	       	position.gridheight = 1;
+	       	position.gridwidth = 4;
+	       	constraints.anchor = GridBagConstraints.WEST; 
+			constraints.fill = GridBagConstraints.NONE;
+	      	main.add(getInfoSongLabel(), position);
+							
+	      	setDefaultPalyList();
+	        String[] temas = listaReproduccion.getListado();
+	        infoPlaylist = new SongInterfaz(temas,this);
+			infoSong = new SongInfoInterfaz();
+			       
+	        
+			GridBagConstraints position1 = new GridBagConstraints();
+	       	position1.gridx = 3;
+	       	position1.gridy = 0;
+	       	position1.gridheight = 2;
+	       	position1.gridwidth = 1;
+	        position1.weightx = 1.0;
+	        position1.anchor = GridBagConstraints.CENTER; 
+	        position1.insets= new Insets(0,0,0,20);
+	        position1.fill = GridBagConstraints.BOTH ;
+	        main.add(infoSong, position1);
+		}
      return main;    
         
 	}
@@ -358,6 +348,7 @@ public class InterfazAvanzada extends JFrame {
 		}
 		return infoSongLabel;
 	}
+	
 	/** 
 	 * Definimos la barra del menú, obsoleto ya no se usa
 	 * @return
@@ -580,6 +571,22 @@ public class InterfazAvanzada extends JFrame {
 	 * @return backGround
 	 */
 	public JPanelRound getMyBackground(){
+		if(backGround == null){
+			backGround = new JPanelRound();	
+			//backGround.setSize(700,700);
+			//aux.setBackground(Color.BLUE);
+			backGround.setOpaque(false);
+			backGround.setLayout(null);
+			backGround.setColorPrimario(Color.black);
+			Mover mml = new Mover(backGround);
+			backGround.addMouseListener(mml);
+			backGround.addMouseMotionListener(mml);
+			backGround.setColorSecundario(Color.white);
+			backGround.setBounds(50,50, 700,350); //movemos el background 50 pixels en ambos ejes para dar paso al icono de Menu
+			JPanel interno = getPanel();
+			backGround.add(interno);
+			interno.setBounds(25,25,650,250);
+		}	
 		return backGround;
 	}
 	
@@ -650,6 +657,7 @@ public class InterfazAvanzada extends JFrame {
 		}
 		return playButton;
 	}
+	
 	/**
 	 * Misma función que el botón de avance, su función no se corresponde con el nombre
 	 * @return pauseButton
@@ -1044,22 +1052,41 @@ public class InterfazAvanzada extends JFrame {
 	 * carga las preferencias de la clase GestorPreferencias
 	 */
 	public void cargarPreferencias(){
-		this.setBgColor(GestorPreferencias.getInstance().getBgColor());
-		this.setFgColor(GestorPreferencias.getInstance().getFgColor());
 		this.setRutaIconos(GestorPreferencias.getInstance().getSkin());
+		this.setBgColor(GestorPreferencias.getInstance().getBgColor());
+		this.setFgColor(GestorPreferencias.getInstance().getFgColor());	
+		this.setBgColorInterno(GestorPreferencias.getInstance().getBgColorInterno());
+		this.setFgColorInterno(GestorPreferencias.getInstance().getFgColorInterno());	
 		//TODO más cosas
 	}
 	
 
+	/**
+	 * 
+	 * @param fgColorInterno2
+	 */
+	private void setFgColorInterno(Color fgColorInterno2) {
+		this.fgColorInterno = fgColorInterno2;
+		this.getPanel().setColorPrimario(fgColorInterno);
+	}
+
+	/**
+	 * 
+	 * @param bgColorInterno2
+	 */
+	private void setBgColorInterno(Color bgColorInterno2) {
+		this.bgColorInterno = bgColorInterno2;
+		this.getPanel().setColorSecundario(bgColorInterno);
+
+	}
 
 	/**
 	 * Carga las imagenes de botones e iconos
 	 * @param skin los iconos a cargar
 	 */
 	private void setRutaIconos(String skin) {
-		
 		String ruta = GestorPreferencias.getInstance().getSkin();
-		
+
 		monkeyIcon = new ImageIcon(ruta + "/monkeyIcon.jpg");
 		carpetaIcon = new ImageIcon(ruta + "/carpetaIcon.jpg");
 		menuIcon = new ImageIcon(ruta + "/monkeyIcon2.png");
@@ -1071,12 +1098,6 @@ public class InterfazAvanzada extends JFrame {
 		cerrarIcon = new ImageIcon(ruta + "/cerrar.png");
 		pauseIcon = new ImageIcon(ruta + "/pause.png");
 		
-/*		TODO no usados
- 		playedIcon = new ImageIcon("images/skin1/playIcon3.jpg");
-		stopIcon = new ImageIcon("images/skin1/stopIcon1.jpg");
-		stopedIcon = new ImageIcon("images/skin1/stopIcon3.jpg");
-		pausedIcon = new ImageIcon("images/skin1/pauseIcon3.jpg");		
-*/
 	}
 
 	/**
@@ -1085,6 +1106,8 @@ public class InterfazAvanzada extends JFrame {
 	 */
 	private void setFgColor(Color fgColor2) {
 		this.fgColor = fgColor2;
+		//this.setBackground(fgColor2);
+		this.getMyBackground().setColorPrimario(fgColor2);
 	}
 
 	/**
@@ -1093,6 +1116,8 @@ public class InterfazAvanzada extends JFrame {
 	 */
 	private void setBgColor(Color bgColor2) {
 		this.bgColor = bgColor2;
+		this.getMyBackground().setColorSecundario(bgColor2);
 	}
+	
 }
 

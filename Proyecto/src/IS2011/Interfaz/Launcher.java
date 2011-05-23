@@ -257,6 +257,11 @@ public class Launcher extends JWindow {
 		interfaz.setVisible(true);
 		interfaz.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 		l.dispose();
+		
+		
 	}
+	
+	
+
 
 }

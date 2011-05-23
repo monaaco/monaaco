@@ -201,6 +201,22 @@ public class GestorPreferencias {
 	public void cargarXML(File file) {
 			setPreferencias(gestorXML.cargar(file));
 	}
+
+	/**
+	 * 
+	 * @return Color
+	 */
+	public Color getBgColorInterno() {
+		return getPreferencias().getBgColorInterno();
+	}
+	
+	/**
+	 * 
+	 * @return Color
+	 */
+	public Color getFgColorInterno() {
+		return getPreferencias().getFgColorInterno();
+	}
 	
 	
 

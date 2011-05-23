@@ -34,9 +34,11 @@ public class SongInterfaz extends JFrame{
 	private Dimension ventana = null;
 	private JButton minButton = null;
 	private JButton sortButton = null;
+	private InterfazAvanzada interfazAvanzada = null;	
+	
 	private ImageIcon minIcon1 = new ImageIcon("images/skin1/minIcon1.jpg");
 	private ImageIcon minIcon2 = new ImageIcon("images/skin1/minIcon2.jpg");
-	private InterfazAvanzada interfazAvanzada = null;
+	
 	private Color fgColor = new Color(240,240,240);
 	private Color bgColor = Color.black;
 	

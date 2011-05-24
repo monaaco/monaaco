@@ -35,7 +35,7 @@ public class PreferenciasDialog extends JDialog{
 	
 	private JLabel textoSkin;
 	private JLabel textoRuta;
-	
+	 
 	private JLabel textoColorF;
 	private JLabel textoColorB;
 	

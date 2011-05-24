@@ -45,7 +45,7 @@ public class BibliotecaInterfaz extends JPanelTransparente{
 	private static final long serialVersionUID = 1L;
 
 	
-	
+	 
 	private ImageIcon agregarIcon = new ImageIcon("images/Skin3/agregar.png");
 	private ImageIcon filtrarIcon = new ImageIcon("images/Skin3/filter.png");
 	

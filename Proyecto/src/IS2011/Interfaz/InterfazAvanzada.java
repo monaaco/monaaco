@@ -25,7 +25,7 @@ import javazoom.jlgui.basicplayer.BasicPlayerException;
 
 @SuppressWarnings("restriction")
 public class InterfazAvanzada extends JFrame {
-
+ 
 	private static final long serialVersionUID = 1L;
 	
 	/**

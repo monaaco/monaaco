@@ -1,30 +1,25 @@
 <preferencias>
   <rutaIndexada>sounds</rutaIndexada>
-  <skin>images/skinMig</skin>
+  <skin>E:\Miguelo\workspace-3.4.2\monaaco\Proyecto\images\Skin3</skin>
   <launcher>images/Skin3</launcher>
   <sound>images/Skin3</sound>
   <bgColor>
-    <red>102</red>
-    <green>102</green>
-    <blue>102</blue>
+    <red>0</red>
+    <green>51</green>
+    <blue>0</blue>
     <alpha>255</alpha>
   </bgColor>
   <fgColor>
-    <red>153</red>
-    <green>153</green>
-    <blue>153</blue>
+    <red>51</red>
+    <green>102</green>
+    <blue>0</blue>
     <alpha>255</alpha>
   </fgColor>
   <bgColorInterno>
-    <red>1</red>
-    <green>12</green>
-    <blue>192</blue>
-    <alpha>55</alpha>
+    <red>102</red>
+    <green>102</green>
+    <blue>0</blue>
+    <alpha>255</alpha>
   </bgColorInterno>
-  <fgColorInterno>
-    <red>192</red>
-    <green>192</green>
-    <blue>192</blue>
-    <alpha>2</alpha>
-  </fgColorInterno>
+  <fgColorInterno reference="../bgColorInterno"/>
 </preferencias>

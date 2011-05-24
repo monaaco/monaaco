@@ -8,26 +8,20 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.JWindow;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
@@ -35,11 +29,13 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import javax.swing.text.Document;
 
-
-import IS2011.FiltrosArchivos.*;
+import IS2011.FiltrosArchivos.FiltroMP3;
+import IS2011.FiltrosArchivos.FiltroOGG;
+import IS2011.FiltrosArchivos.FiltroSoportados;
 import IS2011.biblioteca.GestorBiblioteca;
 import IS2011.biblioteca.Playlist;
 import IS2011.biblioteca.Track;
+import IS2011.Interfaz.*;
 
 public class BibliotecaInterfaz extends JPanelRound{
 

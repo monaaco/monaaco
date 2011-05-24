@@ -233,6 +233,24 @@ public class GestorPreferencias {
 	public void setRutaIndexada(String ruta) {
 		getPreferencias().setRutaIndexada(ruta);
 	}
+
+	/**
+	 * 
+	 * @param bgColor
+	 */
+	public void setBgColorInterno(Color bgColor) {
+		getPreferencias().setBgColorInterno(bgColor);
+		
+	}
+
+	/**
+	 * 
+	 * @param fgColor
+	 */
+	public void setFgColorInterno(Color fgColor) {
+		getPreferencias().setFgColorInterno(fgColor);
+		
+	}
 		
 
 }

@@ -76,11 +76,11 @@ public class PreferenciasDialog extends JDialog{
 		setLocationRelativeTo(null);
 		textoSkin = new JLabel("Carpeta del skin");
 		textoRuta = new JLabel("Carpeta con la bilbioteca:");
-		textoColorF = new JLabel("Color frontal");
-		textoColorB = new JLabel("Color de fondo");
+		textoColorF = new JLabel("Color externo primario ");
+		textoColorB = new JLabel("Color externo secundario ");
 		
-		textoColorFInterno = new JLabel("Color frontal secundario");
-		textoColorBInterno = new JLabel("Color de fondo secundario");
+		textoColorFInterno = new JLabel("Color interno primario");
+		textoColorBInterno = new JLabel("Color interno secundario");
 
 		
 		GridBagConstraints constraints = new GridBagConstraints();
@@ -184,7 +184,7 @@ public class PreferenciasDialog extends JDialog{
 			
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					Color newColor = JColorChooser.showDialog(null, "Selecciona color frontal", GestorPreferencias.getInstance().getFgColor());
+					Color newColor = JColorChooser.showDialog(null, "Selecciona color primario", GestorPreferencias.getInstance().getFgColor());
 					if(newColor != null){
 						GestorPreferencias.getInstance().setFgColor(newColor);
 						selColFButton.setBackground(newColor);
@@ -207,7 +207,7 @@ public class PreferenciasDialog extends JDialog{
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					Color newColor = JColorChooser.showDialog(null, "Selecciona color de fondo", GestorPreferencias.getInstance().getBgColor());
+					Color newColor = JColorChooser.showDialog(null, "Selecciona color secundario", GestorPreferencias.getInstance().getBgColor());
 					if(newColor != null){
 						selColBButton.setBackground(newColor);
 					}
@@ -286,7 +286,7 @@ public class PreferenciasDialog extends JDialog{
 			
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					Color newColor = JColorChooser.showDialog(null, "Selecciona color de fondo", GestorPreferencias.getInstance().getBgColor());
+					Color newColor = JColorChooser.showDialog(null, "Selecciona color interno primario", GestorPreferencias.getInstance().getBgColor());
 					if(newColor != null){
 						selColFInternoButton.setBackground(newColor);
 					}
@@ -307,7 +307,7 @@ public class PreferenciasDialog extends JDialog{
 			
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					Color newColor = JColorChooser.showDialog(null, "Selecciona color de fondo", GestorPreferencias.getInstance().getBgColor());
+					Color newColor = JColorChooser.showDialog(null, "Selecciona color interno secundario", GestorPreferencias.getInstance().getBgColor());
 					if(newColor != null){
 						selColBInternoButton.setBackground(newColor);
 					}

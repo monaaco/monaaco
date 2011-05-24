@@ -59,7 +59,7 @@ public class BotonAvanzado extends JButton {
 				//this.setIcon(iConS);
 		}
 		
-		g.fillOval(21,3,getSize().width-42,getSize().height-7);
+		g.fillOval(17,5,getSize().width-35,getSize().height-12);
 		super.paintComponent(g);
 	}
 	
@@ -83,7 +83,7 @@ public class BotonAvanzado extends JButton {
 	{
 			
 		if(figura==null || !figura.getBounds().equals(getBounds()))
-				figura = new Ellipse2D.Float(21,3,getSize().width-42,getSize().height-7);
+				figura = new Ellipse2D.Float(17,5,getSize().width-35,getSize().height-12);
 		return (figura.contains(x,y));
 	}
 

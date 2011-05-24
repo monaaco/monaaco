@@ -42,8 +42,8 @@ public class SongInfoInterfaz extends JPanelTransparente {
 		//principal.setAlwaysOnTop(true);
 		//principal.setResizable(false);
 		principal.setVisible(true);
-		principal.setArcw(0); 
-		principal.setArch(0); 
+		//principal.setArcw(0); 
+		//principal.setArch(0); 
 		principal.setColorPrimario(Color.black);
 		principal.setColorSecundario(Color.black);
 		principal.setTran(0.8f);
@@ -67,8 +67,8 @@ public class SongInfoInterfaz extends JPanelTransparente {
 			infoPanel.setSize(300,120);
 			infoPanel.setArcw(0); 
 			infoPanel.setArch(0); 
-			infoPanel.setColorPrimario(Color.white);
-			infoPanel.setColorSecundario(Color.white);
+			//infoPanel.setColorPrimario(Color.white);
+			//infoPanel.setColorSecundario(Color.white);
 			//infoPanel.setForeground(Color.white);
 			etiqueta = new JLabel();
 			etiqueta.setFont(new java.awt.Font("Helvetica", 1, 12));

@@ -62,6 +62,7 @@ public class PreferenciasDialog extends JDialog{
 	public PreferenciasDialog(JFrame comp, boolean modal){
 		super(comp, modal);
 		this.comp = comp;
+		
 		setTitle("Preferencias");
 		init();
 		setVisible(true);
@@ -71,7 +72,7 @@ public class PreferenciasDialog extends JDialog{
 	 * Inicializa el Jdialog
 	 */
 	public void init(){
-		setSize(400,200);
+		this.setSize(800,500);
 		setLocationRelativeTo(null);
 		textoSkin = new JLabel("Carpeta del skin");
 		textoRuta = new JLabel("Carpeta con la bilbioteca:");
@@ -91,7 +92,7 @@ public class PreferenciasDialog extends JDialog{
 		constraints.gridheight = 1;
 		constraints.anchor = GridBagConstraints.WEST; 
 		this.getContentPane().add(textoColorF,constraints);
-		constraints.gridx = 1;
+		constraints.gridx = 2;
 		constraints.gridy = 0;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
@@ -102,7 +103,7 @@ public class PreferenciasDialog extends JDialog{
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
 		this.getContentPane().add(textoColorB,constraints);
-		constraints.gridx = 1;
+		constraints.gridx = 2;
 		constraints.gridy = 2;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
@@ -113,7 +114,7 @@ public class PreferenciasDialog extends JDialog{
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
 		this.getContentPane().add(textoColorBInterno,constraints);
-		constraints.gridx = 1;
+		constraints.gridx = 2;
 		constraints.gridy = 3;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
@@ -124,7 +125,7 @@ public class PreferenciasDialog extends JDialog{
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
 		this.getContentPane().add(textoColorFInterno,constraints);
-		constraints.gridx = 1;
+		constraints.gridx = 2;
 		constraints.gridy = 4;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
@@ -136,30 +137,32 @@ public class PreferenciasDialog extends JDialog{
 		constraints.gridheight = 1;
 		this.getContentPane().add(textoSkin,constraints);
 		constraints.gridx = 1;
-		constraints.gridy = 5;
-		constraints.gridwidth = 1;
+		constraints.gridy = 6;
+		constraints.ipadx = 20;
+		constraints.gridwidth = 4;
 		constraints.gridheight = 1;
 		this.getContentPane().add(getSkinsBox(),constraints);
-
+		constraints.ipadx = 0;
+		
 		constraints.gridx = 0;
-		constraints.gridy = 6;
-		constraints.gridwidth = 1;
+		constraints.gridy = 7;
+		constraints.gridwidth = 2;
 		constraints.gridheight = 1;
 		this.getContentPane().add(textoRuta,constraints);
-		constraints.gridx = 1;
-		constraints.gridy = 6;
+		constraints.gridx = 2;
+		constraints.gridy = 7;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;		
 		this.getContentPane().add(getRutaMusica(),constraints);
 
 		constraints.gridx = 0;
-		constraints.gridy = 10;
+		constraints.gridy = 11;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
 		this.getContentPane().add(getGuardarButton(),constraints);
 		
 		constraints.gridx = 1;
-		constraints.gridy = 10;
+		constraints.gridy = 11;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
 		this.getContentPane().add(getCancelarButton(),constraints);
@@ -220,7 +223,9 @@ public class PreferenciasDialog extends JDialog{
 	 */
 	public JComboBox getSkinsBox() {
 		if(skinsBox == null){
+			
 			Vector<String> items = new Vector<String>();
+			
 			File dir;
 			File f = new File("images");
 			File[] array = f.listFiles();
@@ -239,6 +244,7 @@ public class PreferenciasDialog extends JDialog{
 			
 			//= {"Skin3", "skinMig"};
 			skinsBox = new JComboBox(items);
+			skinsBox.setSize(100, 20);
 		}
 		return skinsBox;
 	}

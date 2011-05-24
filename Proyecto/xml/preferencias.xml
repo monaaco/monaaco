@@ -1,12 +1,12 @@
 <preferencias>
   <rutaIndexada>sounds</rutaIndexada>
-  <skin>E:\Miguelo\workspace-3.4.2\monaaco\Proyecto\images\Skin3</skin>
+  <skin>C:\Users\Jazuma\Documents\Universidad\IS\monaaco\Proyecto\images\.svn</skin>
   <launcher>images/Skin3</launcher>
   <sound>images/Skin3</sound>
   <bgColor>
-    <red>0</red>
-    <green>51</green>
-    <blue>0</blue>
+    <red>204</red>
+    <green>0</green>
+    <blue>204</blue>
     <alpha>255</alpha>
   </bgColor>
   <fgColor>
@@ -16,8 +16,8 @@
     <alpha>255</alpha>
   </fgColor>
   <bgColorInterno>
-    <red>102</red>
-    <green>102</green>
+    <red>0</red>
+    <green>51</green>
     <blue>0</blue>
     <alpha>255</alpha>
   </bgColorInterno>

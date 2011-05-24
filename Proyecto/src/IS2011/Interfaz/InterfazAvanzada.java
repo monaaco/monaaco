@@ -543,11 +543,11 @@ public class InterfazAvanzada extends JFrame {
 				public void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
 						if (desplegado == false){
-						principal.setSize(750,700); //Resizamos el frame Principal (tranparente)
-						backGround.setSize(700,650); //Resizamos el backgruond
+						principal.setSize(750,725); //Resizamos el frame Principal (tranparente)
+						backGround.setSize(700,675); //Resizamos el backgruond
 						bibliotecaInterfaz = new BibliotecaInterfaz(principal); 
 						backGround.add(bibliotecaInterfaz);
-						bibliotecaInterfaz.setBounds(25,350, 650, 200);
+						bibliotecaInterfaz.setBounds(25,350,650,300);
 						desplegado = true;
 						repaint();
 						}

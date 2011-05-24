@@ -37,7 +37,7 @@ import IS2011.biblioteca.Playlist;
 import IS2011.biblioteca.Track;
 import IS2011.Interfaz.*;
 
-public class BibliotecaInterfaz extends JPanelRound{
+public class BibliotecaInterfaz extends JPanelTransparente{
 
 	/**
 	 * serialVersionUID
@@ -67,6 +67,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 	private ZebraJTable tabla= null;
 	
 	
+	
 	private TableRowSorter<TableModel> elQueOrdena=null; 
 	private MyDefaultTableModel modelo= null;
 	private String escrito;
@@ -80,17 +81,21 @@ public class BibliotecaInterfaz extends JPanelRound{
 		//super("library");
 		interfazPadre = ia;
 		initBibliotecaInterfaz();
+		setTran(0.2f);
 		frame = this;
 		escrito = "";
 		mili = System.currentTimeMillis();
+		this.setSize(600,300);
+		this.setColorPrimario(Color.white);
+		this.setColorSecundario(Color.white);
 		//this.setTran(0.5f);
 		JButton añadir = getAnadirArchivos();
-		añadir.setBounds(25,575,90,45);
-		interfazPadre.getMyBackground().add(añadir);
+		añadir.setBounds(25,245,90, 45);
+	    this.add(añadir);
 		
 		JButton filtro1 = getFiltroAvanzado();
-		filtro1.setBounds(140,575,90,45);
-		interfazPadre.getMyBackground().add(filtro1);
+		filtro1.setBounds(125,245,90, 45);
+		this.add(filtro1);
 		
 	}
 
@@ -99,8 +104,8 @@ public class BibliotecaInterfaz extends JPanelRound{
 	 */
 	public void initBibliotecaInterfaz()
 	{
-		this.setSize(650, 200);
-		this.setLayout(new BorderLayout());
+		//this.setSize(650, 200);
+		this.setLayout(null);
 		//JMenuBar JMenuAux = getBarraMenu(); OBSOLETO
 		//JMenuAux.setBounds(5, 10, 590, 10)
 	
@@ -123,7 +128,7 @@ public class BibliotecaInterfaz extends JPanelRound{
 		tabla.setForeground( Color.white );
 		tabla.setSelectionBackground( Color.yellow );
 		tabla.setSelectionForeground( Color.black );*/
-		tabla.setSize(500,250);
+		tabla.setSize(600,200);
 		
 		getPopUp();
 
@@ -179,11 +184,14 @@ public class BibliotecaInterfaz extends JPanelRound{
 		});
 
 		JScrollPane scroll = new JScrollPane(tabla);
-		scroll.setSize(500,250);
+		scroll.setSize(600,200);
+		scroll.setBounds(25, 25, 600, 200);
 		this.add(scroll,BorderLayout.CENTER);
 		
 		busquedaRapida = new JTextField("");
 		busquedaRapida.setSize(200,20);
+		
+		this.add(busquedaRapida);
 		Document d = busquedaRapida.getDocument();
 		d.addDocumentListener(new DocumentListener() {
 			
@@ -206,12 +214,12 @@ public class BibliotecaInterfaz extends JPanelRound{
 			}
 		});
 		JLabel textoBusqueda = new JLabel("Búsqueda:");
-		textoBusqueda.setBounds(400,555,60,20);
+		textoBusqueda.setBounds(350,245,60, 20);
 		textoBusqueda.setForeground(Color.white);
-		interfazPadre.getMyBackground().add(textoBusqueda);
+	    this.add(textoBusqueda);
+		busquedaRapida.setBounds(425,245,200, 20);;
+		this.add(busquedaRapida);
 		
-		busquedaRapida.setBounds(475,555,200,20);
-		interfazPadre.getMyBackground().add(busquedaRapida);
 		repaint();
 	}
 	

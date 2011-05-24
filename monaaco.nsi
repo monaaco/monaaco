@@ -18,10 +18,22 @@ SetCompressor lzma
 
  !define MUI_HEADERIMAGE 
  !define MUI_HEADERIMAGE_BITMAP "mono.bmp" ; optional
+ !define MUI_HEADERIMAGE_UNBITMAP "mono.bmp"
+ 
+ 
  !define MUI_ABORTWARNING
  !define MUI_WELCOMEFINISHPAGE_BITMAP "mono.bmp"
  ;!define MUI_WELCOMEFINISHPAGE_BITMAP_NOSTRETCH "mono.bmp"
  !define MUI_UNWELCOMEFINISHPAGE_BITMAP  "mono.bmp"
+ ;!define MUI_BGCOLOR "F2F"
+ !define MUI_ICON mono.ico
+ !define MUI_UNICON mono.ico
+ !define MUI_PAGE_HEADER_TEXT "Bienvenido a la instalación de Monaaco"
+ ;LICENCIAAAAAAAAAAAAAAAA
+ !define MUI_LICENSEPAGE_BGCOLOR "FFFF99"
+ !define MUI_DIRECTORYPAGE_TEXT_TOP "Por favor, elija el directorio dónde desea instalar Monaaco"
+ 
+ 
 
 ;--------------------------------
 ;Pages
@@ -29,15 +41,19 @@ SetCompressor lzma
   ;Mostramos la página de bienvenida 
   !insertmacro MUI_PAGE_WELCOME 
   ;Página donde mostramos el contrato de licencia 
- ; !insertmacro MUI_PAGE_LICENSE "licencia.txt" 
+  ;!insertmacro MUI_PAGE_LICENSE "licencia.txt" 
+  ;!insertmacro MUI_PAGE_LICENSE "licencia.txt;
+  !insertmacro MUI_PAGE_LICENSE  "mono.txt"
   ;página donde se muestran las distintas secciones definidas 
-  !insertmacro MUI_PAGE_COMPONENTS 
+  ;!insertmacro MUI_PAGE_COMPONENTS 
   ;página donde se selecciona el directorio donde instalar nuestra aplicacion 
   !insertmacro MUI_PAGE_DIRECTORY 
+  
   ;página de instalación de ficheros 
   !insertmacro MUI_PAGE_INSTFILES 
   ;página final
   !insertmacro MUI_PAGE_FINISH
+  
   
  
 
@@ -78,7 +94,7 @@ OutFile Monaaco-1.0-win32.exe
 Name "Monaaco"
 Caption "Mono 1.0 para Win32 Setup"
 
-Icon mono.ico
+;Icon mono.ico
 
 ;Comprobacion de integridad del fichero activada
 CRCCheck on

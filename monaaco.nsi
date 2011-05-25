@@ -1,6 +1,6 @@
   !include "MUI.nsh"
   !include MUI2.nsh
-
+;!include fileassoc.nsh
   
   
 
@@ -17,8 +17,8 @@ SetCompressor lzma
 !define VERSION "1.0"
 
  !define MUI_HEADERIMAGE 
- !define MUI_HEADERIMAGE_BITMAP "mono.bmp" ; optional
- !define MUI_HEADERIMAGE_UNBITMAP "mono.bmp"
+ !define MUI_HEADERIMAGE_BITMAP "mono2.bmp" ; optional
+ !define MUI_HEADERIMAGE_UNBITMAP "mono2.bmp"
  
  
  !define MUI_ABORTWARNING
@@ -55,6 +55,7 @@ SetCompressor lzma
   !insertmacro MUI_PAGE_FINISH
   
   
+  ; !insertmacro APP_ASSOCIATE "mp3" "myapp.textfile" "$INSTDIR\mono.exe,0"
  
 
 ;páginas referentes al desinstalador
@@ -142,8 +143,8 @@ StrCpy $PATH "Monaaco"
 StrCpy $PATH_ACCESO_DIRECTO "Monaaco"
 SetOutPath $INSTDIR\$PATH
 
-StrCpy $MONO_LIB "mono_lib"
-SetOutPath $INSTDIR\$MONO_LIB
+;StrCpy $MONO_LIB "mono_lib"
+;SetOutPath $INSTDIR\$MONO_LIB
 
 
 ;File "commons-logging-api.jar"
@@ -186,6 +187,7 @@ SetShellVarContext all
 	CreateDirectory "$SMPROGRAMS\$PATH_ACCESO_DIRECTO"
         CreateShortCut "$SMPROGRAMS\$PATH_ACCESO_DIRECTO\mono.lnk" \
                        "$INSTDIR\mono.exe" "--parametros parametro1"
+					   
 		CreateShortCut "$DESKTOP\mono.lnk"\
 						"$INSTDIR\mono.exe" "--parametros parametro1"
 	
@@ -198,7 +200,7 @@ SetShellVarContext all
 
         WriteRegStr HKLM \
             SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$PATH \
-            "DisplayName" "Aplicación para Adictos al Trabajo ${VERSION}"
+            "DisplayName" "Monaaco ${VERSION}"
         WriteRegStr HKLM \
             SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$PATH \
             "UninstallString" '"$INSTDIR\uninstall.exe"'
@@ -208,6 +210,21 @@ SetShellVarContext all
        
         WriteRegStr HKLM SOFTWARE\$PATH "Version" "1.0"
         ;Mostramos el directorio donde se crearon los acesos directos
+		
+		;WriteRegStr HKCR "mp3" "backup" "$INSTDIR\mono.exe,0"
+ 
+	;	WriteRegStr HKCR ".${EXT}" "" "${FILECLASS}"
+	;:	StrCmp "${SHELLNEW}" "0" +2
+		;WriteRegStr HKCR ".${EXT}\ShellNew" "NullFile" ""
+ 
+		;WriteRegStr HKCR "${FILECLASS}" "" `${DESCRIPTION}`
+		;WriteRegStr HKCR "${FILECLASS}\DefaultIcon" "" `${ICON}`
+		;WriteRegStr HKCR "${FILECLASS}\shell" "" `${DEFAULTVERB}`
+		;:WriteRegStr HKCR "${FILECLASS}\shell\${VERB}" "" `${COMMANDTEXT}`
+		;WriteRegStr HKCR "${FILECLASS}\shell\${VERB}\command" "" `${COMMAND}`
+		
+		
+		
 	Exec "explorer $SMPROGRAMS\$PATH_ACCESO_DIRECTO\"
 SectionEnd
 

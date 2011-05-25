@@ -690,8 +690,7 @@ public class InterfazAvanzada extends JFrame {
 			salirButton.addMouseListener(new java.awt.event.MouseAdapter() {
 				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
-						GestorBiblioteca.getInstance().guardarXML();
-						System.exit(0);
+						salir();
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
@@ -714,8 +713,7 @@ public class InterfazAvanzada extends JFrame {
 			salirItem.addMouseListener(new java.awt.event.MouseAdapter() {
 				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
-						GestorBiblioteca.getInstance().guardarXML();
-						System.exit(0);
+						salir();
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
@@ -1134,6 +1132,11 @@ public class InterfazAvanzada extends JFrame {
 	
 	public void sincronizaBiblioteca(){
 		bibliotecaInterfaz.sincroniza(this.rutaIndexada);
+	}
+	
+	public void salir(){
+		GestorBiblioteca.getInstance().guardarXML();
+		System.exit(0);
 	}
 }
 

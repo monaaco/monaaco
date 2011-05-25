@@ -46,14 +46,6 @@ public class Menu extends JPopupMenu{
 		this.setSize(300,300);
 		this.setBounds(50, 50,300,300);
 
-		ItemsMenu eliminar = new ItemsMenu("Eliminar");
-		this.add(eliminar);
-		ItemsMenu monaaco = new ItemsMenu("MOnaaco");
-		this.add(monaaco);
-		ItemsMenu BodaAntuan = new ItemsMenu("BodaAntuan");
-		this.add(BodaAntuan);
-		ItemsMenu Castores = new ItemsMenu("Castores");
-		this.add(Castores);
 		ItemsMenu sincronizar = new ItemsMenu("Sincronizar Biblioteca");
 		sincronizar.addActionListener(new ActionListener() {
 			    public void actionPerformed(ActionEvent arg0) {
@@ -88,6 +80,15 @@ public class Menu extends JPopupMenu{
 			}
 		});	
 		this.add(acercaDe);
+		ItemsMenu salir = new ItemsMenu("Salir");
+		salir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ia.salir();
+			}
+		});	
+		this.add(salir);
+		
+		
 		
 		this.setColorPrimario(Color.black);
 		this.setColorSecundario(Color.white);

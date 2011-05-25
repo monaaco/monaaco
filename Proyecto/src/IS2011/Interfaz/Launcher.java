@@ -44,14 +44,7 @@ public class Launcher extends JWindow {
 	static ImageIcon menuBarIcon = new ImageIcon("images/barIcon.png");
 	static ImageIcon icono = new ImageIcon("images/Icono.png");
 	  
-	ImageIcon monkeyLoading1 = new ImageIcon("images/Skin3/launcher/monkeyLoading1.png");	
-	ImageIcon monkeyLoading2 = new ImageIcon("images/Skin3/launcher/monkeyLoading2.png");	
-	ImageIcon monkeyLoading3 = new ImageIcon("images/Skin3/launcher/monkeyLoading3.png");	
-	ImageIcon monkeyLoading4 = new ImageIcon("images/Skin3/launcher/monkeyLoading4.png");	
-	ImageIcon monkeyLoading5 = new ImageIcon("images/Skin3/launcher/monkeyLoading5.png");	
-	ImageIcon monkeyLoading6 = new ImageIcon("images/Skin3/launcher/monkeyLoading6.png");	
-	ImageIcon monkeyLoading7 = new ImageIcon("images/Skin3/launcher/monkeyLoading7.png");	
-	ImageIcon monkeyLoading8 = new ImageIcon("images/Skin3/launcher/monkeyLoading8.png");
+	ImageIcon monkeyLoading = new ImageIcon("images/monkeyLoading.png");	
 
 	BasicPlayer cargaInicio;
 	
@@ -72,7 +65,7 @@ public class Launcher extends JWindow {
 		   cargaInicio = new BasicPlayer();
 		   cargaInicio.open(new File("sounds/mic_check.mp3"));
 		   cargaInicio.play();
-		   imageLabel.setIcon(monkeyLoading1);
+		   imageLabel.setIcon(monkeyLoading);
 		   this.getContentPane().setLayout(borderLayout1);
 		   this.getContentPane().add(imageLabel, BorderLayout.CENTER);
 		   this.pack();
@@ -209,33 +202,9 @@ public class Launcher extends JWindow {
 		l.getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
 		l.setVisible(true);
 		*/
-		int i;
-		int a= 0;
-		while(a<9){
-			i = 0;
-			while (i< Integer.MAX_VALUE/16){
-				i++;
-			}
-			if(a==1)
-				l.cambiaImagen(l.monkeyLoading2);
-			else if(a==2)
-				l.cambiaImagen(l.monkeyLoading3);
-			else if(a==3)
-				l.cambiaImagen(l.monkeyLoading4);
-			else if(a==4)
-				l.cambiaImagen(l.monkeyLoading5);
-			else if(a==5)
-				l.cambiaImagen(l.monkeyLoading6);
-			else if(a==6)
-				l.cambiaImagen(l.monkeyLoading7);
-			else if(a==7)
-				l.cambiaImagen(l.monkeyLoading8);
-			
-			a++;
-		}
 		
 		//Cargamos la biblioteca
-		
+
 		
 		//Cargamos las opciones
 		

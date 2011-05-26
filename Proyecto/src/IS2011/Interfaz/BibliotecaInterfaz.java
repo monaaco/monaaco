@@ -11,6 +11,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -376,26 +377,40 @@ public class BibliotecaInterfaz extends JPanelTransparente{
 			agregar.setBorderPainted(false);
 			//anadirArchivos = new JMenuItem("Añadir archivos a la biblioteca");
 			agregar.addMouseListener(new java.awt.event.MouseAdapter() {
+				@SuppressWarnings("deprecation")
 				public  void mouseReleased(java.awt.event.MouseEvent evt) {
-					JFileChooser fc = new JFileChooser();
+                /*    JFileChooser fc = new JFileChooser();
                     fc.setFileFilter(new FiltroMP3());
                     fc.setFileFilter(new FiltroOGG());
                     fc.setFileFilter(new FiltroSoportados());
                     fc.setFileSelectionMode(fc.FILES_AND_DIRECTORIES);
-                    fc.setMultiSelectionEnabled(true);
-                    if(fc.showOpenDialog(frame) == JFileChooser.APPROVE_OPTION) {
-                    	File[] array = fc.getSelectedFiles();
+                    fc.setMultiSelectionEnabled(true);*/
+                   
+                    HiloCargar elHiloCagar = new HiloCargar(frame,interfazPadre);
+                 //   elHilo.setPriority(Thread.MAX_PRIORITY);
+                    elHiloCagar.start();
+                   
+                  /*  if( fc.showOpenDialog(frame) == JFileChooser.APPROVE_OPTION) {
+                       /* LoadingScreen ls = new LoadingScreen(interfazPadre);
+                        ls.setVisible(true);
                     	
-                    	for(int i=0; i<array.length; i++){
-                    		getAudioFiles(array[i]);
-                    	}
+                    	
+                        File[] array = fc.getSelectedFiles();
+                        
+                     	
+                        for(int i=0; i<array.length; i++){
+                            getAudioFiles(array[i]);
+                        }
+                       */
+                        actualiza();
+                      //  tabla.remove(label);
+                       // ls.dispose();
+                     //   elHilo.interrupt();
+                        busquedaRapida.setText("");
+                        repaint();
                     
-                    	actualiza();
-                    	busquedaRapida.setText("");
-                    	repaint();
-                    }
-				};
-			});
+                };
+            });
 		}
 		return agregar;
 	}
@@ -407,7 +422,7 @@ public class BibliotecaInterfaz extends JPanelTransparente{
 	 * no exista. Si es un directorio llama a este metodo recursivamente.
 	 * @param file Archivo o directorio a leer.
 	 */
-	private void getAudioFiles(File file){
+	public void getAudioFiles(File file){
 		if(file.isDirectory()){
 			File[] array = file.listFiles();
 			int n = array.length;

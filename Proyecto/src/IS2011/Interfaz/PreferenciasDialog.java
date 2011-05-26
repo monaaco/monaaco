@@ -72,7 +72,7 @@ public class PreferenciasDialog extends JDialog{
 	 * Inicializa el Jdialog
 	 */
 	public void init(){
-		this.setSize(800,500);
+		this.setSize(400,200);
 		setLocationRelativeTo(null);
 		textoSkin = new JLabel("Carpeta del skin");
 		textoRuta = new JLabel("Carpeta con la bilbioteca:");

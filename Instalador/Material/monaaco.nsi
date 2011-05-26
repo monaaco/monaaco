@@ -31,7 +31,7 @@ SetCompressor lzma
  !define MUI_PAGE_HEADER_TEXT "Bienvenido a la instalación de Monaaco"
  ;LICENCIAAAAAAAAAAAAAAAA
  !define MUI_LICENSEPAGE_BGCOLOR "FFFF99"
- !define MUI_DIRECTORYPAGE_TEXT_TOP "Por favor, elija el directorio dónde desea instalar Monaaco"
+ ;!define MUI_DIRECTORYPAGE_TEXT_TOP "Por favor, elija el directorio dónde desea instalar Monaaco"
  
  
 

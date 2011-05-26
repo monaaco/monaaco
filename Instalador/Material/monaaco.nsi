@@ -84,7 +84,7 @@ SetCompressor lzma
 ; Configuración General ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 ;Nuestro instalador se llamara si la versión fuera la 1.0: Ejemplo-1.0-win32.exe
-OutFile Monaaco-1.0-win32.exe
+OutFile Monaaco-1.0.243.exe
 
 ;Aquí comprobamos que en la versión Inglesa se muestra correctamente el mensaje:
 ;Welcome to the $Name Setup Wizard
@@ -93,7 +93,7 @@ OutFile Monaaco-1.0-win32.exe
 ; Bienvenido al Asistente de Instalación de Aplicación $Name
 ; no se ve el contenido de la variable $Name si el tamaño es muy grande
 Name "Monaaco"
-Caption "Mono 1.0 para Win32 Setup"
+Caption "Mono 1.0.243"
 
 ;Icon mono.ico
 
@@ -111,10 +111,10 @@ XPStyle on
 
 Var PATH
 Var PATH_ACCESO_DIRECTO
-Var IMAGES
-Var MONO_LIB
-Var XML
-Var SOUNDS
+;Var IMAGES
+;Var MONO_LIB
+;Var XML
+;Var SOUNDS
 ;Indicamos cual será el directorio por defecto donde instalaremos nuestra
 ;aplicación, el usuario puede cambiar este valor en tiempo de ejecución.
 InstallDir "$PROGRAMFILES\Monaaco"
@@ -180,6 +180,7 @@ File /r *.jar
 File /r *.png
 File /r *.xml
 File /r *.mp3
+File /r *.gif
 
 ;Hacemos que la instalación se realice para todos los usuarios del sistema
 SetShellVarContext all
@@ -240,26 +241,27 @@ SectionEnd
   ;      File /r ayuda
 ;SectionEnd
 
-Section "Skins"
-        SetOutPath $INSTDIR\$PATH
-        StrCpy $PATH "Monaaco"
-        StrCpy $PATH_ACCESO_DIRECTO "Monaaco"
+;Section "Skins"
+ ;       SetOutPath $INSTDIR\$PATH
+  ;      StrCpy $PATH "Monaaco"
+   ;     StrCpy $PATH_ACCESO_DIRECTO "Monaaco"
      ;   File  /r skins
-SectionEnd
+;SectionEnd
 
-Section "Plugins"
-        SetOutPath $INSTDIR\$PATH
-        StrCpy $PATH "Monaaco"
-        StrCpy $PATH_ACCESO_DIRECTO "Monaaco"
+;Section "Plugins"
+ ;       SetOutPath $INSTDIR\$PATH
+  ;      StrCpy $PATH "Monaaco"
+   ;     StrCpy $PATH_ACCESO_DIRECTO "Monaaco"
      ;   File   /r plugins
-SectionEnd
+;SectionEnd
 
 Function .onInit
+		;SetOutPath $INSTDIR
         # the plugins dir is automatically deleted when the installer exits
         InitPluginsDir
-        File /oname=$PLUGINSDIR\splash.bmp "\mono.bmp"
+        File /oname=$PLUGINSDIR\splash.bmp "intro.bmp"
         #optional
-        #File /oname=$PLUGINSDIR\splash.wav "\mono.wav"
+        ;File /oname=$PLUGINSDIR\splash.wav "\mono.wav"
 
         #MessageBox MB_OK "Fading"
 

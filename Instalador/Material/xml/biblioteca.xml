@@ -1,0 +1,9 @@
+<biblioteca>
+  <tracks/>
+  <trackQueue>
+    <trackList/>
+    <currentTrack>-1</currentTrack>
+    <repeat>true</repeat>
+    <random>false</random>
+  </trackQueue>
+</biblioteca>

@@ -544,6 +544,7 @@ public class InterfazAvanzada extends JFrame {
 					try {
 						if (desplegado == false){
 						principal.setSize(750,725); //Resizamos el frame Principal (tranparente)
+						principal.setLocationRelativeTo(null);
 						backGround.setSize(700,675); //Resizamos el backgruond
 						bibliotecaInterfaz = new BibliotecaInterfaz(principal); 
 						backGround.add(bibliotecaInterfaz);
@@ -554,6 +555,7 @@ public class InterfazAvanzada extends JFrame {
 						else{
 							backGround.setSize(700,350);
 							principal.setSize(750,400);
+							principal.setLocationRelativeTo(null);
 							bibliotecaInterfaz=null;
 							desplegado = false;
 							

@@ -29,6 +29,7 @@ public class LoadingScreen extends Thread{
 			JWindow splash = new JWindow();
 			 
 	        Icon icon = new ImageIcon("images/loading.gif");
+	      
 	        splash.setSize(icon.getIconWidth(),icon.getIconHeight());
 	      
 	        JLabel label = new JLabel();
@@ -36,7 +37,8 @@ public class LoadingScreen extends Thread{
 
 	        splash.getContentPane().add(label);
 	        splash.setSize(icon.getIconWidth(),icon.getIconHeight());
-	        splash.setLocation(x-splash.getX()/2-150, y-splash.getY()/2-200);
+	      //  splash.setLocation(x-splash.getX()/2-150, y-splash.getY()/2-200);
+	        splash.setLocation(0,0);
 	        splash.setAlwaysOnTop(true);
 	        splash.setVisible(true);
 	    	AWTUtilities.setWindowOpaque(splash, false);

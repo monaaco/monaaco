@@ -11,6 +11,7 @@ import javax.swing.JWindow;
 import IS2011.FiltrosArchivos.FiltroMP3;
 import IS2011.FiltrosArchivos.FiltroOGG;
 import IS2011.FiltrosArchivos.FiltroSoportados;
+import IS2011.biblioteca.GestorBiblioteca;
 
 import com.sun.awt.AWTUtilities;
 
@@ -36,8 +37,9 @@ public class HiloCargar extends Thread {
          fc.setFileFilter(new FiltroSoportados());
          fc.setFileSelectionMode(fc.FILES_AND_DIRECTORIES);
          fc.setMultiSelectionEnabled(true);
-         LoadingScreen elHilo = new LoadingScreen(interfazPadre.getX()+interfazPadre.getWidth()/2,
-        		 									interfazPadre.getY()+interfazPadre.getHeight()/2);
+       /*  LoadingScreen elHilo = new LoadingScreen(interfazPadre.getX()+interfazPadre.getWidth()/2,
+        		 									interfazPadre.getY()+interfazPadre.getHeight()/2);*/
+         LoadingScreen elHilo = new LoadingScreen(0,0);
 		  if( fc.showOpenDialog(interfazPadre) == JFileChooser.APPROVE_OPTION) {
               /* LoadingScreen ls = new LoadingScreen(interfazPadre);
                ls.setVisible(true);*/
@@ -46,7 +48,7 @@ public class HiloCargar extends Thread {
 			  File[] array = fc.getSelectedFiles();
                for(int i=0; i<array.length; i++){
             	   main.getAudioFiles(array[i]);
-               }
+                }
 	      
 		  }
 		  main.actualiza();

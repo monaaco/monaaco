@@ -109,7 +109,7 @@ public class Launcher extends JWindow {
               ActionListener salirListener = new ActionListener() {
                   public void actionPerformed(ActionEvent e) {
                       System.out.println("Cerrando...");
-                      System.exit(0);
+                      interfaz.salir();
                   }
               };
               /*creamos un action listener para pasar a la siguiente cancion*/

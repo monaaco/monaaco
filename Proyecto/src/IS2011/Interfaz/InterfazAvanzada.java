@@ -1158,6 +1158,7 @@ public class InterfazAvanzada extends JFrame {
 			GestorPreferencias.getInstance().setPosCancionActual((long) barraProgreso.getValue());
 		}else GestorPreferencias.getInstance().setPosCancionActual((long) 0);
 		GestorPreferencias.getInstance().guardarXML();
+		Launcher.tray.remove(Launcher.trayIcon);
 		System.exit(0);
 	}
 }

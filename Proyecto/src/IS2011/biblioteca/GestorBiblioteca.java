@@ -1,10 +1,12 @@
 package IS2011.biblioteca;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.*;
 
 import javax.swing.JOptionPane;
 
+import IS2011.Configuracion.Preferencias;
 import IS2011.GestorXML.GestorXML;
 
 
@@ -154,7 +156,25 @@ public class GestorBiblioteca {
 	 * @param file
 	 */
 	public void cargarXML(File file) {
+		try{
 			setBiblioteca(gestorXML.cargar(file));
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null,
+				    "Problema en la carga de las biblioteca, el formato es erróneo.\n" +
+				    "Se creará una biblioteca vacía.\n" +
+				    e.getMessage(),
+				    "Error carga del xml",
+			JOptionPane.WARNING_MESSAGE);
+			e.printStackTrace();
+			//crear xml vacío y cargarlo
+			setBiblioteca(new Biblioteca());
+			try {
+				file.createNewFile();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+			guardarXML(file);
+		}
 	}
 	
 	

@@ -235,14 +235,12 @@ public class PreferenciasDialog extends JDialog{
 				dir = array[i];
 				if(dir.isDirectory()){
 					try {
-						items.add(dir.getAbsolutePath());
+						if(!dir.isHidden())	items.add(dir.getName());
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
 				}
 			}
-			
-			//= {"Skin3", "skinMig"};
 			skinsBox = new JComboBox(items);
 			skinsBox.setSize(100, 20);
 		}
@@ -281,7 +279,7 @@ public class PreferenciasDialog extends JDialog{
 	public JButton getSelColFInternoButton() {
 		if (selColFInternoButton == null){
 			selColFInternoButton = new JButton();		
-			selColFInternoButton.setBackground(GestorPreferencias.getInstance().getBgColor());
+			selColFInternoButton.setBackground(GestorPreferencias.getInstance().getFgColorInterno());
 			selColFInternoButton.addActionListener(new ActionListener() {
 			
 				@Override
@@ -302,7 +300,7 @@ public class PreferenciasDialog extends JDialog{
 	public JButton getSelColBInternoButton() {
 		if (selColBInternoButton == null){
 			selColBInternoButton = new JButton();		
-			selColBInternoButton.setBackground(GestorPreferencias.getInstance().getBgColor());
+			selColBInternoButton.setBackground(GestorPreferencias.getInstance().getBgColorInterno());
 			selColBInternoButton.addActionListener(new ActionListener() {
 			
 				@Override
@@ -325,7 +323,6 @@ public class PreferenciasDialog extends JDialog{
 	private JButton getGuardarButton() {
 		if (guardarButton == null){
 			guardarButton = new JButton("Guardar");		
-			guardarButton.setBackground(GestorPreferencias.getInstance().getBgColor());
 			guardarButton.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
@@ -344,7 +341,6 @@ public class PreferenciasDialog extends JDialog{
 	private JButton getCancelarButton() {
 		if (cancelarButton == null){
 			cancelarButton = new JButton("Cancelar");		
-			cancelarButton.setBackground(GestorPreferencias.getInstance().getBgColor());
 			cancelarButton.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
@@ -358,17 +354,14 @@ public class PreferenciasDialog extends JDialog{
 	
 	/**
 	 * Modifica las preferencias de la clase GestorPreferencias
-	 * @param skin ruta de la carpeta que contiene las imagenes del skin
-	 * @param bgColor (background color)
-	 * @param fgColor (foreground color)
 	 */
 	public void guardarPreferencias(){
 		GestorPreferencias.getInstance().setBgColor(getSelColBButton().getBackground());
 		GestorPreferencias.getInstance().setFgColor(getSelColFButton().getBackground());
 		GestorPreferencias.getInstance().setBgColorInterno(getSelColBInternoButton().getBackground());
-		GestorPreferencias.getInstance().setFgColorInterno(getSelColBInternoButton().getBackground());
+		GestorPreferencias.getInstance().setFgColorInterno(getSelColFInternoButton().getBackground());
 		GestorPreferencias.getInstance().setRutaIndexada(getRutaMusica().getText());
-		GestorPreferencias.getInstance().setSkin(getSkinsBox().getSelectedItem().toString());
+		GestorPreferencias.getInstance().setSkin("images/"+getSkinsBox().getSelectedItem().toString());
 		GestorPreferencias.getInstance().guardarXML();
 		JOptionPane.showMessageDialog(null, "Los cambios se aplicarán al reiniciar la aplicación");
 	}

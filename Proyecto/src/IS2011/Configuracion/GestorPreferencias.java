@@ -2,6 +2,7 @@ package IS2011.Configuracion;
 
 import java.awt.Color;
 import java.io.File;
+import java.io.IOException;
 import java.util.*;
 
 import javax.swing.JOptionPane;
@@ -199,7 +200,25 @@ public class GestorPreferencias {
 	 * @param file
 	 */
 	public void cargarXML(File file) {
-			setPreferencias(gestorXML.cargar(file));
+			try {
+				setPreferencias(gestorXML.cargar(file));
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null,
+					    "Problema en la carga de las preferencias, el formato es erróneo.\n" +
+					    "Se cargarán las preferencias por defecto.\n" +
+					    e.getMessage(),
+					    "Error carga del xml",
+				JOptionPane.WARNING_MESSAGE);
+				e.printStackTrace();
+				//crear xml vacío y cargarlo
+				setPreferencias(new Preferencias());
+				try {
+					file.createNewFile();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+				guardarXML(file);
+			}
 	}
 
 	/**

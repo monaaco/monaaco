@@ -6,6 +6,7 @@ import javax.swing.*;
 
 
 //import javazoom.jlgui.basicplayer.BasicPlayerException;
+import IS2011.Configuracion.GestorPreferencias;
 import IS2011.biblioteca.Track;
 
 import com.sun.awt.AWTUtilities;
@@ -44,9 +45,10 @@ public class SongInfoInterfaz extends JPanelTransparente {
 		principal.setVisible(true);
 		//principal.setArcw(0); 
 		//principal.setArch(0); 
-		principal.setColorPrimario(Color.black);
-		principal.setColorSecundario(Color.black);
-		principal.setTran(0.8f);
+		principal.setColorPrimario(Color.white);
+		//principal.setColorSecundario(Color.black);
+		cargarPreferencias();
+		principal.setTran(0.4f);
 		principal.setVisible(true);
 		principal.setLayout(new GridBagLayout());
 
@@ -157,6 +159,31 @@ public class SongInfoInterfaz extends JPanelTransparente {
 	 */
 	public SongInfoInterfaz getPrincipal(){
 		return principal;
+	}
+	
+	/**
+	 * carga las preferencias de la clase GestorPreferencias
+	 */
+	public void cargarPreferencias(){
+		//this.setBgColorInterno(GestorPreferencias.getInstance().getBgColorInterno());
+		this.setFgColorInterno(GestorPreferencias.getInstance().getBgColorInterno());	
+		
+	}
+
+	/**
+	 * 
+	 * @param fgColorInterno
+	 */
+	private void setFgColorInterno(Color bgColorInterno) {
+		this.setColorSecundario(bgColorInterno);
+	}
+
+	/**
+	 * 
+	 * @param bgColorInterno
+	 */
+	private void setBgColorInterno(Color bgColorInterno) {
+		this.setColorSecundario(bgColorInterno);		
 	}
 	
 }

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
@@ -48,24 +49,14 @@ public class GestorXML<T extends Object>{
 	 * Carga en objeto el contenido del XML en el fichero File
 	 * @param file
 	 * @return objeto cargada
+	 * @throws Exception 
 	 */
-	public T cargar(File file) {
+	public T cargar(File file) throws Exception {
 		T object = (T) new Object();
-		try{	
 			is = new FileInputStream(file);
 		 	//necesario InputStreamReader para que lea carácteres especiales como tíldes!
 			object = (T) xs.fromXML(new InputStreamReader(is));
-		} catch (Exception e) {
-				JOptionPane.showMessageDialog(null,
-					    "Problema en la carga, el formato es erróneo.\n" +
-					    "Se procederá a crear una biblioteca vacía\n" +
-					    e.getMessage(),
-					    "Error carga de la biblioteca",
-				JOptionPane.WARNING_MESSAGE);
-				e.printStackTrace();
-				//crear biblioteca vacía
-				return (T) new Object();
-		}
+
 		 return object;
 	}
 

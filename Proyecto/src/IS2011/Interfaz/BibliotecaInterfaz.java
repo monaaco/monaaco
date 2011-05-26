@@ -2,6 +2,7 @@ package IS2011.Interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.RenderingHints.Key;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -160,7 +161,6 @@ public class BibliotecaInterfaz extends JPanelTransparente{
 		            
 		        }
 		        GestorBiblioteca.getInstance().getArrayList();
-			   	actualiza();
 		    }
 		    public void mouseReleased(MouseEvent evt) {
 		        if (evt.isPopupTrigger()) {
@@ -179,6 +179,9 @@ public class BibliotecaInterfaz extends JPanelTransparente{
 				else{	//Si no...
 					escrito = "";
 					switch(c){	// Elegimos el resto de las posibles teclas
+					case 116:
+						actualiza();
+						break;
 					case 127:	// suprimir
 						borraElemBiblioteca();
 						break;

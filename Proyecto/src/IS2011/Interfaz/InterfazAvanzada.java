@@ -1034,6 +1034,11 @@ public class InterfazAvanzada extends JFrame {
 	private void reproducir(){
 		try {
 			mPlayer.play();
+			reproduciendo = true;
+			infoSong.actualiza(listaReproduccion.getCurrent());
+			infoPlaylist.marcaActual();
+			playButton.setIcon(pauseIcon);	
+			
 		} catch (BasicPlayerException e) {
 			int[] lista = new int[0];
 			lista[0] = listaReproduccion.getCurrentNumber();
@@ -1059,12 +1064,14 @@ public class InterfazAvanzada extends JFrame {
 		//Reproducir la cancion que se estaba rerpoduciendo al apagar
 		if(GestorPreferencias.getInstance().getCancionActual() != null){
 			this.setCurrentTrack(GestorPreferencias.getInstance().getCancionActual());
-			try {
-				this.reproducir();
-				mPlayer.seek((long) GestorPreferencias.getInstance().getPosCancionActual());
-				barraProgreso.setValue((int)GestorPreferencias.getInstance().getPosCancionActual() );
+			if(GestorPreferencias.getInstance().getPosCancionActual() > 0){
+				try {				
+					this.reproducir();
+					mPlayer.seek((long) GestorPreferencias.getInstance().getPosCancionActual());
+					barraProgreso.setValue((int)GestorPreferencias.getInstance().getPosCancionActual() );
 				} catch (BasicPlayerException e) {
-				e.printStackTrace();
+					e.printStackTrace();
+				}
 			}
 		}
 		//TODO más cosas
@@ -1147,9 +1154,9 @@ public class InterfazAvanzada extends JFrame {
 		GestorBiblioteca.getInstance().setColaReproduccion(listaReproduccion);
 		GestorBiblioteca.getInstance().guardarXML();
 		GestorPreferencias.getInstance().setCancionActual(listaReproduccion.getCurrent());
-		if(reproduciendo){
+		if(mPlayer.getStatus() == mPlayer.PLAYING){
 			GestorPreferencias.getInstance().setPosCancionActual((long) barraProgreso.getValue());
-		}
+		}else GestorPreferencias.getInstance().setPosCancionActual((long) 0);
 		GestorPreferencias.getInstance().guardarXML();
 		System.exit(0);
 	}

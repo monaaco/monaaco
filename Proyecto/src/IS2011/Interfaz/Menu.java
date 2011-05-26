@@ -3,6 +3,7 @@ package IS2011.Interfaz;
 import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -10,17 +11,15 @@ import java.awt.Paint;
 import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
-import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 
-import IS2011.Configuracion.GestorPreferencias;
 
-import com.sun.awt.AWTUtilities;
 /**
  * Para conseguir un menu apropiado redefinimos el JPopUp menu, le dotamos
  * de bordes redondeados y transparencia
@@ -29,6 +28,11 @@ import com.sun.awt.AWTUtilities;
  *
  */
 public class Menu extends JPopupMenu{
+	
+	/**
+	 * serialVersionUID
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	private Color colorPrimario = new Color(0x666f7f);
 	private Color colorSecundario = new Color(0x262d3d);
@@ -72,14 +76,28 @@ public class Menu extends JPopupMenu{
 			}
 		});
 		this.add(documentacion);
+		
 		ItemsMenu acercaDe = new ItemsMenu("Acerca de Monnaco Player");
 		acercaDe.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String s = "Monaaco Player V1.0 2011\n\nManuel Baez Sanchez\nAlfredo Cerezo Luna\nJorge Cordero Sanchez\nMiguel González Perez\nBeatriz Torres Salcedo";
-                JOptionPane.showMessageDialog(null,s);
+		        try {
+					URI uri = new URI("http://twitter.com/#!/Monaaco");
+					String s = "<HTML>Monaaco Player V1.0 2011<br/><br/>Manuel Baez Sanchez<br/>Alfredo Cerezo Luna<br/>Jorge Cordero Sanchez<br/>Miguel González Perez<br/>Beatriz Torres Salcedo<br/> Mas información <FONT color=\"#000099\"><U>http://twitter.com/#!/Monaaco</U></FONT> .</HTML>";
+			        if (Desktop.isDesktopSupported()) {
+		                Desktop desktop = Desktop.getDesktop();
+		                desktop.browse(uri);
+			        }
+					JOptionPane.showMessageDialog(null,s);
+	            } catch (IOException e) {
+					e.printStackTrace();
+
+	            } catch (URISyntaxException e) {
+					e.printStackTrace();
+				}
 			}
 		});	
 		this.add(acercaDe);
+		
 		ItemsMenu salir = new ItemsMenu("Salir");
 		salir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

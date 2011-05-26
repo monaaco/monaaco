@@ -1154,7 +1154,7 @@ public class InterfazAvanzada extends JFrame {
 		GestorBiblioteca.getInstance().setColaReproduccion(listaReproduccion);
 		GestorBiblioteca.getInstance().guardarXML();
 		GestorPreferencias.getInstance().setCancionActual(listaReproduccion.getCurrent());
-		if(mPlayer.getStatus() == mPlayer.PLAYING){
+		if(mPlayer != null) if(mPlayer.getStatus() == mPlayer.PLAYING){
 			GestorPreferencias.getInstance().setPosCancionActual((long) barraProgreso.getValue());
 		}else GestorPreferencias.getInstance().setPosCancionActual((long) 0);
 		GestorPreferencias.getInstance().guardarXML();

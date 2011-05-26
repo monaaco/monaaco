@@ -22,6 +22,7 @@ public class Biblioteca {
 	 */
 	public Biblioteca()	{
 		b = new ArrayList<Track>();
+		colaReproduccion = new Playlist();
 	}
 	
 	/**

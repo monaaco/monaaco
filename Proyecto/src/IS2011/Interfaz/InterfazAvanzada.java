@@ -181,7 +181,8 @@ public class InterfazAvanzada extends JFrame {
 		JButton bibliotecaIcono= this.getBotonBiblioteca();
 		bibliotecaIcono.setBounds(470,290,90,45);
 		backGround.add(bibliotecaIcono);
-		
+		this.setForeground(Color.white);
+
 		this.setBiblioteca(this);
 		//this.changeCursor();
 		
@@ -325,6 +326,7 @@ public class InterfazAvanzada extends JFrame {
 	        position1.insets= new Insets(0,0,0,20);
 	        position1.fill = GridBagConstraints.BOTH ;
 	        main.add(infoSong, position1);
+	        main.setForeground(Color.white);
 		}
      return main;    
         
@@ -334,7 +336,7 @@ public class InterfazAvanzada extends JFrame {
 	 * 
 	 */
 	private void setDefaultPalyList() {
-		listaReproduccion = new Playlist();
+		listaReproduccion = GestorBiblioteca.getInstance().getColaReproduccion();
 		listaReproduccion.setRepeat(true);	
 	}
 	/**
@@ -475,16 +477,10 @@ public class InterfazAvanzada extends JFrame {
 					double ancho = barraProgreso.getWidth();
 					double MaxValor = barraProgreso.getMaximum();
 					double resultado =posH*MaxValor/ancho;
-					System.out.println("Posicion clicada: "+ posH);
-					System.out.println("Valor anterior: " + barraProgreso.getValue());
-					System.out.println("Ancho: " + ancho);
-					System.out.println("Maximo valor" + MaxValor);
-					System.out.println("Deberiamos apuntar el setValue a: " + resultado);
 					if(mPlayer!=null)
 					try {
 						mPlayer.seek((long) resultado);
 						barraProgreso.setValue((int)resultado );
-						System.out.println("Lo que nos devuelve : " + barraProgreso.getValue());
 					} catch (BasicPlayerException e1) {
 						e1.printStackTrace();
 					}
@@ -588,6 +584,7 @@ public class InterfazAvanzada extends JFrame {
 			backGround.setColorSecundario(Color.white);
 			backGround.setBounds(50,50, 700,350); //movemos el background 50 pixels en ambos ejes para dar paso al icono de Menu
 			JPanel interno = getPanel();
+			interno.setForeground(Color.white);
 			backGround.add(interno);
 			interno.setBounds(25,25,650,250);
 		}	
@@ -988,7 +985,6 @@ public class InterfazAvanzada extends JFrame {
 				try {
 					setCurrentTrack(listaReproduccion.getCurrent());
 					mPlayer.play();
-					//TODO FALTAAAAA!!!!
 					//TODO Si no quedan canciones en la playlist se quita de la interfaz la ultima
 				} catch (BasicPlayerException e) {
 					System.out.println("ALGO");
@@ -1060,6 +1056,17 @@ public class InterfazAvanzada extends JFrame {
 		this.setBgColorInterno(GestorPreferencias.getInstance().getBgColorInterno());
 		this.setFgColorInterno(GestorPreferencias.getInstance().getFgColorInterno());	
 		this.setRutaIndexada(GestorPreferencias.getInstance().getRutaIndexada());
+		//Reproducir la cancion que se estaba rerpoduciendo al apagar
+		if(GestorPreferencias.getInstance().getCancionActual() != null){
+			this.setCurrentTrack(GestorPreferencias.getInstance().getCancionActual());
+			try {
+				this.reproducir();
+				mPlayer.seek((long) GestorPreferencias.getInstance().getPosCancionActual());
+				barraProgreso.setValue((int)GestorPreferencias.getInstance().getPosCancionActual() );
+				} catch (BasicPlayerException e) {
+				e.printStackTrace();
+			}
+		}
 		//TODO más cosas
 		
 	}
@@ -1137,7 +1144,13 @@ public class InterfazAvanzada extends JFrame {
 	}
 	
 	public void salir(){
+		GestorBiblioteca.getInstance().setColaReproduccion(listaReproduccion);
 		GestorBiblioteca.getInstance().guardarXML();
+		GestorPreferencias.getInstance().setCancionActual(listaReproduccion.getCurrent());
+		if(reproduciendo){
+			GestorPreferencias.getInstance().setPosCancionActual((long) barraProgreso.getValue());
+		}
+		GestorPreferencias.getInstance().guardarXML();
 		System.exit(0);
 	}
 }

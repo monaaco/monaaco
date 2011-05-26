@@ -8,6 +8,7 @@ import java.util.*;
 import javax.swing.JOptionPane;
 
 import IS2011.GestorXML.GestorXML;
+import IS2011.biblioteca.Track;
 
 
 /**
@@ -271,5 +272,34 @@ public class GestorPreferencias {
 		
 	}
 		
+	/**
+	 * @return the posCancionActual
+	 */
+	public long getPosCancionActual() {
+		return getPreferencias().getPosCancionActual();
+	}
+
+	/**
+	 * @param posCancionActual the posCancionActual to set
+	 */
+	public void setPosCancionActual(long posCancionActual) {
+		getPreferencias().setPosCancionActual(posCancionActual);
+	}
+	
+	
+	/**
+	 * @return the rutaCancionActual
+	 */
+	public Track getCancionActual() {
+		return getPreferencias().getCancionActual();
+	}
+
+	/**
+	 * @param track the rutaCancionActual to set
+	 */
+	public void setCancionActual(Track track) {
+		getPreferencias().setCancionActual(track);
+	}
+
 
 }

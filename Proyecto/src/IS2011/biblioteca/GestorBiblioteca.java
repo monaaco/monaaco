@@ -88,8 +88,23 @@ public class GestorBiblioteca {
 	 * Esta función adapta la de biblioteca
 	 */
 	public ArrayList<Track> getArrayList(){
-		return biblioteca.getBiblioteca();
+		return getBiblioteca().getBiblioteca();
 	}
+	
+	
+	/**
+	 * @return the colaReproduccion
+	 */
+	public Playlist getColaReproduccion() {
+		return getBiblioteca().getColaReproduccion();
+	}
+
+	/**
+	 * @param colaReproduccion the colaReproduccion to set
+	 */
+	public void setColaReproduccion(Playlist colaReproduccion) {
+		getBiblioteca().setColaReproduccion(colaReproduccion);
+		}
 	
 	/** 
 	 * Esta función adapta la de biblioteca

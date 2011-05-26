@@ -4,27 +4,41 @@
   <launcher>images/Skin3</launcher>
   <sound>images/Skin3</sound>
   <bgColor>
-    <red>102</red>
-    <green>102</green>
-    <blue>0</blue>
+    <red>0</red>
+    <green>51</green>
+    <blue>51</blue>
     <alpha>255</alpha>
   </bgColor>
   <fgColor>
-    <red>51</red>
-    <green>51</green>
+    <red>0</red>
+    <green>102</green>
     <blue>0</blue>
     <alpha>255</alpha>
   </fgColor>
   <bgColorInterno>
-    <red>51</red>
+    <red>102</red>
     <green>102</green>
     <blue>0</blue>
     <alpha>255</alpha>
   </bgColorInterno>
   <fgColorInterno>
-    <red>0</red>
+    <red>51</red>
     <green>51</green>
     <blue>0</blue>
     <alpha>255</alpha>
   </fgColorInterno>
+  <track id="0">
+    <name>Donde duele inspira</name>
+    <artist>Flowklorikos</artist>
+    <albumArtist></albumArtist>
+    <album>Donde duele inspira</album>
+    <genre>Hip-Hop</genre>
+    <kind>MPEG-1 Layer 3</kind>
+    <size>16106127360</size>
+    <totalTime>216</totalTime>
+    <bitRate>320</bitRate>
+    <comments>www.HHGroups.com</comments>
+    <location>sounds\prueba.mp3</location>
+  </track>
+  <posCancionActual>3010409</posCancionActual>
 </preferencias>

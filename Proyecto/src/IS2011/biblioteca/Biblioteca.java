@@ -10,8 +10,12 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 @XStreamAlias("biblioteca")
 public class Biblioteca {
 
-	@XStreamAlias("trackList")
+	@XStreamAlias("tracks")
 	private ArrayList<Track> b = null;
+	
+	@XStreamAlias("trackQueue")
+	private Playlist colaReproduccion = null;
+	
 
 	/**
 	 * Constructora por defecto de la biblioteca
@@ -28,6 +32,20 @@ public class Biblioteca {
 		return b;
 	}
 	
+	/**
+	 * @return the colaReproduccion
+	 */
+	public Playlist getColaReproduccion() {
+		return colaReproduccion;
+	}
+
+	/**
+	 * @param colaReproduccion the colaReproduccion to set
+	 */
+	public void setColaReproduccion(Playlist colaReproduccion) {
+		this.colaReproduccion = colaReproduccion;
+	}
+
 	/**
 	 * Añade un Track a la biblioteca
 	 * @param tr: Track

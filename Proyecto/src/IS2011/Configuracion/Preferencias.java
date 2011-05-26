@@ -2,6 +2,8 @@ package IS2011.Configuracion;
 
 import java.awt.Color;
 
+import IS2011.biblioteca.Track;
+
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("preferencias")
@@ -18,6 +20,11 @@ public class Preferencias {
 	private Color fgColor;
 	private Color bgColorInterno;
 	private Color fgColorInterno;
+	
+	@XStreamAlias("track")
+	private Track cancionActual;
+	private long posCancionActual;
+	
 	
 	/**
 	 * Constructora
@@ -161,6 +168,34 @@ public class Preferencias {
 	 */
 	public void setFgColor(Color fgColor) {
 		this.fgColor = fgColor;
+	}
+
+	/**
+	 * @return the rutaCancionActual
+	 */
+	public Track getCancionActual() {
+		return cancionActual;
+	}
+
+	/**
+	 * @param track the rutaCancionActual to set
+	 */
+	public void setCancionActual(Track track) {
+		this.cancionActual = track;
+	}
+
+	/**
+	 * @return the posCancionActual
+	 */
+	public long getPosCancionActual() {
+		return posCancionActual;
+	}
+
+	/**
+	 * @param posCancionActual the posCancionActual to set
+	 */
+	public void setPosCancionActual(long posCancionActual) {
+		this.posCancionActual = posCancionActual;
 	}
 	
 	

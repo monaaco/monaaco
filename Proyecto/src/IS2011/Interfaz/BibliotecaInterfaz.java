@@ -131,6 +131,7 @@ public class BibliotecaInterfaz extends JPanelTransparente{
 		tabla.setSelectionForeground( Color.black );*/
 		tabla.setSize(600,200);
 		
+		
 		getPopUp();
 
 		// Instanciamos el TableRowSorter y lo añadimos al JTable
@@ -156,11 +157,15 @@ public class BibliotecaInterfaz extends JPanelTransparente{
 		    public void mousePressed(MouseEvent evt) {
 		        if (evt.isPopupTrigger()) {
 		            menu.show(evt.getComponent(), evt.getX(), evt.getY());
+		            
 		        }
+		        GestorBiblioteca.getInstance().getArrayList();
+			   	actualiza();
 		    }
 		    public void mouseReleased(MouseEvent evt) {
 		        if (evt.isPopupTrigger()) {
 		            menu.show(evt.getComponent(), evt.getX(), evt.getY());
+		           
 		            
 		        }
 		    }

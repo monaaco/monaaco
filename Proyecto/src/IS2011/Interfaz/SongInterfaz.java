@@ -81,6 +81,7 @@ public class SongInterfaz extends JFrame{
 	
 		//JFrame.setDefaultLookAndFeelDecorated(true);
 		AWTUtilities.setWindowOpacity(this, (float) 0.3);
+		AWTUtilities.setWindowOpaque(this,false);
 		
 		cargarPreferencias();
 		
@@ -120,11 +121,13 @@ public class SongInterfaz extends JFrame{
 	private JPanel getPanelInterno(String[] temas) {
 		if( panelInterno == null ){
 			panelInterno = new JPanelRound();
-			panelInterno.setLayout(new BorderLayout());
-			panelInterno.add(getListado(temas), BorderLayout.CENTER);
+			panelInterno.setLayout(null);
+			panelInterno.setColorPrimario(Color.black);
+			panelInterno.setColorSecundario(Color.black);
+			panelInterno.add(getListado(temas));
 			//panelInterno.add(listado);
 			
-			panelInterno.setSize(190, pantalla.height-245);
+			panelInterno.setSize(190, pantalla.height);
 		}
 		return panelInterno;
 	}
@@ -198,6 +201,7 @@ public class SongInterfaz extends JFrame{
 			listado.setForeground(fgColor);
 			listado.setEnabled(true);
 			listado.setVisible(true);
+			listado.setBounds(5,5,195,pantalla.height-230);
 			listado.addMouseListener(new java.awt.event.MouseAdapter() {
 				@SuppressWarnings("restriction")
 				public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -257,7 +261,7 @@ public class SongInterfaz extends JFrame{
 	 * Si existe actualiza el listado con la información del array temas
 	 * @return listado
 	 */
-	public  JList getListado(String[] temas){
+	public  DragDropList getListado(String[] temas){
 		if( listado == null ){
 			getListado();
 		}
@@ -276,7 +280,14 @@ public class SongInterfaz extends JFrame{
 			String[] lista = interfazAvanzada.getPlaylist().getListado();
 			lista[interfazAvanzada.getPlaylist().getCurrentTrack()] = lista[interfazAvanzada.getPlaylist().getCurrentTrack()].toUpperCase();
 			listado.removeAll();
+			
+			listado.setSelectedIndex(interfazAvanzada.getPlaylist().getCurrentTrack());
+			//listado.getComponent(interfazAvanzada.getPlaylist().getCurrentTrack()).setBackground(Color.red); //TODO
+			//listado.setSelectedIndex( interfazAvanzada.getPlaylist().getCurrentTrack());
+			repaint();
 			setListado(lista);
+		
+			
 		}
 	}
 	

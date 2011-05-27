@@ -1,16 +1,20 @@
 package IS2011.Interfaz;
 import java.util.Map;
 
-import IS2011.biblioteca.Track;
-
-
 import javazoom.jlgui.basicplayer.BasicController;
 import javazoom.jlgui.basicplayer.BasicPlayerEvent;
 import javazoom.jlgui.basicplayer.BasicPlayerListener;
 
 public class ReproductorListener implements BasicPlayerListener{
 
+	/**
+	 * @uml.property  name="bytesLength"
+	 */
 	private double bytesLength;
+	/**
+	 * @uml.property  name="player"
+	 * @uml.associationEnd  multiplicity="(1 1)" inverse="reproductorListener:IS2011.Interfaz.InterfazAvanzada"
+	 */
 	private InterfazAvanzada player;
 	
 	/**

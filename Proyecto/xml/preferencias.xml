@@ -6,13 +6,13 @@
   <bgColor>
     <red>0</red>
     <green>51</green>
-    <blue>51</blue>
+    <blue>0</blue>
     <alpha>255</alpha>
   </bgColor>
   <fgColor>
-    <red>0</red>
-    <green>102</green>
-    <blue>0</blue>
+    <red>147</red>
+    <green>194</green>
+    <blue>100</blue>
     <alpha>255</alpha>
   </fgColor>
   <bgColorInterno>
@@ -40,5 +40,5 @@
     <comments>www.HHGroups.com</comments>
     <location>sounds\prueba.mp3</location>
   </track>
-  <posCancionActual>2559850</posCancionActual>
+  <posCancionActual>3084138</posCancionActual>
 </preferencias>

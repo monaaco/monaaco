@@ -1,18 +1,8 @@
 package IS2011.tests;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Toolkit;
-
-import javax.swing.JList;
-import javax.swing.JScrollPane;
-
+import junit.framework.TestCase;
 import IS2011.Interfaz.InterfazAvanzada;
 import IS2011.Interfaz.SongInterfaz;
-
-import com.sun.awt.AWTUtilities;
-
-import junit.framework.TestCase;
 
 public class SongInterfazTest extends TestCase {
 	public void testConstructor(){

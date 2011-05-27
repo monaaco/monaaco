@@ -1,8 +1,8 @@
 package IS2011.tests;
 
+import junit.framework.TestCase;
 import IS2011.Interfaz.SongInfoInterfaz;
 import IS2011.biblioteca.Track;
-import junit.framework.TestCase;
 
 public class SongInfoInterfazTest extends TestCase {
 	

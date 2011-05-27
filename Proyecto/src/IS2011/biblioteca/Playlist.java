@@ -1,21 +1,38 @@
 package IS2011.biblioteca;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
-import IS2011.biblioteca.comparators.*;
+import IS2011.biblioteca.comparators.ComparatorArtista;
+import IS2011.biblioteca.comparators.ComparatorTitulo;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("playlist")
 public class Playlist {
 	
+	/**
+	 * @uml.property  name="lista"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="IS2011.biblioteca.Track"
+	 */
 	@XStreamAlias("trackList")
 	private ArrayList<Track> lista;
 
+	/**
+	 * @uml.property  name="currentTrack"
+	 */
 	private int currentTrack;
 
+	/**
+	 * @uml.property  name="repeat"
+	 */
 	private boolean repeat;
 
+	/**
+	 * @uml.property  name="random"
+	 */
 	private boolean random;
 
 	/**
@@ -114,16 +131,16 @@ public class Playlist {
 	}
 	
 	/**
-	 * 
-	 * @param track
+	 * @param  track
+	 * @uml.property  name="currentTrack"
 	 */
 	public void setCurrentTrack(int pos){
 		currentTrack = pos;
 	}
 	
 	/**
-	 * 
-	 * @return int con la posición de la cancion actual
+	 * @return  int con la posición de la cancion actual
+	 * @uml.property  name="currentTrack"
 	 */
 	public int getCurrentTrack(){
 		if((currentTrack == -1) && (!lista.isEmpty())){
@@ -208,32 +225,32 @@ public class Playlist {
 	}
 	
 	/**
-	 * 
-	 * @return repeat
+	 * @return  repeat
+	 * @uml.property  name="repeat"
 	 */
 	public boolean isRepeat() {
 		return repeat;
 	}
 	
 	/**
-	 * 
-	 * @param b
+	 * @param  b
+	 * @uml.property  name="repeat"
 	 */
 	public void setRepeat(boolean b) {
 		repeat = b;
 	}
 	
 	/**
-	 * 
-	 * @return random
+	 * @return  random
+	 * @uml.property  name="random"
 	 */
 	public boolean isRandom() {
 		return random;
 	}
 
 	/**
-	 * 
-	 * @param b
+	 * @param  b
+	 * @uml.property  name="random"
 	 */
 	public void setRandom(boolean b) {
 		random = b;

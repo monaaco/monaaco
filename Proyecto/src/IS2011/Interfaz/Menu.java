@@ -34,14 +34,36 @@ public class Menu extends JPopupMenu{
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * @uml.property  name="colorPrimario"
+	 */
 	private Color colorPrimario = new Color(0x666f7f);
+	/**
+	 * @uml.property  name="colorSecundario"
+	 */
 	private Color colorSecundario = new Color(0x262d3d);
+	/**
+	 * @uml.property  name="colorContorno"
+	 */
 	private Color colorContorno = new Color(0x262d3d);
+	/**
+	 * @uml.property  name="arcw"
+	 */
 	private int arcw=20;
+	/**
+	 * @uml.property  name="arch"
+	 */
 	private int arch=20;
 
+	/**
+	 * @uml.property  name="tran"
+	 */
 	private float tran= 0.5f;
 	
+	/**
+	 * @uml.property  name="ia"
+	 * @uml.associationEnd  multiplicity="(1 1)" inverse="menuPrincipal:IS2011.Interfaz.InterfazAvanzada"
+	 */
 	private InterfazAvanzada ia;
 	
 	public Menu(InterfazAvanzada interfaz){
@@ -157,81 +179,105 @@ public class Menu extends JPopupMenu{
 	    }
 	 
 	 	/**
-	 	 * Accesora al color primario del degradado
-	 	 * @return Color primario actual
-	 	 */
+		 * Accesora al color primario del degradado
+		 * @return  Color primario actual
+		 * @uml.property  name="colorPrimario"
+		 */
 	 	public Color getColorPrimario() {
 	        return colorPrimario;
 	    }
 	 	
 	 	/**
-	 	 * Establece el primer color del degradado
-	 	 * @param colorPrimario nuevo color primario
-	 	 */
+		 * Establece el primer color del degradado
+		 * @param colorPrimario  nuevo color primario
+		 * @uml.property  name="colorPrimario"
+		 */
 	    public void setColorPrimario(Color colorPrimario) {
 	        this.colorPrimario = colorPrimario;
 	    }
 
 	 	/**
-	 	 * Accesora al color secundario del degradado
-	 	 * @return Color secundario actual
-	 	 */
+		 * Accesora al color secundario del degradado
+		 * @return  Color secundario actual
+		 * @uml.property  name="colorSecundario"
+		 */
 	    public Color getColorSecundario() {
 	        return colorSecundario;
 	    }
 	    
 	 	/**
-	 	 * Establece el segundo color del degradado
-	 	 * @param colorSecundario nuevo color secundario
-	 	 */
+		 * Establece el segundo color del degradado
+		 * @param colorSecundario  nuevo color secundario
+		 * @uml.property  name="colorSecundario"
+		 */
 	    public void setColorSecundario(Color colorSecundario) {
 	        this.colorSecundario = colorSecundario;
 	    }
 
 	 	/**
-	 	 * Accesora al color del contorno del degradado
-	 	 * @return Color contorno actual
-	 	 */
+		 * Accesora al color del contorno del degradado
+		 * @return  Color contorno actual
+		 * @uml.property  name="colorContorno"
+		 */
 	    public Color getColorContorno() {
 	        return colorContorno;
 	    }
 
 	 	/**
-	 	 * Establece el color del contorno del degradado
-	 	 * @param colorContorno nuevo color del contorno
-	 	 */
+		 * Establece el color del contorno del degradado
+		 * @param colorContorno  nuevo color del contorno
+		 * @uml.property  name="colorContorno"
+		 */
 	    public void setColorContorno(Color colorContorno) {
 	        this.colorContorno = colorContorno;
 	    }
 
+	    /**
+		 * @return
+		 * @uml.property  name="arcw"
+		 */
 	    public int getArcw() {
 	        return arcw;
 	    }
 
+	    /**
+		 * @param arcw
+		 * @uml.property  name="arcw"
+		 */
 	    public void setArcw(int arcw) {
 	        this.arcw = arcw;
 	    }
 
+	    /**
+		 * @return
+		 * @uml.property  name="arch"
+		 */
 	    public int getArch() {
 	        return arch;
 	    }
 
+	    /**
+		 * @param arch
+		 * @uml.property  name="arch"
+		 */
 	    public void setArch(int arch) {
 	        this.arch = arch;
 	    }
 	    
 	    /**
-	     * Accesora al porcentaje de transparencia
-	     * @return porcentaje de transparencia
-	     */
+		 * Accesora al porcentaje de transparencia
+		 * @return  porcentaje de transparencia
+		 * @uml.property  name="tran"
+		 */
 	    public float getTran() {
 	    	return tran;
 	    }
 
 	    /**
-	     * Mutadora del porcentaje de transparencia
-	     * @param tran nuevo porcentaje de transparencia
-	     */
+		 * Mutadora del porcentaje de transparencia
+		 * @param tran  nuevo porcentaje de transparencia
+		 * @uml.property  name="tran"
+		 */
 	    public void setTran(float tran) {
 	    	this.tran = tran;
 	    }

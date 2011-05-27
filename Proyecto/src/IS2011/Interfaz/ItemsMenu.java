@@ -1,14 +1,10 @@
 package IS2011.Interfaz;
 
 import java.awt.AlphaComposite;
-import java.awt.BasicStroke;
 import java.awt.Color;
-import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Paint;
 import java.awt.RenderingHints;
-import java.awt.geom.RoundRectangle2D;
 
 import javax.swing.JMenuItem;
 /**
@@ -18,8 +14,14 @@ import javax.swing.JMenuItem;
  *
  */
 public class ItemsMenu extends JMenuItem {
-	 private Color colorPrimario = new Color(0x666f7f);
+	 /**
+	 * @uml.property  name="colorPrimario"
+	 */
+	private Color colorPrimario = new Color(0x666f7f);
 	   
+	    /**
+		 * @uml.property  name="tran"
+		 */
 	    private float tran= 0.5f;
 	   /**
 	    * redefinimos sus métodos para que lo pinte con bordes redondos 
@@ -56,17 +58,19 @@ public class ItemsMenu extends JMenuItem {
 	    }
 	    
 	    /**
-	     * Accesora de la variable tran de tipo float
-	     * @return tran devuelve el valor actual de tran
-	     */
+		 * Accesora de la variable tran de tipo float
+		 * @return  tran devuelve el valor actual de tran
+		 * @uml.property  name="tran"
+		 */
 	    public float getTran() {
 	    	return tran;
 	    }
 	    
 	    /**
-	     * Mutadora de la variable tran de tipo float
-	     * @param tran nuevo valor de tran
-	     */
+		 * Mutadora de la variable tran de tipo float
+		 * @param tran  nuevo valor de tran
+		 * @uml.property  name="tran"
+		 */
 	    public void setTran(float tran) {
 	    	this.tran = tran;
 	    }

@@ -1,22 +1,30 @@
 package IS2011.biblioteca;
 
-import java.util.*;
 import java.awt.image.BufferedImage;
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.Date;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import org.jaudiotagger.audio.*;
+import org.jaudiotagger.audio.AudioFile;
+import org.jaudiotagger.audio.AudioFileIO;
+import org.jaudiotagger.audio.AudioHeader;
 import org.jaudiotagger.audio.exceptions.CannotReadException;
 import org.jaudiotagger.audio.exceptions.CannotWriteException;
 import org.jaudiotagger.audio.exceptions.InvalidAudioFrameException;
 import org.jaudiotagger.audio.exceptions.ReadOnlyFileException;
-import org.jaudiotagger.tag.*;
-
+import org.jaudiotagger.tag.FieldKey;
+import org.jaudiotagger.tag.KeyNotFoundException;
+import org.jaudiotagger.tag.Tag;
+import org.jaudiotagger.tag.TagException;
 import org.jaudiotagger.tag.datatype.Artwork;
 
-import com.thoughtworks.xstream.annotations.*;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 
 @XStreamAlias("track")
@@ -25,39 +33,90 @@ public class Track {
 		@XStreamOmitField
         static long sid = 0;
 		
+	   	/**
+		 * @uml.property  name="id"
+		 */
 	   	@XStreamAsAttribute
         private long id;
         
+        /**
+		 * @uml.property  name="name"
+		 */
         private String name = null;
         
+        /**
+		 * @uml.property  name="artist"
+		 */
         private String artist = null;
         
+        /**
+		 * @uml.property  name="albumArtist"
+		 */
         private String albumArtist = null;
         
+        /**
+		 * @uml.property  name="album"
+		 */
         private String album = null;
         
+		/**
+		 * @uml.property  name="genre"
+		 */
 		private String genre = null;
 		
+        /**
+		 * @uml.property  name="kind"
+		 */
         private String kind = null;
         
+        /**
+		 * @uml.property  name="size"
+		 */
         private long size = 0;
         
+        /**
+		 * @uml.property  name="totalTime"
+		 */
         private Integer totalTime = null;
         
+        /**
+		 * @uml.property  name="year"
+		 */
         private Integer year = null;
         
+        /**
+		 * @uml.property  name="dateModified"
+		 */
         private Date dateModified = null;
         
+        /**
+		 * @uml.property  name="dateAdded"
+		 */
         private Date dateAdded = null;
         
+        /**
+		 * @uml.property  name="bitRate"
+		 */
         private Integer bitRate = null;
         
+        /**
+		 * @uml.property  name="sampleRate"
+		 */
         private Integer sampleRate = null;
         
+        /**
+		 * @uml.property  name="comments"
+		 */
         private String comments = null;
         
+        /**
+		 * @uml.property  name="trackType"
+		 */
         private String trackType = null;
         
+        /**
+		 * @uml.property  name="location"
+		 */
         private String location = null;
         
        
@@ -256,45 +315,43 @@ public class Track {
        
 
         /**
-         * Accesora para la id de la canción
-         * 
-         * @return Primera carátula del archivo
-         */
+		 * Accesora para la id de la canción
+		 * @return  Primera carátula del archivo
+		 * @uml.property  name="id"
+		 */
         public long getId() {
                 return id;
         }
 
         /**
-         * Mutadora de la id de canción
-         * Es privada, ya que sólo se debe modificar al crearse la canción en la constructora
-         * 
-         * @param id 
-         */
+		 * Mutadora de la id de canción Es privada, ya que sólo se debe modificar al crearse la canción en la constructora
+		 * @param  id
+		 * @uml.property  name="id"
+		 */
         private void setId(long id) {
                 this.id = id;
         }
 
         /**
-         * Accesora del albúm de la canción
-         * 
-         * @return album  
-         */
+		 * Accesora del albúm de la canción
+		 * @return  album
+		 * @uml.property  name="album"
+		 */
         public String getAlbum() {
 			return album;
 		}
 
         /**
-         * Mutadora  del albúm de la canción
-         * Es privada, ya que sólo se debe modificar al crearse la canción en la constructora
-         * 
-         * @param id 
-         * @throws InvalidAudioFrameException 
-         * @throws ReadOnlyFileException 
-         * @throws TagException 
-         * @throws IOException 
-         * @throws CannotReadException 
-         * @throws CannotWriteException 
-         */
+		 * Mutadora  del albúm de la canción Es privada, ya que sólo se debe modificar al crearse la canción en la constructora
+		 * @param id  
+		 * @throws InvalidAudioFrameException  
+		 * @throws ReadOnlyFileException  
+		 * @throws TagException  
+		 * @throws IOException  
+		 * @throws CannotReadException  
+		 * @throws CannotWriteException
+		 * @uml.property  name="album"
+		 */
 		public void setAlbum(String album) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException {
 			this.album = album;
 			AudioFile f = AudioFileIO.read(new File(this.getLocation()));
@@ -304,8 +361,8 @@ public class Track {
 		}
 
 		/**
-		 * 
-		 * @return nombre del artista de la canción
+		 * @return  nombre del artista de la canción
+		 * @uml.property  name="name"
 		 */
         public String getName() {
                 return name;
@@ -313,15 +370,15 @@ public class Track {
 
 
         /**
-         * 
-         * @param name
-         * @throws InvalidAudioFrameException 
-         * @throws ReadOnlyFileException 
-         * @throws TagException 
-         * @throws IOException 
-         * @throws CannotReadException 
-         * @throws CannotWriteException 
-         */
+		 * @param name
+		 * @throws InvalidAudioFrameException  
+		 * @throws ReadOnlyFileException  
+		 * @throws TagException  
+		 * @throws IOException  
+		 * @throws CannotReadException  
+		 * @throws CannotWriteException
+		 * @uml.property  name="name"
+		 */
         public void setName(String name) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException {
             this.name = name;
 			AudioFile f = AudioFileIO.read(new File(this.getLocation()));
@@ -332,24 +389,24 @@ public class Track {
 
 
         /**
-         * 
-         * @return Artista de la canción
-         */
+		 * @return  Artista de la canción
+		 * @uml.property  name="artist"
+		 */
         public String getArtist() {
                 return artist;
         }
 
 
         /**
-         * 
-         * @param artist
-         * @throws InvalidAudioFrameException 
-         * @throws ReadOnlyFileException 
-         * @throws TagException 
-         * @throws IOException 
-         * @throws CannotReadException 
-         * @throws CannotWriteException 
-         */
+		 * @param artist
+		 * @throws InvalidAudioFrameException  
+		 * @throws ReadOnlyFileException  
+		 * @throws TagException  
+		 * @throws IOException  
+		 * @throws CannotReadException  
+		 * @throws CannotWriteException
+		 * @uml.property  name="artist"
+		 */
         public void setArtist(String artist) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException {
             this.artist = artist;
 			AudioFile f = AudioFileIO.read(new File(this.getLocation()));
@@ -360,25 +417,25 @@ public class Track {
 
 
         /**
-         * 
-         * @return Artista del album de la cancón
-         */
+		 * @return  Artista del album de la cancón
+		 * @uml.property  name="albumArtist"
+		 */
         public String getAlbumArtist() {
             return albumArtist;
     	}
 
 
         /**
-         * 
-         * @param albumArtist
-         * @throws KeyNotFoundException 
-         * @throws InvalidAudioFrameException 
-         * @throws ReadOnlyFileException 
-         * @throws TagException 
-         * @throws IOException 
-         * @throws CannotReadException 
-         * @throws CannotWriteException 
-         */
+		 * @param albumArtist
+		 * @throws KeyNotFoundException  
+		 * @throws InvalidAudioFrameException  
+		 * @throws ReadOnlyFileException  
+		 * @throws TagException  
+		 * @throws IOException  
+		 * @throws CannotReadException  
+		 * @throws CannotWriteException
+		 * @uml.property  name="albumArtist"
+		 */
         public void setAlbumArtist(String albumArtist) throws KeyNotFoundException, CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException {
             this.albumArtist = albumArtist;
 			AudioFile f = AudioFileIO.read(new File(this.getLocation()));
@@ -389,24 +446,24 @@ public class Track {
 
 
         /**
-         * 
-         * @return Género de la canción
-         */
+		 * @return  Género de la canción
+		 * @uml.property  name="genre"
+		 */
         public String getGenre() {
                 return genre;
         }
 
 
         /**
-         * 
-         * @param genre
-         * @throws InvalidAudioFrameException 
-         * @throws ReadOnlyFileException 
-         * @throws TagException 
-         * @throws IOException 
-         * @throws CannotReadException 
-         * @throws CannotWriteException 
-         */
+		 * @param genre
+		 * @throws InvalidAudioFrameException  
+		 * @throws ReadOnlyFileException  
+		 * @throws TagException  
+		 * @throws IOException  
+		 * @throws CannotReadException  
+		 * @throws CannotWriteException
+		 * @uml.property  name="genre"
+		 */
         public void setGenre(String genre) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException {
             this.genre = genre;
 			AudioFile f = AudioFileIO.read(new File(this.getLocation()));
@@ -416,41 +473,42 @@ public class Track {
 		}
 
         /**
-         * 
-         * @return tipo de archivo de audio
-         */
+		 * @return  tipo de archivo de audio
+		 * @uml.property  name="kind"
+		 */
         public String getKind() {
                 return kind;
         }
 
         /**
-         * 
-         * @return Tamaño del archivo
-         */
+		 * @return  Tamaño del archivo
+		 * @uml.property  name="size"
+		 */
         public long getSize() {
                 return size;
         }
 
         /**
-         * 
-         * @return Tiempo total de la canción
-         */
+		 * @return  Tiempo total de la canción
+		 * @uml.property  name="totalTime"
+		 */
         public Integer getTotalTime() {
                 return totalTime;
         }
 
         /**
-         * 
-         * @return Año de la canción
-         */
+		 * @return  Año de la canción
+		 * @uml.property  name="year"
+		 */
         public Integer getYear() {
                 return year;
         }
 
         /**
-         *  Mutadora, cambia el tag year de la canción
-         * @param year
-         */
+		 * Mutadora, cambia el tag year de la canción
+		 * @param  year
+		 * @uml.property  name="year"
+		 */
         public void setYear(Integer year) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException {
             this.year = year;
 			AudioFile f = AudioFileIO.read(new File(this.getLocation()));
@@ -460,72 +518,72 @@ public class Track {
         }
 
         /**
-         * 
-         * @return fecha de modificación
-         */
+		 * @return  fecha de modificación
+		 * @uml.property  name="dateModified"
+		 */
         public Date getDateModified() {
                 return dateModified;
     			//TODO
         }
         
         /**
-         * 
-         * @param dateModified
-         */
+		 * @param  dateModified
+		 * @uml.property  name="dateModified"
+		 */
         public void setDateModified(Date dateModified) {
                 this.dateModified = dateModified;
         }
 
         /**
-         * 
-         * @return fecha de adición
-         */
+		 * @return  fecha de adición
+		 * @uml.property  name="dateAdded"
+		 */
         public Date getDateAdded() {
                 return dateAdded;
         }
 
         /**
-         * 
-         * @param dateAdded
-         */
+		 * @param  dateAdded
+		 * @uml.property  name="dateAdded"
+		 */
         public void setDateAdded(Date dateAdded) {
                 this.dateAdded = dateAdded;
         }
 
         /**
-         * 
-         * @return bitrate de la canción
-         */
+		 * @return  bitrate de la canción
+		 * @uml.property  name="bitRate"
+		 */
         public Integer getBitRate() {
                 return bitRate;
         }
 
         /**
-         * 
-         * @return bitrate de una muestra de la canción
-         */
+		 * @return  bitrate de una muestra de la canción
+		 * @uml.property  name="sampleRate"
+		 */
         public Integer getSampleRate() {
                 return sampleRate;
         }
 
         /**
-         * 
-         * @return comentarios del tag de  la canción
-         */
+		 * @return  comentarios del tag de  la canción
+		 * @uml.property  name="comments"
+		 */
         public String getComments() {
                 return comments;
         }
 
         /**
-         * 
-         * @param comments
-         * @throws InvalidAudioFrameException 
-         * @throws ReadOnlyFileException 
-         * @throws TagException 
-         * @throws IOException 
-         * @throws CannotReadException 
-         * @throws CannotWriteException 
-         */
+		 * @param comments
+		 * @throws InvalidAudioFrameException  
+		 * @throws ReadOnlyFileException  
+		 * @throws TagException  
+		 * @throws IOException  
+		 * @throws CannotReadException  
+		 * @throws CannotWriteException
+		 * @uml.property  name="comments"
+		 */
         public void setComments(String comments) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException {
                 this.comments = comments;
     			AudioFile f = AudioFileIO.read(new File(this.getLocation()));
@@ -536,17 +594,17 @@ public class Track {
 
 
         /**
-         * 
-         * @return Tipo de track
-         */
+		 * @return  Tipo de track
+		 * @uml.property  name="trackType"
+		 */
         public String getTrackType() {
                 return trackType;
         }
 
         /**
-         * 
-         * @return location del archivo
-         */
+		 * @return  location del archivo
+		 * @uml.property  name="location"
+		 */
         public String getLocation() {
                 return location;
         }

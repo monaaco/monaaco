@@ -13,6 +13,9 @@ import java.awt.RenderingHints;
 public class JPanelTransparente extends JPanelRound{
 
 
+/**
+ * @uml.property  name="tran"
+ */
 private float tran= 0.8f;
 
 public JPanelTransparente(){
@@ -36,7 +39,8 @@ protected void paintComponent(Graphics g) {
 
 /**
  * Devuelve el porcentaje de transparencia
- * @return valor del porcentaje de transparencia
+ * @return  valor del porcentaje de transparencia
+ * @uml.property  name="tran"
  */
 public float getTran() {
 return tran;
@@ -44,7 +48,8 @@ return tran;
 
 /**
  * Cambia el porcentaje de transparencia
- * @param tran nuevo porcentaje de transparencia
+ * @param tran  nuevo porcentaje de transparencia
+ * @uml.property  name="tran"
  */
 public void setTran(float tran) {
 this.tran = tran;

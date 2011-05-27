@@ -4,29 +4,32 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import javax.swing.JOptionPane;
 
-
-import IS2011.biblioteca.Biblioteca;
-
 import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.*;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 
 
 public class GestorXML<T extends Object>{
 
+	/**
+	 * @uml.property  name="is"
+	 */
 	private InputStream is = null;
 	
+	/**
+	 * @uml.property  name="xs"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private XStream xs = null;
 	
 	/**
 	 * Constructora
 	 */
-	public GestorXML(Class t){	
+	public GestorXML(Class<T> t){	
 		//DomDriver carga mas lento
 		xs = new XStream(new DomDriver());
 		//StaxDriver genera un xml de una sola linea
@@ -51,6 +54,7 @@ public class GestorXML<T extends Object>{
 	 * @return objeto cargada
 	 * @throws Exception 
 	 */
+	@SuppressWarnings("unchecked")
 	public T cargar(File file) throws Exception {
 		T object = (T) new Object();
 			is = new FileInputStream(file);

@@ -1,21 +1,43 @@
 package IS2011.Interfaz;
 
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Image;
+import java.awt.Insets;
+import java.awt.Point;
+import java.awt.Shape;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 
-import javax.swing.*;
-
-
-import IS2011.Configuracion.GestorPreferencias;
-import IS2011.Configuracion.Preferencias;
-import IS2011.FiltrosArchivos.*;
-import IS2011.biblioteca.*;
-
-import com.sun.awt.AWTUtilities;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JSlider;
 
 import javazoom.jlgui.basicplayer.BasicPlayer;
 import javazoom.jlgui.basicplayer.BasicPlayerException;
+import IS2011.Configuracion.GestorPreferencias;
+import IS2011.FiltrosArchivos.FiltroMP3;
+import IS2011.FiltrosArchivos.FiltroOGG;
+import IS2011.FiltrosArchivos.FiltroSoportados;
+import IS2011.biblioteca.GestorBiblioteca;
+import IS2011.biblioteca.Playlist;
+import IS2011.biblioteca.Track;
+
+import com.sun.awt.AWTUtilities;
 
 /**
  * Clase que nos va a proporcionar una interfaz de usuario para la reproducción musical
@@ -30,25 +52,74 @@ public class InterfazAvanzada extends JFrame {
 	
 	/**
 	 * Imágenes de la interfaz
+	 * @uml.property  name="monkeyIcon"
+	 * @uml.associationEnd  
 	 */
 	private ImageIcon monkeyIcon = null;
+	/**
+	 * @uml.property  name="carpetaIcon"
+	 * @uml.associationEnd  
+	 */
 	private ImageIcon carpetaIcon = null;
+	/**
+	 * @uml.property  name="menuIcon"
+	 * @uml.associationEnd  
+	 */
 	private ImageIcon menuIcon = null;
 	
+	/**
+	 * @uml.property  name="fFIcon"
+	 * @uml.associationEnd  
+	 */
 	private ImageIcon FFIcon = null;
+	/**
+	 * @uml.property  name="wwIcon"
+	 * @uml.associationEnd  
+	 */
 	private ImageIcon wwIcon = null;
+	/**
+	 * @uml.property  name="playIcon"
+	 * @uml.associationEnd  
+	 */
 	private ImageIcon playIcon = null;
+	/**
+	 * @uml.property  name="libreriaIcon"
+	 * @uml.associationEnd  
+	 */
 	private ImageIcon libreriaIcon = null;
+	/**
+	 * @uml.property  name="cerrarIcon"
+	 * @uml.associationEnd  
+	 */
 	private ImageIcon cerrarIcon = null;
+	/**
+	 * @uml.property  name="pauseIcon"
+	 * @uml.associationEnd  
+	 */
 	private ImageIcon pauseIcon = null;
 
+	/**
+	 * @uml.property  name="bgColor"
+	 */
 	private Color bgColor = null;
+	/**
+	 * @uml.property  name="fgColor"
+	 */
 	private Color fgColor = null;
+	/**
+	 * @uml.property  name="bgColorInterno"
+	 */
 	private Color bgColorInterno = null;
+	/**
+	 * @uml.property  name="fgColorInterno"
+	 */
 	private Color fgColorInterno = null;
 
 
 
+	/**
+	 * @uml.property  name="cursor"
+	 */
 	private Cursor cursor = null;
 
 	
@@ -58,59 +129,188 @@ public class InterfazAvanzada extends JFrame {
 	 */
 	static private InterfazAvanzada principal = null;
 	
+	/**
+	 * @uml.property  name="infoPlaylist"
+	 * @uml.associationEnd  inverse="interfazAvanzada:IS2011.Interfaz.SongInterfaz"
+	 */
 	private SongInterfaz infoPlaylist = null;
+	/**
+	 * @uml.property  name="infoSong"
+	 * @uml.associationEnd  inverse="interfazAvanzada:IS2011.Interfaz.SongInfoInterfaz"
+	 */
 	private SongInfoInterfaz infoSong = null;
+	/**
+	 * @uml.property  name="bibliotecaInterfaz"
+	 * @uml.associationEnd  inverse="interfazPadre:IS2011.Interfaz.BibliotecaInterfaz"
+	 */
 	private BibliotecaInterfaz bibliotecaInterfaz = null;
 
+	/**
+	 * @uml.property  name="stopButton"
+	 * @uml.associationEnd  
+	 */
 	private BotonAvanzado stopButton = null;
+	/**
+	 * @uml.property  name="pauseButton"
+	 * @uml.associationEnd  
+	 */
 	private BotonAvanzado pauseButton = null;
+	/**
+	 * @uml.property  name="playButton"
+	 * @uml.associationEnd  
+	 */
 	private BotonAvanzado playButton = null;
+	/**
+	 * @uml.property  name="botonBiblioteca"
+	 * @uml.associationEnd  
+	 */
 	private JButton botonBiblioteca = null;
+	/**
+	 * @uml.property  name="segundero"
+	 * @uml.associationEnd  
+	 */
 	private JLabel segundero = null;
+	/**
+	 * @uml.property  name="menuLabel"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JLabel menuLabel = null;
+	/**
+	 * @uml.property  name="barraProgreso"
+	 * @uml.associationEnd  
+	 */
 	private JSlider barraProgreso = null;
+	/**
+	 * @uml.property  name="salirButton"
+	 * @uml.associationEnd  
+	 */
 	private JButton salirButton = null;
 	
+	/**
+	 * @uml.property  name="main"
+	 * @uml.associationEnd  
+	 */
 	private JPanelRound main = null;
 	
 	// Barra de menu principal
+	/**
+	 * @uml.property  name="menuPrincipal"
+	 * @uml.associationEnd  multiplicity="(1 1)" inverse="ia:IS2011.Interfaz.Menu"
+	 */
 	private Menu menuPrincipal = null;
 	// menu player
+	/**
+	 * @uml.property  name="playerMenu"
+	 * @uml.associationEnd  
+	 */
 	private JMenu playerMenu = null;
+	/**
+	 * @uml.property  name="cargarArchivoItem"
+	 * @uml.associationEnd  
+	 */
 	private JMenuItem cargarArchivoItem = null;
+	/**
+	 * @uml.property  name="salirItem"
+	 * @uml.associationEnd  
+	 */
 	private JMenuItem salirItem = null;
+	/**
+	 * @uml.property  name="nextItem"
+	 * @uml.associationEnd  
+	 */
 	private JMenuItem nextItem = null;
+	/**
+	 * @uml.property  name="previousItem"
+	 * @uml.associationEnd  
+	 */
 	private JMenuItem previousItem = null;
 	
+	/**
+	 * @uml.property  name="backGround"
+	 * @uml.associationEnd  
+	 */
 	private JPanelRound backGround = null;
 	
+	/**
+	 * @uml.property  name="infoSongLabel"
+	 * @uml.associationEnd  
+	 */
 	private JLabel infoSongLabel = null;
 
 
 	
 
+	/**
+	 * @uml.property  name="pause"
+	 */
 	private boolean pause = false;
+	/**
+	 * @uml.property  name="desplegado"
+	 */
 	private boolean desplegado = false;
+	/**
+	 * @uml.property  name="bytesArchivoActual"
+	 */
 	private double bytesArchivoActual; 
+	/**
+	 * @uml.property  name="mPlayer"
+	 * @uml.associationEnd  
+	 */
 	private BasicPlayer mPlayer;
+	/**
+	 * @uml.property  name="reproductorListener"
+	 * @uml.associationEnd  inverse="player:IS2011.Interfaz.ReproductorListener"
+	 */
 	private ReproductorListener reproductorListener;
+	/**
+	 * @uml.property  name="figura"
+	 */
 	private Shape figura;
+	/**
+	 * @uml.property  name="_pista"
+	 * @uml.associationEnd  readOnly="true"
+	 */
 	private Track _pista;
+	/**
+	 * @uml.property  name="reproduciendo"
+	 */
 	private boolean reproduciendo = false;
+	/**
+	 * @uml.property  name="restante"
+	 */
 	private boolean restante= false;
 	
 	
 	//private TransparentBackground fondo = null;
 
 	//Playlist:
+	/**
+	 * @uml.property  name="listaReproduccion"
+	 * @uml.associationEnd  
+	 */
 	private Playlist listaReproduccion = null;
+	/**
+	 * @uml.property  name="caratula"
+	 */
 	private Image caratula = null;
+	/**
+	 * @uml.property  name="pantalla"
+	 */
 	private Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
      // Se obtienen las dimensiones en pixels de la ventana.
+    /**
+	 * @uml.property  name="ventana"
+	 */
     private Dimension ventana = this.getSize();
 
+	/**
+	 * @uml.property  name="posTag"
+	 */
 	private int posTag=0;
 
+	/**
+	 * @uml.property  name="rutaIndexada"
+	 */
 	private String rutaIndexada;
 	
 	/**
@@ -340,9 +540,9 @@ public class InterfazAvanzada extends JFrame {
 		listaReproduccion.setRepeat(true);	
 	}
 	/**
-	 * Creamos el Jlabel que se mostrará por pantalla con el título de la canción moviendose 
-	 * a lo largo de la pantall
-	 * @return infoSonfLabel
+	 * Creamos el Jlabel que se mostrará por pantalla con el título de la canción moviendose  a lo largo de la pantall
+	 * @return  infoSonfLabel
+	 * @uml.property  name="infoSongLabel"
 	 */
 	private JLabel getInfoSongLabel() {
 		if(infoSongLabel == null) {
@@ -394,8 +594,9 @@ public class InterfazAvanzada extends JFrame {
 	}*/
 	
 /**
- * Méotod para cargar un archivo, obsoleto ya no se usa
+ * Definimos la barra del menú, obsoleto ya no se usa
  * @return
+ * @uml.property  name="cargarArchivoItem"
  */
 	private JMenuItem getCargarArchivoItem() {
         if (cargarArchivoItem == null) {
@@ -459,9 +660,9 @@ public class InterfazAvanzada extends JFrame {
 	}
 
 	/**
-	 * Nos proporcioan una Jslider con la que iremos siguiendo el transcurso de la canción, nos proporcionará la capacidad de adelantar
-	 * o atrasar el curso de la misma
-	 * @return barraProgreso
+	 * Nos proporcioan una Jslider con la que iremos siguiendo el transcurso de la canción, nos proporcionará la capacidad de adelantar o atrasar el curso de la misma
+	 * @return  barraProgreso
+	 * @uml.property  name="barraProgreso"
 	 */
 	public JSlider getBarraProgreso(){
 		if(barraProgreso == null){
@@ -526,9 +727,9 @@ public class InterfazAvanzada extends JFrame {
 	
 	
 	/**
-	 * Botón que nos dotará de la posibilidad de ocultar o mostrar la biblioteca, se implementa mediante in listener de manera que
-	 * cada vez que se pulse ampliará el JFrame y el BackGround,  mostrando la biblioteca y lo contrario
-	 * @return botonBiblioteca
+	 * Botón que nos dotará de la posibilidad de ocultar o mostrar la biblioteca, se implementa mediante in listener de manera que cada vez que se pulse ampliará el JFrame y el BackGround,  mostrando la biblioteca y lo contrario
+	 * @return  botonBiblioteca
+	 * @uml.property  name="botonBiblioteca"
 	 */
 	
 	public JButton getBotonBiblioteca() {
@@ -609,9 +810,9 @@ public class InterfazAvanzada extends JFrame {
 		return stopButton;
 	}
 	/**
-	 * Proporciona el boton de play, se implementa mediante un listener, si el reproducotor esta en este momento reproduciendo
-	 * su funcionalidad cambia a la pause al igual que su imagen
-	 * @return playButton
+	 * Proporciona el boton de play, se implementa mediante un listener, si el reproducotor esta en este momento reproduciendo su funcionalidad cambia a la pause al igual que su imagen
+	 * @return  playButton
+	 * @uml.property  name="playButton"
 	 */
 	public BotonAvanzado getPlayButton() {
 		if (playButton == null){
@@ -680,7 +881,8 @@ public class InterfazAvanzada extends JFrame {
 	}
 	/**
 	 * Botón para cerrar la aplicación
-	 * @return salirButton
+	 * @return  salirButton
+	 * @uml.property  name="salirButton"
 	 */
 	public JButton getSalirButton() {
 		if (salirButton == null){
@@ -701,6 +903,7 @@ public class InterfazAvanzada extends JFrame {
 	/**
 	 * Obseloto ya no se usa
 	 * @return
+	 * @uml.property  name="salirItem"
 	 */
 	public JMenuItem getSalirItem() {
 		
@@ -723,7 +926,8 @@ public class InterfazAvanzada extends JFrame {
 	}
 	/**
 	 * Devuelve la lista de reproducción
-	 * @return listaReproduccion
+	 * @return  listaReproduccion
+	 * @uml.property  name="listaReproduccion"
 	 */
 	public Playlist getListaReproduccion(){
 		return listaReproduccion;
@@ -762,9 +966,10 @@ public class InterfazAvanzada extends JFrame {
     }
    
     /**
-     * Obsoleto ya no se usa
-     * @return nextItem
-     */
+	 * Obsoleto ya no se usa
+	 * @return  nextItem
+	 * @uml.property  name="nextItem"
+	 */
     public JMenuItem getNextItem() {
         if (nextItem == null){
             nextItem = new JMenuItem("siguiente");
@@ -780,16 +985,18 @@ public class InterfazAvanzada extends JFrame {
         return nextItem;
     }
     /**
-     * devuelve la info de la canción que suena
-     * @return
-     */
+	 * devuelve la info de la canción que suena
+	 * @return
+	 * @uml.property  name="infoSong"
+	 */
     public SongInfoInterfaz getInfoSong(){
     	return infoSong;
     }
     /**
-     * Obsoleto ya no se usa
-     * @return
-     */
+	 * Obsoleto ya no se usa
+	 * @return
+	 * @uml.property  name="previousItem"
+	 */
 	public JMenuItem getPreviousItem() {
 		if (previousItem == null){
 			previousItem = new JMenuItem("anterior");
@@ -1001,7 +1208,8 @@ public class InterfazAvanzada extends JFrame {
 	
 	/**
 	 * Accesora a infoPlaylist
-	 * @return SongInterfaz
+	 * @return  SongInterfaz
+	 * @uml.property  name="infoPlaylist"
 	 */
 	public SongInterfaz getInfoPlaylist(){
 		return infoPlaylist;
@@ -1079,8 +1287,8 @@ public class InterfazAvanzada extends JFrame {
 	}
 	
 	/**
-	 * 
-	 * @param rutaIndexada
+	 * @param  rutaIndexada
+	 * @uml.property  name="rutaIndexada"
 	 */
 	private void setRutaIndexada(String rutaIndexada) {
 		this.rutaIndexada = rutaIndexada;
@@ -1088,8 +1296,8 @@ public class InterfazAvanzada extends JFrame {
 	}
 
 	/**
-	 * 
-	 * @param fgColorInterno2
+	 * @param  fgColorInterno2
+	 * @uml.property  name="fgColorInterno"
 	 */
 	private void setFgColorInterno(Color fgColorInterno2) {
 		this.fgColorInterno = fgColorInterno2;
@@ -1097,8 +1305,8 @@ public class InterfazAvanzada extends JFrame {
 	}
 
 	/**
-	 * 
-	 * @param bgColorInterno2
+	 * @param  bgColorInterno2
+	 * @uml.property  name="bgColorInterno"
 	 */
 	private void setBgColorInterno(Color bgColorInterno2) {
 		this.bgColorInterno = bgColorInterno2;
@@ -1128,7 +1336,8 @@ public class InterfazAvanzada extends JFrame {
 
 	/**
 	 * Mutadora del color principal de la interfaz.
-	 * @param fgColor2 nuevo color principal.
+	 * @param fgColor2  nuevo color principal.
+	 * @uml.property  name="fgColor"
 	 */
 	private void setFgColor(Color fgColor2) {
 		this.fgColor = fgColor2;
@@ -1138,7 +1347,8 @@ public class InterfazAvanzada extends JFrame {
 
 	/**
 	 * Mutadora del color secundario de la interfaz.
-	 * @param bgColor2 nuevo color secundario.
+	 * @param bgColor2  nuevo color secundario.
+	 * @uml.property  name="bgColor"
 	 */
 	private void setBgColor(Color bgColor2) {
 		this.bgColor = bgColor2;

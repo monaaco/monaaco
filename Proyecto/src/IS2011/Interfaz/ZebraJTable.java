@@ -6,7 +6,13 @@ package IS2011.Interfaz;
 public class ZebraJTable
     extends javax.swing.JTable
 {
+    /**
+	 * @uml.property  name="rowColors" multiplicity="(0 -1)" dimension="1"
+	 */
     private java.awt.Color rowColors[] = new java.awt.Color[2];
+    /**
+	 * @uml.property  name="drawStripes"
+	 */
     private boolean drawStripes = false;
  
     public ZebraJTable( )

@@ -4,9 +4,8 @@ import java.io.File;
 
 import javax.swing.ImageIcon;
 
-import IS2011.Interfaz.BotonAvanzado;
-
 import junit.framework.TestCase;
+import IS2011.Interfaz.BotonAvanzado;
 
 public class BotonAvanzadoTest extends TestCase {
 	

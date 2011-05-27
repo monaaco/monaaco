@@ -3,7 +3,6 @@ package IS2011.Configuracion;
 import java.awt.Color;
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
 
 import javax.swing.JOptionPane;
 
@@ -19,13 +18,22 @@ import IS2011.biblioteca.Track;
 public class GestorPreferencias {
 
 	
+	/**
+	 * @uml.property  name="gestorXML"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private GestorXML<Preferencias> gestorXML = null;
 	
 	/**
-	 * Ruta de las Preferencias por defecto 
+	 * Ruta de las Preferencias por defecto
+	 * @uml.property  name="rutaPreferencias"
 	 */	
 	private final String rutaPreferencias = "xml/preferencias.xml";
 			
+	/**
+	 * @uml.property  name="preferencias"
+	 * @uml.associationEnd  
+	 */
 	private Preferencias preferencias = null;
 	
 	/**
@@ -56,6 +64,7 @@ public class GestorPreferencias {
 
 	/**
 	 * Esta función devuelve la variable preferencias
+	 * @uml.property  name="preferencias"
 	 */
 	public Preferencias getPreferencias(){
 		return preferencias;
@@ -63,7 +72,8 @@ public class GestorPreferencias {
 	
 	/**
 	 * Mutadora de la variable preferencias
-	 * @param biblioteca
+	 * @param  biblioteca
+	 * @uml.property  name="preferencias"
 	 */
 	private void setPreferencias(Preferencias preferencias){
 		if(preferencias != null) this.preferencias = preferencias;

@@ -1,9 +1,9 @@
 package IS2011.Interfaz;
 
-import java.awt.*;
-import java.util.LinkedList;
-import java.util.Iterator;
-import javax.swing.*;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JWindow;
 
 import com.sun.awt.AWTUtilities;
 
@@ -11,8 +11,17 @@ import com.sun.awt.AWTUtilities;
 public class LoadingScreen extends Thread{
 	
 	//static Icon icon = new ImageIcon("images/loading.gif");
+	/**
+	 * @uml.property  name="termina"
+	 */
 	private boolean termina = false;
+	/**
+	 * @uml.property  name="x"
+	 */
 	private int x ;
+	/**
+	 * @uml.property  name="y"
+	 */
 	private int y ;
 	
 	

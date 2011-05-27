@@ -1,15 +1,17 @@
 package IS2011.Interfaz;
 
-import java.awt.Component;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 
 import javax.swing.JList;
 import javax.swing.TransferHandler;
-import javax.xml.datatype.DatatypeFactory;
 
 class MyListDropHandler extends TransferHandler {
-	  DragDropList list;
+	  /**
+	 * @uml.property  name="list"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
+	DragDropList list;
 
 	  /**
 	   * Constructora del handler sobre la DragNDropList

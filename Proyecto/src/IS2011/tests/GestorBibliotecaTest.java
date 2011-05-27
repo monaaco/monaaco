@@ -1,19 +1,39 @@
 package IS2011.tests;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
 
-import java.io.File;
-
-import IS2011.GestorXML.GestorXML;
-import IS2011.biblioteca.*;
 import junit.framework.TestCase;
+import IS2011.GestorXML.GestorXML;
+import IS2011.biblioteca.Biblioteca;
+import IS2011.biblioteca.GestorBiblioteca;
+import IS2011.biblioteca.Track;
 
 public class GestorBibliotecaTest extends TestCase{
 	
+	/**
+	 * @uml.property  name="tr"
+	 * @uml.associationEnd  
+	 */
 	Track tr = null;
+	/**
+	 * @uml.property  name="tr2"
+	 * @uml.associationEnd  
+	 */
 	Track tr2 = null;
+	/**
+	 * @uml.property  name="trList"
+	 */
 	List<Track> trList = null;
+	/**
+	 * @uml.property  name="gestor1"
+	 * @uml.associationEnd  
+	 */
 	GestorXML<Biblioteca> gestor1 = null;
+	/**
+	 * @uml.property  name="gestor2"
+	 * @uml.associationEnd  
+	 */
 	GestorXML<Biblioteca> gestor2 = null;
 
 	/**

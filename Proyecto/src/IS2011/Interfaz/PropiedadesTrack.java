@@ -1,25 +1,15 @@
 package IS2011.Interfaz;
 
 import java.awt.FlowLayout;
-import java.awt.GridBagLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.File;
 
-import javax.swing.GroupLayout;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.JWindow;
-
-import org.jaudiotagger.audio.AudioFile;
-import org.jaudiotagger.audio.AudioFileIO;
-import org.jaudiotagger.tag.FieldKey;
-import org.jaudiotagger.tag.Tag;
 
 import IS2011.biblioteca.Track;
 
@@ -30,25 +20,89 @@ para modificar su info*/
 
 public class PropiedadesTrack extends JDialog //o JWindow, probar ambas.
 {
+	/**
+	 * @uml.property  name="track"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private Track track= null;
 	
+	/**
+	 * @uml.property  name="pt"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private PropiedadesTrack pt= null;
 	
+	/**
+	 * @uml.property  name="labelNombre"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JLabel labelNombre= null;
+	/**
+	 * @uml.property  name="nombre"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JTextField nombre= null;
+	/**
+	 * @uml.property  name="labelArtista"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JLabel labelArtista= null;
+	/**
+	 * @uml.property  name="artista"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JTextField artista=null;
+	/**
+	 * @uml.property  name="labelAlbumArtista"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JLabel labelAlbumArtista= null;
+	/**
+	 * @uml.property  name="albumArtista"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JTextField albumArtista= null;
+	/**
+	 * @uml.property  name="labelAlbum"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JLabel labelAlbum= null;
+	/**
+	 * @uml.property  name="album"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JTextField album=null;
+	/**
+	 * @uml.property  name="labelComentario"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JLabel labelComentario= null;
+	/**
+	 * @uml.property  name="comentario"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JTextField comentario=null;
+	/**
+	 * @uml.property  name="labelGenero"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JLabel labelGenero= null;
+	/**
+	 * @uml.property  name="genero"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JTextField genero=null;
 	/*private artworkList ; pensarlo bien, realmente la interfaz muestra un label con un imgIcon y el artworkList es el mismo, salvo que se cambie. Lo mismo no interesa de primeras cambiar la imagen.
 	*/
+	/**
+	 * @uml.property  name="botonOk"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JButton botonOk = null;
+	/**
+	 * @uml.property  name="botonCancel"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JButton botonCancel = null;
 
 	/**

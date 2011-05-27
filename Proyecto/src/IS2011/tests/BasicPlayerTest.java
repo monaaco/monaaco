@@ -1,21 +1,9 @@
 package IS2011.tests;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
-
-import javax.swing.JFileChooser;
-import javax.swing.JMenuItem;
-
-import IS2011.FiltrosArchivos.FiltroMP3;
-import IS2011.FiltrosArchivos.FiltroOGG;
-import IS2011.FiltrosArchivos.FiltroSoportados;
-import IS2011.Interfaz.BotonAvanzado;
-import IS2011.Interfaz.InterfazAvanzada;
 
 import javazoom.jlgui.basicplayer.BasicPlayer;
 import javazoom.jlgui.basicplayer.BasicPlayerException;
-
 import junit.framework.TestCase;
 
 public class BasicPlayerTest extends TestCase {

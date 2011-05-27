@@ -2,7 +2,6 @@ package IS2011.Interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.RenderingHints.Key;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -12,10 +11,8 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenuBar;
@@ -31,13 +28,10 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import javax.swing.text.Document;
 
-import IS2011.FiltrosArchivos.FiltroMP3;
-import IS2011.FiltrosArchivos.FiltroOGG;
-import IS2011.FiltrosArchivos.FiltroSoportados;
+import IS2011.Configuracion.GestorPreferencias;
 import IS2011.biblioteca.GestorBiblioteca;
 import IS2011.biblioteca.Playlist;
 import IS2011.biblioteca.Track;
-import IS2011.Interfaz.*;
 
 public class BibliotecaInterfaz extends JPanelTransparente{
 
@@ -48,32 +42,131 @@ public class BibliotecaInterfaz extends JPanelTransparente{
 
 	
 	 
+	/**
+	 * @uml.property  name="agregarIcon"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private ImageIcon agregarIcon = new ImageIcon("images/Skin3/agregar.png");
+	/**
+	 * @uml.property  name="filtrarIcon"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private ImageIcon filtrarIcon = new ImageIcon("images/Skin3/filter.png");
 	
+	/**
+	 * @uml.property  name="frame"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private BibliotecaInterfaz frame= null;
 	
+	/**
+	 * @uml.property  name="interfazPadre"
+	 * @uml.associationEnd  multiplicity="(1 1)" inverse="bibliotecaInterfaz:IS2011.Interfaz.InterfazAvanzada"
+	 */
 	private InterfazAvanzada interfazPadre= null;
+	/**
+	 * @uml.property  name="menuBI"
+	 * @uml.associationEnd  
+	 */
 	private JMenuBar menuBI=null;
 	
+	/**
+	 * @uml.property  name="menu"
+	 * @uml.associationEnd  
+	 */
 	private JPopupMenu menu = null;
+	/**
+	 * @uml.property  name="anadirArchivos"
+	 * @uml.associationEnd  
+	 */
 	private JMenuItem anadirArchivos=null;
+	/**
+	 * @uml.property  name="editarPropiedades"
+	 * @uml.associationEnd  
+	 */
 	private JMenuItem editarPropiedades=null;
+	/**
+	 * @uml.property  name="filtroAvanzado"
+	 * @uml.associationEnd  
+	 */
 	private JMenuItem filtroAvanzado=null;
+	/**
+	 * @uml.property  name="elimina"
+	 * @uml.associationEnd  
+	 */
 	private JMenuItem elimina= null;
+	/**
+	 * @uml.property  name="anadirAPlayList"
+	 * @uml.associationEnd  
+	 */
 	private JMenuItem anadirAPlayList=null;
+	/**
+	 * @uml.property  name="busquedaRapida"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JTextField busquedaRapida= null;
+	/**
+	 * @uml.property  name="agregar"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JButton agregar = null;
+	/**
+	 * @uml.property  name="filtro"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JButton filtro = null;
+	/**
+	 * @uml.property  name="popup"
+	 * @uml.associationEnd  
+	 */
 	private JFrame popup = null;
+	/**
+	 * @uml.property  name="tabla"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private ZebraJTable tabla= null;
 	
 	
 	
+	/**
+	 * @uml.property  name="elQueOrdena"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private TableRowSorter<TableModel> elQueOrdena=null; 
+	/**
+	 * @uml.property  name="modelo"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private MyDefaultTableModel modelo= null;
+	/**
+	 * @uml.property  name="escrito"
+	 */
 	private String escrito;
+	/**
+	 * @uml.property  name="mili"
+	 */
 	private long mili;
+
+
+
+	/**
+	 * @uml.property  name="fgColorInterno"
+	 */
+	private Color fgColorInterno;
+	/**
+	 * @uml.property  name="bgColorInterno"
+	 */
+	private Color bgColorInterno;
+	/**
+	 * @uml.property  name="fgColor"
+	 */
+	@SuppressWarnings("unused")
+	private Color fgColor;
+	/**
+	 * @uml.property  name="bgColor"
+	 */
+	@SuppressWarnings("unused")
+	private Color bgColor;
 	
 	/**
 	 * Constructora de la interterz de biblioteca
@@ -82,14 +175,13 @@ public class BibliotecaInterfaz extends JPanelTransparente{
 	public BibliotecaInterfaz(InterfazAvanzada ia){
 		//super("library");
 		interfazPadre = ia;
+		this.cargarPreferencias();
 		initBibliotecaInterfaz();
 		setTran(0.2f);
 		frame = this;
 		escrito = "";
 		mili = System.currentTimeMillis();
 		this.setSize(600,300);
-		this.setColorPrimario(Color.white);
-		this.setColorSecundario(Color.white);
 		//this.setTran(0.5f);
 		JButton añadir = getAnadirArchivos();
 		añadir.setBounds(25,245,90, 45);
@@ -228,8 +320,8 @@ public class BibliotecaInterfaz extends JPanelTransparente{
 	    this.add(textoBusqueda);
 		busquedaRapida.setBounds(425,245,200, 20);;
 		this.add(busquedaRapida);
-		
 		repaint();
+		
 	}
 	
 	/**
@@ -604,7 +696,6 @@ public class BibliotecaInterfaz extends JPanelTransparente{
 		mili = System.currentTimeMillis();
 		escrito += c;
 		buscaNombre(escrito);
-		System.out.println(escrito);
 	}
 	
 	/**
@@ -655,4 +746,66 @@ public class BibliotecaInterfaz extends JPanelTransparente{
 		
 		actualiza();
 	}
+	
+	/**
+	 * carga las preferencias de la clase GestorPreferencias
+	 */
+	public void cargarPreferencias(){
+		this.setRutaIconos(GestorPreferencias.getInstance().getSkin());
+		this.setBgColor(GestorPreferencias.getInstance().getBgColor());
+		this.setFgColor(GestorPreferencias.getInstance().getFgColor());	
+		this.setBgColorInterno(GestorPreferencias.getInstance().getBgColorInterno());
+		this.setFgColorInterno(GestorPreferencias.getInstance().getFgColorInterno());	
+		//Reproducir la cancion que se estaba rerpoduciendo al apagar
+		//TODO más cosas
+		
+	}
+
+	/**
+	 * @param  fgColorInterno2
+	 * @uml.property  name="fgColorInterno"
+	 */
+	private void setFgColorInterno(Color fgColorInterno2) {
+		this.fgColorInterno = fgColorInterno2;
+		this.setColorPrimario(fgColorInterno);
+	}
+
+	/**
+	 * @param  bgColorInterno2
+	 * @uml.property  name="bgColorInterno"
+	 */
+	private void setBgColorInterno(Color bgColorInterno2) {
+		this.bgColorInterno = bgColorInterno2;
+		this.setColorSecundario(bgColorInterno);
+
+	}
+
+	/**
+	 * Carga las imagenes de botones e iconos
+	 * @param skin los iconos a cargar
+	 */
+	private void setRutaIconos(String skin) {
+		String ruta = GestorPreferencias.getInstance().getSkin();
+		agregarIcon = new ImageIcon(ruta+"/agregar.png");
+		filtrarIcon = new ImageIcon(ruta+"/filter.png");
+	}
+
+	/**
+	 * Mutadora del color principal de la interfaz.
+	 * @param fgColor2  nuevo color principal.
+	 * @uml.property  name="fgColor"
+	 */
+	private void setFgColor(Color fgColor2) {
+		this.fgColor = fgColor2;
+	}
+
+	/**
+	 * Mutadora del color secundario de la interfaz.
+	 * @param bgColor2  nuevo color secundario.
+	 * @uml.property  name="bgColor"
+	 */
+	private void setBgColor(Color bgColor2) {
+		this.bgColor = bgColor2;
+	}
+	
 }

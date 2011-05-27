@@ -2,22 +2,23 @@ package IS2011.Interfaz;
 
 import java.io.File;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JLabel;
-import javax.swing.JWindow;
 
 import IS2011.FiltrosArchivos.FiltroMP3;
 import IS2011.FiltrosArchivos.FiltroOGG;
 import IS2011.FiltrosArchivos.FiltroSoportados;
-import IS2011.biblioteca.GestorBiblioteca;
-
-import com.sun.awt.AWTUtilities;
 
 public class HiloCargar extends Thread {
 	
+	/**
+	 * @uml.property  name="main"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private BibliotecaInterfaz main = null;
+	/**
+	 * @uml.property  name="interfazPadre"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private InterfazAvanzada interfazPadre = null;
 	
 		

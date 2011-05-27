@@ -10,19 +10,50 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 public class Preferencias {
 
 	
+	/**
+	 * @uml.property  name="rutaIndexada"
+	 */
 	private String rutaIndexada;
 	
+	/**
+	 * @uml.property  name="skin"
+	 */
 	private String skin;
+	/**
+	 * @uml.property  name="launcher"
+	 */
 	private String launcher;
+	/**
+	 * @uml.property  name="sound"
+	 */
 	private String sound;
 	
+	/**
+	 * @uml.property  name="bgColor"
+	 */
 	private Color bgColor;
+	/**
+	 * @uml.property  name="fgColor"
+	 */
 	private Color fgColor;
+	/**
+	 * @uml.property  name="bgColorInterno"
+	 */
 	private Color bgColorInterno;
+	/**
+	 * @uml.property  name="fgColorInterno"
+	 */
 	private Color fgColorInterno;
 	
+	/**
+	 * @uml.property  name="cancionActual"
+	 * @uml.associationEnd  
+	 */
 	@XStreamAlias("track")
 	private Track cancionActual;
+	/**
+	 * @uml.property  name="posCancionActual"
+	 */
 	private long posCancionActual;
 	
 	
@@ -49,42 +80,48 @@ public class Preferencias {
 	}
 	
 	/**
-	 * @return the rutaIndexada
+	 * @return  the rutaIndexada
+	 * @uml.property  name="rutaIndexada"
 	 */
 	public String getRutaIndexada() {
 		return rutaIndexada;
 	}
 
 	/**
-	 * @param rutaIndexada the rutaIndexada to set
+	 * @param rutaIndexada  the rutaIndexada to set
+	 * @uml.property  name="rutaIndexada"
 	 */
 	public void setRutaIndexada(String rutaIndexada) {
 		this.rutaIndexada = rutaIndexada;
 	}
 
 	/**
-	 * @return the bgColorInterno
+	 * @return  the bgColorInterno
+	 * @uml.property  name="bgColorInterno"
 	 */
 	public Color getBgColorInterno() {
 		return bgColorInterno;
 	}
 
 	/**
-	 * @param bgColorInterno the bgColorInterno to set
+	 * @param bgColorInterno  the bgColorInterno to set
+	 * @uml.property  name="bgColorInterno"
 	 */
 	public void setBgColorInterno(Color bgColorInterno) {
 		this.bgColorInterno = bgColorInterno;
 	}
 
 	/**
-	 * @return the fgColorInterno
+	 * @return  the fgColorInterno
+	 * @uml.property  name="fgColorInterno"
 	 */
 	public Color getFgColorInterno() {
 		return fgColorInterno;
 	}
 
 	/**
-	 * @param fgColorInterno the fgColorInterno to set
+	 * @param fgColorInterno  the fgColorInterno to set
+	 * @uml.property  name="fgColorInterno"
 	 */
 	public void setFgColorInterno(Color fgColorInterno) {
 		this.fgColorInterno = fgColorInterno;
@@ -92,7 +129,8 @@ public class Preferencias {
 
 	/**
 	 * Devuelve el nombre del skin
-	 * @return String
+	 * @return  String
+	 * @uml.property  name="skin"
 	 */
 	public String getSkin() {
 		return skin;
@@ -100,7 +138,8 @@ public class Preferencias {
 	
 	/**
 	 * Cambia el skin asociado
-	 * @param skin - String
+	 * @param skin  - String
+	 * @uml.property  name="skin"
 	 */
 	public void setSkin(String skin) {
 		this.skin = skin;
@@ -108,7 +147,8 @@ public class Preferencias {
 	
 	/**
 	 * Devuelve el nombre del launcher
-	 * @return String 
+	 * @return  String
+	 * @uml.property  name="launcher"
 	 */
 	public String getLauncher() {
 		return launcher;
@@ -116,7 +156,8 @@ public class Preferencias {
 	
 	/**
 	 * Cambia el launcher asociado
-	 * @param launcher - String
+	 * @param launcher  - String
+	 * @uml.property  name="launcher"
 	 */
 	public void setLauncher(String launcher) {
 		this.launcher = launcher;
@@ -125,6 +166,7 @@ public class Preferencias {
 	/**
 	 * Devuelve el nombre del sonido asociado
 	 * @return
+	 * @uml.property  name="sound"
 	 */
 	public String getSound() {
 		return sound;
@@ -132,7 +174,8 @@ public class Preferencias {
 	
 	/**
 	 * Cambia el sonido asociado
-	 * @param sound - String
+	 * @param sound  - String
+	 * @uml.property  name="sound"
 	 */
 	public void setSound(String sound) {
 		this.sound = sound;
@@ -140,7 +183,8 @@ public class Preferencias {
 	
 	/**
 	 * Devuelve el color de fondo
-	 * @return Color
+	 * @return  Color
+	 * @uml.property  name="bgColor"
 	 */
 	public Color getBgColor() {
 		return bgColor;
@@ -148,7 +192,8 @@ public class Preferencias {
 	
 	/**
 	 * Cambia el color de fondo
-	 * @param bgColor - Color
+	 * @param bgColor  - Color
+	 * @uml.property  name="bgColor"
 	 */
 	public void setBgColor(Color bgColor) {
 		this.bgColor = bgColor;
@@ -156,7 +201,8 @@ public class Preferencias {
 	
 	/**
 	 * Devuelve el color frontal
-	 * @return Color
+	 * @return  Color
+	 * @uml.property  name="fgColor"
 	 */
 	public Color getFgColor() {
 		return fgColor;
@@ -164,35 +210,40 @@ public class Preferencias {
 	
 	/**
 	 * Cambia el color frontal
-	 * @param fgColor - Color
+	 * @param fgColor  - Color
+	 * @uml.property  name="fgColor"
 	 */
 	public void setFgColor(Color fgColor) {
 		this.fgColor = fgColor;
 	}
 
 	/**
-	 * @return the rutaCancionActual
+	 * @return  the rutaCancionActual
+	 * @uml.property  name="cancionActual"
 	 */
 	public Track getCancionActual() {
 		return cancionActual;
 	}
 
 	/**
-	 * @param track the rutaCancionActual to set
+	 * @param track  the rutaCancionActual to set
+	 * @uml.property  name="cancionActual"
 	 */
 	public void setCancionActual(Track track) {
 		this.cancionActual = track;
 	}
 
 	/**
-	 * @return the posCancionActual
+	 * @return  the posCancionActual
+	 * @uml.property  name="posCancionActual"
 	 */
 	public long getPosCancionActual() {
 		return posCancionActual;
 	}
 
 	/**
-	 * @param posCancionActual the posCancionActual to set
+	 * @param posCancionActual  the posCancionActual to set
+	 * @uml.property  name="posCancionActual"
 	 */
 	public void setPosCancionActual(long posCancionActual) {
 		this.posCancionActual = posCancionActual;

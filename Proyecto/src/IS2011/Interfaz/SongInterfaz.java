@@ -1,19 +1,23 @@
 package IS2011.Interfaz;
-import java.awt.*;
-import java.awt.dnd.DropTarget;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.event.*;
-import javax.swing.*;
-import javax.xml.bind.Marshaller.Listener;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
 
-//import javazoom.jlgui.basicplayer.BasicPlayerException;
 import IS2011.Configuracion.GestorPreferencias;
-import IS2011.biblioteca.Track;
 
 import com.sun.awt.AWTUtilities;
 
@@ -25,21 +29,73 @@ public class SongInterfaz extends JFrame{
         
         
         private static final long serialVersionUID = 1L;
+        /**
+		 * @uml.property  name="menu"
+		 * @uml.associationEnd  multiplicity="(1 1)"
+		 */
         JPopupMenu menu = new JPopupMenu();
+        /**
+		 * @uml.property  name="principal"
+		 * @uml.associationEnd  multiplicity="(1 1)"
+		 */
         private JFrame principal = null;
+        /**
+		 * @uml.property  name="listado"
+		 * @uml.associationEnd  multiplicity="(1 1)"
+		 */
         private DragDropList listado = null;
+        /**
+		 * @uml.property  name="scrollListado"
+		 * @uml.associationEnd  multiplicity="(1 1)"
+		 */
         private JScrollPane scrollListado = null; 
+        /**
+		 * @uml.property  name="panelInterno"
+		 * @uml.associationEnd  multiplicity="(1 1)"
+		 */
         private JPanelRound panelInterno;
+        /**
+		 * @uml.property  name="pantalla"
+		 */
         private Dimension pantalla = null;
+        /**
+		 * @uml.property  name="ventana"
+		 */
         private Dimension ventana = null;
+        /**
+		 * @uml.property  name="minButton"
+		 * @uml.associationEnd  multiplicity="(1 1)"
+		 */
         private JButton minButton = null;
+        /**
+		 * @uml.property  name="sortButton"
+		 * @uml.associationEnd  multiplicity="(1 1)"
+		 */
         private JButton sortButton = null;
+        /**
+		 * @uml.property  name="interfazAvanzada"
+		 * @uml.associationEnd  multiplicity="(1 1)" inverse="infoPlaylist:IS2011.Interfaz.InterfazAvanzada"
+		 */
         private InterfazAvanzada interfazAvanzada = null;       
         
+        /**
+		 * @uml.property  name="minIcon1"
+		 * @uml.associationEnd  multiplicity="(1 1)"
+		 */
         private ImageIcon minIcon1 = new ImageIcon("images/skin1/minIcon1.jpg");
+        /**
+		 * @uml.property  name="minIcon2"
+		 * @uml.associationEnd  multiplicity="(1 1)"
+		 */
         private ImageIcon minIcon2 = new ImageIcon("images/skin1/minIcon2.jpg");
         
+        /**
+		 * @uml.property  name="fgColor"
+		 */
         private Color fgColor = new Color(240,240,240);
+        /**
+		 * @uml.property  name="bgColor"
+		 */
         private Color bgColor = Color.black;
         
         @SuppressWarnings("restriction")
@@ -133,10 +189,18 @@ public class SongInterfaz extends JFrame{
                 return interfazAvanzada;
         }
         
+        /**
+		 * @return
+		 * @uml.property  name="principal"
+		 */
         public  JFrame getPrincipal(){
                 return principal;
         }
         
+        /**
+		 * @param scrollListado
+		 * @uml.property  name="scrollListado"
+		 */
         public void setScrollListado(JScrollPane scrollListado) {
                 this.scrollListado = scrollListado;
         }
@@ -181,10 +245,10 @@ public class SongInterfaz extends JFrame{
         }
 
         /**
-         * Accesora Jlist listado. 
-         * Si no exite el listado genera uno vacío
-         * @return listado
-         */
+		 * Accesora Jlist listado.  Si no exite el listado genera uno vacío
+		 * @return  listado
+		 * @uml.property  name="listado"
+		 */
         public  DragDropList getListado(){
                 if( listado == null ){
                         String[] temas = {};
@@ -312,6 +376,10 @@ public class SongInterfaz extends JFrame{
                 getListado().repaint();
         }
         
+        /**
+		 * @return
+		 * @uml.property  name="minButton"
+		 */
         private JButton getMinButton(){
                 minButton = new JButton("min");
                 minButton.setSize(90,20);
@@ -327,11 +395,10 @@ public class SongInterfaz extends JFrame{
                 
         }
         /**
-         * Método que nos proporcioan un PopUpMenu para elegir que tipo de ordenación queremos,
-         * pulsar boton izquierdo y sin soltarlo elegir la opción, modificar el listener si se quiere
-         * dejar permanente hasta elgir uan opción.
-         * @return botón
-         */
+		 * Método que nos proporcioan un PopUpMenu para elegir que tipo de ordenación queremos, pulsar boton izquierdo y sin soltarlo elegir la opción, modificar el listener si se quiere dejar permanente hasta elgir uan opción.
+		 * @return  botón
+		 * @uml.property  name="sortButton"
+		 */
         private JButton getSortButton(){
                 sortButton = new JButton("desordenar");
                 sortButton.setSize(90,20);

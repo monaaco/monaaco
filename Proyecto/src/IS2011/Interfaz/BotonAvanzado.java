@@ -1,13 +1,35 @@
 package IS2011.Interfaz;
-import java.awt.*;
-import java.awt.geom.*;
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Shape;
+import java.awt.geom.Ellipse2D;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 
 public class BotonAvanzado extends JButton {
 	
-	private Color colorFondo, colorPresionado;
+	/**
+	 * @uml.property  name="colorFondo"
+	 */
+	private Color colorFondo;
+	/**
+	 * @uml.property  name="colorPresionado"
+	 */
+	private Color colorPresionado;
+	/**
+	 * @uml.property  name="figura"
+	 */
 	private Shape figura;
+	/**
+	 * @uml.property  name="iCon"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private ImageIcon iCon;
+	/**
+	 * @uml.property  name="iConS"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private ImageIcon iConS;
 	
 	/**

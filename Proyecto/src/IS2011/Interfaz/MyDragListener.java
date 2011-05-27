@@ -12,9 +12,16 @@ import java.awt.dnd.DragSourceEvent;
 import java.awt.dnd.DragSourceListener;
 
 class MyDragListener implements DragSourceListener, DragGestureListener {
-	  DragDropList list;
+	  /**
+	 * @uml.property  name="list"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
+	DragDropList list;
 
-	  DragSource ds = new DragSource();
+	  /**
+	 * @uml.property  name="ds"
+	 */
+	DragSource ds = new DragSource();
 
 	  /**
 	   * Constructora de MyDragListener implementada para la DragDropList

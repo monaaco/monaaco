@@ -1,8 +1,5 @@
 package IS2011.Interfaz;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
 import javax.swing.DefaultListModel;
 import javax.swing.DropMode;
 import javax.swing.JList;
@@ -10,8 +7,16 @@ import javax.swing.JList;
 import IS2011.biblioteca.Playlist;
 
 public class DragDropList extends JList {
-	  DefaultListModel model;
-	  Playlist listaRep;
+	  /**
+	 * @uml.property  name="model"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
+	DefaultListModel model;
+	  /**
+	 * @uml.property  name="listaRep"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
+	Playlist listaRep;
 
 	  /**
 	   * Constructora de DragDropList, hereda de JList 

@@ -10,9 +10,17 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 @XStreamAlias("biblioteca")
 public class Biblioteca {
 
+	/**
+	 * @uml.property  name="b"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="IS2011.biblioteca.Track"
+	 */
 	@XStreamAlias("tracks")
 	private ArrayList<Track> b = null;
 	
+	/**
+	 * @uml.property  name="colaReproduccion"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	@XStreamAlias("trackQueue")
 	private Playlist colaReproduccion = null;
 	
@@ -34,14 +42,16 @@ public class Biblioteca {
 	}
 	
 	/**
-	 * @return the colaReproduccion
+	 * @return  the colaReproduccion
+	 * @uml.property  name="colaReproduccion"
 	 */
 	public Playlist getColaReproduccion() {
 		return colaReproduccion;
 	}
 
 	/**
-	 * @param colaReproduccion the colaReproduccion to set
+	 * @param colaReproduccion  the colaReproduccion to set
+	 * @uml.property  name="colaReproduccion"
 	 */
 	public void setColaReproduccion(Playlist colaReproduccion) {
 		this.colaReproduccion = colaReproduccion;

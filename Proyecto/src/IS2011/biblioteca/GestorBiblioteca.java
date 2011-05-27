@@ -2,11 +2,12 @@ package IS2011.biblioteca;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import IS2011.Configuracion.Preferencias;
 import IS2011.GestorXML.GestorXML;
 
 
@@ -18,13 +19,22 @@ import IS2011.GestorXML.GestorXML;
 public class GestorBiblioteca {
 
 	
+	/**
+	 * @uml.property  name="gestorXML"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private GestorXML<Biblioteca> gestorXML = null;
 	
 	/**
-	 * Ruta de la biblioteca por defecto 
+	 * Ruta de la biblioteca por defecto
+	 * @uml.property  name="rutaBiblioteca"
 	 */	
 	private final String rutaBiblioteca = "xml/biblioteca.xml";
 			
+	/**
+	 * @uml.property  name="biblioteca"
+	 * @uml.associationEnd  
+	 */
 	private Biblioteca biblioteca = null;
 	
 	/**
@@ -55,6 +65,7 @@ public class GestorBiblioteca {
 
 	/**
 	 * Esta función devuelve la variable biblioteca
+	 * @uml.property  name="biblioteca"
 	 */
 	private Biblioteca getBiblioteca(){
 		return biblioteca;
@@ -62,7 +73,8 @@ public class GestorBiblioteca {
 	
 	/**
 	 * Mutadora de la variable biblioteca
-	 * @param biblioteca
+	 * @param  biblioteca
+	 * @uml.property  name="biblioteca"
 	 */
 	private void setBiblioteca(Biblioteca biblioteca){
 		this.biblioteca = biblioteca;

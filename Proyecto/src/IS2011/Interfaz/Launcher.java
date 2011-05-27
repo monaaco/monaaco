@@ -1,30 +1,27 @@
 package IS2011.Interfaz;
-import java.awt.*;
+import java.awt.AWTException;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.MenuItem;
+import java.awt.PopupMenu;
+import java.awt.SystemTray;
+import java.awt.Toolkit;
+import java.awt.TrayIcon;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Method;
 import java.net.MalformedURLException;
-
-
-import java.awt.event.*; 
-
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JWindow;
-import javax.swing.UIManager;
-
-import com.sun.org.apache.bcel.internal.generic.GETSTATIC;
-
-import IS2011.Configuracion.GestorPreferencias;
-import IS2011.GestorXML.GestorXML;
-import IS2011.biblioteca.Biblioteca;
-import IS2011.biblioteca.GestorBiblioteca;
-import IS2011.biblioteca.Track;
 
 import javazoom.jlgui.basicplayer.BasicPlayer;
+import IS2011.Configuracion.GestorPreferencias;
+import IS2011.biblioteca.GestorBiblioteca;
 
 public class Launcher extends JWindow {
 
@@ -36,16 +33,35 @@ public class Launcher extends JWindow {
 	static java.awt.TrayIcon trayIcon; 
 	static java.awt.SystemTray tray;  
 	
+	/**
+	 * @uml.property  name="borderLayout1"
+	 */
 	BorderLayout borderLayout1 = new BorderLayout();
+	/**
+	 * @uml.property  name="imageLabel"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	JLabel imageLabel = new JLabel();
+	/**
+	 * @uml.property  name="southPanel"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	JPanel southPanel = new JPanel();
 	static InterfazAvanzada interfaz;
 	
 	static ImageIcon menuBarIcon = new ImageIcon("images/barIcon.png");
 	static ImageIcon icono = new ImageIcon("images/Icono.png");
 	  
+	/**
+	 * @uml.property  name="monkeyLoading"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	ImageIcon monkeyLoading = new ImageIcon("images/monkeyLoading.png");	
 
+	/**
+	 * @uml.property  name="cargaInicio"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	BasicPlayer cargaInicio;
 	
 	public Launcher(){

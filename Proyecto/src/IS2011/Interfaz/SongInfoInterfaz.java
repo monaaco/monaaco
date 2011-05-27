@@ -1,32 +1,69 @@
 package IS2011.Interfaz;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.Insets;
 
-import javax.swing.event.*;
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-
-//import javazoom.jlgui.basicplayer.BasicPlayerException;
 import IS2011.Configuracion.GestorPreferencias;
 import IS2011.biblioteca.Track;
-
-import com.sun.awt.AWTUtilities;
 
 
 public class SongInfoInterfaz extends JPanelTransparente {
 	
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * @uml.property  name="principal"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private SongInfoInterfaz principal = null;
+	/**
+	 * @uml.property  name="interfazAvanzada"
+	 * @uml.associationEnd  readOnly="true" inverse="infoSong:IS2011.Interfaz.InterfazAvanzada"
+	 */
 	private InterfazAvanzada interfazAvanzada;
 	
+	/**
+	 * @uml.property  name="caratulaPanel"
+	 * @uml.associationEnd  
+	 */
 	private JPanel caratulaPanel = null;
+	/**
+	 * @uml.property  name="infoPanel"
+	 * @uml.associationEnd  
+	 */
 	private JPanelTransparente infoPanel = null;
+	/**
+	 * @uml.property  name="etiqueta"
+	 * @uml.associationEnd  
+	 */
 	private JLabel  etiqueta = null;
+	/**
+	 * @uml.property  name="etiquetaCaratula"
+	 * @uml.associationEnd  
+	 */
 	private JLabel etiquetaCaratula = null;
+	/**
+	 * @uml.property  name="caratula"
+	 * @uml.associationEnd  
+	 */
 	private ImageIcon caratula = null;
 
+	/**
+	 * @uml.property  name="track"
+	 * @uml.associationEnd  
+	 */
 	private Track track = null;
 
+	/**
+	 * @uml.property  name="c"
+	 */
 	private Color c= new Color(240,240,240);
 	/**
 	 * 	Constructora
@@ -57,8 +94,9 @@ public class SongInfoInterfaz extends JPanelTransparente {
 	}
 	
 	/**
-	 *  Inicializa el JPanelTransparenet infoPanel en caso de que no exista 
-	 *  @return JPanelTransparente 
+	 * Inicializa el JPanelTransparenet infoPanel en caso de que no exista 
+	 * @return  JPanelTransparente
+	 * @uml.property  name="infoPanel"
 	 */
 	private JPanelTransparente getInfoPanel() {
 		if(infoPanel == null){
@@ -120,8 +158,9 @@ public class SongInfoInterfaz extends JPanelTransparente {
 	}
 	
 	/**
-	 *  Inicializa el JPanel caratulaPanel en caso de que no exista 
-	 *  @return JPanel 
+	 * Inicializa el JPanel caratulaPanel en caso de que no exista 
+	 * @return  JPanel
+	 * @uml.property  name="caratulaPanel"
 	 */
 	private JPanel getCaratulaPanel() {
 		if(caratulaPanel == null){
@@ -146,16 +185,18 @@ public class SongInfoInterfaz extends JPanelTransparente {
 
 	
 	/**
-	 *  Accesora para Track
-	 *  @return Track 
+	 * Accesora para Track
+	 * @return  Track
+	 * @uml.property  name="track"
 	 */
 	public Track getTrack(){
 		return track;
 	}
 	
 	/**
-	 *  Accesora para principal
-	 *  @return SongInfoInterfaz
+	 * Accesora para principal
+	 * @return  SongInfoInterfaz
+	 * @uml.property  name="principal"
 	 */
 	public SongInfoInterfaz getPrincipal(){
 		return principal;

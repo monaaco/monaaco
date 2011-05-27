@@ -1,9 +1,12 @@
 package IS2011.tests;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
 
-import IS2011.biblioteca.*;
 import junit.framework.TestCase;
+import IS2011.biblioteca.Biblioteca;
+import IS2011.biblioteca.GestorBiblioteca;
+import IS2011.biblioteca.Track;
 
 public class BibliotecaTest extends TestCase {
 	

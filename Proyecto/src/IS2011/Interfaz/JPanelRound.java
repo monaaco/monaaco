@@ -6,7 +6,9 @@ import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Paint;
-import java.awt.RenderingHints; import java.awt.geom.RoundRectangle2D;
+import java.awt.RenderingHints;
+import java.awt.geom.RoundRectangle2D;
+
 import javax.swing.JPanel;
 
 
@@ -18,10 +20,25 @@ import javax.swing.JPanel;
  */
 public class JPanelRound extends JPanel{
 
+    /**
+	 * @uml.property  name="colorPrimario"
+	 */
     private Color colorPrimario = new Color(0x666f7f);
+    /**
+	 * @uml.property  name="colorSecundario"
+	 */
     private Color colorSecundario = new Color(0x262d3d);
+    /**
+	 * @uml.property  name="colorContorno"
+	 */
     private Color colorContorno = new Color(0x262d3d);
+    /**
+	 * @uml.property  name="arcw"
+	 */
     private int arcw=20;
+    /**
+	 * @uml.property  name="arch"
+	 */
     private int arch=20;
    /**
     * Clase que extiende a JPanel modificando sus métodos para que lo pinte con bordes redondos 
@@ -61,66 +78,88 @@ public class JPanelRound extends JPanel{
     }
 
     /**
-     * Devuelve el color primario
-     * @return nos da el color primario
-     */
+	 * Devuelve el color primario
+	 * @return  nos da el color primario
+	 * @uml.property  name="colorPrimario"
+	 */
     public Color getColorPrimario() {
         return colorPrimario;
     }
 
     /**
-     * Cambia el color primario
-     * @param colorPrimario nuevo color primario
-     */
+	 * Cambia el color primario
+	 * @param colorPrimario  nuevo color primario
+	 * @uml.property  name="colorPrimario"
+	 */
     public void setColorPrimario(Color colorPrimario) {
         this.colorPrimario = colorPrimario;
     }
 
     /**
-     * Devuelve el color secundario
-     * @return nos devuelve el color secundario
-     */
+	 * Devuelve el color secundario
+	 * @return  nos devuelve el color secundario
+	 * @uml.property  name="colorSecundario"
+	 */
     public Color getColorSecundario() {
         return colorSecundario;
     }
 
 
     /**
-     * Cambia el color secundario
-     * @param colorSecundario Nuevo color secundario
-     */
+	 * Cambia el color secundario
+	 * @param colorSecundario  Nuevo color secundario
+	 * @uml.property  name="colorSecundario"
+	 */
     public void setColorSecundario(Color colorSecundario) {
         this.colorSecundario = colorSecundario;
     }
 
     /**
-     * Devuelve el color del contorno
-     * @return Color contorno
-     */
+	 * Devuelve el color del contorno
+	 * @return  Color contorno
+	 * @uml.property  name="colorContorno"
+	 */
     public Color getColorContorno() {
         return colorContorno;
     }
 
     /**
-     * Cambia el color del contorno
-     * @param colorContorno Nuevo color del contorno
-     */
+	 * Cambia el color del contorno
+	 * @param colorContorno  Nuevo color del contorno
+	 * @uml.property  name="colorContorno"
+	 */
     public void setColorContorno(Color colorContorno) {
         this.colorContorno = colorContorno;
     }
 
+    /**
+	 * @return
+	 * @uml.property  name="arcw"
+	 */
     public int getArcw() {
         return arcw;
     }
 
+    /**
+	 * @param arcw
+	 * @uml.property  name="arcw"
+	 */
     public void setArcw(int arcw) {
         this.arcw = arcw;
     }
 
+    /**
+	 * @return
+	 * @uml.property  name="arch"
+	 */
     public int getArch() {
         return arch;
     }
 
+    /**
+	 * @param arch
+	 * @uml.property  name="arch"
+	 */
     public void setArch(int arch) {
         this.arch = arch;
     }

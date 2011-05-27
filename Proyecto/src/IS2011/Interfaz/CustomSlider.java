@@ -9,7 +9,13 @@ import javax.swing.plaf.basic.BasicSliderUI;
 
 public class CustomSlider  extends BasicSliderUI {
 	
+	/**
+	 * @uml.property  name="thumbHeight"
+	 */
 	private int thumbHeight = 0;
+	/**
+	 * @uml.property  name="thumbWidth"
+	 */
 	private int thumbWidth  = 0;
 	 
 	public CustomSlider(JSlider slider)

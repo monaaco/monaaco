@@ -1,7 +1,6 @@
 package IS2011.Interfaz;
 
 import java.awt.FlowLayout;
-import java.awt.GridBagLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -19,19 +18,67 @@ import javax.swing.table.TableRowSorter;
 
 public class FiltroDialog extends JDialog{
 	
+	/**
+	 * @uml.property  name="fd"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private FiltroDialog fd= null;
+	/**
+	 * @uml.property  name="queOrdena"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private TableRowSorter<TableModel> queOrdena= null;
 	
+	/**
+	 * @uml.property  name="labelNombre"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JLabel labelNombre= null;
+	/**
+	 * @uml.property  name="nombre"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JTextField nombre= null;
+	/**
+	 * @uml.property  name="labelArtista"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JLabel labelArtista= null;
+	/**
+	 * @uml.property  name="artista"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JTextField artista=null;
+	/**
+	 * @uml.property  name="labelAlbum"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JLabel labelAlbum= null;
+	/**
+	 * @uml.property  name="album"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JTextField album=null;
+	/**
+	 * @uml.property  name="labelGenero"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JLabel labelGenero= null;
+	/**
+	 * @uml.property  name="genero"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JTextField genero=null;
 
+	/**
+	 * @uml.property  name="botonOk"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JButton botonOk = null;
+	/**
+	 * @uml.property  name="botonCancel"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private JButton botonCancel = null;
 
 	/**

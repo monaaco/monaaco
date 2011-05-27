@@ -1,14 +1,30 @@
 package IS2011.tests;
 
-import IS2011.biblioteca.*;
 import javazoom.jlgui.basicplayer.BasicPlayerException;
 import junit.framework.TestCase;
+import IS2011.biblioteca.Playlist;
+import IS2011.biblioteca.Track;
 
 public class TrackTest extends TestCase {
 	
+	/**
+	 * @uml.property  name="track"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private Track track = null;
+	/**
+	 * @uml.property  name="track2"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private Track track2 = null;
+	/**
+	 * @uml.property  name="cadena"
+	 */
 	private String cadena;
+	/**
+	 * @uml.property  name="listaReproduccion"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private Playlist listaReproduccion;
 	
 	/**

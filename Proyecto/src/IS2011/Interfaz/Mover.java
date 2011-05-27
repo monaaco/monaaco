@@ -6,6 +6,7 @@ import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 
@@ -18,8 +19,18 @@ import javax.swing.JFrame;
  *
  */
 public class Mover implements MouseMotionListener, MouseListener{
+	/**
+	 * @uml.property  name="target"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	JComponent target;
+    /**
+	 * @uml.property  name="start_drag"
+	 */
     Point start_drag;
+    /**
+	 * @uml.property  name="start_loc"
+	 */
     Point start_loc;
     
     public Mover(JComponent target) {

@@ -68,15 +68,18 @@ public class GestorBibliotecaTest extends TestCase{
 	public void testAddBiblioteca() {
 		GestorBiblioteca.getInstance().add(tr);
 		GestorBiblioteca.getInstance().add(tr2);
-		assertEquals(GestorBiblioteca.getInstance().getArrayList().get(0), tr);
-		assertEquals(GestorBiblioteca.getInstance().getArrayList().get(1), tr2);
+		int tam = GestorBiblioteca.getInstance().getArrayList().size();
+		assertEquals(GestorBiblioteca.getInstance().getArrayList().get(tam-2), tr);
+		assertEquals(GestorBiblioteca.getInstance().getArrayList().get(tam-1), tr2);
 	}
 	
 
 	public void testAddAllBiblioteca() {
+		GestorBiblioteca.getInstance().removeAll();
 		GestorBiblioteca.getInstance().addAll(trList);
-		assertEquals(GestorBiblioteca.getInstance().getArrayList().get(0), tr);
-		assertEquals(GestorBiblioteca.getInstance().getArrayList().get(1), tr2);
+		int tam = GestorBiblioteca.getInstance().getArrayList().size();
+		assertEquals(GestorBiblioteca.getInstance().getArrayList().get(tam-2), tr);
+		assertEquals(GestorBiblioteca.getInstance().getArrayList().get(tam-1), tr2);
 		assertEquals(GestorBiblioteca.getInstance().getArrayList(), trList);
 	}
 	
@@ -90,8 +93,9 @@ public class GestorBibliotecaTest extends TestCase{
 		GestorBiblioteca.getInstance().removeAll();
 		GestorBiblioteca.getInstance().addAll(trList);
 		GestorBiblioteca.getInstance().guardarXML("xml/test.xml");
+		Object a = GestorBiblioteca.getInstance().getBiblioteca().getBiblioteca();
 		GestorBiblioteca.getInstance().cargarXML("xml/test.xml");
-		assertEquals(GestorBiblioteca.getInstance().getBiblioteca(), gestor1.cargar("xml/test.xml"));
+		assertEquals(a, GestorBiblioteca.getInstance().getBiblioteca().getBiblioteca());
 	}
 	
 	/**
@@ -102,8 +106,9 @@ public class GestorBibliotecaTest extends TestCase{
 		GestorBiblioteca.getInstance().removeAll();
 		GestorBiblioteca.getInstance().addAll(trList);
 		GestorBiblioteca.getInstance().guardarXML("xml/test.xml");
+		Object a = GestorBiblioteca.getInstance().getBiblioteca().getBiblioteca();
 		GestorBiblioteca.getInstance().cargarXML("xml/test.xml");
-		assertEquals(GestorBiblioteca.getInstance().getBiblioteca(), gestor1.cargar("xml/test.xml"));
+		assertEquals(a, GestorBiblioteca.getInstance().getBiblioteca().getBiblioteca());
 	}
 	
 

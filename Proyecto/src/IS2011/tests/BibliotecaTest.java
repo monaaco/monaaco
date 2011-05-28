@@ -21,6 +21,7 @@ public class BibliotecaTest extends TestCase {
 		List<Track> trList = new LinkedList<Track>();
 		trList.add(tr);
 		trList.add(tr2);
+		GestorBiblioteca.getInstance().removeAll();
 		GestorBiblioteca.getInstance().addAll(trList);
 		assertEquals(GestorBiblioteca.getInstance().getArrayList().get(0), tr);
 		assertEquals(GestorBiblioteca.getInstance().getArrayList().get(1), tr2);
@@ -52,10 +53,11 @@ public class BibliotecaTest extends TestCase {
 		List<Track> trList = new LinkedList<Track>();
 		trList.add(tr);
 		trList.add(tr2);
+		int tam = trList.size();
+		GestorBiblioteca.getInstance().removeAll();
 		GestorBiblioteca.getInstance().addAll(trList);
-		assertEquals(GestorBiblioteca.getInstance().getArrayList().get(0), tr);
-		assertEquals(GestorBiblioteca.getInstance().getArrayList().get(1), tr2);
-		assertEquals(GestorBiblioteca.getInstance().getArrayList(), trList);
+		assertEquals(GestorBiblioteca.getInstance().getArrayList().get(tam-2), tr);
+		assertEquals(GestorBiblioteca.getInstance().getArrayList().get(tam-1), tr2);
 	}
 	
 	

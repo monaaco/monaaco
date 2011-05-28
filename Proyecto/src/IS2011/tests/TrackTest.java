@@ -52,7 +52,7 @@ public class TrackTest extends TestCase {
 		String ruta2 = "sounds/prueba2.ogg";
 		track = new Track(ruta);
 		track2 = new Track(ruta2);
-		cadena = "Artist: Flowklorikos\n Name: Donde duele inspira\n Time: 216\n";
+		cadena = "Artist: Flowklorikos\n Name: Donde duele inspira\n";
 	}
 	
 	/**
@@ -124,7 +124,7 @@ public class TrackTest extends TestCase {
 	 * test de getAlbumArtist()
 	 */
 	public void testGetAlmbumArtist(){
-		assertEquals(listaReproduccion.getCurrent().getAlbumArtist(),"prueba");
+		assertEquals(listaReproduccion.getCurrent().getAlbumArtist(),"");
 	}
 	
 	/**

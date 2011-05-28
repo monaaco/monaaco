@@ -871,6 +871,7 @@ public class InterfazAvanzada extends JFrame {
 				public synchronized void mouseReleased(java.awt.event.MouseEvent evt) {
 					try {
 						reproducirAnterior();
+						infoPlaylist.marcaActual();
 					} catch (Exception e) {
 						e.printStackTrace();
 					}

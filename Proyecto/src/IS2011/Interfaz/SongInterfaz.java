@@ -1,6 +1,7 @@
 package IS2011.Interfaz;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
@@ -11,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
@@ -115,6 +117,7 @@ public class SongInterfaz extends JFrame{
                 this.setUndecorated(true);
                 this.setEnabled(true);  
                 this.setAlwaysOnTop(true);
+                this.setBackground(bgColor);
                 this.setIconImage(Toolkit.getDefaultToolkit().getImage("images/Icono.png")); 
 
                 
@@ -124,13 +127,14 @@ public class SongInterfaz extends JFrame{
                 sortButton = getSortButton();
                 sortButton.setBounds(5,pantalla.height-225,90,20);
                 
-                getPanelInterno(temas).setBounds(0,0,195,pantalla.height-245);
+               // getPanelInterno(temas).setBounds(0,0,195,pantalla.height-245);
 
-                getListado().setSize(195, pantalla.height-245);
-
+                getListado();
+                getScrollListado(listado).setBounds(0,0,200,pantalla.height-225);
+                this.getContentPane().setLayout(null);
                 this.getContentPane().add(minButton);
                 this.getContentPane().add(sortButton);
-                this.getContentPane().add(getScrollListado(getPanelInterno(temas)));
+                this.getContentPane().add(scrollListado);
                 this.setVisible(true);
                 
         
@@ -253,11 +257,12 @@ public class SongInterfaz extends JFrame{
                 if( listado == null ){
                         String[] temas = {};
                         listado = new DragDropList(temas, interfazAvanzada.getListaReproduccion());
+                        listado.setFocusable(true);
                         listado.setLayout(new BorderLayout());
                         listado.setSize(100, pantalla.height);
                         listado.setFont(new java.awt.Font("Helvetica", 1, 12));
-                        listado.setSelectionBackground(fgColor);
-                        listado.setSelectionForeground(bgColor);
+                        listado.setSelectionBackground(Color.red);
+                        listado.setSelectionForeground(fgColor);
                         listado.setBackground(bgColor);
                         listado.setForeground(fgColor);
                         listado.setEnabled(true);
@@ -287,7 +292,7 @@ public class SongInterfaz extends JFrame{
                                 {
                                                 if(listado.getMaximumSize().getHeight() >= e.getPoint().getY()){
                                 interfazAvanzada.setTrackNumber(listado.locationToIndex(e.getPoint()));
-                                marcaActual();
+                              //  marcaActual();
                             }
                                 }
                                 }
@@ -299,13 +304,13 @@ public class SongInterfaz extends JFrame{
                                         switch(c){      // Elegimos las posibles teclas
                                         case 127:       // suprimir
                                                 borrarSeleccionados();
-                                                marcaActual();
+                                             //   marcaActual();
                                                 break;
                                         case 10:        // ENTER
                                                 if(listado.getSelectedIndices().length == 1){
                                                         int pos = listado.getSelectedIndex();
                                                         interfazAvanzada.setTrackNumber(pos);
-                                                        marcaActual();
+                                                      //  marcaActual();
                                                 }
                                                 break;
                                         }
@@ -339,10 +344,13 @@ public class SongInterfaz extends JFrame{
                 if(interfazAvanzada.isPlaying()){
                         String[] lista = interfazAvanzada.getPlaylist().getListado();
                         lista[interfazAvanzada.getPlaylist().getCurrentTrack()] = lista[interfazAvanzada.getPlaylist().getCurrentTrack()].toUpperCase();
-                       // listado.getComponent(interfazAvanzada.getPlaylist().getCurrentTrack()).setBackground(Color.red); //TODO
+                    
+                      
                         listado.removeAll();
                         setListado(lista);
-                        repaint();
+                       //listado.setSelectedIndex(interfazAvanzada.getPlaylist().getCurrentTrack());
+                        listado.setSelectedValue(lista[interfazAvanzada.getPlaylist().getCurrentTrack()], true);
+                      //  repaint();
                 }
         }
         
@@ -421,7 +429,7 @@ public class SongInterfaz extends JFrame{
                         getListado().setSelectedIndex(ct);
                                 String[] lista = interfazAvanzada.getPlaylist().getListado();
                         actualizaTemas(interfazAvanzada.getPlaylist().getListado());
-                        marcaActual();
+                     //   marcaActual();
 
                     }
                   /*  public void mouseReleased(MouseEvent evt) {

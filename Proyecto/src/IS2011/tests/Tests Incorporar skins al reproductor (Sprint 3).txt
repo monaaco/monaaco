@@ -1,0 +1,21 @@
+Test de Skins
+
+	Pasos:
+		A) Insertar en la carpeta images una carpeta, por ejemplo: "images/skinMig/"
+		B) Insertar los siguientes archivos
+				"cerrar.png"
+				"ff.png"
+				"libreria.png"
+				"pause.png"
+				"play.png"
+				"play2.png"
+				"ww.png"
+				"agregar.png"
+				"filter.png"
+			NOTA: El tamaño de las imagenes lo podemos obtener de la carpeta "images/skin3",
+					esa es la interfaz por defecto.
+		1.Arrancamos la aplicación
+		2.Vamos a preferencias y seleccionamos la carpeta con nuestro Skin, en este caso SkinMig
+		3.Damos a "Aceptar"
+		4.Cerramos la aplicación.
+		5.Al arrancar tendremos el nuevo skin cargado.

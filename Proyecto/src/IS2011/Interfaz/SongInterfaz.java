@@ -292,7 +292,7 @@ public class SongInterfaz extends JFrame{
                                 {
                                                 if(listado.getMaximumSize().getHeight() >= e.getPoint().getY()){
                                 interfazAvanzada.setTrackNumber(listado.locationToIndex(e.getPoint()));
-                              //  marcaActual();
+                                marcaActual();
                             }
                                 }
                                 }
@@ -344,8 +344,6 @@ public class SongInterfaz extends JFrame{
                 if(interfazAvanzada.isPlaying()){
                         String[] lista = interfazAvanzada.getPlaylist().getListado();
                         lista[interfazAvanzada.getPlaylist().getCurrentTrack()] = lista[interfazAvanzada.getPlaylist().getCurrentTrack()].toUpperCase();
-                    
-                      
                         listado.removeAll();
                         setListado(lista);
                        //listado.setSelectedIndex(interfazAvanzada.getPlaylist().getCurrentTrack());
@@ -358,7 +356,7 @@ public class SongInterfaz extends JFrame{
          * 
          * @param temas (array con los nombres de las canciones)
          * @return lista
-         */
+         */ 
         private void  setListado(String[] temas){
                 getListado().setListData(temas);                
         }

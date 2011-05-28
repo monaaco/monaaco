@@ -947,6 +947,7 @@ public class InterfazAvanzada extends JFrame {
             infoPlaylist.marcaActual();
         } catch (BasicPlayerException e) {
             e.printStackTrace();
+            reproducirSiguiente();
         }
        
     }
@@ -963,6 +964,7 @@ public class InterfazAvanzada extends JFrame {
             infoPlaylist.marcaActual();
         } catch (BasicPlayerException e) {
             e.printStackTrace();
+            reproducirAnterior();
         }
     }
    
@@ -1153,7 +1155,6 @@ public class InterfazAvanzada extends JFrame {
 			}
 
 		} catch (Exception e) {
-			System.out.println("ALGO");
 			e.printStackTrace();
 		}
 	}
@@ -1356,11 +1357,20 @@ public class InterfazAvanzada extends JFrame {
 		this.getMyBackground().setColorSecundario(bgColor2);
 	}
 	
-	
+	/**
+	 * Sincroniza la biblioteca con la rutaIndexada que tenemos en esta clase.
+	 * A efectos practicos, la biblioteca añade las nuevas pistas de audio de
+	 * esa rutaIndexada y borra de la biblioteca todas aquellas que hayan sido 
+	 * borradas del disco o su medio haya desaparecido.
+	 */
 	public void sincronizaBiblioteca(){
 		bibliotecaInterfaz.sincroniza(this.rutaIndexada);
 	}
 	
+	/**
+	 * Sale de la aplicación, además salva el estado de las preferencias y 
+	 * de la biblioteca en sus respectivos XML
+	 */
 	public void salir(){
 		GestorBiblioteca.getInstance().setColaReproduccion(listaReproduccion);
 		GestorBiblioteca.getInstance().guardarXML();

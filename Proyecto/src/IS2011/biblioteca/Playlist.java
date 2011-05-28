@@ -345,6 +345,23 @@ public class Playlist {
 			lista.remove(inicio);
 			lista.add(aux);
 		}
+		if(currentTrack == inicio){
+			currentTrack = fin;
+		}
+		else
+		{	
+			if(currentTrack>=inicio && currentTrack <=fin){
+				currentTrack--;
+			}
+			else if(currentTrack<=inicio && currentTrack >=fin){		
+				currentTrack++;
+			}	
+			if(currentTrack<0){
+				currentTrack = 0;
+			}
+			else if(currentTrack>lista.size()){
+				currentTrack= lista.size();
+			}
+		}
 	}
-	
 }

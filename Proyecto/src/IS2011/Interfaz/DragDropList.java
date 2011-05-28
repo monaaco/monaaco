@@ -45,6 +45,9 @@ public class DragDropList extends JList {
 	   */
 	  public void mueve(int inicio, int fin){
 		  listaRep.mueve(inicio, fin);
-		  setListData(listaRep.getListado());
+		  String[] lista = listaRep.getListado();
+          lista[listaRep.getCurrentTrack()] = lista[listaRep.getCurrentTrack()].toUpperCase();    
+          setSelectedIndex(listaRep.getCurrentTrack());
+		  setListData(lista);
 	  }
 }

@@ -4,7 +4,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import junit.framework.TestCase;
-import IS2011.biblioteca.Biblioteca;
 import IS2011.biblioteca.GestorBiblioteca;
 import IS2011.biblioteca.Track;
 
@@ -33,13 +32,13 @@ public class BibliotecaTest extends TestCase {
 	 *  - comprobar que se agregan bien las tracks.
 	 */	
 	public void testAddBiblioteca() {
-		Biblioteca b = new Biblioteca();
+		GestorBiblioteca.getInstance();
 		Track tr = new Track("sounds/prueba.mp3");
 		Track tr2 = new Track("sounds/prueba.mp3");
-		b.add(tr);
-		b.add(tr2);
-		assertEquals(b.getArrayList().get(0), tr);
-		assertEquals(b.getArrayList().get(1), tr2);
+		GestorBiblioteca.getInstance().add(tr);
+		GestorBiblioteca.getInstance().add(tr2);
+		assertEquals(GestorBiblioteca.getInstance().getArrayList().get(0), tr);
+		assertEquals(GestorBiblioteca.getInstance().getArrayList().get(1), tr2);
 	}
 	
 	/**
@@ -47,16 +46,16 @@ public class BibliotecaTest extends TestCase {
 	 *  - comprobar que se agregan bien las listas de tracks.
 	 */	
 	public void testAddAllBiblioteca() {
-		Biblioteca b = new Biblioteca();
+		GestorBiblioteca.getInstance();
 		Track tr = new Track("/sounds/prueba.mp3");
 		Track tr2 = new Track("/sounds/prueba.mp3");
 		List<Track> trList = new LinkedList<Track>();
 		trList.add(tr);
 		trList.add(tr2);
-		b.addAll(trList);
-		assertEquals(b.getArrayList().get(0), tr);
-		assertEquals(b.getArrayList().get(1), tr2);
-		assertEquals(b.getArrayList(), trList);
+		GestorBiblioteca.getInstance().addAll(trList);
+		assertEquals(GestorBiblioteca.getInstance().getArrayList().get(0), tr);
+		assertEquals(GestorBiblioteca.getInstance().getArrayList().get(1), tr2);
+		assertEquals(GestorBiblioteca.getInstance().getArrayList(), trList);
 	}
 	
 	

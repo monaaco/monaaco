@@ -67,7 +67,7 @@ public class GestorBiblioteca {
 	 * Esta función devuelve la variable biblioteca
 	 * @uml.property  name="biblioteca"
 	 */
-	private Biblioteca getBiblioteca(){
+	public Biblioteca getBiblioteca(){
 		return biblioteca;
 	}
 	

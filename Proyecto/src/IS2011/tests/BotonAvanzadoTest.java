@@ -11,7 +11,6 @@ public class BotonAvanzadoTest extends TestCase {
 	
 	public void testConstructor(){
 		File f = new File("images/skin1/playIcon1.jpg");
-		File fS = new File("images/skin1/playIcon3.jpg");
 		ImageIcon imagen = new ImageIcon(f.toString());
 		ImageIcon imagenS = new ImageIcon(f.toString());
 		BotonAvanzado boton = new BotonAvanzado(imagen, imagenS);

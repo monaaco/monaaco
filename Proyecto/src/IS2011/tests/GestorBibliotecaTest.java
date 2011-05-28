@@ -60,9 +60,8 @@ public class GestorBibliotecaTest extends TestCase{
 		trList.add(tr2);
 		Biblioteca b = new Biblioteca();
 		b.addAll(trList);
-		
-		gestor1 = new GestorXML<Biblioteca>();
-		gestor2 = new GestorXML<Biblioteca>();
+		gestor1 = new GestorXML<Biblioteca>(Biblioteca.class);
+		gestor2 = new GestorXML<Biblioteca>(Biblioteca.class);
 
 	}
 	
@@ -73,6 +72,7 @@ public class GestorBibliotecaTest extends TestCase{
 		assertEquals(GestorBiblioteca.getInstance().getArrayList().get(1), tr2);
 	}
 	
+
 	public void testAddAllBiblioteca() {
 		GestorBiblioteca.getInstance().addAll(trList);
 		assertEquals(GestorBiblioteca.getInstance().getArrayList().get(0), tr);
@@ -80,28 +80,31 @@ public class GestorBibliotecaTest extends TestCase{
 		assertEquals(GestorBiblioteca.getInstance().getArrayList(), trList);
 	}
 	
-	public void testCargarXML(){
+	/**
+	 * 
+	 * @throws Exception
+	 */
+	public void testCargarXML() throws Exception{
 		//Comprobamos que el guardar y el escribir funcionan correctamente
 		//Cargamos una biblioteca, la guardamos y miramos que el archivo obtenido sea igual que el original.
 		GestorBiblioteca.getInstance().removeAll();
 		GestorBiblioteca.getInstance().addAll(trList);
 		GestorBiblioteca.getInstance().guardarXML("xml/test.xml");
-
-		assertEquals(gestor1.cargarXML("xml/test.xml"), gestor1.getBiblioteca());
+		GestorBiblioteca.getInstance().cargarXML("xml/test.xml");
+		assertEquals(GestorBiblioteca.getInstance().getBiblioteca(), gestor1.cargar("xml/test.xml"));
 	}
 	
-	public void testGuardarXML(){
+	/**
+	 * 
+	 * @throws Exception
+	 */
+	public void testGuardarXML() throws Exception{
 		GestorBiblioteca.getInstance().removeAll();
 		GestorBiblioteca.getInstance().addAll(trList);
-		GestorBiblioteca.getInstance().guardarXML();
-		
-		assertEquals(gestor1.getBiblioteca(), gestor2.getBiblioteca());
+		GestorBiblioteca.getInstance().guardarXML("xml/test.xml");
+		GestorBiblioteca.getInstance().cargarXML("xml/test.xml");
+		assertEquals(GestorBiblioteca.getInstance().getBiblioteca(), gestor1.cargar("xml/test.xml"));
 	}
 	
-	public void testConstructoras(){	//Comprobamos que si usamos la misma biblioteca las dos constructoras son iguales
-		BibliotecaAdapter gestor1 = new BibliotecaAdapter();
-		gestor1.cargar();
-		B gestor2 = new BibliotecaAdapter(gestor1.getClaseBiblioteca());
-		assertEquals(gestor1, gestor2);
-	}
+
 }

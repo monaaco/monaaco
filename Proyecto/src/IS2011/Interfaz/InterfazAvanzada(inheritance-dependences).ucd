@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="InterfazAvanzada" size="963,1412" id="IS2011.Interfaz" metadata="uml2-1.0" initialized="true" scrolledY="611" tag="10" key="32303037303533312D3130204953">
+  <children xsi:type="editmodel:ClassEditModel" name="InterfazAvanzada" location="320,300" size="177,427" id="IS2011.Interfaz/InterfazAvanzada">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="154,378">
+      <children xsi:type="editmodel:MethodEditModel" name="actualizaBarraProgreso" id="IS2011.Interfaz/InterfazAvanzada#actualizaBarraProgreso(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="ajustaBarraProgreso" id="IS2011.Interfaz/InterfazAvanzada#ajustaBarraProgreso(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="borradoElemActualPlaylist" id="IS2011.Interfaz/InterfazAvanzada#borradoElemActualPlaylist()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cambiaSegundos" id="IS2011.Interfaz/InterfazAvanzada#cambiaSegundos(II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cambiaSegundos" id="IS2011.Interfaz/InterfazAvanzada#cambiaSegundos(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cargarPreferencias" id="IS2011.Interfaz/InterfazAvanzada#cargarPreferencias()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="changeCursor" id="IS2011.Interfaz/InterfazAvanzada#changeCursor()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getFfButton" id="IS2011.Interfaz/InterfazAvanzada#getFfButton()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMyBackground" id="IS2011.Interfaz/InterfazAvanzada#getMyBackground()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getPlaylist" id="IS2011.Interfaz/InterfazAvanzada#getPlaylist()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSingleton" id="IS2011.Interfaz/InterfazAvanzada#getSingleton()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getWwButton" id="IS2011.Interfaz/InterfazAvanzada#getWwButton()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isPlaying" id="IS2011.Interfaz/InterfazAvanzada#isPlaying()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="reproducirAnterior" id="IS2011.Interfaz/InterfazAvanzada#reproducirAnterior()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="reproducirSiguiente" id="IS2011.Interfaz/InterfazAvanzada#reproducirSiguiente()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="salir" id="IS2011.Interfaz/InterfazAvanzada#salir()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setBiblioteca" id="IS2011.Interfaz/InterfazAvanzada#setBiblioteca(LIS2011.Interfaz.InterfazAvanzada;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setBytesArchivo" id="IS2011.Interfaz/InterfazAvanzada#setBytesArchivo(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setCurrentTrack" id="IS2011.Interfaz/InterfazAvanzada#setCurrentTrack(LIS2011.biblioteca.Track;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setTrackNumber" id="IS2011.Interfaz/InterfazAvanzada#setTrackNumber(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="sincronizaBiblioteca" id="IS2011.Interfaz/InterfazAvanzada#sincronizaBiblioteca()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="javax.swing/JFrame&lt;-IS2011.Interfaz/InterfazAvanzada" source="//@children.0" target="//@children.1" targetEnd="//@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.0/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="88,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="78,156"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/InterfazAvanzada-Standard::Call->IS2011.Interfaz/SongInterfaz*IS2011.Interfaz/InterfazAvanzada-Standard::Instantiate->IS2011.Interfaz/SongInterfaz*IS2011.Interfaz/InterfazAvanzada-Soyatec::Import->IS2011.Interfaz/SongInterfaz" source="//@children.0" target="//@children.2" targetEnd="//@children.0/@sourceConnections.1/@children.2" label="//@children.0/@sourceConnections.1/@children.0" sourceEnd="//@children.0/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Instantiate, Call»" size="119,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="177,213" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,96"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/InterfazAvanzada-Standard::Instantiate->IS2011.Interfaz/BibliotecaInterfaz*IS2011.Interfaz/InterfazAvanzada-Standard::Call->IS2011.Interfaz/BibliotecaInterfaz*IS2011.Interfaz/InterfazAvanzada-Soyatec::Import->IS2011.Interfaz/BibliotecaInterfaz" source="//@children.0" target="//@children.3" targetEnd="//@children.0/@sourceConnections.2/@children.2" label="//@children.0/@sourceConnections.2/@children.0" sourceEnd="//@children.0/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Call, Instantiate»" size="119,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="177,378" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,48"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/InterfazAvanzada-Standard::Call->IS2011.biblioteca/GestorBiblioteca" source="//@children.0" target="//@children.4" targetEnd="//@children.0/@sourceConnections.3/@children.2" label="//@children.0/@sourceConnections.3/@children.0" sourceEnd="//@children.0/@sourceConnections.3/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Call»" size="29,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="37,427" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="117,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/InterfazAvanzada-Standard::Call->IS2011.Configuracion/GestorPreferencias" source="//@children.0" target="//@children.5" targetEnd="//@children.0/@sourceConnections.4/@children.2" label="//@children.0/@sourceConnections.4/@children.0" sourceEnd="//@children.0/@sourceConnections.4/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Call»" size="29,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="145,427" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="30,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/InterfazAvanzada-Soyatec::Import->IS2011.Interfaz/SongInfoInterfaz*IS2011.Interfaz/InterfazAvanzada-Standard::Instantiate->IS2011.Interfaz/SongInfoInterfaz*IS2011.Interfaz/InterfazAvanzada-Standard::Call->IS2011.Interfaz/SongInfoInterfaz" source="//@children.0" target="//@children.6" targetEnd="//@children.0/@sourceConnections.5/@children.2" label="//@children.0/@sourceConnections.5/@children.0" sourceEnd="//@children.0/@sourceConnections.5/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Call, Instantiate»" size="119,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="177,51" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,51"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/InterfazAvanzada-Soyatec::Access->IS2011.Interfaz/Launcher" source="//@children.0" target="//@children.7" targetEnd="//@children.0/@sourceConnections.6/@children.2" label="//@children.0/@sourceConnections.6/@children.0" sourceEnd="//@children.0/@sourceConnections.6/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Access»" size="50,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,123" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="185,123"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@sourceConnections.0" name="JFrame" location="330,45" size="157,156" id="javax.swing/JFrame">
+    <children xsi:type="editmodel:CompartmentEditModel" size="204,90">
+      <children xsi:type="editmodel:AttributeEditModel" name="accessibleContext" id="javax.swing/JFrame#accessibleContext"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="defaultCloseOperation" id="javax.swing/JFrame#defaultCloseOperation"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="eXIT_ON_CLOSE" id="javax.swing/JFrame#eXIT_ON_CLOSE"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="rootPane" id="javax.swing/JFrame#rootPane"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="transferHandler" id="javax.swing/JFrame#transferHandler"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="192,486">
+      <children xsi:type="editmodel:MethodEditModel" name="&lt;clinit>" id="javax.swing/JFrame#&lt;clinit>()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="JFrame" id="javax.swing/JFrame#JFrame(Ljava.awt.GraphicsConfiguration;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="JFrame" id="javax.swing/JFrame#JFrame()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="JFrame" id="javax.swing/JFrame#JFrame(Ljava.lang.String;Ljava.awt.GraphicsConfiguration;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="JFrame" id="javax.swing/JFrame#JFrame(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getAccessibleContext" id="javax.swing/JFrame#getAccessibleContext()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getContentPane" id="javax.swing/JFrame#getContentPane()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDefaultCloseOperation" id="javax.swing/JFrame#getDefaultCloseOperation()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getGlassPane" id="javax.swing/JFrame#getGlassPane()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getGraphics" id="javax.swing/JFrame#getGraphics()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getJMenuBar" id="javax.swing/JFrame#getJMenuBar()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getLayeredPane" id="javax.swing/JFrame#getLayeredPane()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getRootPane" id="javax.swing/JFrame#getRootPane()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getTransferHandler" id="javax.swing/JFrame#getTransferHandler()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isDefaultLookAndFeelDecorated" id="javax.swing/JFrame#isDefaultLookAndFeelDecorated()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="remove" id="javax.swing/JFrame#remove(Ljava.awt.Component;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="repaint" id="javax.swing/JFrame#repaint(JIIII)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setContentPane" id="javax.swing/JFrame#setContentPane(Ljava.awt.Container;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setDefaultCloseOperation" id="javax.swing/JFrame#setDefaultCloseOperation(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setDefaultLookAndFeelDecorated" id="javax.swing/JFrame#setDefaultLookAndFeelDecorated(Z)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setGlassPane" id="javax.swing/JFrame#setGlassPane(Ljava.awt.Component;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setIconImage" id="javax.swing/JFrame#setIconImage(Ljava.awt.Image;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setJMenuBar" id="javax.swing/JFrame#setJMenuBar(Ljavax.swing.JMenuBar;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setLayeredPane" id="javax.swing/JFrame#setLayeredPane(Ljavax.swing.JLayeredPane;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setLayout" id="javax.swing/JFrame#setLayout(Ljava.awt.LayoutManager;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setTransferHandler" id="javax.swing/JFrame#setTransferHandler(Ljavax.swing.TransferHandler;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="update" id="javax.swing/JFrame#update(Ljava.awt.Graphics;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@sourceConnections.1" name="SongInterfaz" location="671,417" size="154,193" id="IS2011.Interfaz/SongInterfaz">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="131,144">
+      <children xsi:type="editmodel:MethodEditModel" name="SongInterfaz" id="IS2011.Interfaz/SongInterfaz#SongInterfaz([Ljava.lang.String;LIS2011.Interfaz.InterfazAvanzada;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="actualizaTemas" id="IS2011.Interfaz/SongInterfaz#actualizaTemas([Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="borrarSeleccionados" id="IS2011.Interfaz/SongInterfaz#borrarSeleccionados()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cargarPreferencias" id="IS2011.Interfaz/SongInterfaz#cargarPreferencias()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getInterfaz" id="IS2011.Interfaz/SongInterfaz#getInterfaz()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getListado" id="IS2011.Interfaz/SongInterfaz#getListado([Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getScrollListado" id="IS2011.Interfaz/SongInterfaz#getScrollListado(Ljavax.swing.JComponent;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="marcaActual" id="IS2011.Interfaz/SongInterfaz#marcaActual()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@sourceConnections.2" name="BibliotecaInterfaz" location="675,630" size="154,265" id="IS2011.Interfaz/BibliotecaInterfaz">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="126,216">
+      <children xsi:type="editmodel:MethodEditModel" name="BibliotecaInterfaz" id="IS2011.Interfaz/BibliotecaInterfaz#BibliotecaInterfaz(LIS2011.Interfaz.InterfazAvanzada;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="actualiza" id="IS2011.Interfaz/BibliotecaInterfaz#actualiza()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="acumulaLetra" id="IS2011.Interfaz/BibliotecaInterfaz#acumulaLetra(C)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="borraElemBiblioteca" id="IS2011.Interfaz/BibliotecaInterfaz#borraElemBiblioteca()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="buscaNombre" id="IS2011.Interfaz/BibliotecaInterfaz#buscaNombre(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cargarPreferencias" id="IS2011.Interfaz/BibliotecaInterfaz#cargarPreferencias()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="filtraRapido" id="IS2011.Interfaz/BibliotecaInterfaz#filtraRapido()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getAudioFiles" id="IS2011.Interfaz/BibliotecaInterfaz#getAudioFiles(Ljava.io.File;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getFiltroAvanzado" id="IS2011.Interfaz/BibliotecaInterfaz#getFiltroAvanzado()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="initBibliotecaInterfaz" id="IS2011.Interfaz/BibliotecaInterfaz#initBibliotecaInterfaz()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="meterEnPlayList" id="IS2011.Interfaz/BibliotecaInterfaz#meterEnPlayList([I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="sincroniza" id="IS2011.Interfaz/BibliotecaInterfaz#sincroniza(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@sourceConnections.3" name="GestorBiblioteca" location="240,825" size="156,333" id="IS2011.biblioteca/GestorBiblioteca">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="133,270">
+      <children xsi:type="editmodel:MethodEditModel" name="add" id="IS2011.biblioteca/GestorBiblioteca#add(LIS2011.biblioteca.Track;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="addAll" id="IS2011.biblioteca/GestorBiblioteca#addAll(Ljava.util.List;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cargarXML" id="IS2011.biblioteca/GestorBiblioteca#cargarXML(Ljava.io.File;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cargarXML" id="IS2011.biblioteca/GestorBiblioteca#cargarXML()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cargarXML" id="IS2011.biblioteca/GestorBiblioteca#cargarXML(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getArrayList" id="IS2011.biblioteca/GestorBiblioteca#getArrayList()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getColaReproduccion" id="IS2011.biblioteca/GestorBiblioteca#getColaReproduccion()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getHashMap" id="IS2011.biblioteca/GestorBiblioteca#getHashMap()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getInstance" id="IS2011.biblioteca/GestorBiblioteca#getInstance()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="guardarXML" id="IS2011.biblioteca/GestorBiblioteca#guardarXML(Ljava.io.File;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="guardarXML" id="IS2011.biblioteca/GestorBiblioteca#guardarXML(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="guardarXML" id="IS2011.biblioteca/GestorBiblioteca#guardarXML()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="remove" id="IS2011.biblioteca/GestorBiblioteca#remove(LIS2011.biblioteca.Track;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="removeAll" id="IS2011.biblioteca/GestorBiblioteca#removeAll()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setColaReproduccion" id="IS2011.biblioteca/GestorBiblioteca#setColaReproduccion(LIS2011.biblioteca.Playlist;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@sourceConnections.4" name="GestorPreferencias" location="435,825" size="163,567" id="IS2011.Configuracion/GestorPreferencias">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="133,504">
+      <children xsi:type="editmodel:MethodEditModel" name="cargarXML" id="IS2011.Configuracion/GestorPreferencias#cargarXML()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cargarXML" id="IS2011.Configuracion/GestorPreferencias#cargarXML(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cargarXML" id="IS2011.Configuracion/GestorPreferencias#cargarXML(Ljava.io.File;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getBgColor" id="IS2011.Configuracion/GestorPreferencias#getBgColor()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getBgColorInterno" id="IS2011.Configuracion/GestorPreferencias#getBgColorInterno()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getCancionActual" id="IS2011.Configuracion/GestorPreferencias#getCancionActual()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getFgColor" id="IS2011.Configuracion/GestorPreferencias#getFgColor()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getFgColorInterno" id="IS2011.Configuracion/GestorPreferencias#getFgColorInterno()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getInstance" id="IS2011.Configuracion/GestorPreferencias#getInstance()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getLauncher" id="IS2011.Configuracion/GestorPreferencias#getLauncher()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getPosCancionActual" id="IS2011.Configuracion/GestorPreferencias#getPosCancionActual()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getRutaIndexada" id="IS2011.Configuracion/GestorPreferencias#getRutaIndexada()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSkin" id="IS2011.Configuracion/GestorPreferencias#getSkin()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSound" id="IS2011.Configuracion/GestorPreferencias#getSound()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="guardarXML" id="IS2011.Configuracion/GestorPreferencias#guardarXML()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="guardarXML" id="IS2011.Configuracion/GestorPreferencias#guardarXML(Ljava.io.File;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="guardarXML" id="IS2011.Configuracion/GestorPreferencias#guardarXML(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setBgColor" id="IS2011.Configuracion/GestorPreferencias#setBgColor(Ljava.awt.Color;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setBgColorInterno" id="IS2011.Configuracion/GestorPreferencias#setBgColorInterno(Ljava.awt.Color;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setCancionActual" id="IS2011.Configuracion/GestorPreferencias#setCancionActual(LIS2011.biblioteca.Track;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setDefault" id="IS2011.Configuracion/GestorPreferencias#setDefault()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setFgColor" id="IS2011.Configuracion/GestorPreferencias#setFgColor(Ljava.awt.Color;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setFgColorInterno" id="IS2011.Configuracion/GestorPreferencias#setFgColorInterno(Ljava.awt.Color;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setLauncher" id="IS2011.Configuracion/GestorPreferencias#setLauncher(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setPosCancionActual" id="IS2011.Configuracion/GestorPreferencias#setPosCancionActual(J)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setRutaIndexada" id="IS2011.Configuracion/GestorPreferencias#setRutaIndexada(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setSkin" id="IS2011.Configuracion/GestorPreferencias#setSkin(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setSound" id="IS2011.Configuracion/GestorPreferencias#setSound(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@sourceConnections.5" name="SongInfoInterfaz" location="678,300" size="147,103" id="IS2011.Interfaz/SongInfoInterfaz">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="124,54">
+      <children xsi:type="editmodel:MethodEditModel" name="SongInfoInterfaz" id="IS2011.Interfaz/SongInfoInterfaz#SongInfoInterfaz()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="actualiza" id="IS2011.Interfaz/SongInfoInterfaz#actualiza(LIS2011.biblioteca.Track;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cargarPreferencias" id="IS2011.Interfaz/SongInfoInterfaz#cargarPreferencias()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@sourceConnections.6" name="Launcher" location="56,300" size="185,247" id="IS2011.Interfaz/Launcher">
+    <children xsi:type="editmodel:CompartmentEditModel" size="162,108">
+      <children xsi:type="editmodel:AttributeEditModel" name="borderLayout1" id="IS2011.Interfaz/Launcher#borderLayout1"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="icono" id="IS2011.Interfaz/Launcher#icono"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="interfaz" id="IS2011.Interfaz/Launcher#interfaz"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="menuBarIcon" id="IS2011.Interfaz/Launcher#menuBarIcon"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="tray" id="IS2011.Interfaz/Launcher#tray"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="trayIcon" id="IS2011.Interfaz/Launcher#trayIcon"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="98,90">
+      <children xsi:type="editmodel:MethodEditModel" name="IconTray" id="IS2011.Interfaz/Launcher#IconTray()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Launcher" id="IS2011.Interfaz/Launcher#Launcher()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cambiaImagen" id="IS2011.Interfaz/Launcher#cambiaImagen(Ljavax.swing.ImageIcon;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="jbInit" id="IS2011.Interfaz/Launcher#jbInit()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="main" id="IS2011.Interfaz/Launcher#main([Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" interactive="false" properties="open=IS2011.Interfaz/InterfazAvanzada;wireOptions=1;Product=eUML2"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>

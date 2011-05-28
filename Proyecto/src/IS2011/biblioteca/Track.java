@@ -16,6 +16,7 @@ import org.jaudiotagger.audio.exceptions.CannotReadException;
 import org.jaudiotagger.audio.exceptions.CannotWriteException;
 import org.jaudiotagger.audio.exceptions.InvalidAudioFrameException;
 import org.jaudiotagger.audio.exceptions.ReadOnlyFileException;
+import org.jaudiotagger.audio.generic.AudioFileReader;
 import org.jaudiotagger.tag.FieldKey;
 import org.jaudiotagger.tag.KeyNotFoundException;
 import org.jaudiotagger.tag.Tag;
@@ -129,11 +130,13 @@ public class Track {
         public Track(String ruta){
             try {
                 File f = new File(ruta);
+                f.setWritable(true);
                 AudioFile af = AudioFileIO.read(f);
                 Tag tag = af.getTagOrCreateAndSetDefault();
                 AudioHeader ah = af.getAudioHeader();
-                
+               
                 this.location = ruta;
+                this.totalTime = ah.getTrackLength();
                 
                 if(tag != null )
                 {
@@ -149,7 +152,7 @@ public class Track {
                 		artist = "No Artist";
                 	}
                 }
-                if(tag != null && !tag.hasField(FieldKey.ALBUM_ARTIST.name()))
+                if(tag != null)
                 {
                 	this.albumArtist = tag.getFirst(FieldKey.ALBUM_ARTIST);
                 }
@@ -158,7 +161,7 @@ public class Track {
                 	this.albumArtist ="";
                 }
                 this.bitRate = Integer.valueOf(ah.getBitRate());
-                if(tag != null && !tag.hasField(FieldKey.COMMENT.name()))
+                if(tag != null)
                 {
                 	this.comments = tag.getFirst(FieldKey.COMMENT);
                 }
@@ -166,7 +169,7 @@ public class Track {
                 {
                 	this.comments = "";
                 }
-                if(tag != null && !tag.hasField(FieldKey.ALBUM.name()))
+                if(tag != null )
                 {
                 	this.album = tag.getFirst(FieldKey.ALBUM);
                 }
@@ -174,7 +177,7 @@ public class Track {
                 {
                 	this.album = "";
                 }
-                if(tag != null && !tag.hasField(FieldKey.GENRE.name()))
+                if(tag != null)
                 {
                 	this.genre = tag.getFirst(FieldKey.GENRE);
                 }

@@ -1102,13 +1102,14 @@ public class InterfazAvanzada extends JFrame {
 			//TODO obtenemos los restantes en segundos como en el Track.
 			int segTotales;
 			int resultado;
-			
+			if(infoSong.getTrack().getTotalTime()!= null){
 			segTotales = infoSong.getTrack().getTotalTime();
 			//deberia estar cargado ya por ahi no estar cargandolo siempre.
 			resultado = (segTotales - ((60*min)+segs));
 			min = (resultado / 60);
 			segs = resultado % 60;
 			texto= "-";
+			}
 		}
 		if(segs>=10)
 		{

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="Mover" size="807,4749" id="IS2011.Interfaz" metadata="uml2-1.0" initialized="true" tag="10" key="32303037303533312D3130204953">
+  <children xsi:type="editmodel:GroupEditModel" location="372,135" size="134,167"/>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.2/@sourceConnections.1" name="MouseMotionListener" location="15,15" size="177,113" id="java.awt.event/MouseMotionListener">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="103,36">
+      <children xsi:type="editmodel:MethodEditModel" name="mouseDragged" id="java.awt.event/MouseMotionListener#mouseDragged(Ljava.awt.event.MouseEvent;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="mouseMoved" id="java.awt.event/MouseMotionListener#mouseMoved(Ljava.awt.event.MouseEvent;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Mover" location="109,217" size="144,265" id="IS2011.Interfaz/Mover" runTimeClassModel="mouseDragged(Ljava.awt.event.MouseEvent;),mouseMoved(Ljava.awt.event.MouseEvent;),start_loc,mousePressed(Ljava.awt.event.MouseEvent;),mouseClicked(Ljava.awt.event.MouseEvent;),mouseEntered(Ljava.awt.event.MouseEvent;),mouseExited(Ljava.awt.event.MouseEvent;),getFrame(Ljava.awt.Container;),mouseReleased(Ljava.awt.event.MouseEvent;),start_drag,getScreenLocation(Ljava.awt.event.MouseEvent;),Mover(Ljavax.swing.JComponent;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="98,36">
+      <children xsi:type="editmodel:AttributeEditModel" name="start_drag" id="IS2011.Interfaz/Mover#start_drag"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="start_loc" id="IS2011.Interfaz/Mover#start_loc"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="121,180">
+      <children xsi:type="editmodel:MethodEditModel" name="Mover" id="IS2011.Interfaz/Mover#Mover(Ljavax.swing.JComponent;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getFrame" id="IS2011.Interfaz/Mover#getFrame(Ljava.awt.Container;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getScreenLocation" id="IS2011.Interfaz/Mover#getScreenLocation(Ljava.awt.event.MouseEvent;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="mouseClicked" id="IS2011.Interfaz/Mover#mouseClicked(Ljava.awt.event.MouseEvent;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="mouseDragged" id="IS2011.Interfaz/Mover#mouseDragged(Ljava.awt.event.MouseEvent;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="mouseEntered" id="IS2011.Interfaz/Mover#mouseEntered(Ljava.awt.event.MouseEvent;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="mouseExited" id="IS2011.Interfaz/Mover#mouseExited(Ljava.awt.event.MouseEvent;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="mouseMoved" id="IS2011.Interfaz/Mover#mouseMoved(Ljava.awt.event.MouseEvent;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="mousePressed" id="IS2011.Interfaz/Mover#mousePressed(Ljava.awt.event.MouseEvent;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="mouseReleased" id="IS2011.Interfaz/Mover#mouseReleased(Ljava.awt.event.MouseEvent;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="java.awt.event/MouseListener&lt;-IS2011.Interfaz/Mover" source="//@children.2" target="//@children.3" targetEnd="//@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.2/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="129,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="13,167"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="java.awt.event/MouseMotionListener&lt;-IS2011.Interfaz/Mover" source="//@children.2" target="//@children.1" targetEnd="//@children.2/@sourceConnections.1/@children.1" sourceEnd="//@children.2/@sourceConnections.1/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="41,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="135,113"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.2/@sourceConnections.0" name="MouseListener" location="225,8" size="134,167" id="java.awt.event/MouseListener">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="107,90">
+      <children xsi:type="editmodel:MethodEditModel" name="mouseClicked" id="java.awt.event/MouseListener#mouseClicked(Ljava.awt.event.MouseEvent;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="mouseEntered" id="java.awt.event/MouseListener#mouseEntered(Ljava.awt.event.MouseEvent;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="mouseExited" id="java.awt.event/MouseListener#mouseExited(Ljava.awt.event.MouseEvent;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="mousePressed" id="java.awt.event/MouseListener#mousePressed(Ljava.awt.event.MouseEvent;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="mouseReleased" id="java.awt.event/MouseListener#mouseReleased(Ljava.awt.event.MouseEvent;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" interactive="false" properties="open=IS2011.Interfaz/Mover;wireOptions=1;Product=eUML2"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>

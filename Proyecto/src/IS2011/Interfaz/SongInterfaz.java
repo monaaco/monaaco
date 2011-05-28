@@ -261,8 +261,8 @@ public class SongInterfaz extends JFrame{
                         listado.setLayout(new BorderLayout());
                         listado.setSize(100, pantalla.height);
                         listado.setFont(new java.awt.Font("Helvetica", 1, 12));
-                        listado.setSelectionBackground(Color.red);
-                        listado.setSelectionForeground(fgColor);
+                        listado.setSelectionBackground(fgColor);
+                        listado.setSelectionForeground(bgColor);
                         listado.setBackground(bgColor);
                         listado.setForeground(fgColor);
                         listado.setEnabled(true);

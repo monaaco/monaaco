@@ -506,8 +506,8 @@ public class InterfazAvanzada extends JFrame {
 	       	position.gridy = 2;
 	       	position.gridheight = 1;
 	       	position.gridwidth = 4;
-	       	constraints.anchor = GridBagConstraints.WEST; 
-			constraints.fill = GridBagConstraints.NONE;
+	       	position.anchor = GridBagConstraints.WEST; 
+	       	position.fill = GridBagConstraints.NONE;
 	      	main.add(getInfoSongLabel(), position);
 							
 	      	setDefaultPalyList();
@@ -524,7 +524,7 @@ public class InterfazAvanzada extends JFrame {
 	        position1.weightx = 1.0;
 	        position1.anchor = GridBagConstraints.CENTER; 
 	        position1.insets= new Insets(0,0,0,20);
-	        position1.fill = GridBagConstraints.BOTH ;
+	        position1.fill = GridBagConstraints.HORIZONTAL ;
 	        main.add(infoSong, position1);
 	        main.setForeground(Color.white);
 		}
@@ -959,7 +959,7 @@ public class InterfazAvanzada extends JFrame {
             pause = false;
             mPlayer.stop();
             infoSong.actualiza(listaReproduccion.getCurrent());
-            mPlayer.play();
+            mPlayer.play();  //TODO aqui se come formatos no soportados
             infoPlaylist.marcaActual();
         } catch (BasicPlayerException e) {
             e.printStackTrace();

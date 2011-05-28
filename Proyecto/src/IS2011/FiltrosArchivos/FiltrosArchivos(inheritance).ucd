@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="FiltrosArchivos" size="823,808" id="IS2011.FiltrosArchivos" metadata="uml2-1.0" initialized="true" tag="10" key="32303037303533312D3130204953">
+  <children xsi:type="editmodel:ClassEditModel" name="FiltroWAV" location="531,217" size="122,85" id="IS2011.FiltrosArchivos/FiltroWAV">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="99,36">
+      <children xsi:type="editmodel:MethodEditModel" name="accept" id="IS2011.FiltrosArchivos/FiltroWAV#accept(Ljava.io.File;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDescription" id="IS2011.FiltrosArchivos/FiltroWAV#getDescription()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="javax.swing.filechooser/FileFilter&lt;-IS2011.FiltrosArchivos/FiltroWAV" source="//@children.0" target="//@children.2/@sourceConnections.0" targetEnd="//@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.0/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="61,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="139,42"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="FiltroMP3" location="379,217" size="122,85" id="IS2011.FiltrosArchivos/FiltroMP3">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="99,36">
+      <children xsi:type="editmodel:MethodEditModel" name="accept" id="IS2011.FiltrosArchivos/FiltroMP3#accept(Ljava.io.File;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDescription" id="IS2011.FiltrosArchivos/FiltroMP3#getDescription()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="javax.swing.filechooser/FileFilter&lt;-IS2011.FiltrosArchivos/FiltroMP3" source="//@children.1" target="//@children.2/@sourceConnections.0" targetEnd="//@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.1/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="61,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="139,42"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="FiltroOGG" location="50,217" size="122,85" id="IS2011.FiltrosArchivos/FiltroOGG">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="99,36">
+      <children xsi:type="editmodel:MethodEditModel" name="accept" id="IS2011.FiltrosArchivos/FiltroOGG#accept(Ljava.io.File;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDescription" id="IS2011.FiltrosArchivos/FiltroOGG#getDescription()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.3/@sourceConnections.0 //@children.1/@sourceConnections.0 //@children.0/@sourceConnections.0" autoLocated="true" id="javax.swing.filechooser/FileFilter&lt;-IS2011.FiltrosArchivos/FiltroOGG" source="//@children.2" target="//@children.4" targetEnd="//@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.2/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="61,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="69,117" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="FiltroSoportados" location="202,217" size="147,85" id="IS2011.FiltrosArchivos/FiltroSoportados">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="99,36">
+      <children xsi:type="editmodel:MethodEditModel" name="accept" id="IS2011.FiltrosArchivos/FiltroSoportados#accept(Ljava.io.File;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDescription" id="IS2011.FiltrosArchivos/FiltroSoportados#getDescription()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="javax.swing.filechooser/FileFilter&lt;-IS2011.FiltrosArchivos/FiltroSoportados" source="//@children.3" target="//@children.2/@sourceConnections.0" targetEnd="//@children.3/@sourceConnections.0/@children.1" sourceEnd="//@children.3/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="73,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="35,0"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.0" name="FileFilter" location="285,50" size="139,117" id="javax.swing.filechooser/FileFilter">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="99,54">
+      <children xsi:type="editmodel:MethodEditModel" name="FileFilter" id="javax.swing.filechooser/FileFilter#FileFilter()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="accept" id="javax.swing.filechooser/FileFilter#accept(Ljava.io.File;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDescription" id="javax.swing.filechooser/FileFilter#getDescription()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" interactive="false" level="-1" showScope="InPackage" properties="wireOptions=1;Product=eUML2"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>

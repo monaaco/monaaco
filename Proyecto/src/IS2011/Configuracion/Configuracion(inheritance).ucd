@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="Configuracion" size="823,808" id="IS2011.Configuracion" metadata="uml2-1.0" initialized="true" tag="10" key="32303037303533312D3130204953">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.1" name="Preferencias" location="345,15" size="156,247" id="IS2011.Configuracion/Preferencias">
+    <children xsi:type="editmodel:CompartmentEditModel" size="133,162">
+      <children xsi:type="editmodel:AttributeEditModel" name="bgColor" id="IS2011.Configuracion/Preferencias#bgColor"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="bgColorInterno" id="IS2011.Configuracion/Preferencias#bgColorInterno"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="fgColor" id="IS2011.Configuracion/Preferencias#fgColor"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="fgColorInterno" id="IS2011.Configuracion/Preferencias#fgColorInterno"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="launcher" id="IS2011.Configuracion/Preferencias#launcher"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="posCancionActual" location="7,124" id="IS2011.Configuracion/Preferencias#posCancionActual"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="rutaIndexada" id="IS2011.Configuracion/Preferencias#rutaIndexada"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="skin" id="IS2011.Configuracion/Preferencias#skin"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="sound" id="IS2011.Configuracion/Preferencias#sound"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="92,36">
+      <children xsi:type="editmodel:MethodEditModel" name="Preferencias" id="IS2011.Configuracion/Preferencias#Preferencias()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setDefault" id="IS2011.Configuracion/Preferencias#setDefault()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="GestorPreferencias" location="243,390" size="163,201" id="IS2011.Configuracion/GestorPreferencias">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="133,504">
+      <children xsi:type="editmodel:MethodEditModel" name="cargarXML" id="IS2011.Configuracion/GestorPreferencias#cargarXML(Ljava.io.File;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cargarXML" id="IS2011.Configuracion/GestorPreferencias#cargarXML(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cargarXML" id="IS2011.Configuracion/GestorPreferencias#cargarXML()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getBgColor" id="IS2011.Configuracion/GestorPreferencias#getBgColor()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getBgColorInterno" id="IS2011.Configuracion/GestorPreferencias#getBgColorInterno()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getCancionActual" id="IS2011.Configuracion/GestorPreferencias#getCancionActual()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getFgColor" id="IS2011.Configuracion/GestorPreferencias#getFgColor()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getFgColorInterno" id="IS2011.Configuracion/GestorPreferencias#getFgColorInterno()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getInstance" id="IS2011.Configuracion/GestorPreferencias#getInstance()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getLauncher" id="IS2011.Configuracion/GestorPreferencias#getLauncher()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getPosCancionActual" id="IS2011.Configuracion/GestorPreferencias#getPosCancionActual()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getRutaIndexada" id="IS2011.Configuracion/GestorPreferencias#getRutaIndexada()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSkin" id="IS2011.Configuracion/GestorPreferencias#getSkin()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSound" id="IS2011.Configuracion/GestorPreferencias#getSound()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="guardarXML" id="IS2011.Configuracion/GestorPreferencias#guardarXML(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="guardarXML" id="IS2011.Configuracion/GestorPreferencias#guardarXML()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="guardarXML" id="IS2011.Configuracion/GestorPreferencias#guardarXML(Ljava.io.File;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setBgColor" id="IS2011.Configuracion/GestorPreferencias#setBgColor(Ljava.awt.Color;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setBgColorInterno" id="IS2011.Configuracion/GestorPreferencias#setBgColorInterno(Ljava.awt.Color;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setCancionActual" id="IS2011.Configuracion/GestorPreferencias#setCancionActual(LIS2011.biblioteca.Track;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setDefault" id="IS2011.Configuracion/GestorPreferencias#setDefault()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setFgColor" id="IS2011.Configuracion/GestorPreferencias#setFgColor(Ljava.awt.Color;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setFgColorInterno" id="IS2011.Configuracion/GestorPreferencias#setFgColorInterno(Ljava.awt.Color;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setLauncher" id="IS2011.Configuracion/GestorPreferencias#setLauncher(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setPosCancionActual" id="IS2011.Configuracion/GestorPreferencias#setPosCancionActual(J)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setRutaIndexada" id="IS2011.Configuracion/GestorPreferencias#setRutaIndexada(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setSkin" id="IS2011.Configuracion/GestorPreferencias#setSkin(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setSound" id="IS2011.Configuracion/GestorPreferencias#setSound(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Configuracion/GestorPreferencias-Soyatec::Import->IS2011.GestorXML/GestorXML*IS2011.Configuracion/GestorPreferencias-Standard::Call->IS2011.GestorXML/GestorXML*IS2011.Configuracion/GestorPreferencias-Standard::Instantiate->IS2011.GestorXML/GestorXML" source="//@children.1" target="//@children.2" targetEnd="//@children.1/@sourceConnections.0/@children.2" label="//@children.1/@sourceConnections.0/@children.0" sourceEnd="//@children.1/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Call, Import»" location="135,315" size="119,14" automaticRelocationAllowed="false" locationOnWireFromSource="2.0" distanceFromWire="79.0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="30,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="108,153"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Configuracion/GestorPreferencias-Soyatec::Import->IS2011.Configuracion/Preferencias*IS2011.Configuracion/GestorPreferencias-Standard::Instantiate->IS2011.Configuracion/Preferencias*IS2011.Configuracion/GestorPreferencias-Standard::Call->IS2011.Configuracion/Preferencias" source="//@children.1" target="//@children.0" targetEnd="//@children.1/@sourceConnections.1/@children.2" label="//@children.1/@sourceConnections.1/@children.0" sourceEnd="//@children.1/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Call, Import»" size="119,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="132,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="30,247"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.0" name="GestorXML" location="165,105" size="139,153" id="IS2011.GestorXML/GestorXML">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="84,90">
+      <children xsi:type="editmodel:MethodEditModel" name="GestorXML" id="IS2011.GestorXML/GestorXML#GestorXML(Ljava.lang.Class;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cargar" id="IS2011.GestorXML/GestorXML#cargar(Ljava.io.File;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cargar" id="IS2011.GestorXML/GestorXML#cargar(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="guardar" id="IS2011.GestorXML/GestorXML#guardar(LT;Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="guardar" id="IS2011.GestorXML/GestorXML#guardar(LT;Ljava.io.File;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" interactive="false" level="-1" showScope="InPackage" properties="wireOptions=1;Product=eUML2"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>

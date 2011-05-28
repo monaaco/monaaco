@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="Interfaz" size="1537,1716" id="IS2011.Interfaz" metadata="uml2-1.0" initialized="true" zoom="1.2613712839924769" tag="10" key="32303037303533312D3130204953">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.0" name="MyDragListener" location="15,120" size="141,29" id="IS2011.Interfaz/MyDragListener">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/MyDragListener-Standard::Call->IS2011.Interfaz/DragDropList*IS2011.Interfaz/MyDragListener-Soyatec::Import->IS2011.Interfaz/DragDropList" source="//@children.0" target="//@children.2" targetEnd="//@children.0/@sourceConnections.0/@children.2" label="//@children.0/@sourceConnections.0/@children.0" sourceEnd="//@children.0/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Call»" size="64,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="136,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="5,0"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.9/@sourceConnections.1 //@children.16/@sourceConnections.4" name="JPanelTransparente" location="555,105" size="169,29" id="IS2011.Interfaz/JPanelTransparente">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/JPanelTransparente-Standard::Derive->IS2011.Interfaz/JPanelRound" source="//@children.1" target="//@children.11" targetEnd="//@children.1/@sourceConnections.0/@children.2" label="//@children.1/@sourceConnections.0/@children.0" sourceEnd="//@children.1/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Derive»" size="43,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="25,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="100,29"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.10/@sourceConnections.1 //@children.5/@sourceConnections.0 //@children.0/@sourceConnections.0" name="DragDropList" location="264,120" size="124,29" id="IS2011.Interfaz/DragDropList">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/DragDropList-Standard::Instantiate->IS2011.Interfaz/MyDragListener" source="//@children.2" target="//@children.0" targetEnd="//@children.2/@sourceConnections.0/@children.2" label="//@children.2/@sourceConnections.0/@children.0" sourceEnd="//@children.2/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate»" size="61,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,14" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="141,14"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/DragDropList-Standard::Instantiate->IS2011.Interfaz/MyListDropHandler" source="//@children.2" target="//@children.5" targetEnd="//@children.2/@sourceConnections.1/@children.2" label="//@children.2/@sourceConnections.1/@children.0" sourceEnd="//@children.2/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate»" size="61,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="62,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="81,29"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.12/@sourceConnections.1" name="LoadingScreen" location="505,553" size="139,29" id="IS2011.Interfaz/LoadingScreen">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.18/@sourceConnections.9" name="ReproductorListener" location="30,210" size="171,29" id="IS2011.Interfaz/ReproductorListener">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="IS2011.Interfaz/ReproductorListener-Standard::Call->IS2011.Interfaz/InterfazAvanzada*IS2011.Interfaz/ReproductorListener-Soyatec::Import->IS2011.Interfaz/InterfazAvanzada" source="//@children.4" target="//@children.18" targetEnd="//@children.4/@sourceConnections.0/@children.2" label="//@children.4/@sourceConnections.0/@children.0" sourceEnd="//@children.4/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Call»" size="64,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="90,29" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,12"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.1" name="MyListDropHandler" location="245,30" size="162,29" id="IS2011.Interfaz/MyListDropHandler">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/MyListDropHandler-Standard::Call->IS2011.Interfaz/DragDropList*IS2011.Interfaz/MyListDropHandler-Soyatec::Import->IS2011.Interfaz/DragDropList" source="//@children.5" target="//@children.2" targetEnd="//@children.5/@sourceConnections.0/@children.2" label="//@children.5/@sourceConnections.0/@children.0" sourceEnd="//@children.5/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Call»" size="64,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="61,29" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="42,0"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.18/@sourceConnections.1" name="BotonAvanzado" location="22,435" size="142,29" id="IS2011.Interfaz/BotonAvanzado">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.19/@sourceConnections.0" name="ItemsMenu" location="318,579" size="111,29" id="IS2011.Interfaz/ItemsMenu">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.18/@sourceConnections.3" name="CustomSlider" location="22,375" size="127,29" id="IS2011.Interfaz/CustomSlider">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.18/@sourceConnections.7" name="SongInfoInterfaz" location="505,190" size="147,44" id="IS2011.Interfaz/SongInfoInterfaz">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="IS2011.Interfaz/SongInfoInterfaz-Soyatec::Import->IS2011.Interfaz/InterfazAvanzada" source="//@children.9" target="//@children.18" targetEnd="//@children.9/@sourceConnections.0/@children.2" label="//@children.9/@sourceConnections.0/@children.0" sourceEnd="//@children.9/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="76,43" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="120,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/SongInfoInterfaz-Standard::Instantiate->IS2011.Interfaz/JPanelTransparente*IS2011.Interfaz/SongInfoInterfaz-Soyatec::Import->IS2011.Interfaz/JPanelTransparente*IS2011.Interfaz/SongInfoInterfaz-Standard::Call->IS2011.Interfaz/JPanelTransparente*IS2011.Interfaz/SongInfoInterfaz-Standard::Derive->IS2011.Interfaz/JPanelTransparente" source="//@children.9" target="//@children.1" targetEnd="//@children.9/@sourceConnections.1/@children.2" label="//@children.9/@sourceConnections.1/@children.0" sourceEnd="//@children.9/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Call, Import, Derive»" size="156,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="98,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="48,29"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.16/@sourceConnections.2 //@children.18/@sourceConnections.5" name="SongInterfaz" location="259,205" size="123,46" id="IS2011.Interfaz/SongInterfaz">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/SongInterfaz-Standard::Call->IS2011.Interfaz/JPanelRound*IS2011.Interfaz/SongInterfaz-Soyatec::Import->IS2011.Interfaz/JPanelRound*IS2011.Interfaz/SongInterfaz-Standard::Instantiate->IS2011.Interfaz/JPanelRound" source="//@children.10" target="//@children.11" targetEnd="//@children.10/@sourceConnections.0/@children.2" label="//@children.10/@sourceConnections.0/@children.0" sourceEnd="//@children.10/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Import, Call»" size="119,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="89,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="45,29"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/SongInterfaz-Soyatec::Import->IS2011.Interfaz/DragDropList*IS2011.Interfaz/SongInterfaz-Standard::Call->IS2011.Interfaz/DragDropList*IS2011.Interfaz/SongInterfaz-Standard::Instantiate->IS2011.Interfaz/DragDropList" source="//@children.10" target="//@children.2" targetEnd="//@children.10/@sourceConnections.1/@children.2" label="//@children.10/@sourceConnections.1/@children.0" sourceEnd="//@children.10/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Call, Import»" size="119,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="63,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="58,29"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="IS2011.Interfaz/SongInterfaz-Standard::Call->IS2011.Interfaz/InterfazAvanzada*IS2011.Interfaz/SongInterfaz-Soyatec::Import->IS2011.Interfaz/InterfazAvanzada" source="//@children.10" target="//@children.18" targetEnd="//@children.10/@sourceConnections.2/@children.2" label="//@children.10/@sourceConnections.2/@children.0" sourceEnd="//@children.10/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Call»" size="64,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="35,46" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="30,0"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.10/@sourceConnections.0 //@children.1/@sourceConnections.0 //@children.18/@sourceConnections.2" name="JPanelRound" location="480,30" size="127,29" id="IS2011.Interfaz/JPanelRound">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="HiloCargar" location="500,458" size="110,46" id="IS2011.Interfaz/HiloCargar">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/HiloCargar-Standard::Call->IS2011.Interfaz/BibliotecaInterfaz*IS2011.Interfaz/HiloCargar-Soyatec::Import->IS2011.Interfaz/BibliotecaInterfaz" source="//@children.12" target="//@children.16" targetEnd="//@children.12/@sourceConnections.0/@children.2" label="//@children.12/@sourceConnections.0/@children.0" sourceEnd="//@children.12/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Call»" size="64,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="79,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="45,61"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/HiloCargar-Standard::Call->IS2011.Interfaz/LoadingScreen*IS2011.Interfaz/HiloCargar-Soyatec::Import->IS2011.Interfaz/LoadingScreen*IS2011.Interfaz/HiloCargar-Standard::Instantiate->IS2011.Interfaz/LoadingScreen" source="//@children.12" target="//@children.3" targetEnd="//@children.12/@sourceConnections.1/@children.2" label="//@children.12/@sourceConnections.1/@children.0" sourceEnd="//@children.12/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Import, Call»" size="119,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="57,46" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="52,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/HiloCargar-Soyatec::Import->IS2011.Interfaz/InterfazAvanzada" source="//@children.12" target="//@children.18" targetEnd="//@children.12/@sourceConnections.2/@children.2" label="//@children.12/@sourceConnections.2/@children.0" sourceEnd="//@children.12/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="13,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="146,76"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.18/@sourceConnections.8" name="Launcher" location="162,537" size="117,46" id="IS2011.Interfaz/Launcher">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="IS2011.Interfaz/Launcher-Soyatec::Import->IS2011.Interfaz/InterfazAvanzada*IS2011.Interfaz/Launcher-Standard::Call->IS2011.Interfaz/InterfazAvanzada" source="//@children.13" target="//@children.18" targetEnd="//@children.13/@sourceConnections.0/@children.2" label="//@children.13/@sourceConnections.0/@children.0" sourceEnd="//@children.13/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Call, Import»" location="181,479" size="64,14" automaticRelocationAllowed="false" locationOnWireFromSource="-28.549514736804785" distanceFromWire="30.24773063046163" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="69,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="12,76"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.18/@sourceConnections.4" name="Mover" location="45,328" size="81,29" id="IS2011.Interfaz/Mover">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.16/@sourceConnections.0" name="ZebraJTable" location="780,222" size="120,29" id="IS2011.Interfaz/ZebraJTable">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.12/@sourceConnections.0 //@children.18/@sourceConnections.0" name="BibliotecaInterfaz" location="640,295" size="154,61" id="IS2011.Interfaz/BibliotecaInterfaz">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/BibliotecaInterfaz-Standard::Instantiate->IS2011.Interfaz/ZebraJTable*IS2011.Interfaz/BibliotecaInterfaz-Standard::Call->IS2011.Interfaz/ZebraJTable*IS2011.Interfaz/BibliotecaInterfaz-Soyatec::Import->IS2011.Interfaz/ZebraJTable" source="//@children.16" target="//@children.15" targetEnd="//@children.16/@sourceConnections.0/@children.2" label="//@children.16/@sourceConnections.0/@children.0" sourceEnd="//@children.16/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Import, Call»" size="119,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="146,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="6,29"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/BibliotecaInterfaz-Standard::Call->IS2011.Interfaz/MyDefaultTableModel*IS2011.Interfaz/BibliotecaInterfaz-Soyatec::Import->IS2011.Interfaz/MyDefaultTableModel*IS2011.Interfaz/BibliotecaInterfaz-Standard::Instantiate->IS2011.Interfaz/MyDefaultTableModel" source="//@children.16" target="//@children.17" targetEnd="//@children.16/@sourceConnections.1/@children.2" label="//@children.16/@sourceConnections.1/@children.0" sourceEnd="//@children.16/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Import, Call»" size="119,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="131,61" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="21,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/BibliotecaInterfaz-Standard::Call->IS2011.Interfaz/SongInterfaz" source="//@children.16" target="//@children.10" targetEnd="//@children.16/@sourceConnections.2/@children.2" label="//@children.16/@sourceConnections.2/@children.0" sourceEnd="//@children.16/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Call»" size="29,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,11" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="123,38"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/BibliotecaInterfaz-Soyatec::Import->IS2011.Interfaz/InterfazAvanzada*IS2011.Interfaz/BibliotecaInterfaz-Standard::Call->IS2011.Interfaz/InterfazAvanzada" source="//@children.16" target="//@children.18" targetEnd="//@children.16/@sourceConnections.3/@children.2" label="//@children.16/@sourceConnections.3/@children.0" sourceEnd="//@children.16/@sourceConnections.3/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Call, Import»" size="64,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,24" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="148,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="IS2011.Interfaz/BibliotecaInterfaz-Standard::Derive->IS2011.Interfaz/JPanelTransparente" source="//@children.16" target="//@children.1" targetEnd="//@children.16/@sourceConnections.4/@children.2" label="//@children.16/@sourceConnections.4/@children.0" sourceEnd="//@children.16/@sourceConnections.4/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Derive»" size="43,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="58,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="146,29"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.16/@sourceConnections.1" name="MyDefaultTableModel" location="750,420" size="179,29" id="IS2011.Interfaz/MyDefaultTableModel">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.12/@sourceConnections.2 //@children.16/@sourceConnections.3 //@children.10/@sourceConnections.2 //@children.9/@sourceConnections.0 //@children.4/@sourceConnections.0 //@children.13/@sourceConnections.0 //@children.19/@sourceConnections.1" name="InterfazAvanzada" location="259,323" size="153,76" id="IS2011.Interfaz/InterfazAvanzada">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/InterfazAvanzada-Standard::Call->IS2011.Interfaz/BibliotecaInterfaz*IS2011.Interfaz/InterfazAvanzada-Standard::Instantiate->IS2011.Interfaz/BibliotecaInterfaz*IS2011.Interfaz/InterfazAvanzada-Soyatec::Import->IS2011.Interfaz/BibliotecaInterfaz" source="//@children.18" target="//@children.16" targetEnd="//@children.18/@sourceConnections.0/@children.2" label="//@children.18/@sourceConnections.0/@children.0" sourceEnd="//@children.18/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Import, Call»" location="465,343" size="119,14" automaticRelocationAllowed="false" locationOnWireFromSource="-2.0" distanceFromWire="-11.0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="153,16" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,44"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/InterfazAvanzada-Standard::Call->IS2011.Interfaz/BotonAvanzado*IS2011.Interfaz/InterfazAvanzada-Standard::Instantiate->IS2011.Interfaz/BotonAvanzado*IS2011.Interfaz/InterfazAvanzada-Soyatec::Import->IS2011.Interfaz/BotonAvanzado" source="//@children.18" target="//@children.6" targetEnd="//@children.18/@sourceConnections.1/@children.2" label="//@children.18/@sourceConnections.1/@children.0" sourceEnd="//@children.18/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Import, Call»" size="119,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,66" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="110,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/InterfazAvanzada-Standard::Instantiate->IS2011.Interfaz/JPanelRound*IS2011.Interfaz/InterfazAvanzada-Soyatec::Import->IS2011.Interfaz/JPanelRound*IS2011.Interfaz/InterfazAvanzada-Standard::Call->IS2011.Interfaz/JPanelRound" source="//@children.18" target="//@children.11" targetEnd="//@children.18/@sourceConnections.2/@children.2" label="//@children.18/@sourceConnections.2/@children.0" sourceEnd="//@children.18/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Call, Import»" size="119,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="101,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="53,29"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/InterfazAvanzada-Standard::Instantiate->IS2011.Interfaz/CustomSlider*IS2011.Interfaz/InterfazAvanzada-Soyatec::Import->IS2011.Interfaz/CustomSlider" source="//@children.18" target="//@children.8" targetEnd="//@children.18/@sourceConnections.3/@children.2" label="//@children.18/@sourceConnections.3/@children.0" sourceEnd="//@children.18/@sourceConnections.3/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Import»" size="96,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,63" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="127,11"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/InterfazAvanzada-Soyatec::Import->IS2011.Interfaz/Mover*IS2011.Interfaz/InterfazAvanzada-Standard::Instantiate->IS2011.Interfaz/Mover" source="//@children.18" target="//@children.14" targetEnd="//@children.18/@sourceConnections.4/@children.2" label="//@children.18/@sourceConnections.4/@children.0" sourceEnd="//@children.18/@sourceConnections.4/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Import»" size="96,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,19" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="81,14"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="IS2011.Interfaz/InterfazAvanzada-Standard::Call->IS2011.Interfaz/SongInterfaz*IS2011.Interfaz/InterfazAvanzada-Standard::Instantiate->IS2011.Interfaz/SongInterfaz*IS2011.Interfaz/InterfazAvanzada-Soyatec::Import->IS2011.Interfaz/SongInterfaz" source="//@children.18" target="//@children.10" targetEnd="//@children.18/@sourceConnections.5/@children.2" label="//@children.18/@sourceConnections.5/@children.0" sourceEnd="//@children.18/@sourceConnections.5/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Import, Call»" size="119,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="50,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="62,46"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="IS2011.Interfaz/InterfazAvanzada-Standard::Instantiate->IS2011.Interfaz/Menu*IS2011.Interfaz/InterfazAvanzada-Soyatec::Import->IS2011.Interfaz/Menu" source="//@children.18" target="//@children.19" targetEnd="//@children.18/@sourceConnections.6/@children.2" label="//@children.18/@sourceConnections.6/@children.0" sourceEnd="//@children.18/@sourceConnections.6/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Import»" size="96,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="96,75" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="20,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="IS2011.Interfaz/InterfazAvanzada-Soyatec::Import->IS2011.Interfaz/SongInfoInterfaz*IS2011.Interfaz/InterfazAvanzada-Standard::Call->IS2011.Interfaz/SongInfoInterfaz*IS2011.Interfaz/InterfazAvanzada-Standard::Instantiate->IS2011.Interfaz/SongInfoInterfaz" source="//@children.18" target="//@children.9" targetEnd="//@children.18/@sourceConnections.7/@children.2" label="//@children.18/@sourceConnections.7/@children.0" sourceEnd="//@children.18/@sourceConnections.7/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Call, Import»" location="419,293" size="119,14" automaticRelocationAllowed="false" locationOnWireFromSource="13.7153345766998" distanceFromWire="-33.41989822619427" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="104,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="37,44"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="IS2011.Interfaz/InterfazAvanzada-Soyatec::Access->IS2011.Interfaz/Launcher" source="//@children.18" target="//@children.13" targetEnd="//@children.18/@sourceConnections.8/@children.2" label="//@children.18/@sourceConnections.8/@children.0" sourceEnd="//@children.18/@sourceConnections.8/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Access»" size="50,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="33,76" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="97,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="IS2011.Interfaz/InterfazAvanzada-Standard::Instantiate->IS2011.Interfaz/ReproductorListener*IS2011.Interfaz/InterfazAvanzada-Soyatec::Import->IS2011.Interfaz/ReproductorListener" source="//@children.18" target="//@children.4" targetEnd="//@children.18/@sourceConnections.9/@children.2" label="//@children.18/@sourceConnections.9/@children.0" sourceEnd="//@children.18/@sourceConnections.9/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Import»" size="96,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="23,-1" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="136,29"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.18/@sourceConnections.6" name="Menu" location="335,509" size="77,29" id="IS2011.Interfaz/Menu">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz/Menu-Standard::Call->IS2011.Interfaz/ItemsMenu*IS2011.Interfaz/Menu-Soyatec::Import->IS2011.Interfaz/ItemsMenu*IS2011.Interfaz/Menu-Standard::Instantiate->IS2011.Interfaz/ItemsMenu" source="//@children.19" target="//@children.7" targetEnd="//@children.19/@sourceConnections.0/@children.2" label="//@children.19/@sourceConnections.0/@children.0" sourceEnd="//@children.19/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Import, Call»" size="119,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="38,29" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="55,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="IS2011.Interfaz/Menu-Soyatec::Import->IS2011.Interfaz/InterfazAvanzada" source="//@children.19" target="//@children.18" targetEnd="//@children.19/@sourceConnections.1/@children.2" label="//@children.19/@sourceConnections.1/@children.0" sourceEnd="//@children.19/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="38,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="114,75"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" interactive="false" level="-1" showScope="InPackage" properties="libraryFilter=;ModelFrozen=true;ComputedContent=true;displayOptions=1;open=IS2011.Interfaz/MyListDropHandler,IS2011.Interfaz/Launcher,IS2011.Interfaz/BibliotecaInterfaz,IS2011.Interfaz/BotonAvanzado,IS2011.Interfaz/SongInterfaz,IS2011.Interfaz/JPanelTransparente,IS2011.Interfaz/JPanelRound,IS2011.Interfaz/HiloCargar,IS2011.Interfaz/MyDragListener,IS2011.Interfaz/SongInfoInterfaz,IS2011.Interfaz/ItemsMenu,IS2011.Interfaz/ReproductorListener,IS2011.Interfaz/LoadingScreen,IS2011.Interfaz/ZebraJTable,IS2011.Interfaz/MyDefaultTableModel,IS2011.Interfaz/Menu,IS2011.Interfaz/InterfazAvanzada,IS2011.Interfaz/DragDropList,IS2011.Interfaz/Mover,IS2011.Interfaz/CustomSlider;Product=eDepend;link=IS2011.Interfaz/SongInterfaz-Standard::Call->IS2011.Interfaz/JPanelRound,IS2011.Interfaz/SongInterfaz-Soyatec::Import->IS2011.Interfaz/DragDropList,IS2011.Interfaz/InterfazAvanzada-Standard::Instantiate->IS2011.Interfaz/Menu,IS2011.Interfaz/DragDropList-Standard::Instantiate->IS2011.Interfaz/MyDragListener,IS2011.Interfaz/HiloCargar-Standard::Call->IS2011.Interfaz/BibliotecaInterfaz,IS2011.Interfaz/JPanelTransparente-Standard::Derive->IS2011.Interfaz/JPanelRound,IS2011.Interfaz/InterfazAvanzada-Standard::Call->IS2011.Interfaz/BibliotecaInterfaz,IS2011.Interfaz/BibliotecaInterfaz-Standard::Instantiate->IS2011.Interfaz/ZebraJTable,IS2011.Interfaz/SongInterfaz-Soyatec::Import->IS2011.Interfaz/JPanelRound,IS2011.Interfaz/InterfazAvanzada-Standard::Call->IS2011.Interfaz/BotonAvanzado,IS2011.Interfaz/InterfazAvanzada-Standard::Instantiate->IS2011.Interfaz/JPanelRound,IS2011.Interfaz/InterfazAvanzada-Standard::Call->IS2011.Interfaz/SongInterfaz,IS2011.Interfaz/ReproductorListener-Standard::Call->IS2011.Interfaz/InterfazAvanzada,IS2011.Interfaz/InterfazAvanzada-Standard::Instantiate->IS2011.Interfaz/CustomSlider,IS2011.Interfaz/HiloCargar-Standard::Call->IS2011.Interfaz/LoadingScreen,IS2011.Interfaz/BibliotecaInterfaz-Standard::Call->IS2011.Interfaz/MyDefaultTableModel,IS2011.Interfaz/InterfazAvanzada-Soyatec::Import->IS2011.Interfaz/Menu,IS2011.Interfaz/BibliotecaInterfaz-Standard::Call->IS2011.Interfaz/ZebraJTable,IS2011.Interfaz/HiloCargar-Soyatec::Import->IS2011.Interfaz/LoadingScreen,IS2011.Interfaz/InterfazAvanzada-Standard::Instantiate->IS2011.Interfaz/BibliotecaInterfaz,IS2011.Interfaz/InterfazAvanzada-Soyatec::Import->IS2011.Interfaz/SongInfoInterfaz,IS2011.Interfaz/SongInterfaz-Standard::Call->IS2011.Interfaz/InterfazAvanzada,IS2011.Interfaz/HiloCargar-Soyatec::Import->IS2011.Interfaz/InterfazAvanzada,IS2011.Interfaz/BibliotecaInterfaz-Soyatec::Import->IS2011.Interfaz/MyDefaultTableModel,IS2011.Interfaz/SongInterfaz-Soyatec::Import->IS2011.Interfaz/InterfazAvanzada,IS2011.Interfaz/InterfazAvanzada-Soyatec::Import->IS2011.Interfaz/Mover,IS2011.Interfaz/HiloCargar-Standard::Instantiate->IS2011.Interfaz/LoadingScreen,IS2011.Interfaz/Menu-Standard::Call->IS2011.Interfaz/ItemsMenu,IS2011.Interfaz/SongInfoInterfaz-Soyatec::Import->IS2011.Interfaz/InterfazAvanzada,IS2011.Interfaz/Launcher-Soyatec::Import->IS2011.Interfaz/InterfazAvanzada,IS2011.Interfaz/InterfazAvanzada-Soyatec::Import->IS2011.Interfaz/CustomSlider,IS2011.Interfaz/MyListDropHandler-Standard::Call->IS2011.Interfaz/DragDropList,IS2011.Interfaz/SongInfoInterfaz-Standard::Instantiate->IS2011.Interfaz/JPanelTransparente,IS2011.Interfaz/DragDropList-Standard::Instantiate->IS2011.Interfaz/MyListDropHandler,IS2011.Interfaz/InterfazAvanzada-Standard::Call->IS2011.Interfaz/SongInfoInterfaz,IS2011.Interfaz/Menu-Soyatec::Import->IS2011.Interfaz/ItemsMenu,IS2011.Interfaz/MyDragListener-Standard::Call->IS2011.Interfaz/DragDropList,IS2011.Interfaz/SongInfoInterfaz-Soyatec::Import->IS2011.Interfaz/JPanelTransparente,IS2011.Interfaz/BibliotecaInterfaz-Standard::Call->IS2011.Interfaz/SongInterfaz,IS2011.Interfaz/InterfazAvanzada-Standard::Instantiate->IS2011.Interfaz/ReproductorListener,IS2011.Interfaz/SongInterfaz-Standard::Call->IS2011.Interfaz/DragDropList,IS2011.Interfaz/InterfazAvanzada-Standard::Instantiate->IS2011.Interfaz/SongInterfaz,IS2011.Interfaz/HiloCargar-Soyatec::Import->IS2011.Interfaz/BibliotecaInterfaz,IS2011.Interfaz/InterfazAvanzada-Soyatec::Access->IS2011.Interfaz/Launcher,IS2011.Interfaz/MyListDropHandler-Soyatec::Import->IS2011.Interfaz/DragDropList,IS2011.Interfaz/InterfazAvanzada-Soyatec::Import->IS2011.Interfaz/BibliotecaInterfaz,IS2011.Interfaz/InterfazAvanzada-Soyatec::Import->IS2011.Interfaz/JPanelRound,IS2011.Interfaz/InterfazAvanzada-Soyatec::Import->IS2011.Interfaz/ReproductorListener,IS2011.Interfaz/SongInfoInterfaz-Standard::Call->IS2011.Interfaz/JPanelTransparente,IS2011.Interfaz/InterfazAvanzada-Standard::Instantiate->IS2011.Interfaz/SongInfoInterfaz,IS2011.Interfaz/BibliotecaInterfaz-Soyatec::Import->IS2011.Interfaz/ZebraJTable,IS2011.Interfaz/SongInterfaz-Standard::Instantiate->IS2011.Interfaz/DragDropList,IS2011.Interfaz/InterfazAvanzada-Soyatec::Import->IS2011.Interfaz/SongInterfaz,IS2011.Interfaz/SongInterfaz-Standard::Instantiate->IS2011.Interfaz/JPanelRound,IS2011.Interfaz/SongInfoInterfaz-Standard::Derive->IS2011.Interfaz/JPanelTransparente,IS2011.Interfaz/Menu-Soyatec::Import->IS2011.Interfaz/InterfazAvanzada,IS2011.Interfaz/InterfazAvanzada-Standard::Instantiate->IS2011.Interfaz/BotonAvanzado,IS2011.Interfaz/InterfazAvanzada-Soyatec::Import->IS2011.Interfaz/BotonAvanzado,IS2011.Interfaz/Launcher-Standard::Call->IS2011.Interfaz/InterfazAvanzada,IS2011.Interfaz/BibliotecaInterfaz-Soyatec::Import->IS2011.Interfaz/InterfazAvanzada,IS2011.Interfaz/ReproductorListener-Soyatec::Import->IS2011.Interfaz/InterfazAvanzada,IS2011.Interfaz/InterfazAvanzada-Standard::Call->IS2011.Interfaz/JPanelRound,IS2011.Interfaz/BibliotecaInterfaz-Standard::Call->IS2011.Interfaz/InterfazAvanzada,IS2011.Interfaz/BibliotecaInterfaz-Standard::Instantiate->IS2011.Interfaz/MyDefaultTableModel,IS2011.Interfaz/BibliotecaInterfaz-Standard::Derive->IS2011.Interfaz/JPanelTransparente,IS2011.Interfaz/InterfazAvanzada-Standard::Instantiate->IS2011.Interfaz/Mover,IS2011.Interfaz/MyDragListener-Soyatec::Import->IS2011.Interfaz/DragDropList,IS2011.Interfaz/Menu-Standard::Instantiate->IS2011.Interfaz/ItemsMenu;dependencyFilter=Standard::Derive,Soyatec::Implement,Standard::Instantiate,Standard::Create,Standard::Call,Standard::Send,Soyatec::Access,Soyatec::Import,;wireOptions=4"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" shortPackageNameFormat="true" showDependencyStereotype="true" showEnumerationStereotype="false" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+</editmodel:ClassDiagramEditModel>

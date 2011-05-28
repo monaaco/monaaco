@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="GestorXML" size="823,808" id="IS2011.GestorXML" metadata="uml2-1.0" initialized="true" zoom="2.0" tag="10" key="32303037303533312D3130204953">
+  <children xsi:type="editmodel:ClassEditModel" name="GestorXML" location="25,40" size="181,166" id="IS2011.GestorXML/GestorXML">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="84,90">
+      <children xsi:type="editmodel:MethodEditModel" name="GestorXML" id="IS2011.GestorXML/GestorXML#GestorXML(Ljava.lang.Class;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cargar" location="216,280" id="IS2011.GestorXML/GestorXML#cargar(Ljava.io.File;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cargar" location="21,56" id="IS2011.GestorXML/GestorXML#cargar(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="guardar" id="IS2011.GestorXML/GestorXML#guardar(LT;Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="guardar" id="IS2011.GestorXML/GestorXML#guardar(LT;Ljava.io.File;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" interactive="false" level="-1" showScope="InPackage" properties="wireOptions=1;Product=eUML2"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>

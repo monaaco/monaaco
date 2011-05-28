@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="Dependencies1" size="1006,1132" id="." metadata="uml2-1.0" initialized="true" scrolledX="40" tag="10" key="32303037303533312D3130204953">
+  <children xsi:type="editmodel:PackageEditModel" targetConnections="//@children.7/@sourceConnections.2" name="IS2011.Interfaz" location="288,337" size="127,60" id="IS2011.Interfaz">
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz-Standard::Call->IS2011.Configuracion" source="//@children.0" target="//@children.4" targetEnd="//@children.0/@sourceConnections.0/@children.2" label="//@children.0/@sourceConnections.0/@children.0" sourceEnd="//@children.0/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Call»" size="29,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="127,10" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,56"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz-Standard::Instantiate->IS2011.FiltrosArchivos" source="//@children.0" target="//@children.1" targetEnd="//@children.0/@sourceConnections.1/@children.2" label="//@children.0/@sourceConnections.1/@children.0" sourceEnd="//@children.0/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate»" size="61,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="28,60" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="121,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz-Standard::Call->IS2011.biblioteca*IS2011.Interfaz-Standard::Instantiate->IS2011.biblioteca*IS2011.Interfaz-Soyatec::Import->IS2011.biblioteca" source="//@children.0" target="//@children.3" targetEnd="//@children.0/@sourceConnections.2/@children.2" label="//@children.0/@sourceConnections.2/@children.0" sourceEnd="//@children.0/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Import, Call»" size="119,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="127,48" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,10"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Interfaz-Standard::Call->javazoom.jlgui.basicplayer*IS2011.Interfaz-Standard::Instantiate->javazoom.jlgui.basicplayer*IS2011.Interfaz-Soyatec::Import->javazoom.jlgui.basicplayer*IS2011.Interfaz-Soyatec::Implement->javazoom.jlgui.basicplayer" source="//@children.0" target="//@children.5" targetEnd="//@children.0/@sourceConnections.3/@children.2" label="//@children.0/@sourceConnections.3/@children.0" sourceEnd="//@children.0/@sourceConnections.3/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Implement, Instantiate, Import, Call»" size="172,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="44,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="161,60"/>
+    </sourceConnections>
+  </children>
+  <children xsi:type="editmodel:PackageEditModel" targetConnections="//@children.0/@sourceConnections.1" name="IS2011.FiltrosArchivos" location="50,521" size="172,60" id="IS2011.FiltrosArchivos"/>
+  <children xsi:type="editmodel:PackageEditModel" targetConnections="//@children.3/@sourceConnections.1" name="IS2011.biblioteca.comparators" location="761,662" size="225,60" id="IS2011.biblioteca.comparators">
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.biblioteca.comparators-Standard::Call->IS2011.biblioteca*IS2011.biblioteca.comparators-Soyatec::Import->IS2011.biblioteca" source="//@children.2" target="//@children.3" targetEnd="//@children.2/@sourceConnections.0/@children.2" label="//@children.2/@sourceConnections.0/@children.0" sourceEnd="//@children.2/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Call»" size="64,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="105,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="118,60"/>
+    </sourceConnections>
+  </children>
+  <children xsi:type="editmodel:PackageEditModel" targetConnections="//@children.7/@sourceConnections.1 //@children.2/@sourceConnections.0 //@children.0/@sourceConnections.2 //@children.4/@sourceConnections.0" name="IS2011.biblioteca" location="585,423" size="142,60" id="IS2011.biblioteca">
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.biblioteca-Standard::Call->IS2011.GestorXML*IS2011.biblioteca-Standard::Instantiate->IS2011.GestorXML*IS2011.biblioteca-Soyatec::Import->IS2011.GestorXML" source="//@children.3" target="//@children.6" targetEnd="//@children.3/@sourceConnections.0/@children.2" label="//@children.3/@sourceConnections.0/@children.0" sourceEnd="//@children.3/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Import, Call»" size="119,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="89,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="56,60"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.biblioteca-Standard::Instantiate->IS2011.biblioteca.comparators" source="//@children.3" target="//@children.2" targetEnd="//@children.3/@sourceConnections.1/@children.2" label="//@children.3/@sourceConnections.1/@children.0" sourceEnd="//@children.3/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate»" size="61,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="98,60" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="85,0"/>
+    </sourceConnections>
+  </children>
+  <children xsi:type="editmodel:PackageEditModel" targetConnections="//@children.0/@sourceConnections.0" name="IS2011.Configuracion" location="562,245" size="168,60" id="IS2011.Configuracion">
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Configuracion-Soyatec::Import->IS2011.biblioteca" source="//@children.4" target="//@children.3" targetEnd="//@children.4/@sourceConnections.0/@children.2" label="//@children.4/@sourceConnections.0/@children.0" sourceEnd="//@children.4/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="93,60" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="70,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.Configuracion-Standard::Call->IS2011.GestorXML*IS2011.Configuracion-Standard::Instantiate->IS2011.GestorXML*IS2011.Configuracion-Soyatec::Import->IS2011.GestorXML" source="//@children.4" target="//@children.6" targetEnd="//@children.4/@sourceConnections.1/@children.2" label="//@children.4/@sourceConnections.1/@children.0" sourceEnd="//@children.4/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Import, Call»" size="119,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="134,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="24,60"/>
+    </sourceConnections>
+  </children>
+  <children xsi:type="editmodel:PackageEditModel" targetConnections="//@children.7/@sourceConnections.0 //@children.0/@sourceConnections.3" name="javazoom.jlgui.basicplayer" location="171,50" size="206,60" id="javazoom.jlgui.basicplayer"/>
+  <children xsi:type="editmodel:PackageEditModel" targetConnections="//@children.7/@sourceConnections.3 //@children.3/@sourceConnections.0 //@children.4/@sourceConnections.1" name="IS2011.GestorXML" location="754,135" size="148,60" id="IS2011.GestorXML"/>
+  <children xsi:type="editmodel:PackageEditModel" name="IS2011.tests" location="446,112" size="107,60" id="IS2011.tests">
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.tests-Standard::Call->javazoom.jlgui.basicplayer*IS2011.tests-Standard::Send->javazoom.jlgui.basicplayer*IS2011.tests-Standard::Instantiate->javazoom.jlgui.basicplayer*IS2011.tests-Soyatec::Import->javazoom.jlgui.basicplayer" source="//@children.7" target="//@children.5" targetEnd="//@children.7/@sourceConnections.0/@children.2" label="//@children.7/@sourceConnections.0/@children.0" sourceEnd="//@children.7/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Send, Instantiate, Import, Call»" size="150,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,15" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="206,58"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.tests-Standard::Call->IS2011.biblioteca*IS2011.tests-Standard::Instantiate->IS2011.biblioteca*IS2011.tests-Soyatec::Import->IS2011.biblioteca" source="//@children.7" target="//@children.3" targetEnd="//@children.7/@sourceConnections.1/@children.2" label="//@children.7/@sourceConnections.1/@children.0" sourceEnd="//@children.7/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Import, Call»" size="119,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="68,60" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="56,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.tests-Standard::Call->IS2011.Interfaz*IS2011.tests-Standard::Instantiate->IS2011.Interfaz*IS2011.tests-Soyatec::Import->IS2011.Interfaz" source="//@children.7" target="//@children.0" targetEnd="//@children.7/@sourceConnections.2/@children.2" label="//@children.7/@sourceConnections.2/@children.0" sourceEnd="//@children.7/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Import, Call»" size="119,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="33,60" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="83,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.tests-Soyatec::Import->IS2011.GestorXML" source="//@children.7" target="//@children.6" targetEnd="//@children.7/@sourceConnections.3/@children.2" label="//@children.7/@sourceConnections.3/@children.0" sourceEnd="//@children.7/@sourceConnections.3/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="107,41" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,18"/>
+    </sourceConnections>
+  </children>
+  <children xsi:type="editmodel:PackageEditModel" name="javazoom.jl.player.advanced" location="407,1052" size="218,60" id="javazoom.jl.player.advanced">
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="javazoom.jl.player.advanced-Standard::Call->javazoom.jl.player*javazoom.jl.player.advanced-Soyatec::Import->javazoom.jl.player" source="//@children.8" target="//@children.11" targetEnd="//@children.8/@sourceConnections.0/@children.2" label="//@children.8/@sourceConnections.0/@children.0" sourceEnd="//@children.8/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Call»" size="64,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="154,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="62,60"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="javazoom.jl.player.advanced-Standard::Call->javazoom.jl.decoder*javazoom.jl.player.advanced-Standard::Send->javazoom.jl.decoder*javazoom.jl.player.advanced-Standard::Instantiate->javazoom.jl.decoder*javazoom.jl.player.advanced-Soyatec::Import->javazoom.jl.decoder" source="//@children.8" target="//@children.10" targetEnd="//@children.8/@sourceConnections.1/@children.2" label="//@children.8/@sourceConnections.1/@children.0" sourceEnd="//@children.8/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Send, Instantiate, Import, Call»" size="150,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="11,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="152,60"/>
+    </sourceConnections>
+  </children>
+  <children xsi:type="editmodel:PackageEditModel" name="javazoom.jl.converter" location="50,772" size="173,60" id="javazoom.jl.converter">
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="javazoom.jl.converter-Standard::Call->javazoom.jl.decoder*javazoom.jl.converter-Standard::Derive->javazoom.jl.decoder*javazoom.jl.converter-Standard::Send->javazoom.jl.decoder*javazoom.jl.converter-Standard::Instantiate->javazoom.jl.decoder*javazoom.jl.converter-Soyatec::Import->javazoom.jl.decoder" source="//@children.9" target="//@children.10" targetEnd="//@children.9/@sourceConnections.0/@children.2" label="//@children.9/@sourceConnections.0/@children.0" sourceEnd="//@children.9/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Send, Instantiate, Import, Call, Derive»" size="187,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="154,60" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="14,0"/>
+    </sourceConnections>
+  </children>
+  <children xsi:type="editmodel:PackageEditModel" targetConnections="//@children.9/@sourceConnections.0 //@children.8/@sourceConnections.1 //@children.11/@sourceConnections.0" name="javazoom.jl.decoder" location="266,865" size="165,60" id="javazoom.jl.decoder"/>
+  <children xsi:type="editmodel:PackageEditModel" targetConnections="//@children.8/@sourceConnections.0" name="javazoom.jl.player" location="499,840" size="153,60" id="javazoom.jl.player">
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="javazoom.jl.player-Standard::Call->javazoom.jl.decoder*javazoom.jl.player-Standard::Send->javazoom.jl.decoder*javazoom.jl.player-Standard::Instantiate->javazoom.jl.decoder*javazoom.jl.player-Soyatec::Import->javazoom.jl.decoder" source="//@children.11" target="//@children.10" targetEnd="//@children.11/@sourceConnections.0/@children.2" label="//@children.11/@sourceConnections.0/@children.0" sourceEnd="//@children.11/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Send, Instantiate, Import, Call»" size="150,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,42" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="165,17"/>
+    </sourceConnections>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" interactive="false" properties="wireOptions=4;Product=eUML2;displayOptions=1"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+</editmodel:ClassDiagramEditModel>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="comparators" size="823,808" id="IS2011.biblioteca.comparators" metadata="uml2-1.0" initialized="true" zoom="1.4935304990757856" tag="10" key="32303037303533312D3130204953">
+  <children xsi:type="editmodel:ClassEditModel" name="ComparatorArtista" location="50,213" size="157,67" id="IS2011.biblioteca.comparators/ComparatorArtista">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="72,18">
+      <children xsi:type="editmodel:MethodEditModel" name="compare" id="IS2011.biblioteca.comparators/ComparatorArtista#compare(LIS2011.biblioteca.Track;LIS2011.biblioteca.Track;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" id="java.util/Comparator&lt;-IS2011.biblioteca.comparators/ComparatorArtista" source="//@children.0" target="//@children.2" targetEnd="//@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.0/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="122,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="78,112" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.biblioteca.comparators/ComparatorArtista-Standard::Call->IS2011.biblioteca/Track*IS2011.biblioteca.comparators/ComparatorArtista-Soyatec::Import->IS2011.biblioteca/Track" source="//@children.0" target="//@children.3" targetEnd="//@children.0/@sourceConnections.1/@children.2" label="//@children.0/@sourceConnections.1/@children.0" sourceEnd="//@children.0/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Call»" size="64,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="126,67" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="29,0"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="ComparatorTitulo" location="237,213" size="153,67" id="IS2011.biblioteca.comparators/ComparatorTitulo" runTimeClassModel="compare(LIS2011.biblioteca.Track;LIS2011.biblioteca.Track;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="72,18">
+      <children xsi:type="editmodel:MethodEditModel" name="compare" id="IS2011.biblioteca.comparators/ComparatorTitulo#compare(LIS2011.biblioteca.Track;LIS2011.biblioteca.Track;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" id="java.util/Comparator&lt;-IS2011.biblioteca.comparators/ComparatorTitulo" source="//@children.1" target="//@children.2" targetEnd="//@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.1/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="23,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="77,112"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="IS2011.biblioteca.comparators/ComparatorTitulo-Standard::Call->IS2011.biblioteca/Track*IS2011.biblioteca.comparators/ComparatorTitulo-Soyatec::Import->IS2011.biblioteca/Track" source="//@children.1" target="//@children.3" targetEnd="//@children.1/@sourceConnections.1/@children.2" label="//@children.1/@sourceConnections.1/@children.0" sourceEnd="//@children.1/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Call»" size="64,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="23,67" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="113,0"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.0/@sourceConnections.0 //@children.1/@sourceConnections.0" name="Comparator" location="139,15" size="145,113" id="java.util/Comparator">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="72,36">
+      <children xsi:type="editmodel:MethodEditModel" name="compare" id="java.util/Comparator#compare(LT;LT;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="equals" id="java.util/Comparator#equals(Ljava.lang.Object;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.1 //@children.0/@sourceConnections.1" name="Track" location="147,355" size="137,106" id="IS2011.biblioteca/Track">
+    <children xsi:type="editmodel:CompartmentEditModel" size="114,324">
+      <children xsi:type="editmodel:AttributeEditModel" name="album" id="IS2011.biblioteca/Track#album"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="albumArtist" id="IS2011.biblioteca/Track#albumArtist"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="artist" id="IS2011.biblioteca/Track#artist"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="bitRate" id="IS2011.biblioteca/Track#bitRate"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="comments" id="IS2011.biblioteca/Track#comments"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="dateAdded" id="IS2011.biblioteca/Track#dateAdded"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="dateModified" id="IS2011.biblioteca/Track#dateModified"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="genre" id="IS2011.biblioteca/Track#genre"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="id" id="IS2011.biblioteca/Track#id"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="kind" id="IS2011.biblioteca/Track#kind"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="location" id="IS2011.biblioteca/Track#location"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="name" id="IS2011.biblioteca/Track#name"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="sampleRate" id="IS2011.biblioteca/Track#sampleRate"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="sid" id="IS2011.biblioteca/Track#sid"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="size" id="IS2011.biblioteca/Track#size"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="totalTime" id="IS2011.biblioteca/Track#totalTime"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="trackType" id="IS2011.biblioteca/Track#trackType"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="year" id="IS2011.biblioteca/Track#year"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="112,144">
+      <children xsi:type="editmodel:MethodEditModel" name="Track" id="IS2011.biblioteca/Track#Track(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="equals" id="IS2011.biblioteca/Track#equals(Ljava.lang.Object;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getArtwork" id="IS2011.biblioteca/Track#getArtwork()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getArtworkList" id="IS2011.biblioteca/Track#getArtworkList()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getNumCaratulas" id="IS2011.biblioteca/Track#getNumCaratulas()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="hashCode" id="IS2011.biblioteca/Track#hashCode()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setArtworkList" id="IS2011.biblioteca/Track#setArtworkList(Ljava.util.List;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="IS2011.biblioteca/Track#toString()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" interactive="false" level="-1" showScope="InPackage" properties="wireOptions=1;Product=eUML2"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>

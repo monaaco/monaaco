@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="Interfaz" size="1743,1171" id="IS2011.Interfaz" metadata="uml2-1.0" initialized="true" zoom="0.993718592964824" scrolledX="-61" scrolledY="72" tag="10" key="32303037303533312D3130204953">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.8/@sourceConnections.1" name="MyDragListener" location="855,330" size="141,29" id="IS2011.Interfaz/MyDragListener">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.6/@sourceConnections.2 //@children.6/@sourceConnections.6 //@children.6/@sourceConnections.9" name="BotonAvanzado" location="100,774" size="206,29" id="IS2011.Interfaz/BotonAvanzado">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.6/@sourceConnections.5 //@children.14/@sourceConnections.1" name="HiloCargar" location="135,358" size="110,29" id="IS2011.Interfaz/HiloCargar">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.6/@sourceConnections.7" name="SongInterfaz" location="767,611" size="123,29" id="IS2011.Interfaz/SongInterfaz">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="IS2011.Interfaz/DragDropList@listado+IS2011.Interfaz/SongInterfaz@" source="//@children.3" target="//@children.8" targetEnd="//@children.3/@sourceConnections.0/@children.2" label="//@children.3/@sourceConnections.0/@children.0" sourceEnd="//@children.3/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="67,0" id="IS2011.Interfaz/DragDropList@listado+IS2011.Interfaz/SongInterfaz@|IS2011.Interfaz/SongInterfaz#" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="listado" location="54,29" id="IS2011.Interfaz/DragDropList@listado+IS2011.Interfaz/SongInterfaz@|IS2011.Interfaz/DragDropList#listado" multiplicityLabel="//@children.3/@sourceConnections.0/@children.2/@children.1" roleLabel="//@children.3/@sourceConnections.0/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - listado" location="840,485" size="41,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="820,485" size="6,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="IS2011.Interfaz/JPanelRound@panelInterno+IS2011.Interfaz/SongInterfaz@" source="//@children.3" target="//@children.7" targetEnd="//@children.3/@sourceConnections.1/@children.2" label="//@children.3/@sourceConnections.1/@children.0" sourceEnd="//@children.3/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="23,29" id="IS2011.Interfaz/JPanelRound@panelInterno+IS2011.Interfaz/SongInterfaz@|IS2011.Interfaz/SongInterfaz#" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="panelInterno" location="127,27" id="IS2011.Interfaz/JPanelRound@panelInterno+IS2011.Interfaz/SongInterfaz@|IS2011.Interfaz/JPanelRound#panelInterno" multiplicityLabel="//@children.3/@sourceConnections.1/@children.2/@children.1" roleLabel="//@children.3/@sourceConnections.1/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - panelInterno" location="718,828" size="69,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="718,800" size="6,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="MyDefaultTableModel" location="305,73" size="179,29" id="IS2011.Interfaz/MyDefaultTableModel">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="IS2011.Interfaz/MyDefaultTableModel@modelo+IS2011.Interfaz/BibliotecaInterfaz@" source="//@children.4" target="//@children.14" targetEnd="//@children.4/@sourceConnections.0/@children.2" label="//@children.4/@sourceConnections.0/@children.0" sourceEnd="//@children.4/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="modelo" location="101,29" id="IS2011.Interfaz/MyDefaultTableModel@modelo+IS2011.Interfaz/BibliotecaInterfaz@|IS2011.Interfaz/MyDefaultTableModel#modelo" attachSource="true" multiplicityLabel="//@children.4/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.4/@sourceConnections.0/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - modelo" location="412,108" size="44,14" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="392,108" size="6,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="76,0" id="IS2011.Interfaz/MyDefaultTableModel@modelo+IS2011.Interfaz/BibliotecaInterfaz@|IS2011.Interfaz/BibliotecaInterfaz#"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.12/@sourceConnections.1" name="JPanelTransparente" location="585,105" size="169,29" id="IS2011.Interfaz/JPanelTransparente">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.14/@sourceConnections.0" name="InterfazAvanzada" location="315,444" size="193,196" id="IS2011.Interfaz/InterfazAvanzada">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="IS2011.Interfaz/InterfazAvanzada@interfazAvanzada+IS2011.Interfaz/SongInfoInterfaz@infoSong" source="//@children.6" target="//@children.12" targetEnd="//@children.6/@sourceConnections.0/@children.2" label="//@children.6/@sourceConnections.0/@children.0" sourceEnd="//@children.6/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="interfazAvanzada" location="192,67" id="IS2011.Interfaz/InterfazAvanzada@interfazAvanzada+IS2011.Interfaz/SongInfoInterfaz@infoSong|IS2011.Interfaz/InterfazAvanzada#interfazAvanzada" attachSource="true" multiplicityLabel="//@children.6/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.6/@sourceConnections.0/@children.1/@children.0" navigable="true" changeability="2">
+        <children xsi:type="editmodel:LabelEditModel" name=" - interfazAvanzada" location="514,517" size="97,14" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="514,489" size="18,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="infoSong" location="69,29" id="IS2011.Interfaz/InterfazAvanzada@interfazAvanzada+IS2011.Interfaz/SongInfoInterfaz@infoSong|IS2011.Interfaz/SongInfoInterfaz#infoSong" multiplicityLabel="//@children.6/@sourceConnections.0/@children.2/@children.1" roleLabel="//@children.6/@sourceConnections.0/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" + infoSong" location="650,365" size="55,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="630,365" size="6,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="IS2011.Interfaz/InterfazAvanzada@ia+IS2011.Interfaz/Menu@menuPrincipal" source="//@children.6" target="//@children.11" targetEnd="//@children.6/@sourceConnections.1/@children.2" label="//@children.6/@sourceConnections.1/@children.0" sourceEnd="//@children.6/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ia" location="0,97" id="IS2011.Interfaz/InterfazAvanzada@ia+IS2011.Interfaz/Menu@menuPrincipal|IS2011.Interfaz/InterfazAvanzada#ia" attachSource="true" multiplicityLabel="//@children.6/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.6/@sourceConnections.1/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - ia" location="289,519" size="18,14" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="301,547" size="6,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="menuPrincipal" location="77,14" id="IS2011.Interfaz/InterfazAvanzada@ia+IS2011.Interfaz/Menu@menuPrincipal|IS2011.Interfaz/Menu#menuPrincipal" multiplicityLabel="//@children.6/@sourceConnections.1/@children.2/@children.1" roleLabel="//@children.6/@sourceConnections.1/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" + menuPrincipal" location="156,519" size="78,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="156,547" size="6,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="IS2011.Interfaz/BotonAvanzado@playButton+IS2011.Interfaz/InterfazAvanzada@" source="//@children.6" target="//@children.1" targetEnd="//@children.6/@sourceConnections.2/@children.2" label="//@children.6/@sourceConnections.2/@children.0" sourceEnd="//@children.6/@sourceConnections.2/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,166" id="IS2011.Interfaz/BotonAvanzado@playButton+IS2011.Interfaz/InterfazAvanzada@|IS2011.Interfaz/InterfazAvanzada#" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="playButton" location="16,0" id="IS2011.Interfaz/BotonAvanzado@playButton+IS2011.Interfaz/InterfazAvanzada@|IS2011.Interfaz/BotonAvanzado#playButton" multiplicityLabel="//@children.6/@sourceConnections.2/@children.2/@children.1" roleLabel="//@children.6/@sourceConnections.2/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - playButton" location="47,752" size="61,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="122,752" size="6,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="IS2011.Interfaz/InterfazAvanzada@player+IS2011.Interfaz/ReproductorListener@reproductorListener" source="//@children.6" target="//@children.13" targetEnd="//@children.6/@sourceConnections.3/@children.2" label="//@children.6/@sourceConnections.3/@children.0" sourceEnd="//@children.6/@sourceConnections.3/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="player" location="91,196" id="IS2011.Interfaz/InterfazAvanzada@player+IS2011.Interfaz/ReproductorListener@reproductorListener|IS2011.Interfaz/InterfazAvanzada#player" attachSource="true" multiplicityLabel="//@children.6/@sourceConnections.3/@children.1/@children.1" roleLabel="//@children.6/@sourceConnections.3/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - player" location="412,646" size="40,14" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="392,646" size="6,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="reproductorListener" location="85,0" id="IS2011.Interfaz/InterfazAvanzada@player+IS2011.Interfaz/ReproductorListener@reproductorListener|IS2011.Interfaz/ReproductorListener#reproductorListener" multiplicityLabel="//@children.6/@sourceConnections.3/@children.2/@children.1" roleLabel="//@children.6/@sourceConnections.3/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" + reproductorListener" location="412,818" size="108,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="380,818" size="18,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="IS2011.Interfaz/JPanelRound@main+IS2011.Interfaz/InterfazAvanzada@" source="//@children.6" target="//@children.7" targetEnd="//@children.6/@sourceConnections.4/@children.2" label="//@children.6/@sourceConnections.4/@children.0" sourceEnd="//@children.6/@sourceConnections.4/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="193,186" id="IS2011.Interfaz/JPanelRound@main+IS2011.Interfaz/InterfazAvanzada@|IS2011.Interfaz/InterfazAvanzada#" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="main" location="0,29" id="IS2011.Interfaz/JPanelRound@main+IS2011.Interfaz/InterfazAvanzada@|IS2011.Interfaz/JPanelRound#main" multiplicityLabel="//@children.6/@sourceConnections.4/@children.2/@children.1" roleLabel="//@children.6/@sourceConnections.4/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - main" location="545,830" size="32,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="571,802" size="6,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="IS2011.Interfaz/InterfazAvanzada@interfazPadre+IS2011.Interfaz/HiloCargar@" source="//@children.6" target="//@children.2" targetEnd="//@children.6/@sourceConnections.5/@children.2" label="//@children.6/@sourceConnections.5/@children.0" sourceEnd="//@children.6/@sourceConnections.5/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="interfazPadre" location="0,28" id="IS2011.Interfaz/InterfazAvanzada@interfazPadre+IS2011.Interfaz/HiloCargar@|IS2011.Interfaz/InterfazAvanzada#interfazPadre" attachSource="true" multiplicityLabel="//@children.6/@sourceConnections.5/@children.1/@children.1" roleLabel="//@children.6/@sourceConnections.5/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - interfazPadre" location="232,478" size="75,14" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="301,450" size="6,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="60,29" id="IS2011.Interfaz/InterfazAvanzada@interfazPadre+IS2011.Interfaz/HiloCargar@|IS2011.Interfaz/HiloCargar#"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="IS2011.Interfaz/BotonAvanzado@stopButton+IS2011.Interfaz/InterfazAvanzada@" source="//@children.6" target="//@children.1" targetEnd="//@children.6/@sourceConnections.6/@children.2" label="//@children.6/@sourceConnections.6/@children.0" sourceEnd="//@children.6/@sourceConnections.6/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,179" id="IS2011.Interfaz/BotonAvanzado@stopButton+IS2011.Interfaz/InterfazAvanzada@|IS2011.Interfaz/InterfazAvanzada#" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="stopButton" location="107,0" id="IS2011.Interfaz/BotonAvanzado@stopButton+IS2011.Interfaz/InterfazAvanzada@|IS2011.Interfaz/BotonAvanzado#stopButton" multiplicityLabel="//@children.6/@sourceConnections.6/@children.2/@children.1" roleLabel="//@children.6/@sourceConnections.6/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - stopButton" location="134,730" size="62,14" automaticRelocationAllowed="false" locationOnWireFromSource="40.0" distanceFromWire="-40.99999999999999" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="209,729" size="6,14" automaticRelocationAllowed="false" locationOnWireFromSource="39.99999999999999" distanceFromWire="6.000000000000038" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="IS2011.Interfaz/SongInterfaz@infoPlaylist+IS2011.Interfaz/InterfazAvanzada@interfazAvanzada" source="//@children.6" target="//@children.3" targetEnd="//@children.6/@sourceConnections.7/@children.2" label="//@children.6/@sourceConnections.7/@children.0" sourceEnd="//@children.6/@sourceConnections.7/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="interfazAvanzada" location="193,136" id="IS2011.Interfaz/SongInterfaz@infoPlaylist+IS2011.Interfaz/InterfazAvanzada@interfazAvanzada|IS2011.Interfaz/InterfazAvanzada#interfazAvanzada" attachSource="true" multiplicityLabel="//@children.6/@sourceConnections.7/@children.1/@children.1" roleLabel="//@children.6/@sourceConnections.7/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" + interfazAvanzada" location="514,558" size="99,14" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="514,586" size="6,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="infoPlaylist" location="10,0" id="IS2011.Interfaz/SongInterfaz@infoPlaylist+IS2011.Interfaz/InterfazAvanzada@interfazAvanzada|IS2011.Interfaz/SongInterfaz#infoPlaylist" multiplicityLabel="//@children.6/@sourceConnections.7/@children.2/@children.1" roleLabel="//@children.6/@sourceConnections.7/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - infoPlaylist" location="783,589" size="61,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="763,589" size="6,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="IS2011.Interfaz/JPanelRound@backGround+IS2011.Interfaz/InterfazAvanzada@" source="//@children.6" target="//@children.7" targetEnd="//@children.6/@sourceConnections.8/@children.2" label="//@children.6/@sourceConnections.8/@children.0" sourceEnd="//@children.6/@sourceConnections.8/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="193,163" id="IS2011.Interfaz/JPanelRound@backGround+IS2011.Interfaz/InterfazAvanzada@|IS2011.Interfaz/InterfazAvanzada#" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="backGround" location="49,0" id="IS2011.Interfaz/JPanelRound@backGround+IS2011.Interfaz/InterfazAvanzada@|IS2011.Interfaz/JPanelRound#backGround" multiplicityLabel="//@children.6/@sourceConnections.8/@children.2/@children.1" roleLabel="//@children.6/@sourceConnections.8/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - backGround" location="640,773" size="69,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="620,773" size="6,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="IS2011.Interfaz/BotonAvanzado@pauseButton+IS2011.Interfaz/InterfazAvanzada@" source="//@children.6" target="//@children.1" targetEnd="//@children.6/@sourceConnections.9/@children.2" label="//@children.6/@sourceConnections.9/@children.0" sourceEnd="//@children.6/@sourceConnections.9/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,184" id="IS2011.Interfaz/BotonAvanzado@pauseButton+IS2011.Interfaz/InterfazAvanzada@|IS2011.Interfaz/InterfazAvanzada#" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="pauseButton" location="174,0" id="IS2011.Interfaz/BotonAvanzado@pauseButton+IS2011.Interfaz/InterfazAvanzada@|IS2011.Interfaz/BotonAvanzado#pauseButton" multiplicityLabel="//@children.6/@sourceConnections.9/@children.2/@children.1" roleLabel="//@children.6/@sourceConnections.9/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - pauseButton" location="195,752" size="71,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="280,752" size="6,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.3/@sourceConnections.1 //@children.6/@sourceConnections.8 //@children.6/@sourceConnections.4" name="JPanelRound" location="585,795" size="127,54" id="IS2011.Interfaz/JPanelRound">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.3/@sourceConnections.0" name="DragDropList" location="780,450" size="124,29" id="IS2011.Interfaz/DragDropList">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="IS2011.Interfaz/DragDropList@list+IS2011.Interfaz/MyListDropHandler@" source="//@children.8" target="//@children.9" targetEnd="//@children.8/@sourceConnections.0/@children.2" label="//@children.8/@sourceConnections.0/@children.0" sourceEnd="//@children.8/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="list" location="35,0" id="IS2011.Interfaz/DragDropList@list+IS2011.Interfaz/MyListDropHandler@|IS2011.Interfaz/DragDropList#list" attachSource="true" multiplicityLabel="//@children.8/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.8/@sourceConnections.0/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" ~ list" location="821,428" size="25,14" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="801,428" size="6,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="125,29" id="IS2011.Interfaz/DragDropList@list+IS2011.Interfaz/MyListDropHandler@|IS2011.Interfaz/MyListDropHandler#"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="IS2011.Interfaz/DragDropList@list+IS2011.Interfaz/MyDragListener@" source="//@children.8" target="//@children.0" targetEnd="//@children.8/@sourceConnections.1/@children.2" label="//@children.8/@sourceConnections.1/@children.0" sourceEnd="//@children.8/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="list" location="99,0" id="IS2011.Interfaz/DragDropList@list+IS2011.Interfaz/MyDragListener@|IS2011.Interfaz/DragDropList#list" attachSource="true" multiplicityLabel="//@children.8/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.8/@sourceConnections.1/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" ~ list" location="885,428" size="25,14" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="865,428" size="6,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="24,29" id="IS2011.Interfaz/DragDropList@list+IS2011.Interfaz/MyDragListener@|IS2011.Interfaz/MyDragListener#"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.8/@sourceConnections.0" name="MyListDropHandler" location="690,226" size="162,29" id="IS2011.Interfaz/MyListDropHandler">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.14/@sourceConnections.3" name="ZebraJTable" location="100,225" size="120,29" id="IS2011.Interfaz/ZebraJTable">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.6/@sourceConnections.1" name="Menu" location="73,527" size="77,29" id="IS2011.Interfaz/Menu">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.12/@sourceConnections.0 //@children.6/@sourceConnections.0" name="SongInfoInterfaz" location="575,330" size="147,29" id="IS2011.Interfaz/SongInfoInterfaz">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="IS2011.Interfaz/SongInfoInterfaz@principal+IS2011.Interfaz/SongInfoInterfaz@" source="//@children.12" target="//@children.12" targetEnd="//@children.12/@sourceConnections.0/@children.2" label="//@children.12/@sourceConnections.0/@children.0" sourceEnd="//@children.12/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="principal" location="0,19" id="IS2011.Interfaz/SongInfoInterfaz@principal+IS2011.Interfaz/SongInfoInterfaz@|IS2011.Interfaz/SongInfoInterfaz#principal" anchorKind="FixedAtEdge" attachSource="true" multiplicityLabel="//@children.12/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.12/@sourceConnections.0/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - principal" location="517,355" size="50,14" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="561,327" size="6,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="20,0" id="IS2011.Interfaz/SongInfoInterfaz@principal+IS2011.Interfaz/SongInfoInterfaz@|IS2011.Interfaz/SongInfoInterfaz#" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="IS2011.Interfaz/JPanelTransparente@infoPanel+IS2011.Interfaz/SongInfoInterfaz@" source="//@children.12" target="//@children.5" targetEnd="//@children.12/@sourceConnections.1/@children.2" label="//@children.12/@sourceConnections.1/@children.0" sourceEnd="//@children.12/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="78,0" id="IS2011.Interfaz/JPanelTransparente@infoPanel+IS2011.Interfaz/SongInfoInterfaz@|IS2011.Interfaz/SongInfoInterfaz#" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="infoPanel" location="68,29" id="IS2011.Interfaz/JPanelTransparente@infoPanel+IS2011.Interfaz/SongInfoInterfaz@|IS2011.Interfaz/JPanelTransparente#infoPanel" multiplicityLabel="//@children.12/@sourceConnections.1/@children.2/@children.1" roleLabel="//@children.12/@sourceConnections.1/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - infoPanel" location="659,140" size="54,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="639,140" size="6,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.6/@sourceConnections.3" name="ReproductorListener" location="321,840" size="171,29" id="IS2011.Interfaz/ReproductorListener">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.4/@sourceConnections.0 //@children.14/@sourceConnections.2" name="BibliotecaInterfaz" location="330,180" size="154,121" id="IS2011.Interfaz/BibliotecaInterfaz">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="IS2011.Interfaz/InterfazAvanzada@interfazPadre+IS2011.Interfaz/BibliotecaInterfaz@bibliotecaInterfaz" source="//@children.14" target="//@children.6" targetEnd="//@children.14/@sourceConnections.0/@children.2" label="//@children.14/@sourceConnections.0/@children.0" sourceEnd="//@children.14/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="bibliotecaInterfaz" location="76,121" id="IS2011.Interfaz/InterfazAvanzada@interfazPadre+IS2011.Interfaz/BibliotecaInterfaz@bibliotecaInterfaz|IS2011.Interfaz/BibliotecaInterfaz#bibliotecaInterfaz" attachSource="true" multiplicityLabel="//@children.14/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.14/@sourceConnections.0/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" + bibliotecaInterfaz" location="412,307" size="94,14" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="392,307" size="6,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="interfazPadre" location="91,0" id="IS2011.Interfaz/InterfazAvanzada@interfazPadre+IS2011.Interfaz/BibliotecaInterfaz@bibliotecaInterfaz|IS2011.Interfaz/InterfazAvanzada#interfazPadre" multiplicityLabel="//@children.14/@sourceConnections.0/@children.2/@children.1" roleLabel="//@children.14/@sourceConnections.0/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - interfazPadre" location="412,422" size="75,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="392,422" size="6,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="IS2011.Interfaz/BibliotecaInterfaz@main+IS2011.Interfaz/HiloCargar@" source="//@children.14" target="//@children.2" targetEnd="//@children.14/@sourceConnections.1/@children.2" label="//@children.14/@sourceConnections.1/@children.0" sourceEnd="//@children.14/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="main" location="0,111" id="IS2011.Interfaz/BibliotecaInterfaz@main+IS2011.Interfaz/HiloCargar@|IS2011.Interfaz/BibliotecaInterfaz#main" attachSource="true" multiplicityLabel="//@children.14/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.14/@sourceConnections.1/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - main" location="290,269" size="32,14" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="316,297" size="6,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="58,0" id="IS2011.Interfaz/BibliotecaInterfaz@main+IS2011.Interfaz/HiloCargar@|IS2011.Interfaz/HiloCargar#"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="IS2011.Interfaz/BibliotecaInterfaz@frame+IS2011.Interfaz/BibliotecaInterfaz@" source="//@children.14" target="//@children.14" targetEnd="//@children.14/@sourceConnections.2/@children.2" label="//@children.14/@sourceConnections.2/@children.0" sourceEnd="//@children.14/@sourceConnections.2/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="frame" location="0,21" id="IS2011.Interfaz/BibliotecaInterfaz@frame+IS2011.Interfaz/BibliotecaInterfaz@|IS2011.Interfaz/BibliotecaInterfaz#frame" anchorKind="FixedAtEdge" attachSource="true" multiplicityLabel="//@children.14/@sourceConnections.2/@children.1/@children.1" roleLabel="//@children.14/@sourceConnections.2/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - frame" location="284,207" size="38,14" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="316,179" size="6,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="20,0" id="IS2011.Interfaz/BibliotecaInterfaz@frame+IS2011.Interfaz/BibliotecaInterfaz@|IS2011.Interfaz/BibliotecaInterfaz#" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="IS2011.Interfaz/ZebraJTable@tabla+IS2011.Interfaz/BibliotecaInterfaz@" source="//@children.14" target="//@children.10" targetEnd="//@children.14/@sourceConnections.3/@children.2" label="//@children.14/@sourceConnections.3/@children.0" sourceEnd="//@children.14/@sourceConnections.3/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,59" id="IS2011.Interfaz/ZebraJTable@tabla+IS2011.Interfaz/BibliotecaInterfaz@|IS2011.Interfaz/BibliotecaInterfaz#" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="tabla" location="120,14" id="IS2011.Interfaz/ZebraJTable@tabla+IS2011.Interfaz/BibliotecaInterfaz@|IS2011.Interfaz/ZebraJTable#tabla" multiplicityLabel="//@children.14/@sourceConnections.3/@children.2/@children.1" roleLabel="//@children.14/@sourceConnections.3/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - tabla" location="226,217" size="33,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="226,245" size="6,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" interactive="false" level="-1" showScope="InPackage" properties="wireOptions=2;Product=eUML2;displayOptions=1"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+</editmodel:ClassDiagramEditModel>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="BotonAvanzado(inheritance)" size="849,786" id="IS2011.Interfaz" metadata="uml2-1.0" initialized="true" tag="10" key="32303037303533312D3130204953">
+  <children xsi:type="editmodel:ClassEditModel" name="BotonAvanzado" location="58,379" size="142,121" id="IS2011.Interfaz/BotonAvanzado" runTimeClassModel="BotonAvanzado(Ljavax.swing.ImageIcon;Ljavax.swing.ImageIcon;),getICon(),getIConS(),contains(II)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="108,72">
+      <children xsi:type="editmodel:MethodEditModel" name="BotonAvanzado" id="IS2011.Interfaz/BotonAvanzado#BotonAvanzado(Ljavax.swing.ImageIcon;Ljavax.swing.ImageIcon;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="contains" id="IS2011.Interfaz/BotonAvanzado#contains(II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getICon" id="IS2011.Interfaz/BotonAvanzado#getICon()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getIConS" id="IS2011.Interfaz/BotonAvanzado#getIConS()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="javax.swing/JButton&lt;-IS2011.Interfaz/BotonAvanzado" source="//@children.0" target="//@children.1" targetEnd="//@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.0/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="71,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="79,279"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@sourceConnections.0" name="JButton" location="50,50" size="159,279" id="javax.swing/JButton" runTimeClassModel="JButton(),JButton(Ljavax.swing.Action;),isDefaultCapable(),JButton(Ljava.lang.String;Ljavax.swing.Icon;),JButton(Ljavax.swing.Icon;),JButton(Ljava.lang.String;),updateUI(),getUIClassID(),getAccessibleContext(),isDefaultButton(),removeNotify(),setDefaultCapable(Z)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="136,216">
+      <children xsi:type="editmodel:MethodEditModel" name="JButton" id="javax.swing/JButton#JButton(Ljavax.swing.Action;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="JButton" id="javax.swing/JButton#JButton(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="JButton" id="javax.swing/JButton#JButton(Ljavax.swing.Icon;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="JButton" id="javax.swing/JButton#JButton()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="JButton" id="javax.swing/JButton#JButton(Ljava.lang.String;Ljavax.swing.Icon;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getAccessibleContext" id="javax.swing/JButton#getAccessibleContext()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getUIClassID" id="javax.swing/JButton#getUIClassID()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isDefaultButton" id="javax.swing/JButton#isDefaultButton()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isDefaultCapable" id="javax.swing/JButton#isDefaultCapable()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="removeNotify" id="javax.swing/JButton#removeNotify()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setDefaultCapable" id="javax.swing/JButton#setDefaultCapable(Z)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateUI" id="javax.swing/JButton#updateUI()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" interactive="false" properties="open=IS2011.Interfaz/BotonAvanzado;wireOptions=1;Product=eUML2"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>

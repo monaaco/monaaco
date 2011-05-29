@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="BibliotecaInterfaz" size="805,1005" id="IS2011.Interfaz" metadata="uml2-1.0" initialized="true" tag="10" key="32303037303533312D3130204953">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.0" name="JPanelTransparente" location="50,532" size="169,85" id="IS2011.Interfaz/JPanelTransparente" runTimeClassModel="JPanelTransparente(),tran">
+    <children xsi:type="editmodel:CompartmentEditModel" size="65,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="tran" id="IS2011.Interfaz/JPanelTransparente#tran"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="126,18">
+      <children xsi:type="editmodel:MethodEditModel" name="JPanelTransparente" id="IS2011.Interfaz/JPanelTransparente#JPanelTransparente()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="IS2011.Interfaz/JPanelRound&lt;-IS2011.Interfaz/JPanelTransparente" source="//@children.0" target="//@children.2" targetEnd="//@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.0/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="84,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="76,157"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="BibliotecaInterfaz" location="57,667" size="154,265" id="IS2011.Interfaz/BibliotecaInterfaz">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="126,216">
+      <children xsi:type="editmodel:MethodEditModel" name="BibliotecaInterfaz" id="IS2011.Interfaz/BibliotecaInterfaz#BibliotecaInterfaz(LIS2011.Interfaz.InterfazAvanzada;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="actualiza" id="IS2011.Interfaz/BibliotecaInterfaz#actualiza()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="acumulaLetra" id="IS2011.Interfaz/BibliotecaInterfaz#acumulaLetra(C)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="borraElemBiblioteca" id="IS2011.Interfaz/BibliotecaInterfaz#borraElemBiblioteca()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="buscaNombre" id="IS2011.Interfaz/BibliotecaInterfaz#buscaNombre(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cargarPreferencias" id="IS2011.Interfaz/BibliotecaInterfaz#cargarPreferencias()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="filtraRapido" id="IS2011.Interfaz/BibliotecaInterfaz#filtraRapido()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getAudioFiles" id="IS2011.Interfaz/BibliotecaInterfaz#getAudioFiles(Ljava.io.File;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getFiltroAvanzado" id="IS2011.Interfaz/BibliotecaInterfaz#getFiltroAvanzado()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="initBibliotecaInterfaz" id="IS2011.Interfaz/BibliotecaInterfaz#initBibliotecaInterfaz()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="meterEnPlayList" id="IS2011.Interfaz/BibliotecaInterfaz#meterEnPlayList([I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="sincroniza" id="IS2011.Interfaz/BibliotecaInterfaz#sincroniza(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="IS2011.Interfaz/JPanelTransparente&lt;-IS2011.Interfaz/BibliotecaInterfaz" source="//@children.1" target="//@children.0" targetEnd="//@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.1/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="77,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="84,85"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@sourceConnections.0" name="JPanelRound" location="58,325" size="152,157" id="IS2011.Interfaz/JPanelRound">
+    <children xsi:type="editmodel:CompartmentEditModel" size="129,90">
+      <children xsi:type="editmodel:AttributeEditModel" name="arch" id="IS2011.Interfaz/JPanelRound#arch"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="arcw" id="IS2011.Interfaz/JPanelRound#arcw"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="colorContorno" id="IS2011.Interfaz/JPanelRound#colorContorno"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="colorPrimario" id="IS2011.Interfaz/JPanelRound#colorPrimario"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="colorSecundario" id="IS2011.Interfaz/JPanelRound#colorSecundario"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="92,18">
+      <children xsi:type="editmodel:MethodEditModel" name="JPanelRound" id="IS2011.Interfaz/JPanelRound#JPanelRound()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="javax.swing/JPanel&lt;-IS2011.Interfaz/JPanelRound" source="//@children.2" target="//@children.3" targetEnd="//@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.2/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="76,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="79,225"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.0" name="JPanel" location="55,50" size="159,225" id="javax.swing/JPanel">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="136,162">
+      <children xsi:type="editmodel:MethodEditModel" name="JPanel" id="javax.swing/JPanel#JPanel()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="JPanel" id="javax.swing/JPanel#JPanel(Z)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="JPanel" id="javax.swing/JPanel#JPanel(Ljava.awt.LayoutManager;Z)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="JPanel" id="javax.swing/JPanel#JPanel(Ljava.awt.LayoutManager;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getAccessibleContext" id="javax.swing/JPanel#getAccessibleContext()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getUI" id="javax.swing/JPanel#getUI()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getUIClassID" id="javax.swing/JPanel#getUIClassID()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setUI" id="javax.swing/JPanel#setUI(Ljavax.swing.plaf.PanelUI;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateUI" id="javax.swing/JPanel#updateUI()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" interactive="false" properties="open=IS2011.Interfaz/BibliotecaInterfaz;wireOptions=1;Product=eUML2"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>

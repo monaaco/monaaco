@@ -389,7 +389,7 @@ public class InterfazAvanzada extends JFrame {
 		restante= false;
 		
 		JButton bibliotecaIcono= this.getBotonBiblioteca();
-		bibliotecaIcono.setBounds(470,290,90,45);
+		bibliotecaIcono.setBounds(355,290,90,45);
 		backGround.add(bibliotecaIcono);
 		//this.setForeground(Color.white);
 
@@ -397,7 +397,7 @@ public class InterfazAvanzada extends JFrame {
 		//this.changeCursor();
 		
 		JButton min= this.getBotonMin();
-		min.setBounds(355,290,90,45);
+		min.setBounds(470,290,90,45);
 		backGround.add(min);
 		//this.setForeground(Color.white);
 

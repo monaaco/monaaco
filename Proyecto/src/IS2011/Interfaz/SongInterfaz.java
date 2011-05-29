@@ -130,6 +130,7 @@ public class SongInterfaz extends JFrame{
                // getPanelInterno(temas).setBounds(0,0,195,pantalla.height-245);
 
                 getListado();
+                setListado(temas);
                 getScrollListado(listado).setBounds(0,0,200,pantalla.height-225);
                 this.getContentPane().setLayout(null);
                 this.getContentPane().add(minButton);

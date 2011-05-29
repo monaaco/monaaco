@@ -279,8 +279,15 @@ public class BibliotecaInterfaz extends JPanelTransparente{
 					case 127:	// suprimir
 						borraElemBiblioteca();
 						break;
-					case 10:	// ENTER
-						meterEnPlayList(tabla.getSelectedRows());
+					case 10: // ENTER
+						if(tabla.getSelectedRowCount() == 1){
+						int[] select = tabla.getSelectedRows();
+						if(select[0] == 0) select[0] = (tabla.getRowCount() - 1);
+						else select[0] = select[0] - 1;
+						meterEnPlayList(select);
+						}
+						else meterEnPlayList(tabla.getSelectedRows());
+						break;
 					}
 				}
 			}

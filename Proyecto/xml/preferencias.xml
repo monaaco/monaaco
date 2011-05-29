@@ -27,18 +27,5 @@
     <blue>0</blue>
     <alpha>255</alpha>
   </fgColorInterno>
-  <track id="0">
-    <name>Donde duele inspira</name>
-    <artist>Flowklorikos</artist>
-    <albumArtist></albumArtist>
-    <album>Donde duele inspira</album>
-    <genre>Hip-Hop</genre>
-    <kind>MPEG-1 Layer 3</kind>
-    <size>16106127360</size>
-    <totalTime>216</totalTime>
-    <bitRate>320</bitRate>
-    <comments>www.HHGroups.com</comments>
-    <location>sounds\prueba.mp3</location>
-  </track>
-  <posCancionActual>282474</posCancionActual>
+  <posCancionActual>0</posCancionActual>
 </preferencias>

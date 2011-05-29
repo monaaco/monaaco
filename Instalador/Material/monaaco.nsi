@@ -140,7 +140,7 @@ SetCompressor lzma
 ; Configuración General ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 ;Nuestro instalador se llamara si la versión fuera la 1.0: Ejemplo-1.0-win32.exe
-OutFile Monaaco-1.0.243.exe
+OutFile Monaaco-1.0.282.exe
 
 ;Aquí comprobamos que en la versión Inglesa se muestra correctamente el mensaje:
 ;Welcome to the $Name Setup Wizard
@@ -224,7 +224,7 @@ SetOutPath $INSTDIR
 ;CopyFiles $INSTDIR\*.jar $INSTDIR\
 
 ;Incluimos todos los ficheros que componen nuestra aplicación
-File   mono.exe
+File   monaaco.exe
 File   licencia.html
 ;File   config.ini
 File   *.txt
@@ -242,11 +242,11 @@ File /r *.gif
 SetShellVarContext all
 ;Creamos los directorios, acesos directos y claves del registro que queramos...
 	CreateDirectory "$SMPROGRAMS\$PATH_ACCESO_DIRECTO"
-        CreateShortCut "$SMPROGRAMS\$PATH_ACCESO_DIRECTO\mono.lnk" \
-                       "$INSTDIR\mono.exe" "--parametros parametro1"
+        CreateShortCut "$SMPROGRAMS\$PATH_ACCESO_DIRECTO\monaaco.lnk" \
+                       "$INSTDIR\monaaco.exe" "--parametros parametro1"
 					   
-		CreateShortCut "$DESKTOP\mono.lnk"\
-						"$INSTDIR\mono.exe" "--parametros parametro1"
+		CreateShortCut "$DESKTOP\monaaco.lnk"\
+						"$INSTDIR\monaaco.exe" "--parametros parametro1"
 	
         CreateShortCut "$SMPROGRAMS\$PATH_ACCESO_DIRECTO\Licencia.lnk" \
                        "$INSTDIR\licencia.html"
@@ -351,10 +351,11 @@ Section "Uninstall"
 		
         SetShellVarContext all
         RMDir /r $SMPROGRAMS\$PATH_ACCESO_DIRECTO
+		;RMDir /r $SMPROGRAMS\$PATH_ACCESO_DIRECTO\Desinstalar.lnk" \
         RMDir /r $INSTDIR\$PATH
         RMDir /r $INSTDIR
 		;RMDir $DESKTOP
-		Delete  $DESKTOP\mono.lnk
+		Delete  $DESKTOP\monaaco.lnk
         DeleteRegKey HKLM SOFTWARE\$PATH
         DeleteRegKey HKLM \
             Software\Microsoft\Windows\CurrentVersion\Uninstall\$PATH

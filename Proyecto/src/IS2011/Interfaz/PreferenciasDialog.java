@@ -5,6 +5,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.util.Vector;
 
@@ -311,10 +313,9 @@ public class PreferenciasDialog extends JDialog{
 		if (rutaMusica == null){
 			rutaMusica = new JTextField();	
 			rutaMusica.setText(GestorPreferencias.getInstance().getRutaIndexada());
-			rutaMusica.addActionListener(new ActionListener() {
-			
+			rutaMusica.addMouseListener(new MouseAdapter(){
 				@Override
-				public void actionPerformed(ActionEvent e) {
+				public void mouseClicked(MouseEvent e) {
 					JFileChooser fc = new JFileChooser();
 					fc.setMultiSelectionEnabled(false);
 					fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);

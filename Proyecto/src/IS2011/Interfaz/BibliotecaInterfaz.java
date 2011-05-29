@@ -176,8 +176,10 @@ public class BibliotecaInterfaz extends JPanelTransparente{
 		//super("library");
 		interfazPadre = ia;
 		this.cargarPreferencias();
+		this.setColorPrimario(Color.white);
+		this.setColorSecundario(Color.white);
 		initBibliotecaInterfaz();
-		setTran(0.2f);
+		setTran(0.3f);
 		frame = this;
 		escrito = "";
 		mili = System.currentTimeMillis();

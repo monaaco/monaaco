@@ -60,6 +60,11 @@ public class InterfazAvanzada extends JFrame {
 	 * @uml.property  name="carpetaIcon"
 	 * @uml.associationEnd  
 	 */
+	private ImageIcon minIcon = null;
+	/**
+	 * @uml.property  name="minIcon"
+	 * @uml.associationEnd  
+	 */
 	private ImageIcon carpetaIcon = null;
 	/**
 	 * @uml.property  name="menuIcon"
@@ -189,7 +194,12 @@ public class InterfazAvanzada extends JFrame {
 	/**
 	 * @uml.property  name="main"
 	 * @uml.associationEnd  
-	 */
+	 * */
+	private JButton minButton = null;
+	/**
+	 * @uml.property  name="main"
+	 * @uml.associationEnd  
+	 * */
 	private JPanelRound main = null;
 	
 	// Barra de menu principal
@@ -381,12 +391,18 @@ public class InterfazAvanzada extends JFrame {
 		JButton bibliotecaIcono= this.getBotonBiblioteca();
 		bibliotecaIcono.setBounds(470,290,90,45);
 		backGround.add(bibliotecaIcono);
-		this.setForeground(Color.white);
+		//this.setForeground(Color.white);
 
 		this.setBiblioteca(this);
 		//this.changeCursor();
 		
-		
+		JButton min= this.getBotonMin();
+		min.setBounds(355,290,90,45);
+		backGround.add(min);
+		//this.setForeground(Color.white);
+
+		this.setBiblioteca(this);
+		repaint();
 		
 		/*biliotecaInterfaz = new BibliotecaInterfaz(b,this); 
 		aux.add(biliotecaInterfaz);
@@ -765,6 +781,28 @@ public class InterfazAvanzada extends JFrame {
 			});
 		}
 		return botonBiblioteca;
+	}
+	/**
+	 * Devuelve el boton con la funcionalidad de miniminzar la ventana
+	 * @return minButton
+	 * @uml.property  name="minButton"
+	 */
+	public JButton getBotonMin(){
+		if (minButton == null){
+			 minButton = new JButton(minIcon);
+			 minButton.setBorderPainted(false);
+             //      minButton.setBackground(Color.black);
+             minButton.addMouseListener(new java.awt.event.MouseAdapter() {
+                     @SuppressWarnings("deprecation")
+                     public void mouseReleased(java.awt.event.MouseEvent evt) {
+                             setExtendedState(JFrame.CROSSHAIR_CURSOR); 
+                             // TODO
+                     };
+             });
+		}
+		return minButton;	
+		
+		
 	}
 	
 	/**
@@ -1327,7 +1365,8 @@ public class InterfazAvanzada extends JFrame {
 		monkeyIcon = new ImageIcon(ruta + "/monkeyIcon.jpg");
 		carpetaIcon = new ImageIcon(ruta + "/carpetaIcon.jpg");
 		menuIcon = new ImageIcon(ruta + "/monkeyIcon2.png");
-
+	
+		minIcon = new ImageIcon(ruta + "/min.png");
 		FFIcon = new ImageIcon(ruta + "/ff.png");
 		wwIcon = new ImageIcon(ruta + "/ww.png");
 		playIcon = new ImageIcon(ruta + "/play.png");

@@ -1,12 +1,12 @@
 <preferencias>
   <rutaIndexada>sounds</rutaIndexada>
-  <skin>images/SkinJachu</skin>
+  <skin>images/Skin3</skin>
   <launcher>images/Skin3</launcher>
   <sound>images/Skin3</sound>
   <bgColor>
-    <red>0</red>
+    <red>102</red>
     <green>0</green>
-    <blue>0</blue>
+    <blue>102</blue>
     <alpha>255</alpha>
   </bgColor>
   <fgColor>
@@ -16,9 +16,9 @@
     <alpha>255</alpha>
   </fgColor>
   <bgColorInterno>
-    <red>0</red>
+    <red>51</red>
     <green>0</green>
-    <blue>0</blue>
+    <blue>51</blue>
     <alpha>255</alpha>
   </bgColorInterno>
   <fgColorInterno>
@@ -40,5 +40,5 @@
     <comments>www.HHGroups.com</comments>
     <location>sounds\prueba.mp3</location>
   </track>
-  <posCancionActual>0</posCancionActual>
+  <posCancionActual>282474</posCancionActual>
 </preferencias>

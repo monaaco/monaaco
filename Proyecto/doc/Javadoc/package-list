@@ -1,0 +1,12 @@
+IS2011.Configuracion
+IS2011.FiltrosArchivos
+IS2011.GestorXML
+IS2011.Interfaz
+IS2011.biblioteca
+IS2011.biblioteca.comparators
+IS2011.tests
+javazoom.jl.converter
+javazoom.jl.decoder
+javazoom.jl.player
+javazoom.jl.player.advanced
+javazoom.jlgui.basicplayer

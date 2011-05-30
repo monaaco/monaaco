@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="public" author="true" classpath="../lib/tritonus_share.jar;../lib/vorbisspi1.0.2.jar;../lib/jspeex0.9.7.jar;../lib/commons-logging-api.jar;../lib/xstream-1.3.jar;../lib/jorbis-0.0.15.jar;../lib/jaudiotagger-2.0.1.jar;E:\Programas\eclipse\plugins\org.junit_3.8.2.v3_8_2_v20100427-1100\junit.jar;../lib/jogg-0.0.7.jar;E:\Programas\eclipse\plugins\com.soyatec.model_3.6.1.20110420\uml.annotations.jar;../lib/mp3spi1.9.4.jar" destdir="Javadoc" doctitle="monaacoJavadoc" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="IS2011.FiltrosArchivos,IS2011.tests,javazoom.jlgui.basicplayer,IS2011.Interfaz,IS2011.GestorXML,IS2011.Configuracion,IS2011.biblioteca,javazoom.jl.player.advanced,javazoom.jl.converter,IS2011.biblioteca.comparators,javazoom.jl.player,javazoom.jl.decoder" source="1.6" sourcepath="../src" splitindex="true" use="true" version="true">
+            <link href="http://java.sun.com/javase/6/docs/api/"/>
+        </javadoc>
+    </target>
+</project>

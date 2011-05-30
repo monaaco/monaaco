@@ -1,6 +1,5 @@
-MONAACO LIBRE
+Para aquellos de ustedes que decidan utilizar la Licencia Pública General GNU, mi interpretación de la Licencia Pública General GNU es que no script en Perl cae bajo los términos de la GPL a menos que explícitamente pone dijo secuencia de comandos en los términos de la GPL a ti mismo.
 
+Además, cualquier código objeto vinculado con perl no le afecta en los términos de la GPL, siempre y cuando el código objeto, sólo agrega las definiciones de las subrutinas y variables, y no de otro modo poner en peligro el intérprete resultantes de la ejecución de cualquier norma script de Perl. Considero que la vinculación de las subrutinas C de esta manera a ser el equivalente moral de la definición de subrutinas en el lenguaje Perl. Usted puede vender como un archivo de objeto como reservada, siempre que usted proporciona o la oferta para proporcionar la fuente de Perl, según lo especificado por la GNU General Public License. (Esto no es más que una forma alternativa de especificar de entrada al programa.) También puede vender un binario producido por el vertido de una de ejecutar el script en Perl que le pertenece a usted, a condición de que proporcionar u ofrecer para proporcionar la fuente Perl según lo especificado por el GPL. (El hecho de que un intérprete de Perl y su código en el mismo archivo binario es, en este caso, una forma de agregación simple.)
 
-MONAACO simplemente te hace la vida más fácil.
-
-
+Esta es mi interpretación de la GPL. Si aún tiene dudas o dificultades para comprender mi intención, no dude en ponerse en contacto conmigo. Por supuesto, la Licencia Artística hechizos de todo esto para su protección, por lo que prefieren usar eso.

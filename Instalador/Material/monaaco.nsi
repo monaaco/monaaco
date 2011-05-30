@@ -185,7 +185,7 @@ InstallDir "$PROGRAMFILES\Monaaco"
 
 ; check if the program has already been installed, if so, take this dir
 ; as install dir
-InstallDirRegKey HKLM SOFTWARE\MONO "Install_Dir"
+InstallDirRegKey HKLM SOFTWARE\Monaaco "Install_Dir"
 ;Mensaje que mostraremos para indicarle al usuario que seleccione un directorio
 DirText "Elija un directorio donde instalar la aplicación:"
 ;Indicamos que cuando la instalación se complete no se cierre el instalador automáticamente
@@ -205,7 +205,7 @@ UninstallText "Este es el desinstalador del Monaaco."
 Section "Monaaco"
 StrCpy $PATH "Monaaco"
 StrCpy $PATH_ACCESO_DIRECTO "Monaaco"
-SetOutPath $INSTDIR\$PATH
+SetOutPath $INSTDIR
 
 ;StrCpy $MONO_LIB "mono_lib"
 ;SetOutPath $INSTDIR\$MONO_LIB
@@ -225,7 +225,7 @@ SetOutPath $INSTDIR\$PATH
 ;StrCpy $IMAGES "images"
 ;SetOutPath $INSTDIR\$IMAGES
 
-SetOutPath $INSTDIR
+;SetOutPath $INSTDIR
 
 ;CreateDirectory $INSTDIR\backup
 ;CopyFiles $INSTDIR\*.dat $INSTDIR\backup
@@ -262,7 +262,8 @@ SetShellVarContext all
 ;Creamos también el aceso directo al instalador
         CreateShortCut "$SMPROGRAMS\$PATH_ACCESO_DIRECTO\Desinstalar.lnk" \
                        "$INSTDIR\uninstall.exe"
-
+	;	CreateDirectory "$INSTDIR\xml"
+		
         WriteRegStr HKLM \
             SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$PATH \
             "DisplayName" "Monaaco ${VERSION}"
@@ -370,13 +371,7 @@ Section "Uninstall"
         DeleteRegKey HKLM SOFTWARE\$PATH
         DeleteRegKey HKLM \
             Software\Microsoft\Windows\CurrentVersion\Uninstall\$PATH
-			
 		
-		
-			
-        
-
-        
        
         
 		

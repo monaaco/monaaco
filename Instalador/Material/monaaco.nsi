@@ -1,5 +1,13 @@
   !include "MUI.nsh"
   !include MUI2.nsh
+  !include "FileAssociation.nsh"
+  
+
+# later, inside a section:
+;${registerExtension} "c:\myplayer.exe" ".mkv" "MKV_File"
+ 
+;${unregisterExtension} ".mkv" "MKV File"
+
 ;!include fileassoc.nsh
   
   
@@ -281,7 +289,10 @@ SetShellVarContext all
 		;WriteRegStr HKCR "${FILECLASS}\shell\${VERB}\command" "" `${COMMAND}`
 		
 		
-		
+	;	${registerExtension} "c:\monaaco.exe" ".mp3" "MP·_File"
+ 
+	;	${unregisterExtension} ".mp3" "MP3 File"
+
 	Exec "explorer $SMPROGRAMS\$PATH_ACCESO_DIRECTO\"
 SectionEnd
 
@@ -359,6 +370,16 @@ Section "Uninstall"
         DeleteRegKey HKLM SOFTWARE\$PATH
         DeleteRegKey HKLM \
             Software\Microsoft\Windows\CurrentVersion\Uninstall\$PATH
+			
+		
+		
+			
+        
+
+        
+       
+        
+		
 SectionEnd
 
 

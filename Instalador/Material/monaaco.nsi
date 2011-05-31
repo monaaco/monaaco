@@ -245,6 +245,7 @@ File /r *.png
 File /r *.xml
 File /r *.mp3
 File /r *.gif
+File /r *.pdf
 
 ;Hacemos que la instalación se realice para todos los usuarios del sistema
 SetShellVarContext all

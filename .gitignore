@@ -34,3 +34,12 @@ local.properties
 
 # PDT-specific
 .buildpath
+
+# Windows image file caches
+Thumbs.db
+
+# Windows Folder config file
+Desktop.ini
+
+# Mac crap
+.DS_Store
